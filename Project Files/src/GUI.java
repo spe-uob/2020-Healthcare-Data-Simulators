@@ -25,38 +25,9 @@ public class GUI {
                 // this makes sure the button you are pressing is the button variable
                 if(e.getSource() == button1) {
                     //if pressed execute code:
-//                    Compute x = new Compute();
-//                    System.out.println(x.randomInt());
-                        System.out.println("Starting...");
-                        //button1.setText("Waiting...");
-                        ProcessBuilder processBuilder = new ProcessBuilder();
-                        processBuilder.command("bash","-c","java -jar synthea_JAR/synthea-with-dependencies.jar");
 
-                        try{
-
-                            button1.setEnabled(false);
-
-                            Process process = processBuilder.start();
-                            StringBuilder output = new StringBuilder();
-                            BufferedReader reader = new BufferedReader(
-                                    new InputStreamReader(process.getInputStream())
-                            );
-                            String line;
-                            while((line=reader.readLine()) != null) {
-                                output.append((line+"\n"));
-                            }
-                            System.out.println(output);
-                            System.out.println("Success!");
-
-                            JOptionPane.showMessageDialog(null, "1 Pacient has been generated","Success!", JOptionPane.INFORMATION_MESSAGE);
-                            button1.setEnabled(true);
-                            button1.setText("Press to generate pacients");
-                        }
-                        catch (IOException er) {
-                            System.out.println(er);
-                        }
-                        //Runtime.getRuntime().exec("/bin/bash -c java -jar synthea_JAR/synthea-with-dependencies.jar");
-
+                    Compute x = new Compute();
+                    x.generatePatient(button1);
 
                 }
             }
