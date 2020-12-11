@@ -1,0 +1,417 @@
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:db77f4de-4b06-3220-a126-9666abba5aa4",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "db77f4de-4b06-3220-a126-9666abba5aa4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 26
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999999699"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Kihn564",
+            "given": [
+              "Teodora360"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Teodora360.Kihn564@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "363 HIGHLAND AVENUE"
+            ],
+            "city": "FALL RIVER",
+            "state": "MA",
+            "postalCode": "02720",
+            "country": "US"
+          }
+        ],
+        "gender": "female"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999999699"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:60065685-1453-f4de-75b3-6c3d7b47d2eb",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "60065685-1453-f4de-75b3-6c3d7b47d2eb",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:db77f4de-4b06-3220-a126-9666abba5aa4",
+          "display": "Dr. Teodora360 Kihn564"
+        },
+        "organization": {
+          "reference": "urn:uuid:23834663-ed53-3da9-b330-d6e1ecb8428e",
+          "display": "SOUTHCOAST HOSPITAL GROUP, INC"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:9f09451e-2da9-3119-aacf-866115e0cc04",
+            "display": "SOUTHCOAST HOSPITAL GROUP, INC"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "5086793131"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Teodora360.Kihn564@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8bdd6158-44ba-38dc-8f8a-637b5cd324fe",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "8bdd6158-44ba-38dc-8f8a-637b5cd324fe",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 28
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999968189"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Wiza601",
+            "given": [
+              "Janetta325"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Janetta325.Wiza601@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "51 STATE RD"
+            ],
+            "city": "DARTMOUTH",
+            "state": "MA",
+            "postalCode": "02747-3319",
+            "country": "US"
+          }
+        ],
+        "gender": "female"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999968189"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3b7f79ec-feaa-f76f-808d-c54749fe9e50",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "3b7f79ec-feaa-f76f-808d-c54749fe9e50",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:8bdd6158-44ba-38dc-8f8a-637b5cd324fe",
+          "display": "Dr. Janetta325 Wiza601"
+        },
+        "organization": {
+          "reference": "urn:uuid:a2044f5c-402b-350e-9bf3-2dbc7ba55edf",
+          "display": "EYE HEALTH ASSOCIATES LLC"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:63776032-37d4-3130-bb83-ef329296dab2",
+            "display": "EYE HEALTH ASSOCIATES LLC"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "508-994-1400"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Janetta325.Wiza601@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9c124012-78a8-3852-bbe2-e54af81283e1",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "9c124012-78a8-3852-bbe2-e54af81283e1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 1
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999906789"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Abbott774",
+            "given": [
+              "Woodrow571"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Woodrow571.Abbott774@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "1155 PURCHASE STREET"
+            ],
+            "city": "NEW BEDFORD",
+            "state": "MA",
+            "postalCode": "2740",
+            "country": "US"
+          }
+        ],
+        "gender": "male"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999906789"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ca985faa-b9c0-00d9-155d-0b425774b45d",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "ca985faa-b9c0-00d9-155d-0b425774b45d",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:9c124012-78a8-3852-bbe2-e54af81283e1",
+          "display": "Dr. Woodrow571 Abbott774"
+        },
+        "organization": {
+          "reference": "urn:uuid:95d68217-d9c5-30da-b406-61fac767fc0e",
+          "display": "METROMEDIC WALK IN CLINIC"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:4d7bdd92-c747-37ce-907f-177be830bf60",
+            "display": "METROMEDIC WALK IN CLINIC"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "508-997-2900"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Woodrow571.Abbott774@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    }
+  ]
+}

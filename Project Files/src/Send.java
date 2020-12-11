@@ -4,20 +4,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
 
-public class Compute {
+public class Send {
 
-  /*  public int randomInt() {
-        Random rand = new Random();
-        int rand_int = rand.nextInt(1000);
-
-        return rand_int;
-    }*/
-
-    public void generatePatient() {
+    public void SendPacient() {
         System.out.println("Starting...");
-        //button1.setText("Waiting...");
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash","-c","java -jar synthea_JAR/synthea-with-dependencies.jar");
+        processBuilder.command("bash","-c","curl -X POST -H \"Content-Type: application/json\" -d @output/fhir/data.json https://httpbin.org/post");
 
         try{
 
@@ -31,12 +23,11 @@ public class Compute {
             while((line = reader.readLine()) != null) {
                 output.append((line + '\n'));
             }
-
+            
             System.out.println(output);
-            System.out.println("Success!");
+            System.out.println("POST method succeded!");
 
-            JOptionPane.showMessageDialog(null, "1 Pacient has been generated","Success!", JOptionPane.INFORMATION_MESSAGE);
-
+            JOptionPane.showMessageDialog(null, "The message was send using POST method","Success!", JOptionPane.INFORMATION_MESSAGE);
 
         }
         catch (IOException er) {
