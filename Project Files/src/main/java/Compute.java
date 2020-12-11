@@ -1,8 +1,8 @@
 import javax.swing.*;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Random;
 
 public class Compute {
 
@@ -14,10 +14,14 @@ public class Compute {
     }*/
 
     public void generatePatient() {
+
+        String file =  new File("Compute.java").getAbsoluteFile().getParent();
+        System.out.println(file + "muie");
         System.out.println("Starting...");
         //button1.setText("Waiting...");
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash","-c","java -jar synthea_JAR/synthea-with-dependencies.jar");
+        System.out.println(file + "/src/main/resources/synthea_JAR/synthea-with-dependencies.jar");
+        processBuilder.command("bash","-c","java -jar " + file + "/src/main/resources/synthea_JAR/synthea-with-dependencies.jar");
 
         try{
 
