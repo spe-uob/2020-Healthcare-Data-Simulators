@@ -12,6 +12,7 @@ public class GUI {
      final JFrame frame = new JFrame("Healthcare Data Simulators");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       JPanel panel = new JPanel(new GridBagLayout());
+      //panel.setPreferredSize(new Dimension(400,800));
       GridBagConstraints constraints = new GridBagConstraints();
       constraints.insets = new Insets(5, 5, 5, 5);
       constraints.anchor = GridBagConstraints.WEST;

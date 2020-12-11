@@ -15,13 +15,11 @@ public class Compute {
 
     public void generatePatient() {
 
-        String file =  new File("Compute.java").getAbsoluteFile().getParentFile().getParentFile().getParent();
-        System.out.println(file + "muie");
         System.out.println("Starting...");
         //button1.setText("Waiting...");
         ProcessBuilder processBuilder = new ProcessBuilder();
-        System.out.println(file + "/synthea_JAR/synthea-with-dependencies.jar");
-        processBuilder.command("bash","-c","java -jar " + file + "/synthea_JAR/synthea-with-dependencies.jar");
+
+        processBuilder.command("bash","-c","java -jar synthea-with-dependencies.jar");
 
         try{
 
