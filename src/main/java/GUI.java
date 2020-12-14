@@ -16,9 +16,9 @@ public class GUI {
       GridBagConstraints constraints = new GridBagConstraints();
       constraints.insets = new Insets(5, 5, 5, 5);
       constraints.anchor = GridBagConstraints.WEST;
-      JButton button1 = new JButton("Generate Pacient");
+      final JButton button1 = new JButton("Generate Pacient");
       panel.add(button1, constraints);
-      JButton button2 = new JButton("Send Data");
+      final JButton button2 = new JButton("Send Data");
       panel.add(button2, constraints);
       frame.add(panel);
       frame.pack();
