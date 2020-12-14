@@ -1,0 +1,417 @@
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:6a3cfacc-e73b-3a8e-b7c1-ff9598f05d2c",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "6a3cfacc-e73b-3a8e-b7c1-ff9598f05d2c",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 83
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999999989"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Fisher429",
+            "given": [
+              "Lesley194"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Lesley194.Fisher429@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "330 MOUNT AUBURN STREET"
+            ],
+            "city": "CAMBRIDGE",
+            "state": "MA",
+            "postalCode": "02138",
+            "country": "US"
+          }
+        ],
+        "gender": "male"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999999989"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ac2ce23e-86c9-106f-829c-1e689d0ef866",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "ac2ce23e-86c9-106f-829c-1e689d0ef866",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:6a3cfacc-e73b-3a8e-b7c1-ff9598f05d2c",
+          "display": "Dr. Lesley194 Fisher429"
+        },
+        "organization": {
+          "reference": "urn:uuid:69176529-fd1f-3b3f-abce-a0a3626769eb",
+          "display": "MOUNT AUBURN HOSPITAL"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:27abf3f3-fa08-31e4-8bca-c4c9ade68709",
+            "display": "MOUNT AUBURN HOSPITAL"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "6174923500"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Lesley194.Fisher429@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:282f4453-31ef-398a-8fac-f77135829560",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "282f4453-31ef-398a-8fac-f77135829560",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 30
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999918179"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Kuhn96",
+            "given": [
+              "Wilbert25"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Wilbert25.Kuhn96@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "14 MCGRATH HWY"
+            ],
+            "city": "SOMERVILLE",
+            "state": "MA",
+            "postalCode": "02143-4505",
+            "country": "US"
+          }
+        ],
+        "gender": "male"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999918179"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:95667650-a6db-2202-6fd2-de9443ad0c83",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "95667650-a6db-2202-6fd2-de9443ad0c83",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:282f4453-31ef-398a-8fac-f77135829560",
+          "display": "Dr. Wilbert25 Kuhn96"
+        },
+        "organization": {
+          "reference": "urn:uuid:edafffbd-058e-3a96-ae53-81dd93a92213",
+          "display": "CARL GUSTAFSON LLC"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:4221b767-358a-3651-8b4d-e92e39d679ac",
+            "display": "CARL GUSTAFSON LLC"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "617-284-9418"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Wilbert25.Kuhn96@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:acd25601-9c1b-3c4d-a1be-0c95f18cf2a9",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "acd25601-9c1b-3c4d-a1be-0c95f18cf2a9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 2
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999906419"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Bailey598",
+            "given": [
+              "Karoline975"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Karoline975.Bailey598@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "170 GOVERNORS AVENUE"
+            ],
+            "city": "MEDFORD",
+            "state": "MA",
+            "postalCode": "2155",
+            "country": "US"
+          }
+        ],
+        "gender": "female"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999906419"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:70beebb6-7e8d-e236-f38a-71ed8541e6fa",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "70beebb6-7e8d-e236-f38a-71ed8541e6fa",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:acd25601-9c1b-3c4d-a1be-0c95f18cf2a9",
+          "display": "Dr. Karoline975 Bailey598"
+        },
+        "organization": {
+          "reference": "urn:uuid:90cf148c-69ed-3d33-aa86-b509c6b0b25f",
+          "display": "PROMPT CARE WALK-IN CLINIC"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:adfbddc8-9680-3a8c-80bb-9f595433d6e4",
+            "display": "PROMPT CARE WALK-IN CLINIC"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "781-306-6180"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Karoline975.Bailey598@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    }
+  ]
+}

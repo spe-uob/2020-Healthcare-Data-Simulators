@@ -1,0 +1,6 @@
+Id,START,STOP,PATIENT,ENCOUNTER,CODE,DESCRIPTION,REASONCODE,REASONDESCRIPTION
+51f96971-c18d-4637-3e15-d12f95e43509,2011-10-26,2012-01-24,e34ab3f1-1852-c2ec-8cdc-3892bab3ba6f,e5611c2d-5e4e-2fae-903d-5ccf9202c2d4,385691007,Fracture care,33737001,Fracture of rib
+dca150d9-3438-baff-7c2f-f19999aba5ca,2012-12-06,,e34ab3f1-1852-c2ec-8cdc-3892bab3ba6f,c7a54039-6616-fc7f-dc40-07aa21afeb79,699728000,Asthma self management,233678006,Childhood asthma
+fe54f702-2e77-4f99-2ad1-da49a110334a,2014-12-29,,e34ab3f1-1852-c2ec-8cdc-3892bab3ba6f,49026cf9-497a-858a-b6b7-9a05731577bd,384758001,Self-care interventions (procedure),,
+a81dedc0-3445-eb99-8547-4fd99c72f51f,2017-08-25,2017-09-08,e34ab3f1-1852-c2ec-8cdc-3892bab3ba6f,bf884bb6-c40d-6f03-5b61-bd40b9619914,91251008,Physical therapy procedure,70704007,Sprain of wrist
+b2948162-3e2d-7703-97c3-b31f2ceb31ba,2020-03-14,2020-04-01,e34ab3f1-1852-c2ec-8cdc-3892bab3ba6f,c4c19ba7-45bc-5648-1932-57a4cae04951,736376001,Infectious disease care plan (record artifact),840544004,Suspected COVID-19

@@ -1,0 +1,498 @@
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:ac8356a5-78f8-3a63-8a1e-59e832fd54e7",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "ac8356a5-78f8-3a63-8a1e-59e832fd54e7",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 88
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 3
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 9
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "ac8356a5-78f8-3a63-8a1e-59e832fd54e7"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "NASHOBA VALLEY MEDICAL CENTER",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "9787849000"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "200 GROTON ROAD"
+            ],
+            "city": "AYER",
+            "state": "MA",
+            "postalCode": "01432",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|ac8356a5-78f8-3a63-8a1e-59e832fd54e7"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4284938a-e33b-353b-b785-12d6cdb6f357",
+      "resource": {
+        "resourceType": "Location",
+        "id": "4284938a-e33b-353b-b785-12d6cdb6f357",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "4284938a-e33b-353b-b785-12d6cdb6f357"
+          }
+        ],
+        "status": "active",
+        "name": "NASHOBA VALLEY MEDICAL CENTER",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "9787849000"
+          }
+        ],
+        "address": {
+          "line": [
+            "200 GROTON ROAD"
+          ],
+          "city": "AYER",
+          "state": "MA",
+          "postalCode": "01432",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.58484399999998,
+          "latitude": 42.562221
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "ac8356a5-78f8-3a63-8a1e-59e832fd54e7"
+          },
+          "display": "NASHOBA VALLEY MEDICAL CENTER"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|4284938a-e33b-353b-b785-12d6cdb6f357"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3e0bca72-a60c-3c55-8e24-555581ac9743",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "3e0bca72-a60c-3c55-8e24-555581ac9743",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 77
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 80
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 146
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 191
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "3e0bca72-a60c-3c55-8e24-555581ac9743"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "PCP9185",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "978-692-4476"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "288 LITTLETON RD"
+            ],
+            "city": "WESTFORD",
+            "state": "MA",
+            "postalCode": "01886-3522",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|3e0bca72-a60c-3c55-8e24-555581ac9743"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bf013bf0-4ac1-33f2-9b17-14cb6e2ef5ee",
+      "resource": {
+        "resourceType": "Location",
+        "id": "bf013bf0-4ac1-33f2-9b17-14cb6e2ef5ee",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "bf013bf0-4ac1-33f2-9b17-14cb6e2ef5ee"
+          }
+        ],
+        "status": "active",
+        "name": "PCP9185",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "978-692-4476"
+          }
+        ],
+        "address": {
+          "line": [
+            "288 LITTLETON RD"
+          ],
+          "city": "WESTFORD",
+          "state": "MA",
+          "postalCode": "01886-3522",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.44025,
+          "latitude": 42.585541
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "3e0bca72-a60c-3c55-8e24-555581ac9743"
+          },
+          "display": "PCP9185"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|bf013bf0-4ac1-33f2-9b17-14cb6e2ef5ee"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a1708d6f-8f9b-34a3-b991-09c3db2ea777",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "a1708d6f-8f9b-34a3-b991-09c3db2ea777",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 60
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 72
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 55
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 170
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "a1708d6f-8f9b-34a3-b991-09c3db2ea777"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "LGH MEDICAL GROUP, INC.",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "978-323-0312"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "198 LITTLETON RD"
+            ],
+            "city": "WESTFORD",
+            "state": "MA",
+            "postalCode": "01886-3429",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|a1708d6f-8f9b-34a3-b991-09c3db2ea777"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d7b25feb-9ba4-379b-8635-3eacf0edfe22",
+      "resource": {
+        "resourceType": "Location",
+        "id": "d7b25feb-9ba4-379b-8635-3eacf0edfe22",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "d7b25feb-9ba4-379b-8635-3eacf0edfe22"
+          }
+        ],
+        "status": "active",
+        "name": "LGH MEDICAL GROUP, INC.",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "978-323-0312"
+          }
+        ],
+        "address": {
+          "line": [
+            "198 LITTLETON RD"
+          ],
+          "city": "WESTFORD",
+          "state": "MA",
+          "postalCode": "01886-3429",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.44025,
+          "latitude": 42.585541
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "a1708d6f-8f9b-34a3-b991-09c3db2ea777"
+          },
+          "display": "LGH MEDICAL GROUP, INC."
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|d7b25feb-9ba4-379b-8635-3eacf0edfe22"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7116c200-6663-3503-8314-1ee16845e5d3",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "7116c200-6663-3503-8314-1ee16845e5d3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 4
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 1
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 3
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "7116c200-6663-3503-8314-1ee16845e5d3"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "SAINTS WALK-IN MEDICAL CENTER - URGENT CARE AND OCCUPATIONAL HEALTH",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "978-458-6868"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "85 PARKHURST ROAD"
+            ],
+            "city": "CHELMSFORD",
+            "state": "MA",
+            "postalCode": "1824",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|7116c200-6663-3503-8314-1ee16845e5d3"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:64d160eb-9cc0-3f5b-8d41-d29bd212f104",
+      "resource": {
+        "resourceType": "Location",
+        "id": "64d160eb-9cc0-3f5b-8d41-d29bd212f104",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "64d160eb-9cc0-3f5b-8d41-d29bd212f104"
+          }
+        ],
+        "status": "active",
+        "name": "SAINTS WALK-IN MEDICAL CENTER - URGENT CARE AND OCCUPATIONAL HEALTH",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "978-458-6868"
+          }
+        ],
+        "address": {
+          "line": [
+            "85 PARKHURST ROAD"
+          ],
+          "city": "CHELMSFORD",
+          "state": "MA",
+          "postalCode": "1824",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.3593401,
+          "latitude": 42.6257767
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "7116c200-6663-3503-8314-1ee16845e5d3"
+          },
+          "display": "SAINTS WALK-IN MEDICAL CENTER - URGENT CARE AND OCCUPATIONAL HEALTH"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|64d160eb-9cc0-3f5b-8d41-d29bd212f104"
+      }
+    }
+  ]
+}

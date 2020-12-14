@@ -1,0 +1,417 @@
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:77e81c4a-5d35-3088-b0e0-a405c52dc364",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "77e81c4a-5d35-3088-b0e0-a405c52dc364",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 5
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999999809"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Glover433",
+            "given": [
+              "Melvina326"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Melvina326.Glover433@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "157 UNION STREET"
+            ],
+            "city": "MARLBOROUGH",
+            "state": "MA",
+            "postalCode": "01752",
+            "country": "US"
+          }
+        ],
+        "gender": "female"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999999809"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bf3d16cf-7416-3df3-d4e9-f8bfb2aa889a",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "bf3d16cf-7416-3df3-d4e9-f8bfb2aa889a",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:77e81c4a-5d35-3088-b0e0-a405c52dc364",
+          "display": "Dr. Melvina326 Glover433"
+        },
+        "organization": {
+          "reference": "urn:uuid:f71ce1a9-cca7-3295-9a1e-c88ac3479b6f",
+          "display": "MARLBOROUGH HOSPITAL"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:f9ead6b6-e084-32b8-bb09-4bb00b9b7e85",
+            "display": "MARLBOROUGH HOSPITAL"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "5084815000"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Melvina326.Glover433@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d3ca458d-605b-39e3-a519-847c71657a54",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "d3ca458d-605b-39e3-a519-847c71657a54",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 12
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999995769"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Kris249",
+            "given": [
+              "Minh326"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Minh326.Kris249@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "563 MAIN ST"
+            ],
+            "city": "BOLTON",
+            "state": "MA",
+            "postalCode": "01740-1300",
+            "country": "US"
+          }
+        ],
+        "gender": "female"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999995769"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2dda0913-51eb-7e3a-a206-e72ce29f1719",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "2dda0913-51eb-7e3a-a206-e72ce29f1719",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:d3ca458d-605b-39e3-a519-847c71657a54",
+          "display": "Dr. Minh326 Kris249"
+        },
+        "organization": {
+          "reference": "urn:uuid:53fce0b4-14fa-3ea3-8127-6563160b8ba9",
+          "display": "PCP5717"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:a0c32dd5-2470-3f92-9901-18240f3eb7de",
+            "display": "PCP5717"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "978-779-0211"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Minh326.Kris249@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:550d1c39-823b-34db-acc2-fbef00354bb5",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "550d1c39-823b-34db-acc2-fbef00354bb5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 1
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999906599"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Nitzsche158",
+            "given": [
+              "Arlen68"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Arlen68.Nitzsche158@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "19 TACOMA STREET"
+            ],
+            "city": "WORCESTER",
+            "state": "MA",
+            "postalCode": "1605",
+            "country": "US"
+          }
+        ],
+        "gender": "male"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999906599"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:773cda77-17b4-00c0-ac18-af228d7b78bc",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "773cda77-17b4-00c0-ac18-af228d7b78bc",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:550d1c39-823b-34db-acc2-fbef00354bb5",
+          "display": "Dr. Arlen68 Nitzsche158"
+        },
+        "organization": {
+          "reference": "urn:uuid:6e62e63b-c39a-3211-99d8-8b8f0f06774e",
+          "display": "GREAT BROOK VALLEY HEALTH CENTER"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:10259e72-93b9-332a-90db-ca120adde0d7",
+            "display": "GREAT BROOK VALLEY HEALTH CENTER"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "508-852-1805"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Arlen68.Nitzsche158@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    }
+  ]
+}

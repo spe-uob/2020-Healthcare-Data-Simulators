@@ -1,0 +1,375 @@
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:69176529-fd1f-3b3f-abce-a0a3626769eb",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "69176529-fd1f-3b3f-abce-a0a3626769eb",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 83
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 0
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "69176529-fd1f-3b3f-abce-a0a3626769eb"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "MOUNT AUBURN HOSPITAL",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "6174923500"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "330 MOUNT AUBURN STREET"
+            ],
+            "city": "CAMBRIDGE",
+            "state": "MA",
+            "postalCode": "02138",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|69176529-fd1f-3b3f-abce-a0a3626769eb"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:27abf3f3-fa08-31e4-8bca-c4c9ade68709",
+      "resource": {
+        "resourceType": "Location",
+        "id": "27abf3f3-fa08-31e4-8bca-c4c9ade68709",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "27abf3f3-fa08-31e4-8bca-c4c9ade68709"
+          }
+        ],
+        "status": "active",
+        "name": "MOUNT AUBURN HOSPITAL",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "6174923500"
+          }
+        ],
+        "address": {
+          "line": [
+            "330 MOUNT AUBURN STREET"
+          ],
+          "city": "CAMBRIDGE",
+          "state": "MA",
+          "postalCode": "02138",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.118275,
+          "latitude": 42.375967
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "69176529-fd1f-3b3f-abce-a0a3626769eb"
+          },
+          "display": "MOUNT AUBURN HOSPITAL"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|27abf3f3-fa08-31e4-8bca-c4c9ade68709"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:edafffbd-058e-3a96-ae53-81dd93a92213",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "edafffbd-058e-3a96-ae53-81dd93a92213",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 30
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 82
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 7
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 12
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "edafffbd-058e-3a96-ae53-81dd93a92213"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "CARL GUSTAFSON LLC",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "617-284-9418"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "14 MCGRATH HWY"
+            ],
+            "city": "SOMERVILLE",
+            "state": "MA",
+            "postalCode": "02143-4505",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|edafffbd-058e-3a96-ae53-81dd93a92213"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4221b767-358a-3651-8b4d-e92e39d679ac",
+      "resource": {
+        "resourceType": "Location",
+        "id": "4221b767-358a-3651-8b4d-e92e39d679ac",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "4221b767-358a-3651-8b4d-e92e39d679ac"
+          }
+        ],
+        "status": "active",
+        "name": "CARL GUSTAFSON LLC",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "617-284-9418"
+          }
+        ],
+        "address": {
+          "line": [
+            "14 MCGRATH HWY"
+          ],
+          "city": "SOMERVILLE",
+          "state": "MA",
+          "postalCode": "02143-4505",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.101033,
+          "latitude": 42.390445
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "edafffbd-058e-3a96-ae53-81dd93a92213"
+          },
+          "display": "CARL GUSTAFSON LLC"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|4221b767-358a-3651-8b4d-e92e39d679ac"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:90cf148c-69ed-3d33-aa86-b509c6b0b25f",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "90cf148c-69ed-3d33-aa86-b509c6b0b25f",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 2
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 0
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "90cf148c-69ed-3d33-aa86-b509c6b0b25f"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "PROMPT CARE WALK-IN CLINIC",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "781-306-6180"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "170 GOVERNORS AVENUE"
+            ],
+            "city": "MEDFORD",
+            "state": "MA",
+            "postalCode": "2155",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|90cf148c-69ed-3d33-aa86-b509c6b0b25f"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:adfbddc8-9680-3a8c-80bb-9f595433d6e4",
+      "resource": {
+        "resourceType": "Location",
+        "id": "adfbddc8-9680-3a8c-80bb-9f595433d6e4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "adfbddc8-9680-3a8c-80bb-9f595433d6e4"
+          }
+        ],
+        "status": "active",
+        "name": "PROMPT CARE WALK-IN CLINIC",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "781-306-6180"
+          }
+        ],
+        "address": {
+          "line": [
+            "170 GOVERNORS AVENUE"
+          ],
+          "city": "MEDFORD",
+          "state": "MA",
+          "postalCode": "2155",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.1113649,
+          "latitude": 42.4259086
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "90cf148c-69ed-3d33-aa86-b509c6b0b25f"
+          },
+          "display": "PROMPT CARE WALK-IN CLINIC"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|adfbddc8-9680-3a8c-80bb-9f595433d6e4"
+      }
+    }
+  ]
+}
