@@ -8,8 +8,12 @@ import java.io.InputStreamReader;
 
 public class GUI {
     public static void main(String args[]) {
+    
+        OAuth tokenGen = new OAuth();
+        tokenGen.generateToken();
+        System.out.println(tokenGen.token);
 
-     final JFrame frame = new JFrame("Healthcare Data Simulators");
+      final JFrame frame = new JFrame("Healthcare Data Simulators");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       JPanel panel = new JPanel(new GridBagLayout());
       //panel.setPreferredSize(new Dimension(400,800));
