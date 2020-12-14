@@ -11,8 +11,8 @@
 *.ctxt
 
 
-ProjectFiles/src/main/java/output
-ProjectFiles/.idea
+src/main/java/output
+.idea/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
