@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/spe-uob/Healthcare-Data-Simulators.svg?style=svg&circle-token=0faba2d088c5ee4a35b1893dc4a024da07143a2d)](https://app.circleci.com/pipelines/github/spe-uob/Healthcare-Data-Simulators)
+
 # Healthcare-Data-Simulators
 This project will create a set of configurable ‘healthcare data simulators’ that generate as-live data
 to simulate the regional healthcare landscape.
