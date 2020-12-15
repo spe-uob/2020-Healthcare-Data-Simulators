@@ -20,7 +20,7 @@ public class Compute {
         ProcessBuilder processBuilder = new ProcessBuilder();
 
         processBuilder.command("bash","-c","java -jar synthea-with-dependencies.jar");
-
+        //processBuilder.command("bash","-c","ls");
         try{
 
             Process process = processBuilder.start();
@@ -44,7 +44,5 @@ public class Compute {
         catch (IOException er) {
             System.out.println(er);
         }
-
-        //Runtime.getRuntime().exec("/bin/bash -c java -jar synthea_JAR/synthea-with-dependencies.jar");
     }
 }

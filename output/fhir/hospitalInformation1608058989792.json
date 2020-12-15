@@ -1,0 +1,375 @@
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:c44f361c-2efb-3050-8f97-0354a12e2920",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "c44f361c-2efb-3050-8f97-0354a12e2920",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 18
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 0
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "c44f361c-2efb-3050-8f97-0354a12e2920"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "SIGNATURE HEALTHCARE BROCKTON HOSPITAL",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "5089417000"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "680 CENTER STREET"
+            ],
+            "city": "BROCKTON",
+            "state": "MA",
+            "postalCode": "02302",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|c44f361c-2efb-3050-8f97-0354a12e2920"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:97bc3a8d-35db-3628-88b5-e595c34fde0c",
+      "resource": {
+        "resourceType": "Location",
+        "id": "97bc3a8d-35db-3628-88b5-e595c34fde0c",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "97bc3a8d-35db-3628-88b5-e595c34fde0c"
+          }
+        ],
+        "status": "active",
+        "name": "SIGNATURE HEALTHCARE BROCKTON HOSPITAL",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "5089417000"
+          }
+        ],
+        "address": {
+          "line": [
+            "680 CENTER STREET"
+          ],
+          "city": "BROCKTON",
+          "state": "MA",
+          "postalCode": "02302",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.024638,
+          "latitude": 42.082543
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "c44f361c-2efb-3050-8f97-0354a12e2920"
+          },
+          "display": "SIGNATURE HEALTHCARE BROCKTON HOSPITAL"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|97bc3a8d-35db-3628-88b5-e595c34fde0c"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:226098a2-6a40-3588-b5bb-db56c3a30a04",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "226098a2-6a40-3588-b5bb-db56c3a30a04",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 97
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 0
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "226098a2-6a40-3588-b5bb-db56c3a30a04"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "GOOD SAMARITAN MEDICAL CENTER",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "5084273000"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "235 NORTH PEARL STREET"
+            ],
+            "city": "BROCKTON",
+            "state": "MA",
+            "postalCode": "02301",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|226098a2-6a40-3588-b5bb-db56c3a30a04"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f6d3670d-1bb9-313b-87b9-c7b37feb154a",
+      "resource": {
+        "resourceType": "Location",
+        "id": "f6d3670d-1bb9-313b-87b9-c7b37feb154a",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "f6d3670d-1bb9-313b-87b9-c7b37feb154a"
+          }
+        ],
+        "status": "active",
+        "name": "GOOD SAMARITAN MEDICAL CENTER",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "5084273000"
+          }
+        ],
+        "address": {
+          "line": [
+            "235 NORTH PEARL STREET"
+          ],
+          "city": "BROCKTON",
+          "state": "MA",
+          "postalCode": "02301",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.024638,
+          "latitude": 42.082543
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "226098a2-6a40-3588-b5bb-db56c3a30a04"
+          },
+          "display": "GOOD SAMARITAN MEDICAL CENTER"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|f6d3670d-1bb9-313b-87b9-c7b37feb154a"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bc21392f-d5a9-39bc-a847-7d523222bccc",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "bc21392f-d5a9-39bc-a847-7d523222bccc",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 84
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 316
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 188
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 197
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "bc21392f-d5a9-39bc-a847-7d523222bccc"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "MINUTECLINIC DIAGNOSTIC OF MASSACHUSETTS, LLC",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "866-389-2727"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "80 MARKET ST"
+            ],
+            "city": "ROCKLAND",
+            "state": "MA",
+            "postalCode": "02370-2602",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|bc21392f-d5a9-39bc-a847-7d523222bccc"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:856a5a12-baca-3f9a-8c22-a6e8a30988d9",
+      "resource": {
+        "resourceType": "Location",
+        "id": "856a5a12-baca-3f9a-8c22-a6e8a30988d9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "856a5a12-baca-3f9a-8c22-a6e8a30988d9"
+          }
+        ],
+        "status": "active",
+        "name": "MINUTECLINIC DIAGNOSTIC OF MASSACHUSETTS, LLC",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "866-389-2727"
+          }
+        ],
+        "address": {
+          "line": [
+            "80 MARKET ST"
+          ],
+          "city": "ROCKLAND",
+          "state": "MA",
+          "postalCode": "02370-2602",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -70.908736,
+          "latitude": 42.129251000000004
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "bc21392f-d5a9-39bc-a847-7d523222bccc"
+          },
+          "display": "MINUTECLINIC DIAGNOSTIC OF MASSACHUSETTS, LLC"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|856a5a12-baca-3f9a-8c22-a6e8a30988d9"
+      }
+    }
+  ]
+}

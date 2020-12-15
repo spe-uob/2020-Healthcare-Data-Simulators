@@ -1,0 +1,417 @@
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:8b90b3a6-bb56-3377-93c6-f2aa143802c1",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "8b90b3a6-bb56-3377-93c6-f2aa143802c1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 12
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999999819"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Walker122",
+            "given": [
+              "Ashlyn643"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Ashlyn643.Walker122@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "725 NORTH STREET"
+            ],
+            "city": "PITTSFIELD",
+            "state": "MA",
+            "postalCode": "01201",
+            "country": "US"
+          }
+        ],
+        "gender": "female"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999999819"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:188b17ab-86e0-9377-145b-f6e178577f14",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "188b17ab-86e0-9377-145b-f6e178577f14",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:8b90b3a6-bb56-3377-93c6-f2aa143802c1",
+          "display": "Dr. Ashlyn643 Walker122"
+        },
+        "organization": {
+          "reference": "urn:uuid:4f3a530e-a2f7-3de0-9a09-c0a70a9ab894",
+          "display": "BERKSHIRE MEDICAL CENTER INC - 1"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:33bf17e3-fb50-342f-bf7a-d1d6be54c2bc",
+            "display": "BERKSHIRE MEDICAL CENTER INC - 1"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "4134472000"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Ashlyn643.Walker122@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:342665da-819d-3dc3-a855-99abd46c3096",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "342665da-819d-3dc3-a855-99abd46c3096",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 26
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999985189"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Rutherford999",
+            "given": [
+              "Sergio619"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Sergio619.Rutherford999@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "630 S MAIN ST"
+            ],
+            "city": "LANESBOROUGH",
+            "state": "MA",
+            "postalCode": "01237-9726",
+            "country": "US"
+          }
+        ],
+        "gender": "male"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999985189"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:97a8b683-3868-06aa-ad5b-eab5a7cfd39f",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "97a8b683-3868-06aa-ad5b-eab5a7cfd39f",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:342665da-819d-3dc3-a855-99abd46c3096",
+          "display": "Dr. Sergio619 Rutherford999"
+        },
+        "organization": {
+          "reference": "urn:uuid:5519120c-af24-3f39-bb6c-b7fc0b50c8e6",
+          "display": "PCP22063"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:19357ec8-3691-33a0-8b79-709a1400a374",
+            "display": "PCP22063"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "413-236-0995"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Sergio619.Rutherford999@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c516d8c5-b44c-3dac-815f-11e5f55747d4",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "c516d8c5-b44c-3dac-815f-11e5f55747d4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 1
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999906479"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Kilback373",
+            "given": [
+              "Rodger755"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Rodger755.Kilback373@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "51 LOCUST STREET"
+            ],
+            "city": "NORTHAMPTON",
+            "state": "MA",
+            "postalCode": "1060",
+            "country": "US"
+          }
+        ],
+        "gender": "male"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999906479"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:770c768e-7840-4d89-062a-7e6183d3430d",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "770c768e-7840-4d89-062a-7e6183d3430d",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:c516d8c5-b44c-3dac-815f-11e5f55747d4",
+          "display": "Dr. Rodger755 Kilback373"
+        },
+        "organization": {
+          "reference": "urn:uuid:108ccece-277a-396f-8bf2-1527f74458eb",
+          "display": "ON CALL URGENT CARE CENTER"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:72b8e50b-d338-3b90-be65-ab453d676822",
+            "display": "ON CALL URGENT CARE CENTER"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "413-584-7425"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Rodger755.Kilback373@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    }
+  ]
+}

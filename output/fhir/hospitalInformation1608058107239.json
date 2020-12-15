@@ -1,0 +1,621 @@
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:44bef9d3-91c2-3005-93e0-ccf436348ff0",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "44bef9d3-91c2-3005-93e0-ccf436348ff0",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 93
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 0
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "44bef9d3-91c2-3005-93e0-ccf436348ff0"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "MASSACHUSETTS EYE AND EAR INFIRMARY -",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "6175237900"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "243 CHARLES STREET"
+            ],
+            "city": "BOSTON",
+            "state": "MA",
+            "postalCode": "02114",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|44bef9d3-91c2-3005-93e0-ccf436348ff0"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:348c93c5-0196-32a5-a385-9364455c40e6",
+      "resource": {
+        "resourceType": "Location",
+        "id": "348c93c5-0196-32a5-a385-9364455c40e6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "348c93c5-0196-32a5-a385-9364455c40e6"
+          }
+        ],
+        "status": "active",
+        "name": "MASSACHUSETTS EYE AND EAR INFIRMARY -",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "6175237900"
+          }
+        ],
+        "address": {
+          "line": [
+            "243 CHARLES STREET"
+          ],
+          "city": "BOSTON",
+          "state": "MA",
+          "postalCode": "02114",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.020173,
+          "latitude": 42.33196
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "44bef9d3-91c2-3005-93e0-ccf436348ff0"
+          },
+          "display": "MASSACHUSETTS EYE AND EAR INFIRMARY -"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|348c93c5-0196-32a5-a385-9364455c40e6"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:27379046-608b-32f0-9df7-8c833cf5d11d",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "27379046-608b-32f0-9df7-8c833cf5d11d",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 5
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 0
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "27379046-608b-32f0-9df7-8c833cf5d11d"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "BRIGHAM AND WOMEN'S HOSPITAL",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "6177325500"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "75 FRANCIS STREET"
+            ],
+            "city": "BOSTON",
+            "state": "MA",
+            "postalCode": "02115",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|27379046-608b-32f0-9df7-8c833cf5d11d"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:76d287bf-3778-3be3-a5ac-c857a11c3408",
+      "resource": {
+        "resourceType": "Location",
+        "id": "76d287bf-3778-3be3-a5ac-c857a11c3408",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "76d287bf-3778-3be3-a5ac-c857a11c3408"
+          }
+        ],
+        "status": "active",
+        "name": "BRIGHAM AND WOMEN'S HOSPITAL",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "6177325500"
+          }
+        ],
+        "address": {
+          "line": [
+            "75 FRANCIS STREET"
+          ],
+          "city": "BOSTON",
+          "state": "MA",
+          "postalCode": "02115",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.020173,
+          "latitude": 42.33196
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "27379046-608b-32f0-9df7-8c833cf5d11d"
+          },
+          "display": "BRIGHAM AND WOMEN'S HOSPITAL"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|76d287bf-3778-3be3-a5ac-c857a11c3408"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b7175ab4-bde5-3848-891b-579bccb77c7c",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "b7175ab4-bde5-3848-891b-579bccb77c7c",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 5
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 2
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 3
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "b7175ab4-bde5-3848-891b-579bccb77c7c"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "TUFTS MEDICAL CENTER",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "6176365000"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "800 WASHINGTON STREET"
+            ],
+            "city": "BOSTON",
+            "state": "MA",
+            "postalCode": "02111",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|b7175ab4-bde5-3848-891b-579bccb77c7c"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:90cc3a67-4b23-3d7f-89b1-4b984dd577a3",
+      "resource": {
+        "resourceType": "Location",
+        "id": "90cc3a67-4b23-3d7f-89b1-4b984dd577a3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "90cc3a67-4b23-3d7f-89b1-4b984dd577a3"
+          }
+        ],
+        "status": "active",
+        "name": "TUFTS MEDICAL CENTER",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "6176365000"
+          }
+        ],
+        "address": {
+          "line": [
+            "800 WASHINGTON STREET"
+          ],
+          "city": "BOSTON",
+          "state": "MA",
+          "postalCode": "02111",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.020173,
+          "latitude": 42.33196
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "b7175ab4-bde5-3848-891b-579bccb77c7c"
+          },
+          "display": "TUFTS MEDICAL CENTER"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|90cc3a67-4b23-3d7f-89b1-4b984dd577a3"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b5f85336-0c23-3bd8-9d99-3e3279032f3a",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "b5f85336-0c23-3bd8-9d99-3e3279032f3a",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 38
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 87
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 8
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 82
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "b5f85336-0c23-3bd8-9d99-3e3279032f3a"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "PCP89558",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(555) 555-5555"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "722 CENTRE ST"
+            ],
+            "city": "JAMAICA PLAIN",
+            "state": "MA",
+            "postalCode": "02130-2516",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|b5f85336-0c23-3bd8-9d99-3e3279032f3a"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:339962e4-804d-3ad4-9b7c-fa0d2c9a1704",
+      "resource": {
+        "resourceType": "Location",
+        "id": "339962e4-804d-3ad4-9b7c-fa0d2c9a1704",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "339962e4-804d-3ad4-9b7c-fa0d2c9a1704"
+          }
+        ],
+        "status": "active",
+        "name": "PCP89558",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(555) 555-5555"
+          }
+        ],
+        "address": {
+          "line": [
+            "722 CENTRE ST"
+          ],
+          "city": "JAMAICA PLAIN",
+          "state": "MA",
+          "postalCode": "02130-2516",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.020173,
+          "latitude": 42.33196
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "b5f85336-0c23-3bd8-9d99-3e3279032f3a"
+          },
+          "display": "PCP89558"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|339962e4-804d-3ad4-9b7c-fa0d2c9a1704"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0f7f97f6-693c-3de9-8190-85feaf4632e2",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "0f7f97f6-693c-3de9-8190-85feaf4632e2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 10
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 0
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "0f7f97f6-693c-3de9-8190-85feaf4632e2"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "CONCENTRA URGENT CARE - EAST BOSTON",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "617-568-6500"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "1 HARBORSIDE DRIVE"
+            ],
+            "city": "EAST BOSTON",
+            "state": "MA",
+            "postalCode": "2128",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|0f7f97f6-693c-3de9-8190-85feaf4632e2"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:664fb629-70ac-36d4-8d9b-70adab7f755c",
+      "resource": {
+        "resourceType": "Location",
+        "id": "664fb629-70ac-36d4-8d9b-70adab7f755c",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "664fb629-70ac-36d4-8d9b-70adab7f755c"
+          }
+        ],
+        "status": "active",
+        "name": "CONCENTRA URGENT CARE - EAST BOSTON",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "617-568-6500"
+          }
+        ],
+        "address": {
+          "line": [
+            "1 HARBORSIDE DRIVE"
+          ],
+          "city": "EAST BOSTON",
+          "state": "MA",
+          "postalCode": "2128",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -71.0256963,
+          "latitude": 42.3634497
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "0f7f97f6-693c-3de9-8190-85feaf4632e2"
+          },
+          "display": "CONCENTRA URGENT CARE - EAST BOSTON"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|664fb629-70ac-36d4-8d9b-70adab7f755c"
+      }
+    }
+  ]
+}

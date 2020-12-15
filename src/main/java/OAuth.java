@@ -15,7 +15,7 @@ class OAuth {
         System.out.println("Getting token...");
         ProcessBuilder processBuilder = new ProcessBuilder();
 
-        processBuilder.command("bash","-c","python3 cognito-auth.py 7n4vr35t6o5153456ervok1vm9 eu-west-2");
+        processBuilder.command("bash","-c","python3 src/main/java/cognito-auth.py 7n4vr35t6o5153456ervok1vm9 eu-west-2");
 
         try {
 
@@ -27,7 +27,7 @@ class OAuth {
 
             String line;
             while((line = reader.readLine()) != null) {
-                output.append((line + '\n'));
+                output.append((line));
             }
             
             //System.out.println(output);

@@ -1,0 +1,554 @@
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:d25d6850-7432-3313-a4ef-b85e3f95f8c2",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "d25d6850-7432-3313-a4ef-b85e3f95f8c2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 78
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999999799"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Thompson596",
+            "given": [
+              "Mauro926"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Mauro926.Thompson596@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "680 CENTER STREET"
+            ],
+            "city": "BROCKTON",
+            "state": "MA",
+            "postalCode": "02302",
+            "country": "US"
+          }
+        ],
+        "gender": "male"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999999799"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3d73dcb9-7de6-b4ef-c4c5-7b0c9b5122f3",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "3d73dcb9-7de6-b4ef-c4c5-7b0c9b5122f3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:d25d6850-7432-3313-a4ef-b85e3f95f8c2",
+          "display": "Dr. Mauro926 Thompson596"
+        },
+        "organization": {
+          "reference": "urn:uuid:c44f361c-2efb-3050-8f97-0354a12e2920",
+          "display": "SIGNATURE HEALTHCARE BROCKTON HOSPITAL"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:97bc3a8d-35db-3628-88b5-e595c34fde0c",
+            "display": "SIGNATURE HEALTHCARE BROCKTON HOSPITAL"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "5089417000"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Mauro926.Thompson596@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c024ddc9-8e68-3236-be3e-52e9f2b582ac",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "c024ddc9-8e68-3236-be3e-52e9f2b582ac",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 3
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999999539"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Renner328",
+            "given": [
+              "Elayne206"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Elayne206.Renner328@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "235 NORTH PEARL STREET"
+            ],
+            "city": "BROCKTON",
+            "state": "MA",
+            "postalCode": "02301",
+            "country": "US"
+          }
+        ],
+        "gender": "female"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999999539"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:66761ce8-2d88-8ab8-0c5c-80c53e3fdab4",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "66761ce8-2d88-8ab8-0c5c-80c53e3fdab4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:c024ddc9-8e68-3236-be3e-52e9f2b582ac",
+          "display": "Dr. Elayne206 Renner328"
+        },
+        "organization": {
+          "reference": "urn:uuid:226098a2-6a40-3588-b5bb-db56c3a30a04",
+          "display": "GOOD SAMARITAN MEDICAL CENTER"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:f6d3670d-1bb9-313b-87b9-c7b37feb154a",
+            "display": "GOOD SAMARITAN MEDICAL CENTER"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "5084273000"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Elayne206.Renner328@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:edf4559b-955e-387b-a6a9-d210de97578a",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "edf4559b-955e-387b-a6a9-d210de97578a",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 32
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999916649"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Pagac496",
+            "given": [
+              "Alysia661"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Alysia661.Pagac496@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "90 LIBBEY PKWY"
+            ],
+            "city": "WEYMOUTH",
+            "state": "MA",
+            "postalCode": "02189-1300",
+            "country": "US"
+          }
+        ],
+        "gender": "female"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999916649"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1a1f558c-22a3-6fac-bfa2-829d8b168d32",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "1a1f558c-22a3-6fac-bfa2-829d8b168d32",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:edf4559b-955e-387b-a6a9-d210de97578a",
+          "display": "Dr. Alysia661 Pagac496"
+        },
+        "organization": {
+          "reference": "urn:uuid:90bd0bf7-4422-3064-bb56-7010c222620d",
+          "display": "HARBOR MEDICAL ASSOCIATES, INC."
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:abab674f-6196-369e-b916-3c9c1527a327",
+            "display": "HARBOR MEDICAL ASSOCIATES, INC."
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "781-335-3900"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Alysia661.Pagac496@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:50050986-6a54-3439-b270-3e3142fc847a",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "50050986-6a54-3439-b270-3e3142fc847a",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 1
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999906699"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Block661",
+            "given": [
+              "Cindie288"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Cindie288.Block661@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "111 GROSSMAN DRIVE"
+            ],
+            "city": "BRAINTREE",
+            "state": "MA",
+            "postalCode": "2184",
+            "country": "US"
+          }
+        ],
+        "gender": "female"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999906699"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d1f66c84-a7fa-72ed-0255-f80db4e740f0",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "d1f66c84-a7fa-72ed-0255-f80db4e740f0",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:50050986-6a54-3439-b270-3e3142fc847a",
+          "display": "Dr. Cindie288 Block661"
+        },
+        "organization": {
+          "reference": "urn:uuid:c63d0602-724d-3d74-958a-a31b1364eaef",
+          "display": "HARVARD VANGUARD BRAINTREE PRACTICE URGENT CARE"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:5034affd-0915-380e-8930-9543e090d3b4",
+            "display": "HARVARD VANGUARD BRAINTREE PRACTICE URGENT CARE"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "781-849-1000"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Cindie288.Block661@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    }
+  ]
+}

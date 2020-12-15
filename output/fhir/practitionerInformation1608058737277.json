@@ -1,0 +1,413 @@
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:15e4f035-dfb0-308e-9135-854750a8699c",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "15e4f035-dfb0-308e-9135-854750a8699c",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 16
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999999809"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Glover433",
+            "given": [
+              "Marvin195"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Marvin195.Glover433@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "157 UNION STREET"
+            ],
+            "city": "MARLBOROUGH",
+            "state": "MA",
+            "postalCode": "01752",
+            "country": "US"
+          }
+        ],
+        "gender": "male"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999999809"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:46b5a432-70e0-99f3-c134-11570f111e12",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "46b5a432-70e0-99f3-c134-11570f111e12",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:15e4f035-dfb0-308e-9135-854750a8699c",
+          "display": "Dr. Marvin195 Glover433"
+        },
+        "organization": {
+          "reference": "urn:uuid:f71ce1a9-cca7-3295-9a1e-c88ac3479b6f",
+          "display": "MARLBOROUGH HOSPITAL"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:f9ead6b6-e084-32b8-bb09-4bb00b9b7e85",
+            "display": "MARLBOROUGH HOSPITAL"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "5084815000"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Marvin195.Glover433@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:866b55f6-6505-34cf-b522-0ac1e2645acc",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "866b55f6-6505-34cf-b522-0ac1e2645acc",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 25
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999955049"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Madrigal893",
+            "given": [
+              "Lilia791"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Lilia791.Madrigal893@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "439 MAIN ST"
+            ],
+            "city": "HUDSON",
+            "state": "MA",
+            "postalCode": "01749-1855",
+            "country": "US"
+          }
+        ],
+        "gender": "female"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999955049"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3f795e57-b468-ddd9-edbf-03a219e8fa22",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "3f795e57-b468-ddd9-edbf-03a219e8fa22",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:866b55f6-6505-34cf-b522-0ac1e2645acc",
+          "display": "Dr. Lilia791 Madrigal893"
+        },
+        "organization": {
+          "reference": "urn:uuid:c8efd4a4-f740-3766-bf0c-41f7d1bf9713",
+          "display": "PCP109247"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:b10ff4bc-4c51-343c-85a1-f3853ae01e4e",
+            "display": "PCP109247"
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Lilia791.Madrigal893@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:de0bb69e-3995-3461-859f-7242c2eb13c2",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "de0bb69e-3995-3461-859f-7242c2eb13c2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 2
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9999906559"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Orozco750",
+            "given": [
+              "Germán350"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Germán350.Orozco750@example.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "9 HOPE AVENUE"
+            ],
+            "city": "WALTHAM",
+            "state": "MA",
+            "postalCode": "2453",
+            "country": "US"
+          }
+        ],
+        "gender": "male"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=http://hl7.org/fhir/sid/us-npi|9999906559"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c51053de-542f-5c89-e1d9-025612f164cf",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "c51053de-542f-5c89-e1d9-025612f164cf",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:de0bb69e-3995-3461-859f-7242c2eb13c2",
+          "display": "Dr. Germán350 Orozco750"
+        },
+        "organization": {
+          "reference": "urn:uuid:d672f853-e2a5-324e-98fa-c6d5f8dfc255",
+          "display": "WALTHAM URGENT CARE"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice"
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:9140c3cd-cfd0-3d68-a5c0-4a5e391f0804",
+            "display": "WALTHAM URGENT CARE"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "617-243-5591"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+                "valueBoolean": true
+              }
+            ],
+            "system": "email",
+            "value": "Germán350.Orozco750@example.com",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    }
+  ]
+}

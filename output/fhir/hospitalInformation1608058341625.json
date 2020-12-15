@@ -1,0 +1,375 @@
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:ebc3f5c4-6700-34af-8323-85621c313726",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "ebc3f5c4-6700-34af-8323-85621c313726",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 185
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 0
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "ebc3f5c4-6700-34af-8323-85621c313726"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "NOBLE HOSPITAL",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "4135682811"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "115 WEST SILVER STREET"
+            ],
+            "city": "WESTFIELD",
+            "state": "MA",
+            "postalCode": "01085",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|ebc3f5c4-6700-34af-8323-85621c313726"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:52e5eff5-cdce-3686-91d1-61e05ac01078",
+      "resource": {
+        "resourceType": "Location",
+        "id": "52e5eff5-cdce-3686-91d1-61e05ac01078",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "52e5eff5-cdce-3686-91d1-61e05ac01078"
+          }
+        ],
+        "status": "active",
+        "name": "NOBLE HOSPITAL",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "4135682811"
+          }
+        ],
+        "address": {
+          "line": [
+            "115 WEST SILVER STREET"
+          ],
+          "city": "WESTFIELD",
+          "state": "MA",
+          "postalCode": "01085",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -72.755911,
+          "latitude": 42.138838
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "ebc3f5c4-6700-34af-8323-85621c313726"
+          },
+          "display": "NOBLE HOSPITAL"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|52e5eff5-cdce-3686-91d1-61e05ac01078"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6040b2da-71a1-3d12-a777-427cbb929931",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "6040b2da-71a1-3d12-a777-427cbb929931",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 67
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 445
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 134
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 58
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "6040b2da-71a1-3d12-a777-427cbb929931"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "PCP231204",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "413-862-3400"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "46 MAIN RD"
+            ],
+            "city": "MONTGOMERY",
+            "state": "MA",
+            "postalCode": "01085-9522",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|6040b2da-71a1-3d12-a777-427cbb929931"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c6c82fb6-d833-3b6a-8c41-c27a6e2c68ee",
+      "resource": {
+        "resourceType": "Location",
+        "id": "c6c82fb6-d833-3b6a-8c41-c27a6e2c68ee",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "c6c82fb6-d833-3b6a-8c41-c27a6e2c68ee"
+          }
+        ],
+        "status": "active",
+        "name": "PCP231204",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "413-862-3400"
+          }
+        ],
+        "address": {
+          "line": [
+            "46 MAIN RD"
+          ],
+          "city": "MONTGOMERY",
+          "state": "MA",
+          "postalCode": "01085-9522",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -72.834999,
+          "latitude": 42.220395
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "6040b2da-71a1-3d12-a777-427cbb929931"
+          },
+          "display": "PCP231204"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|c6c82fb6-d833-3b6a-8c41-c27a6e2c68ee"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:108ccece-277a-396f-8bf2-1527f74458eb",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "108ccece-277a-396f-8bf2-1527f74458eb",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-encounters-extension",
+            "valueInteger": 3
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-procedures-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-labs-extension",
+            "valueInteger": 0
+          },
+          {
+            "url": "http://synthetichealth.github.io/synthea/utilization-prescriptions-extension",
+            "valueInteger": 0
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "108ccece-277a-396f-8bf2-1527f74458eb"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Healthcare Provider"
+          }
+        ],
+        "name": "ON CALL URGENT CARE CENTER",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "413-584-7425"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "51 LOCUST STREET"
+            ],
+            "city": "NORTHAMPTON",
+            "state": "MA",
+            "postalCode": "1060",
+            "country": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|108ccece-277a-396f-8bf2-1527f74458eb"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:72b8e50b-d338-3b90-be65-ab453d676822",
+      "resource": {
+        "resourceType": "Location",
+        "id": "72b8e50b-d338-3b90-be65-ab453d676822",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "72b8e50b-d338-3b90-be65-ab453d676822"
+          }
+        ],
+        "status": "active",
+        "name": "ON CALL URGENT CARE CENTER",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "413-584-7425"
+          }
+        ],
+        "address": {
+          "line": [
+            "51 LOCUST STREET"
+          ],
+          "city": "NORTHAMPTON",
+          "state": "MA",
+          "postalCode": "1060",
+          "country": "US"
+        },
+        "position": {
+          "longitude": -72.6545646,
+          "latitude": 42.3323152
+        },
+        "managingOrganization": {
+          "identifier": {
+            "system": "https://github.com/synthetichealth/synthea",
+            "value": "108ccece-277a-396f-8bf2-1527f74458eb"
+          },
+          "display": "ON CALL URGENT CARE CENTER"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Location",
+        "ifNoneExist": "identifier=https://github.com/synthetichealth/synthea|72b8e50b-d338-3b90-be65-ab453d676822"
+      }
+    }
+  ]
+}
