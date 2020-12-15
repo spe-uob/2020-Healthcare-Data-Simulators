@@ -11,7 +11,7 @@
 *.ctxt
 
 
-src/main/java/output
+output/
 .idea/
 
 # Mobile Tools for Java (J2ME)
