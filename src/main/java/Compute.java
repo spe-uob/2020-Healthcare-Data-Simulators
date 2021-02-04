@@ -13,13 +13,36 @@ public class Compute {
         return rand_int;
     }*/
 
+    private String population, minAge, maxAge, sex, disease, state;
+
+    Compute (String population, String minAge, String maxAge, String sex, String disease, String state) {
+        this.population = population;
+        this.minAge = minAge;
+        this.maxAge = maxAge;
+        this.sex = sex;
+        this.disease = disease;
+        this.state = state;
+
+    }
+
+    String getCommand() {
+        String x = "java -jar synthea-with-dependencies.jar";
+
+        x += " -p " + this.population + " -a " + this.minAge + "-" + this.maxAge + " -m " + "*" + this.disease + "*" + " " + this.state;
+
+        return x;
+
+    }
+
     public void generatePatient() {
 
         System.out.println("Starting...");
         //button1.setText("Waiting...");
         ProcessBuilder processBuilder = new ProcessBuilder();
 
-        processBuilder.command("bash","-c","java -jar synthea-with-dependencies.jar");
+        String command = getCommand();
+        //System.out.println(command);
+        processBuilder.command("bash","-c", command);
         //processBuilder.command("bash","-c","ls");
         try{
 
