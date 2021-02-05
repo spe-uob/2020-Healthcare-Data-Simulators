@@ -145,8 +145,7 @@ public static void main(String args[]) throws FileNotFoundException {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            //your actions
-            System.out.println("noroc");
+
             final OAuth tokenGen = new OAuth(client_id_tb.getText(), region_tb.getText(), username_tb.getText(), password_tb.getText());
             tokenGen.generateToken();
             tokenFinal[0] = tokenGen.token;
@@ -165,8 +164,6 @@ public static void main(String args[]) throws FileNotFoundException {
             // this makes sure the button you are pressing is the button variable
             if(e.getSource() == button1) {
                 //if pressed execute code:
-
-
                 frame.setVisible(false);
                 generateFrame.setVisible(true);
                 /*Compute x = new Compute();
@@ -186,29 +183,29 @@ public static void main(String args[]) throws FileNotFoundException {
                 //if pressed execute code:
               //  String params = tf1.getText() + tf2.getText() + tf6.getText() + tf3.getSelectedItem().toString() + tf4.getSelectedItem().toString() + tf5.getSelectedItem().toString();
              //   System.out.println(params);
-                Compute x = new Compute(pop_tb.getText(), minAge_tb.getText(), maxAge_tb.getText(), gen_cb.getSelectedItem().toString(),
+                Compute computer = new Compute(pop_tb.getText(), minAge_tb.getText(), maxAge_tb.getText(), gen_cb.getSelectedItem().toString(),
                         mod_cb.getSelectedItem().toString(), st_cb.getSelectedItem().toString());
 
                 startGenerate.setEnabled(false);
                 System.out.println(tokenFinal[0]);
                 System.out.println("merge????");
-                x.generatePatient();
+                computer.generatePatient();
 
                 startGenerate.setEnabled(true);
                 sendGenerated.setEnabled(true);
             }
         }
     });
-    /*button2.addActionListener(new ActionListener() {
+    sendGenerated.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
             // this makes sure the button you are pressing is the button variable
-            if(e.getSource() == button2) {
+            if(e.getSource() == sendGenerated) {
                 //if pressed execute code:
                 ParseJSON s = new ParseJSON();
-                button1.setEnabled(false);
-                button2.setEnabled(false);
+                startGenerate.setEnabled(false);
+                sendGenerated.setEnabled(false);
                 try {
-                    s.parseJson(tokenGen.token);
+                    s.parseJson(tokenFinal[0]);
                 } catch (FileNotFoundException ex) {
                     ex.printStackTrace();
                 } catch (IOException ex) {
@@ -218,7 +215,7 @@ public static void main(String args[]) throws FileNotFoundException {
                 button2.setEnabled(true);
             }
         }
-    });*/
+    });
 
 
 
