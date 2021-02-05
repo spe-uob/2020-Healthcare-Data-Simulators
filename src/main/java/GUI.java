@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 
 public class GUI {
     enum PROTOCOLS{
@@ -169,14 +170,16 @@ public static void main(String args[]) throws FileNotFoundException {
     final JFormattedTextField maxAge_tb = new JFormattedTextField(formatterAge);
 
     //Comboxes
-    String[] choicesStates = {"Somerset", "Cumbria"};
-    String[] choicesGender = {"Male", "Female"};
-    String[] choicesModules = {"Cancer", "Heart"};
 
+    ParserCustomSettings pcs = new ParserCustomSettings();
+
+    ArrayList<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat("/regions.txt"));
+    ArrayList<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat("/modules.txt"));
+    String[] choicesGender = {"Male", "Female"};
 
     final JComboBox gen_cb = new JComboBox(choicesGender);
-    final JComboBox mod_cb = new JComboBox(choicesModules);
-    final JComboBox st_cb = new JComboBox(choicesStates);
+    final JComboBox mod_cb = new JComboBox(choicesModules.toArray());
+    final JComboBox st_cb = new JComboBox(choicesStates.toArray());
 
 
     pop_tb.setBounds(150,10,200,25);
