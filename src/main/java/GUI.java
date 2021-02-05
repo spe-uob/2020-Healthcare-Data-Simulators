@@ -1,11 +1,13 @@
 import org.apache.log4j.BasicConfigurator;
 
 import javax.swing.*;
+import javax.swing.text.NumberFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.NumberFormat;
 
 public class GUI {
 
@@ -85,7 +87,7 @@ public static void main(String args[]) throws FileNotFoundException {
     JLabel label2 = new JLabel("Age");
     JLabel label3 = new JLabel("Gender");
     JLabel label4 = new JLabel("Module");
-    JLabel label5 = new JLabel("State");
+    JLabel label5 = new JLabel("Region");
 
     label1.setBounds(10,10,120,25);
     label2.setBounds(10,50,120,25);
@@ -93,13 +95,35 @@ public static void main(String args[]) throws FileNotFoundException {
     label4.setBounds(10,130,120,25);
     label5.setBounds(10, 170, 120, 25);
 
-    final TextField pop_tb= new TextField();
-    final TextField minAge_tb = new TextField();
-    final TextField maxAge_tb = new TextField();
+    //final TextField pop_tb= new TextField();
+    //final TextField minAge_tb = new TextField();
+    //final TextField maxAge_tb = new TextField();
 
+    // Population textbox
+    NumberFormat formatPopulation = NumberFormat.getInstance();
+    NumberFormatter formatterPopulation = new NumberFormatter(formatPopulation);
+    formatterPopulation.setValueClass(Integer.class);
+    formatterPopulation.setMinimum(0);
+    formatterPopulation.setMaximum(9999);
+    formatterPopulation.setAllowsInvalid(false);
+    formatterPopulation.setCommitsOnValidEdit(true);
+    final JFormattedTextField pop_tb = new JFormattedTextField(formatterPopulation);
+
+    // Age textboxes
+    NumberFormat formatAge = NumberFormat.getInstance();
+    NumberFormatter formatterAge = new NumberFormatter(formatAge);
+    formatterAge.setValueClass(Integer.class);
+    formatterAge.setMinimum(0);
+    formatterAge.setMaximum(140);
+    formatterAge.setAllowsInvalid(false);
+    formatterAge.setCommitsOnValidEdit(true);
+    final JFormattedTextField minAge_tb = new JFormattedTextField(formatterAge);
+    final JFormattedTextField maxAge_tb = new JFormattedTextField(formatterAge);
+
+    //Comboxes
     String[] choicesStates = {"Somerset", "Cumbria"};
-    String[] choicesGender = {"male", "female"};
-    String[] choicesModules = {"cancer", "heart"};
+    String[] choicesGender = {"Male", "Female"};
+    String[] choicesModules = {"Cancer", "Heart"};
 
 
     final JComboBox gen_cb = new JComboBox(choicesGender);
