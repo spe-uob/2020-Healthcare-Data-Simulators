@@ -13,14 +13,14 @@ public class Compute {
         return rand_int;
     }*/
 
-    private String population, minAge, maxAge, sex, disease, state;
+    private String population, minAge, maxAge, gender, module, state;
 
-    Compute (String population, String minAge, String maxAge, String sex, String disease, String state) {
+    Compute (String population, String minAge, String maxAge, String gender, String module, String state) {
         this.population = population;
         this.minAge = minAge;
         this.maxAge = maxAge;
-        this.sex = sex;
-        this.disease = disease;
+        this.gender = gender;
+        this.module = module;
         this.state = state;
 
     }
@@ -28,7 +28,7 @@ public class Compute {
     String getCommand() {
         String x = "java -jar synthea-with-dependencies.jar";
 
-        x += " -p " + this.population + " -a " + this.minAge + "-" + this.maxAge + " -m " + "*" + this.disease + "*" + " " + this.state;
+        x += " -p " + this.population + " -g " + (this.gender.equals("male")? "M" : "F") + " -a " + this.minAge + "-" + this.maxAge + " -m " + "*" + this.module + "*" + " " + this.state;
 
         return x;
 
@@ -41,7 +41,7 @@ public class Compute {
         ProcessBuilder processBuilder = new ProcessBuilder();
 
         String command = getCommand();
-        //System.out.println(command);
+        System.out.println(command);
         processBuilder.command("bash","-c", command);
         //processBuilder.command("bash","-c","ls");
         try{
@@ -57,11 +57,10 @@ public class Compute {
                 output.append((line + '\n'));
             }
 
-            System.out.println(output);
+            //System.out.println(output);
             System.out.println("Success!");
-
-            JOptionPane.showMessageDialog(null, "1 Pacient has been generated","Success!", JOptionPane.INFORMATION_MESSAGE);
-
+            if(output.equals("") || output.substring(0,6).equals("Usage:")) JOptionPane.showMessageDialog(null, "Error while generating","Error!", JOptionPane.ERROR_MESSAGE);
+            else JOptionPane.showMessageDialog(null, "Generation Successful","Success!", JOptionPane.INFORMATION_MESSAGE);
 
         }
         catch (IOException er) {

@@ -6,16 +6,26 @@ import java.io.InputStreamReader;
 
 class OAuth {
     String token;
-
-    OAuth() {
+    String client_id, region, username, password;
+    OAuth(String client_id, String region, String username, String password) {
        this.token = "";
+       this.client_id = client_id;
+       this.region = region;
+       this.username = username;
+       this.password = password;
     }
 
-    void generateToken() {
+    private String getFullCommand(){
+        String fullCommand = "python3 src/main/java/cognito_auth.py ";
+        fullCommand = fullCommand + this.client_id + " "+ this.region + " " + this.username + " " + this.password;
+        return fullCommand;
+    }
+    public void generateToken() {
         System.out.println("Getting token...");
         ProcessBuilder processBuilder = new ProcessBuilder();
-
-        processBuilder.command("bash","-c","python3 src/main/java/cognito-auth.py 7n4vr35t6o5153456ervok1vm9 eu-west-2");
+        String fullCommand = getFullCommand();
+        System.out.println(fullCommand);
+        processBuilder.command("bash","-c",fullCommand);
 
         try {
 

@@ -5,14 +5,14 @@ import os
 client = boto3.client('cognito-idp', region_name=sys.argv[2])
 '''
 example run:
-python3 init-auth.py <ClientId> <Region>
-python3 init-auth.py 12pgvi3gsl32qp9h8lg130arr0 eu-west-2
+python3 init-auth.py <ClientId> <Region> <USERNAME> <PASSWORD>
+python3 init-auth.py 7n4vr35t6o5153456ervok1vm9 eu-west-2 data-sim-team jOvK-dRCs-kCW3-ZgPx
 '''
 response = client.initiate_auth(
     AuthFlow='USER_PASSWORD_AUTH',
     AuthParameters={
-        'USERNAME': 'data-sim-team',
-        'PASSWORD': 'jOvK-dRCs-kCW3-ZgPx'
+        'USERNAME': sys.argv[3],
+        'PASSWORD': sys.argv[4]
     },
 
     ClientId=sys.argv[1]
