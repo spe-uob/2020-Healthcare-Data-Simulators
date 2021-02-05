@@ -1,5 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 
+.DS_Store
+
 ### Java template
 # Compiled class file
 *.class
@@ -10,9 +12,10 @@
 # BlueJ files
 *.ctxt
 
-
+target/
 output/
 .idea/
+/__pycache__/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

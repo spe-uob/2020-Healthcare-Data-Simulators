@@ -1,3 +1,6 @@
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.SftpException;
 import org.apache.log4j.BasicConfigurator;
 
 import javax.swing.*;
@@ -10,32 +13,77 @@ import java.io.IOException;
 import java.text.NumberFormat;
 
 public class GUI {
-
+    enum PROTOCOLS{
+        HTTP,
+        SFTP,
+    }
 public static void main(String args[]) throws FileNotFoundException {
     final String[] tokenFinal = new String[1];
+    final PROTOCOLS[] protocol = new PROTOCOLS[1];
+    final ChannelSftp[] channelSftp = {null};
     BasicConfigurator.configure();
     //GUI
+    final JFrame connectionOptionsFrame = new JFrame("Connection options");
     final JFrame frame = new JFrame("Healthcare Data Simulators");
-    final JFrame serverFrame = new JFrame("Connection details");
+    final JFrame httpFrame = new JFrame("HTTP Connection details");
     final JFrame generateFrame = new JFrame("Custom settings for generation");
-
+    final JFrame sftpFrame = new JFrame("SFTP Connection details");
     GridBagConstraints constraints = new GridBagConstraints();
     constraints.insets = new Insets(5, 5, 5, 5);
     constraints.anchor = GridBagConstraints.WEST;
 
+    connectionOptionsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    serverFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    httpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     generateFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-    serverFrame.setSize(375,600);
+    connectionOptionsFrame.setSize(375,600);
+    sftpFrame.setSize(375,600);
+    httpFrame.setSize(375,600);
     frame.setSize(375, 600);
     generateFrame.setSize(375, 600);
 
-
-    final JButton buttonNext = new JButton("Next");
+    //Connection option menu
+    final JButton httpOption = new JButton("HTTP");
+    final JButton sftpOption = new JButton("SFTP");
+    JPanel panelOptions = new JPanel(new GridBagLayout());
+    panelOptions.add(httpOption);
+    panelOptions.add(sftpOption);
+    connectionOptionsFrame.add(panelOptions);
+    connectionOptionsFrame.setVisible(true);
+    //SFTP
+    final JButton buttonNextSFTP = new JButton("Next");
     JPanel panelServer = new JPanel(new GridBagLayout());
-    panelServer.add(buttonNext);
+    panelServer.add(buttonNextSFTP);
+
+    final JLabel sftpRemoteHost = new JLabel("Remote Host");
+    final JLabel sftpUsername = new JLabel("Username");
+    final JLabel sftpPassword = new JLabel("Password");
+    sftpRemoteHost.setBounds(10,10,140,25);
+    sftpUsername.setBounds(10,50,120,25);
+    sftpPassword.setBounds(10,90,120,25);
+
+    final TextField sftpRemoteHost_tb= new TextField("snowy.cs.bris.ac.uk");
+    final TextField sftpUsername_tb= new TextField("ab19123");
+    final JPasswordField sftpPassword_tb = new JPasswordField("TestParola");
+    sftpRemoteHost_tb.setBounds(150,10,200,25);
+    sftpUsername_tb.setBounds(150,50,200,25);
+    sftpPassword_tb.setBounds(150,90,200,25);
+
+    sftpFrame.add(sftpRemoteHost);
+    sftpFrame.add(sftpUsername);
+    sftpFrame.add(sftpPassword);
+    sftpFrame.add(sftpRemoteHost_tb);
+    sftpFrame.add(sftpUsername_tb);
+    sftpFrame.add(sftpPassword_tb);
+    sftpFrame.add(panelServer);
+    sftpFrame.setVisible(false);
+
+
+    // HTTP
+    final JButton buttonNext = new JButton("Next");
+    JPanel panelHttp = new JPanel(new GridBagLayout());
+    panelHttp.add(buttonNext);
 
     final JLabel client_id = new JLabel("Client ID");
     final JLabel region = new JLabel("Region");
@@ -49,22 +97,22 @@ public static void main(String args[]) throws FileNotFoundException {
     final TextField client_id_tb= new TextField("7n4vr35t6o5153456ervok1vm9");
     final TextField region_tb= new TextField("eu-west-2");
     final TextField username_tb = new TextField("data-sim-team");
-    final TextField password_tb= new TextField("jOvK-dRCs-kCW3-ZgPx");
+    final JPasswordField password_tb= new JPasswordField("jOvK-dRCs-kCW3-ZgPx");
     client_id_tb.setBounds(150,10,200,25);
     region_tb.setBounds(150,50,200,25);
     username_tb.setBounds(150,90,200,25);
     password_tb.setBounds(150,130,200,25);
 
-    serverFrame.add(client_id);
-    serverFrame.add(region);
-    serverFrame.add(username);
-    serverFrame.add(password);
-    serverFrame.add(client_id_tb);
-    serverFrame.add(region_tb);
-    serverFrame.add(username_tb);
-    serverFrame.add(password_tb);
-    serverFrame.add(panelServer);
-    serverFrame.setVisible(true);
+    httpFrame.add(client_id);
+    httpFrame.add(region);
+    httpFrame.add(username);
+    httpFrame.add(password);
+    httpFrame.add(client_id_tb);
+    httpFrame.add(region_tb);
+    httpFrame.add(username_tb);
+    httpFrame.add(password_tb);
+    httpFrame.add(panelHttp);
+    httpFrame.setVisible(false);
     //buttonNext.setEnabled(true);
 
     //Menu ( GUI 2 )
@@ -162,9 +210,48 @@ public static void main(String args[]) throws FileNotFoundException {
     ///text boxes
 
 
+//    final JButton httpOption = new JButton("HTTP");
+//    final JButton sftpOption = new JButton("SFTP");
+    httpOption.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            protocol[0] = PROTOCOLS.HTTP;
+            connectionOptionsFrame.setVisible(false);
+            httpFrame.setVisible(true);
+        }
+    });
+    sftpOption.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            protocol[0] = PROTOCOLS.SFTP;
+            connectionOptionsFrame.setVisible(false);
+            sftpFrame.setVisible(true);
+        }
+    });
+
+//    sftpRemoteHost.setBounds(10,10,140,25);
+//    sftpUsername.setBounds(10,50,120,25);
+//    sftpPassword.setBounds(10,90,120,25);
+
+    buttonNextSFTP.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            SFTP sftp = new SFTP(sftpRemoteHost_tb.getText(), sftpUsername_tb.getText(),sftpPassword_tb.getText());
+            try {
+                channelSftp[0] =  sftp.establishConnection();
+                if(channelSftp[0] == null) JOptionPane.showMessageDialog(null, "Could not establish connection!\nTry Again!","Error", JOptionPane.ERROR_MESSAGE);
+                else{
+                    JOptionPane.showMessageDialog(null, "Connection established!","Success!", JOptionPane.INFORMATION_MESSAGE);
+                    sftpFrame.setVisible(false);
+                    frame.setVisible(true);
+                }
+            } catch (JSchException e) {
+                JOptionPane.showMessageDialog(null, "Could not establish connection!\nTry Again!","Error", JOptionPane.ERROR_MESSAGE);
 
 
-
+            }
+        }
+    });
     buttonNext.addActionListener(new ActionListener() {
 
         @Override
@@ -173,10 +260,10 @@ public static void main(String args[]) throws FileNotFoundException {
             final OAuth tokenGen = new OAuth(client_id_tb.getText(), region_tb.getText(), username_tb.getText(), password_tb.getText());
             tokenGen.generateToken();
             tokenFinal[0] = tokenGen.token;
-            if(tokenGen.token.equals("")) JOptionPane.showMessageDialog(null, "Could not establish connection!","Error", JOptionPane.ERROR_MESSAGE);
+            if(tokenGen.token.equals("")) JOptionPane.showMessageDialog(null, "Could not establish connection!/nTry Again!","Error", JOptionPane.ERROR_MESSAGE);
             else{
                 JOptionPane.showMessageDialog(null, "Connection established!","Success!", JOptionPane.INFORMATION_MESSAGE);
-                serverFrame.setVisible(false);
+                httpFrame.setVisible(false);
                 frame.setVisible(true);
             }
         }
@@ -187,15 +274,8 @@ public static void main(String args[]) throws FileNotFoundException {
         public void actionPerformed(ActionEvent e) {
             // this makes sure the button you are pressing is the button variable
             if(e.getSource() == button1) {
-                //if pressed execute code:
                 frame.setVisible(false);
                 generateFrame.setVisible(true);
-                /*Compute x = new Compute();
-                button1.setEnabled(false);
-                button2.setEnabled(false);
-                x.generatePatient();
-                button1.setEnabled(true);
-                button2.setEnabled(true);*/
             }
         }
     });
@@ -204,15 +284,12 @@ public static void main(String args[]) throws FileNotFoundException {
         public void actionPerformed(ActionEvent e) {
             // this makes sure the button you are pressing is the button variable
             if(e.getSource() == startGenerate) {
-                //if pressed execute code:
-              //  String params = tf1.getText() + tf2.getText() + tf6.getText() + tf3.getSelectedItem().toString() + tf4.getSelectedItem().toString() + tf5.getSelectedItem().toString();
-             //   System.out.println(params);
+
                 Compute computer = new Compute(pop_tb.getText(), minAge_tb.getText(), maxAge_tb.getText(), gen_cb.getSelectedItem().toString(),
                         mod_cb.getSelectedItem().toString(), st_cb.getSelectedItem().toString());
 
                 startGenerate.setEnabled(false);
-                System.out.println(tokenFinal[0]);
-                System.out.println("merge????");
+                //System.out.println(tokenFinal[0]);
                 computer.generatePatient();
 
                 startGenerate.setEnabled(true);
@@ -225,16 +302,30 @@ public static void main(String args[]) throws FileNotFoundException {
             // this makes sure the button you are pressing is the button variable
             if(e.getSource() == sendGenerated) {
                 //if pressed execute code:
-                ParseJSON s = new ParseJSON();
-                startGenerate.setEnabled(false);
-                sendGenerated.setEnabled(false);
-                try {
-                    s.parseJson(tokenFinal[0]);
-                } catch (FileNotFoundException ex) {
-                    ex.printStackTrace();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
+                switch(protocol[0]) {
+                    case HTTP:
+                        ParseJSON s = new ParseJSON();
+                        startGenerate.setEnabled(false);
+                        sendGenerated.setEnabled(false);
+                        try {
+                            s.parseJson(tokenFinal[0]);
+                        } catch (FileNotFoundException ex) {
+                            ex.printStackTrace();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                        break;
+                    case SFTP:
+                        SenderSFTP senderSFTP = new SenderSFTP(channelSftp[0]);
+                        try {
+                            senderSFTP.sendDataToServer();
+                        } catch (SftpException ex) {
+                            ex.printStackTrace();
+                        } catch (JSchException ex) {
+                            ex.printStackTrace();
+                        }
                 }
+
                 button1.setEnabled(true);
                 button2.setEnabled(true);
             }
