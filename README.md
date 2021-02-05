@@ -18,7 +18,7 @@ Digital healthcare provided by the NHS in England typically operates in silos. G
 
 ## Installation
 1. `git clone https://github.com/spe-uob/Healthcare-Data-Simulators.git`
-2. Add [this jar file](https://github.com/synthetichealth/synthea/releases/download/master-branch-latest/synthea-with-dependencies.jar) to the root file.
+2. Add [this jar file](https://wetransfer.com/downloads/ce2ff56f0390f976ef0e31884c7172aa20210204142704/fc6191eb2baf7175b23add3f343a560d20210204142729/da907e?utm_campaign=WT_email_tracking&utm_content=general&utm_medium=download_button&utm_source=notify_recipient_email) to the root file.
 3. Enjoy!
 
 ## Contributors
