@@ -246,16 +246,12 @@ public static void main(String args[]) throws FileNotFoundException {
         public void actionPerformed(ActionEvent e) {
             switch(protocol[0]) {
                 case HTTP:
-//                    ParseJSON s = new ParseJSON();
-//                    startGenerate.setEnabled(false);
-//                    sendGenerated.setEnabled(false);
-//                    try {
-//                        s.parseJson(tokenFinal[0]);
-//                    } catch (FileNotFoundException ex) {
-//                        ex.printStackTrace();
-//                    } catch (IOException ex) {
-//                        ex.printStackTrace();
-//                    }
+                    Send sender = new Send();
+                    try {
+                        sender.SendResource(DATA.BINARY, selectedFile[0], null, null, tokenFinal[0]);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     break;
                 case SFTP:
                     SenderSFTP senderSFTP = new SenderSFTP(channelSftp[0]);

@@ -35,7 +35,7 @@ public class ParseJSON {
                 String url = p.getChildByName("request").getValues().get(0).getChildByName("url").getValues().get(0).toString();
                 url = url.substring(8, url.length() - 1);
                 Send sender = new Send();
-                sender.SendResource(url, rawData, accesstoken);
+                sender.SendResource(GUI.DATA.SYNTHEA, null, url, rawData, accesstoken);
 
             }
       }
