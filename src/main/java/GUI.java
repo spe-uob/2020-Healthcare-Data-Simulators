@@ -8,6 +8,7 @@ import javax.swing.text.NumberFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.NumberFormat;
@@ -18,9 +19,16 @@ public class GUI {
         HTTP,
         SFTP,
     }
+    enum DATA{
+        MIRTH,
+        SYNTHEA,
+        BINARY,
+    }
 public static void main(String args[]) throws FileNotFoundException {
     final String[] tokenFinal = new String[1];
     final PROTOCOLS[] protocol = new PROTOCOLS[1];
+    final DATA[] data = new DATA[1];
+    final File[] selectedFile = {new File("")};
     final ChannelSftp[] channelSftp = {null};
     BasicConfigurator.configure();
     //GUI
@@ -29,6 +37,7 @@ public static void main(String args[]) throws FileNotFoundException {
     final JFrame httpFrame = new JFrame("HTTP Connection details");
     final JFrame generateFrame = new JFrame("Custom settings for generation");
     final JFrame sftpFrame = new JFrame("SFTP Connection details");
+    final JFrame uploadFrame = new JFrame("Upload a file directly");
     GridBagConstraints constraints = new GridBagConstraints();
     constraints.insets = new Insets(5, 5, 5, 5);
     constraints.anchor = GridBagConstraints.WEST;
@@ -43,7 +52,7 @@ public static void main(String args[]) throws FileNotFoundException {
     httpFrame.setSize(375,600);
     frame.setSize(375, 600);
     generateFrame.setSize(375, 600);
-
+    uploadFrame.setSize(375, 600);
     //Connection option menu
     final JButton httpOption = new JButton("HTTP");
     final JButton sftpOption = new JButton("SFTP");
@@ -118,13 +127,29 @@ public static void main(String args[]) throws FileNotFoundException {
 
     //Menu ( GUI 2 )
     JPanel panel = new JPanel(new GridBagLayout());
-    final JButton button1 = new JButton("Generate patients using synthea");
-    panel.add(button1, constraints);
-    final JButton button2 = new JButton("Use Mirth");
-    panel.add(button2, constraints);
+    final JButton buttonSynthea = new JButton("Generate data");
+    panel.add(buttonSynthea, constraints);
+    final JButton buttonMirth = new JButton("Use Mirth");
+    panel.add(buttonMirth, constraints);
+    final JButton buttonUpload = new JButton("Upload file");
+    panel.add(buttonUpload, constraints);
     frame.add(panel);
 
-    button2.setEnabled(false);
+    buttonMirth.setEnabled(false);
+
+    // Upload Frame
+    JPanel panelUpload = new JPanel(new GridBagLayout());
+    final JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+    final JButton buttonUploadFile = new JButton("Upload");
+    panelUpload.add(buttonUploadFile);
+    final JButton buttonSendFile = new JButton("Send");
+    panelUpload.add(buttonSendFile);
+    final JLabel displayFile = new JLabel("");
+    panelUpload.add(displayFile);
+
+
+    uploadFrame.add(panelUpload);
 
     //Configurations (GUI 2.1)
     final JButton startGenerate = new JButton("Generate !");
@@ -215,6 +240,35 @@ public static void main(String args[]) throws FileNotFoundException {
 
 //    final JButton httpOption = new JButton("HTTP");
 //    final JButton sftpOption = new JButton("SFTP");
+
+    buttonSendFile.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            switch(protocol[0]) {
+                case HTTP:
+//                    ParseJSON s = new ParseJSON();
+//                    startGenerate.setEnabled(false);
+//                    sendGenerated.setEnabled(false);
+//                    try {
+//                        s.parseJson(tokenFinal[0]);
+//                    } catch (FileNotFoundException ex) {
+//                        ex.printStackTrace();
+//                    } catch (IOException ex) {
+//                        ex.printStackTrace();
+//                    }
+                    break;
+                case SFTP:
+                    SenderSFTP senderSFTP = new SenderSFTP(channelSftp[0]);
+                    try {
+                        senderSFTP.sendDataToServer(DATA.BINARY, selectedFile[0]);
+                    } catch (SftpException ex) {
+                        ex.printStackTrace();
+                    } catch (JSchException ex) {
+                        ex.printStackTrace();
+                    }
+            }
+        }
+    });
     httpOption.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
@@ -256,7 +310,6 @@ public static void main(String args[]) throws FileNotFoundException {
         }
     });
     buttonNext.addActionListener(new ActionListener() {
-
         @Override
         public void actionPerformed(ActionEvent e) {
 
@@ -273,17 +326,45 @@ public static void main(String args[]) throws FileNotFoundException {
     });
 
 
-    button1.addActionListener(new ActionListener() {
+    buttonSynthea.addActionListener(new ActionListener() {
+        @Override
         public void actionPerformed(ActionEvent e) {
             // this makes sure the button you are pressing is the button variable
-            if(e.getSource() == button1) {
+            if(e.getSource() == buttonSynthea) {
+                data[0] = DATA.SYNTHEA;
                 frame.setVisible(false);
                 generateFrame.setVisible(true);
             }
         }
     });
+    buttonUpload.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // this makes sure the button you are pressing is the button variable
+            if(e.getSource() == buttonUpload) {
+                data[0] = DATA.BINARY;
+                frame.setVisible(false);
+                uploadFrame.setVisible(true);
+            }
+        }
+    });
+
+    buttonUploadFile.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getSource() == buttonUploadFile){
+                int result = fileChooser.showOpenDialog(uploadFrame);
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    selectedFile[0] = fileChooser.getSelectedFile();
+                    displayFile.setText(selectedFile[0].getAbsolutePath());
+
+                }
+            }
+        }
+    });
 
     startGenerate.addActionListener(new ActionListener() {
+        @Override
         public void actionPerformed(ActionEvent e) {
             // this makes sure the button you are pressing is the button variable
             if(e.getSource() == startGenerate) {
@@ -301,6 +382,7 @@ public static void main(String args[]) throws FileNotFoundException {
         }
     });
     sendGenerated.addActionListener(new ActionListener() {
+        @Override
         public void actionPerformed(ActionEvent e) {
             // this makes sure the button you are pressing is the button variable
             if(e.getSource() == sendGenerated) {
@@ -321,7 +403,7 @@ public static void main(String args[]) throws FileNotFoundException {
                     case SFTP:
                         SenderSFTP senderSFTP = new SenderSFTP(channelSftp[0]);
                         try {
-                            senderSFTP.sendDataToServer();
+                            senderSFTP.sendDataToServer(DATA.SYNTHEA,null);
                         } catch (SftpException ex) {
                             ex.printStackTrace();
                         } catch (JSchException ex) {
@@ -329,8 +411,8 @@ public static void main(String args[]) throws FileNotFoundException {
                         }
                 }
 
-                button1.setEnabled(true);
-                button2.setEnabled(true);
+                buttonSynthea.setEnabled(true);
+                //button2.setEnabled(true);
             }
         }
     });
