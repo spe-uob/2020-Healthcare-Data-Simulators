@@ -34,6 +34,7 @@ public class Send {
             case BINARY:
                 String fileName = file.toString();
                 if(fileName.contains("jpeg")) {
+                    //POST REQUEST TO GET URL
                     MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/json");
                     RequestBody requestBody = RequestBody.create(MEDIA_TYPE_MARKDOWN, "{\n  \"resourceType\": \"Binary\",\n  \"contentType\": \"image/jpeg\"\n}");
                     Request request2 = new Request.Builder()
@@ -52,9 +53,25 @@ public class Send {
                     System.out.println(jsonData);
 
                     Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                    JSONBinaryResponse user = gson.fromJson(jsonData, JSONBinaryResponse.class);
+                    JSONBinaryResponse jsonBinaryResponse = gson.fromJson(jsonData, JSONBinaryResponse.class);
                     System.out.println("THIS IS THE PRESIDGNED URL BOYYYYYYYYY:");
-                    System.out.println(user.getPresignedPutUrl());
+                    String presignedPutUrl = jsonBinaryResponse.getPresignedPutUrl();
+                    System.out.println(presignedPutUrl);
+
+                    //2nd REQUEST - PUT
+                    MediaType mediaTypeImage = MediaType.parse("image/jpeg");
+                    InputStream inputStream =  new FileInputStream(file);
+                    RequestBody requestBodyImage = RequestBodyUtil.create(mediaTypeImage, inputStream);
+                    Request request3 = new Request.Builder()
+                            .url(presignedPutUrl)
+                            .method("PUT", requestBodyImage)
+                            .addHeader("Content-Type", "image/jpeg")
+                            //.addHeader("x-api-key", "pqkLkOczhV6DVXNWVasFJauRPoWsyNjf63MRacJj")
+                            //.addHeader("Authorization", "Bearer " + accessToken)
+                            .build();
+
+                    Response response3 = client.newCall(request3).execute();
+                    System.out.println(response3);
                     break;
                 }
         }
