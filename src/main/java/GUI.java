@@ -249,12 +249,8 @@ public static void main(String args[]) throws FileNotFoundException {
         public void actionPerformed(ActionEvent e) {
             switch(protocol[0]) {
                 case HTTP:
-                    Send sender = new Send();
-                    try {
-                        sender.SendResource(DATA.BINARY, selectedFile[0], null, null, tokenFinal[0]);
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
+                    Send sender = new Send(DATA.BINARY, selectedFile[0], null, null, tokenFinal[0]);
+                    sender.run();
                     break;
                 case SFTP:
                     SenderSFTP senderSFTP = new SenderSFTP(channelSftp[0]);

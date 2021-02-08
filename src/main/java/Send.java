@@ -9,30 +9,47 @@ import java.io.*;
 import java.nio.Buffer;
 import java.util.concurrent.TimeUnit;
 
-public class Send {
+public class Send implements Runnable {
+    GUI.DATA d;
+    File file;
+    String url;
+    String rawData;
+    String accessToken;
+    public Send(GUI.DATA d, File file, String url, String rawData, String accessToken){
+        this.d = d;
+        this.file = file;
+        this.url = url;
+        this.rawData = rawData;
+        this.accessToken = accessToken;
+    }
 
-
-    public void SendResource(GUI.DATA d, File file, String url, String rawData, String accessToken) throws IOException {
+    @Override
+    public void run() {
         final OkHttpClient client = new OkHttpClient();
-        client.setConnectTimeout(10000, TimeUnit.SECONDS);
-        client.setReadTimeout(1000, TimeUnit.SECONDS);
-        client.setWriteTimeout(1000, TimeUnit.SECONDS);
-        switch (d) {
+        client.setConnectTimeout(100000, TimeUnit.SECONDS);
+        client.setReadTimeout(1000000, TimeUnit.SECONDS);
+        client.setWriteTimeout(1000000, TimeUnit.SECONDS);
+        switch (this.d) {
             case SYNTHEA:
                 MediaType mediaType = MediaType.parse("application/json");
-                RequestBody body = RequestBody.create(mediaType, rawData);
+                RequestBody body = RequestBody.create(mediaType, this.rawData);
                 Request request1 = new Request.Builder()
-                        .url("https://e81uscwufb.execute-api.eu-west-2.amazonaws.com/dev/" + url)
+                        .url("https://e81uscwufb.execute-api.eu-west-2.amazonaws.com/dev/" + this.url)
                         .method("POST", body)
                         .addHeader("Content-Type", "application/json")
                         .addHeader("x-api-key", "pqkLkOczhV6DVXNWVasFJauRPoWsyNjf63MRacJj")
-                        .addHeader("Authorization", "Bearer " + accessToken)
+                        .addHeader("Authorization", "Bearer " + this.accessToken)
                         .build();
-                Response response1 = client.newCall(request1).execute();
+                Response response1 = null;
+                try {
+                    response1 = client.newCall(request1).execute();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 System.out.println(response1);
                 break;
             case BINARY:
-                String fileName = file.toString();
+                String fileName = this.file.toString();
                 String contentType = "";
                 contentType = "application/octet-stream";
 //                if(fileName.contains("jpeg") || fileName.contains("jpg"))  contentType = "image/jpeg";
@@ -51,14 +68,28 @@ public class Send {
                         .method("POST", requestBody)
                         .addHeader("Content-Type", "application/json")
                         .addHeader("x-api-key", "pqkLkOczhV6DVXNWVasFJauRPoWsyNjf63MRacJj")
-                        .addHeader("Authorization", "Bearer " + accessToken)
+                        .addHeader("Authorization", "Bearer " + this.accessToken)
                         .build();
 
-                Response response2 = client.newCall(request2).execute();
+                Response response2 = null;
+                try {
+                    response2 = client.newCall(request2).execute();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 if (!response2.isSuccessful())
-                    throw new IOException("Unexpected code " + response2);
+                    try {
+                        throw new IOException("Unexpected code " + response2);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
-                String jsonData = response2.body().string();
+                String jsonData = null;
+                try {
+                    jsonData = response2.body().string();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 System.out.println(jsonData);
 
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -70,7 +101,12 @@ public class Send {
 
                     //2nd REQUEST - PUT
                 MediaType mediaTypeImage = MediaType.parse("image/jpeg");
-                InputStream inputStream =  new FileInputStream(file);
+                InputStream inputStream = null;
+                try {
+                    inputStream = new FileInputStream(this.file);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
                 RequestBody requestBodyImage = RequestBodyUtil.create(mediaTypeImage, inputStream);
                 Request request3 = new Request.Builder()
                         .url(presignedPutUrl)
@@ -80,11 +116,18 @@ public class Send {
                         //.addHeader("Authorization", "Bearer " + accessToken)
                         .build();
 
-                Response response3 = client.newCall(request3).execute();
+                Response response3 = null;
+                try {
+                    response3 = client.newCall(request3).execute();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 System.out.println(response3);
                 break;
 
 
         }
     }
+
+
 }

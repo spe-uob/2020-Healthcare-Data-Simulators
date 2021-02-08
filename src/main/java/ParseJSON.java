@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ParseJSON {
 
@@ -25,6 +27,7 @@ public class ParseJSON {
         File dir = new File( outputPath);
         System.out.println(dir.getName());
         File[] directoryListing = dir.listFiles();
+        ExecutorService executor = Executors.newFixedThreadPool(5);
         for(File f: directoryListing) {
             System.out.println("Current File: "+ f.getName());
             if(!f.getName().contains("json")) continue;
@@ -34,10 +37,11 @@ public class ParseJSON {
                 String rawData = parser.encodeResourceToString(rsc);
                 String url = p.getChildByName("request").getValues().get(0).getChildByName("url").getValues().get(0).toString();
                 url = url.substring(8, url.length() - 1);
-                Send sender = new Send();
-                sender.SendResource(GUI.DATA.SYNTHEA, null, url, rawData, accesstoken);
-
+                executor.execute(new Send(GUI.DATA.SYNTHEA, null, url, rawData, accesstoken));
+//                Send sender = new Send(GUI.DATA.SYNTHEA, null, url, rawData, accesstoken);
+//                sender.run();
             }
       }
+        executor.shutdown();
     }
 }
