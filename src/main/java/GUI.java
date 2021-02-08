@@ -4,6 +4,7 @@ import com.jcraft.jsch.SftpException;
 import org.apache.log4j.BasicConfigurator;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.NumberFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -140,6 +141,8 @@ public static void main(String args[]) throws FileNotFoundException {
     // Upload Frame
     JPanel panelUpload = new JPanel(new GridBagLayout());
     final JFileChooser fileChooser = new JFileChooser();
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("", "jpg", "png", "jpeg", "pdf","mpeg","mp4","csv","txt","doc","docx");
+    fileChooser.setFileFilter(filter);
     fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
     final JButton buttonUploadFile = new JButton("Upload");
     panelUpload.add(buttonUploadFile);

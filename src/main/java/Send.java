@@ -33,47 +33,58 @@ public class Send {
                 break;
             case BINARY:
                 String fileName = file.toString();
-                if(fileName.contains("jpeg")) {
+                String contentType = "";
+                contentType = "application/octet-stream";
+//                if(fileName.contains("jpeg") || fileName.contains("jpg"))  contentType = "image/jpeg";
+//                else if(fileName.contains("png")) contentType = "image/png";
+//                    else if(fileName.contains("pdf")) contentType = "application/pdf";
+//                        else if(fileName.contains("mp4")) contentType = "video/mp4";
+//                            else if(fileName.contains("mpeg")) contentType = "audio/mpeg";
+//                                else if(fileName.contains("csv")) contentType = "text/csv";
+//                                    else if(fileName.contains("txt")) contentType = "text/plain"
+                        ;
                     //POST REQUEST TO GET URL
-                    MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/json");
-                    RequestBody requestBody = RequestBody.create(MEDIA_TYPE_MARKDOWN, "{\n  \"resourceType\": \"Binary\",\n  \"contentType\": \"image/jpeg\"\n}");
-                    Request request2 = new Request.Builder()
-                            .url("https://e81uscwufb.execute-api.eu-west-2.amazonaws.com/dev/Binary")
-                            .method("POST", requestBody)
-                            .addHeader("Content-Type", "application/json")
-                            .addHeader("x-api-key", "pqkLkOczhV6DVXNWVasFJauRPoWsyNjf63MRacJj")
-                            .addHeader("Authorization", "Bearer " + accessToken)
-                            .build();
+                MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/json");
+                RequestBody requestBody = RequestBody.create(MEDIA_TYPE_MARKDOWN, "{\n  \"resourceType\": \"Binary\",\n  \"contentType\": \""+ contentType + "\"\n}");
+                Request request2 = new Request.Builder()
+                        .url("https://e81uscwufb.execute-api.eu-west-2.amazonaws.com/dev/Binary")
+                        .method("POST", requestBody)
+                        .addHeader("Content-Type", "application/json")
+                        .addHeader("x-api-key", "pqkLkOczhV6DVXNWVasFJauRPoWsyNjf63MRacJj")
+                        .addHeader("Authorization", "Bearer " + accessToken)
+                        .build();
 
-                    Response response2 = client.newCall(request2).execute();
-                    if (!response2.isSuccessful())
-                        throw new IOException("Unexpected code " + response2);
+                Response response2 = client.newCall(request2).execute();
+                if (!response2.isSuccessful())
+                    throw new IOException("Unexpected code " + response2);
 
-                    String jsonData = response2.body().string();
-                    System.out.println(jsonData);
+                String jsonData = response2.body().string();
+                System.out.println(jsonData);
 
-                    Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                    JSONBinaryResponse jsonBinaryResponse = gson.fromJson(jsonData, JSONBinaryResponse.class);
-                    System.out.println("THIS IS THE PRESIDGNED URL BOYYYYYYYYY:");
-                    String presignedPutUrl = jsonBinaryResponse.getPresignedPutUrl();
-                    System.out.println(presignedPutUrl);
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                JSONBinaryResponse jsonBinaryResponse = gson.fromJson(jsonData, JSONBinaryResponse.class);
+
+                System.out.println("THIS IS THE PRESIDGNED URL BOYYYYYYYYY:");
+                String presignedPutUrl = jsonBinaryResponse.getPresignedPutUrl();
+                System.out.println(presignedPutUrl);
 
                     //2nd REQUEST - PUT
-                    MediaType mediaTypeImage = MediaType.parse("image/jpeg");
-                    InputStream inputStream =  new FileInputStream(file);
-                    RequestBody requestBodyImage = RequestBodyUtil.create(mediaTypeImage, inputStream);
-                    Request request3 = new Request.Builder()
-                            .url(presignedPutUrl)
-                            .method("PUT", requestBodyImage)
-                            .addHeader("Content-Type", "image/jpeg")
-                            //.addHeader("x-api-key", "pqkLkOczhV6DVXNWVasFJauRPoWsyNjf63MRacJj")
-                            //.addHeader("Authorization", "Bearer " + accessToken)
-                            .build();
+                MediaType mediaTypeImage = MediaType.parse("image/jpeg");
+                InputStream inputStream =  new FileInputStream(file);
+                RequestBody requestBodyImage = RequestBodyUtil.create(mediaTypeImage, inputStream);
+                Request request3 = new Request.Builder()
+                        .url(presignedPutUrl)
+                        .method("PUT", requestBodyImage)
+                        .addHeader("Content-Type", "image/jpeg")
+                        //.addHeader("x-api-key", "pqkLkOczhV6DVXNWVasFJauRPoWsyNjf63MRacJj")
+                        //.addHeader("Authorization", "Bearer " + accessToken)
+                        .build();
 
-                    Response response3 = client.newCall(request3).execute();
-                    System.out.println(response3);
-                    break;
-                }
+                Response response3 = client.newCall(request3).execute();
+                System.out.println(response3);
+                break;
+
+
         }
     }
 }
