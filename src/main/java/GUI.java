@@ -1,6 +1,10 @@
+import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.BasicConfigurator;
 
 import javax.swing.*;
@@ -26,6 +30,7 @@ public class GUI {
         BINARY,
     }
 public static void main(String args[]) throws FileNotFoundException {
+    FlatIntelliJLaf.install();
     final String[] tokenFinal = new String[1];
     final PROTOCOLS[] protocol = new PROTOCOLS[1];
     final DATA[] data = new DATA[1];
@@ -39,14 +44,23 @@ public static void main(String args[]) throws FileNotFoundException {
     final JFrame generateFrame = new JFrame("Custom settings for generation");
     final JFrame sftpFrame = new JFrame("SFTP Connection details");
     final JFrame uploadFrame = new JFrame("Upload a file directly");
+    connectionOptionsFrame.setResizable(false);
+    frame.setResizable(false);
+    httpFrame.setResizable(false);
+    generateFrame.setResizable(false);
+    sftpFrame.setResizable(false);
+    uploadFrame.setResizable(false);
+
     GridBagConstraints constraints = new GridBagConstraints();
     constraints.insets = new Insets(5, 5, 5, 5);
-    constraints.anchor = GridBagConstraints.WEST;
+    constraints.anchor = GridBagConstraints.SOUTH;
 
     connectionOptionsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     httpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     generateFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    sftpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    uploadFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     connectionOptionsFrame.setSize(375,600);
     sftpFrame.setSize(375,600);
@@ -137,19 +151,23 @@ public static void main(String args[]) throws FileNotFoundException {
     frame.add(panel);
 
     buttonMirth.setEnabled(false);
-
     // Upload Frame
     JPanel panelUpload = new JPanel(new GridBagLayout());
+
     final JFileChooser fileChooser = new JFileChooser();
     FileNameExtensionFilter filter = new FileNameExtensionFilter("", "jpg", "png", "jpeg", "pdf","mpeg","mp4","csv","txt","doc","docx");
     fileChooser.setFileFilter(filter);
     fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
     final JButton buttonUploadFile = new JButton("Upload");
+
+
     panelUpload.add(buttonUploadFile);
     final JButton buttonSendFile = new JButton("Send");
-    panelUpload.add(buttonSendFile);
+    panelUpload.add(buttonSendFile,constraints);
     final JLabel displayFile = new JLabel("");
-    panelUpload.add(displayFile);
+    GridBagConstraints c1 = new GridBagConstraints();
+    constraints.anchor = GridBagConstraints.PAGE_START;
+    panelUpload.add(displayFile,c1);
 
 
     uploadFrame.add(panelUpload);
