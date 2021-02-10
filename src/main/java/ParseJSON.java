@@ -20,7 +20,6 @@ public class ParseJSON {
 
         // Instantiate a new parser
         IParser parser = ctx.newJsonParser();
-        IParser parser2 = ctx.newJsonParser();
         // Parse it
         //Patient parsed = parser.parseResource(Patient.class, input);
         String outputPath = System.getProperty("user.dir").concat("/output/fhir/");
@@ -38,8 +37,6 @@ public class ParseJSON {
                 String url = p.getChildByName("request").getValues().get(0).getChildByName("url").getValues().get(0).toString();
                 url = url.substring(8, url.length() - 1);
                 executor.execute(new Send(GUI.DATA.SYNTHEA, null, url, rawData, accesstoken));
-//                Send sender = new Send(GUI.DATA.SYNTHEA, null, url, rawData, accesstoken);
-//                sender.run();
             }
       }
         executor.shutdown();

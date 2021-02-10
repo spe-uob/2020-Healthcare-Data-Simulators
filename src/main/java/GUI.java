@@ -30,6 +30,7 @@ public class GUI {
         BINARY,
     }
 public static void main(String args[]) throws FileNotFoundException {
+
     FlatIntelliJLaf.install();
     final String[] tokenFinal = new String[1];
     final PROTOCOLS[] protocol = new PROTOCOLS[1];
@@ -44,12 +45,14 @@ public static void main(String args[]) throws FileNotFoundException {
     final JFrame generateFrame = new JFrame("Custom settings for generation");
     final JFrame sftpFrame = new JFrame("SFTP Connection details");
     final JFrame uploadFrame = new JFrame("Upload a file directly");
+    final JFrame uploadFrameConv = new JFrame("Convertor");
     connectionOptionsFrame.setResizable(false);
     frame.setResizable(false);
     httpFrame.setResizable(false);
     generateFrame.setResizable(false);
     sftpFrame.setResizable(false);
     uploadFrame.setResizable(false);
+    //uploadFrameConv.setResizable(false);
 
     GridBagConstraints constraints = new GridBagConstraints();
     constraints.insets = new Insets(5, 5, 5, 5);
@@ -61,13 +64,14 @@ public static void main(String args[]) throws FileNotFoundException {
     generateFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     sftpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     uploadFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+    uploadFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     connectionOptionsFrame.setSize(375,600);
     sftpFrame.setSize(375,600);
     httpFrame.setSize(375,600);
     frame.setSize(375, 600);
     generateFrame.setSize(375, 600);
     uploadFrame.setSize(375, 600);
+    uploadFrameConv.setSize(375, 600);
     //Connection option menu
     final JButton httpOption = new JButton("HTTP");
     final JButton sftpOption = new JButton("SFTP");
@@ -144,13 +148,12 @@ public static void main(String args[]) throws FileNotFoundException {
     JPanel panel = new JPanel(new GridBagLayout());
     final JButton buttonSynthea = new JButton("Generate data");
     panel.add(buttonSynthea, constraints);
-    final JButton buttonMirth = new JButton("Use Mirth");
+    final JButton buttonMirth = new JButton("Convertor HL7");
     panel.add(buttonMirth, constraints);
     final JButton buttonUpload = new JButton("Upload file");
     panel.add(buttonUpload, constraints);
     frame.add(panel);
 
-    buttonMirth.setEnabled(false);
     // Upload Frame
     JPanel panelUpload = new JPanel(new GridBagLayout());
 
@@ -159,8 +162,6 @@ public static void main(String args[]) throws FileNotFoundException {
     fileChooser.setFileFilter(filter);
     fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
     final JButton buttonUploadFile = new JButton("Upload");
-
-
     panelUpload.add(buttonUploadFile);
     final JButton buttonSendFile = new JButton("Send");
     panelUpload.add(buttonSendFile,constraints);
@@ -168,10 +169,29 @@ public static void main(String args[]) throws FileNotFoundException {
     GridBagConstraints c1 = new GridBagConstraints();
     constraints.anchor = GridBagConstraints.PAGE_START;
     panelUpload.add(displayFile,c1);
-
-
     uploadFrame.add(panelUpload);
+    //Converter
 
+    JPanel panelUploadConv = new JPanel(new GridBagLayout());
+
+    final JFileChooser fileChooserConv = new JFileChooser();
+    FileNameExtensionFilter filterConv = new FileNameExtensionFilter("", "txt");
+    fileChooser.setFileFilter(filterConv);
+    fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+
+    final JButton buttonUploadFileConv = new JButton("Upload");
+    panelUploadConv.add(buttonUploadFileConv);
+    final JButton buttonConvertFileConv = new JButton("Convert to HL7 FHIR");
+    panelUploadConv.add(buttonConvertFileConv);
+    final JButton buttonSendFileConv = new JButton("Send");
+    panelUploadConv.add(buttonSendFileConv,constraints);
+    final JLabel displayFileConv = new JLabel("");
+    GridBagConstraints c1Conv = new GridBagConstraints();
+    constraints.anchor = GridBagConstraints.PAGE_START;
+    panelUploadConv.add(displayFileConv,c1Conv);
+    uploadFrameConv.add(panelUploadConv);
+    buttonConvertFileConv.setEnabled(false);
+    buttonSendFileConv.setEnabled(false);
     //Configurations (GUI 2.1)
     final JButton startGenerate = new JButton("Generate !");
     final JButton sendGenerated = new JButton("Send");
@@ -375,6 +395,48 @@ public static void main(String args[]) throws FileNotFoundException {
             }
         }
     });
+    buttonUploadFileConv.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getSource() == buttonUploadFileConv){
+                int resultConv = fileChooserConv.showOpenDialog(uploadFrameConv);
+                if (resultConv == JFileChooser.APPROVE_OPTION) {
+                    selectedFile[0] = fileChooserConv.getSelectedFile();
+                    displayFile.setText(selectedFile[0].getAbsolutePath());
+                    buttonConvertFileConv.setEnabled(true);
+                }
+            }
+        }
+    });
+
+    buttonConvertFileConv.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            Convertor c = new Convertor();
+            c.Convertor(selectedFile[0].getAbsolutePath());
+            buttonSendFileConv.setEnabled(true);
+        }
+    });
+
+    buttonSendFileConv.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+         ParseJSONConverted parseJSONConverted = new ParseJSONConverted();
+            try {
+                parseJSONConverted.parseJson(tokenFinal[0]);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    });
+
+    buttonMirth.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            frame.setVisible(false);
+            uploadFrameConv.setVisible(true);
+        }
+    });
 
     startGenerate.addActionListener(new ActionListener() {
         @Override
@@ -429,6 +491,7 @@ public static void main(String args[]) throws FileNotFoundException {
             }
         }
     });
+
 
 
 
