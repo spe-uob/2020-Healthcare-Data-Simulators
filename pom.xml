@@ -7,10 +7,21 @@
     <groupId>groupId</groupId>
     <artifactId>Healthcare-Data-Simulators</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 
-
-<properties>
+    <properties>
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
 </properties>
@@ -59,6 +70,11 @@
             <groupId>com.formdev</groupId>
             <artifactId>flatlaf</artifactId>
             <version>1.0-rc3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>5.10.0</version>
         </dependency>
     </dependencies>
 </project>
