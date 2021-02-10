@@ -1,6 +1,7 @@
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
 import static org.apache.commons.codec.Charsets.UTF_8;
@@ -15,7 +16,7 @@ public class Consumer {
 
         while (true) {
             channel.basicConsume("hello-world", true, (consumerTag, message) -> {
-                String m = new String(message.getBody(), UTF_8);
+                String m = new String(message.getBody(), StandardCharsets.UTF_8);
                 System.out.println("Message received: " + m);
 
             }, consumerTag -> {
