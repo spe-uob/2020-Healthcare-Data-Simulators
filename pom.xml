@@ -72,18 +72,15 @@
             <version>1.0-rc3</version>
         </dependency>
         <dependency>
-<<<<<<< HEAD
             <groupId>io.github.linuxforhealth</groupId>
             <artifactId>hl7v2-fhir-converter</artifactId>
             <version>1.0.4</version>
             <scope>runtime</scope>
         </dependency>
-
-=======
+        <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
             <version>5.10.0</version>
         </dependency>
->>>>>>> e4d06385d028ce8b4a6f507d66681855dfb5a297
     </dependencies>
 </project>

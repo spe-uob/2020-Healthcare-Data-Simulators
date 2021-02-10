@@ -421,11 +421,25 @@ public static void main(String args[]) throws FileNotFoundException {
     buttonSendFileConv.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-         ParseJSONConverted parseJSONConverted = new ParseJSONConverted();
-            try {
-                parseJSONConverted.parseJson(tokenFinal[0]);
-            } catch (IOException e) {
-                e.printStackTrace();
+            switch (protocol[0]) {
+                case HTTP:
+                    ParseJSONConverted parseJSONConverted = new ParseJSONConverted();
+                    try {
+                        parseJSONConverted.parseJson(tokenFinal[0]);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case SFTP:
+                    SenderSFTP senderSFTP = new SenderSFTP(channelSftp[0]);
+                    try {
+                        senderSFTP.sendDataToServer(DATA.BINARY, new File(System.getProperty("user.dir").concat("/ConvertedFile.json")));
+                    } catch (SftpException ex) {
+                        ex.printStackTrace();
+                    } catch (JSchException ex) {
+                        ex.printStackTrace();
+                    }
+
             }
         }
     });

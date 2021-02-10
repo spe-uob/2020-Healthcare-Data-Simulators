@@ -9,6 +9,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.rabbitmq:amqp-client:5.10.0" level="project" />
     <orderEntry type="library" name="Maven: ca.uhn.hapi.fhir:hapi-fhir-base:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.9" level="project" />
@@ -39,7 +40,6 @@
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: com.jcraft:jsch:0.1.55" level="project" />
     <orderEntry type="library" name="Maven: com.formdev:flatlaf:1.0-rc3" level="project" />
-<<<<<<< HEAD
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.github.linuxforhealth:hl7v2-fhir-converter:1.0.4" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.yaml:snakeyaml:1.24" level="project" />
@@ -78,8 +78,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: ca.uhn.hapi:hapi-structures-v26:2.3" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.1" level="project" />
-=======
     <orderEntry type="library" name="Maven: com.rabbitmq:amqp-client:5.10.0" level="project" />
->>>>>>> e4d06385d028ce8b4a6f507d66681855dfb5a297
   </component>
 </module>
