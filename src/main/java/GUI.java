@@ -6,6 +6,7 @@ import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.BasicConfigurator;
+import org.w3c.dom.Text;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -23,6 +24,7 @@ public class GUI {
     enum PROTOCOLS{
         HTTP,
         SFTP,
+        messageBroker,
     }
     enum DATA{
         MIRTH,
@@ -30,6 +32,9 @@ public class GUI {
         BINARY,
     }
 public static void main(String args[]) throws FileNotFoundException {
+
+    //MessageBrokerSender xxx = new MessageBrokerSender("healthcaredatasim", "philipisthebestclient", "b-2b8a65ac-59e8-4888-b0ed-093a848d3775.mq.us-east-1.amazonaws.com", "5671");
+    //xxx.Send();
 
     FlatIntelliJLaf.install();
     final String[] tokenFinal = new String[1];
@@ -39,48 +44,103 @@ public static void main(String args[]) throws FileNotFoundException {
     final ChannelSftp[] channelSftp = {null};
     BasicConfigurator.configure();
     //GUI
+
+    // Frames
     final JFrame connectionOptionsFrame = new JFrame("Connection options");
     final JFrame frame = new JFrame("Healthcare Data Simulators");
     final JFrame httpFrame = new JFrame("HTTP Connection details");
     final JFrame generateFrame = new JFrame("Custom settings for generation");
     final JFrame sftpFrame = new JFrame("SFTP Connection details");
+    final JFrame messageBrokerFrame = new JFrame("Message Broker Details");
     final JFrame uploadFrame = new JFrame("Upload a file directly");
     final JFrame uploadFrameConv = new JFrame("Convertor");
+
+    // Settings for frames
     connectionOptionsFrame.setResizable(false);
     frame.setResizable(false);
     httpFrame.setResizable(false);
     generateFrame.setResizable(false);
     sftpFrame.setResizable(false);
+    messageBrokerFrame.setResizable(false);
     uploadFrame.setResizable(false);
     //uploadFrameConv.setResizable(false);
 
+    // Constraints on positioning
     GridBagConstraints constraints = new GridBagConstraints();
     constraints.insets = new Insets(5, 5, 5, 5);
     constraints.anchor = GridBagConstraints.SOUTH;
 
+    // Exit button
     connectionOptionsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     httpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     generateFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     sftpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    messageBrokerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     uploadFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     uploadFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    // Frame sizes
     connectionOptionsFrame.setSize(375,600);
+    messageBrokerFrame.setSize(375,600);
     sftpFrame.setSize(375,600);
     httpFrame.setSize(375,600);
     frame.setSize(375, 600);
     generateFrame.setSize(375, 600);
     uploadFrame.setSize(375, 600);
     uploadFrameConv.setSize(375, 600);
-    //Connection option menu
+
+    // Connection option menu
     final JButton httpOption = new JButton("HTTP");
     final JButton sftpOption = new JButton("SFTP");
+    final JButton messageBrokerOption = new JButton("Message Broker");
     JPanel panelOptions = new JPanel(new GridBagLayout());
     panelOptions.add(httpOption);
     panelOptions.add(sftpOption);
+    panelOptions.add(messageBrokerOption);
     connectionOptionsFrame.add(panelOptions);
     connectionOptionsFrame.setVisible(true);
-    //SFTP
+
+
+    // Message Broker
+    final JButton buttonNextMsgBroker = new JButton("Next");
+    JPanel panelMsgBroker = new JPanel(new GridBagLayout());
+    panelMsgBroker.add(buttonNextMsgBroker);
+    final JLabel msgBrokerEndpoint = new JLabel("Endpoint");
+    final JLabel msgBrokerPort = new JLabel("Port");
+    final JLabel msgBrokerUsername = new JLabel("Username");
+    final JLabel msgBrokerPassword = new JLabel("Password");
+    msgBrokerEndpoint.setBounds(10, 10, 140, 25);
+    msgBrokerPort.setBounds(10, 50, 120, 25);
+    msgBrokerUsername.setBounds(10,90,120,25);
+    msgBrokerPassword.setBounds(10, 130, 120, 25);
+
+
+    final TextField msgBrokerEndpoint_tb = new TextField("b-2b8a65ac-59e8-4888-b0ed-093a848d3775.mq.us-east-1.amazonaws.com");
+    final TextField msgBrokerPort_tb = new TextField("5671");
+    final TextField msgBrokerUsername_tb = new TextField("healthcaredatasim");
+    final JPasswordField msgBrokerPassword_tb = new JPasswordField("philipisthebestclient");
+    msgBrokerEndpoint_tb.setBounds(150, 10, 200, 25);
+    msgBrokerPort_tb.setBounds(150, 50, 200, 25);
+    msgBrokerUsername_tb.setBounds(150, 90, 200, 25);
+    msgBrokerPassword_tb.setBounds(150, 130, 200, 25);
+
+
+    messageBrokerFrame.add(msgBrokerEndpoint);
+    messageBrokerFrame.add(msgBrokerPort);
+    messageBrokerFrame.add(msgBrokerUsername);
+    messageBrokerFrame.add(msgBrokerPassword);
+    messageBrokerFrame.add(msgBrokerEndpoint_tb);
+    messageBrokerFrame.add(msgBrokerPort_tb);
+    messageBrokerFrame.add(msgBrokerUsername_tb);
+    messageBrokerFrame.add(msgBrokerPassword_tb);
+    messageBrokerFrame.add(panelMsgBroker);
+
+    messageBrokerFrame.setVisible(false);
+
+
+
+    // SFTP
     final JButton buttonNextSFTP = new JButton("Next");
     JPanel panelServer = new JPanel(new GridBagLayout());
     panelServer.add(buttonNextSFTP);
@@ -316,6 +376,15 @@ public static void main(String args[]) throws FileNotFoundException {
             protocol[0] = PROTOCOLS.SFTP;
             connectionOptionsFrame.setVisible(false);
             sftpFrame.setVisible(true);
+        }
+    });
+
+    messageBrokerOption.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            protocol[0] = PROTOCOLS.messageBroker;
+            connectionOptionsFrame.setVisible(false);
+            messageBrokerFrame.setVisible(true);
         }
     });
 
