@@ -9,7 +9,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: com.rabbitmq:amqp-client:5.10.0" level="project" />
     <orderEntry type="library" name="Maven: ca.uhn.hapi.fhir:hapi-fhir-base:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.9" level="project" />
@@ -40,44 +39,6 @@
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: com.jcraft:jsch:0.1.55" level="project" />
     <orderEntry type="library" name="Maven: com.formdev:flatlaf:1.0-rc3" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.github.linuxforhealth:hl7v2-fhir-converter:1.0.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.yaml:snakeyaml:1.24" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.core:jackson-core:2.10.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: ca.uhn.hapi.fhir:hapi-fhir-validation:5.1.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: ca.uhn.hapi.fhir:hapi-fhir-converter:5.1.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: ca.uhn.hapi.fhir:org.hl7.fhir.convertors:5.1.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: ca.uhn.hapi.fhir:org.hl7.fhir.r5:5.1.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: net.sf.saxon:Saxon-HE:9.5.1-5" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: ca.uhn.hapi.fhir:org.hl7.fhir.validation:5.1.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: ca.uhn.hapi.fhir:org.hl7.fhir.dstu2:5.1.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: ca.uhn.hapi.fhir:org.hl7.fhir.dstu2016may:5.1.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: ca.uhn.hapi.fhir:org.hl7.fhir.dstu3:5.1.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.commons:commons-compress:1.20" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.thymeleaf:thymeleaf:3.0.9.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: ognl:ognl:3.1.12" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.javassist:javassist:3.20.0-GA" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.attoparser:attoparser:2.0.4.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.unbescape:unbescape:1.1.5.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.github.ben-manes.caffeine:caffeine:2.7.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.httpcomponents:httpclient:4.5.12" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.httpcomponents:httpcore:4.4.13" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.commons:commons-jexl3:3.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: commons-logging:commons-logging:1.2" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.commons:commons-configuration2:2.7" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.commons:commons-collections4:4.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.ibm.fhir:fhir-registry:4.4.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.ibm.fhir:fhir-term:4.4.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: commons-beanutils:commons-beanutils:1.9.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.commons:commons-math3:3.6.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.10.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: ca.uhn.hapi:hapi-base:2.3" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: joda-time:joda-time:2.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: ca.uhn.hapi:hapi-structures-v26:2.3" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.1" level="project" />
     <orderEntry type="library" name="Maven: com.rabbitmq:amqp-client:5.10.0" level="project" />
   </component>
 </module>
