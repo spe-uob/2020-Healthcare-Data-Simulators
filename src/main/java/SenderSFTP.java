@@ -13,7 +13,7 @@ public class SenderSFTP {
     public void sendDataToServer(GUI.DATA d, File file) throws SftpException, JSchException {
        // System.out.println(this.channelSftp.getHome());
         this.channelSftp.connect();
-        System.out.println("Am intrat");
+        //System.out.println("Am intrat");
         switch (d) {
             case SYNTHEA:
                 String outputPath = System.getProperty("user.dir").concat("/output/fhir/");
@@ -25,9 +25,10 @@ public class SenderSFTP {
                     this.channelSftp.put(outputPath.concat(f.getName()), f.getName());
                 }
                 break;
+
             case BINARY:
-                if(file == null) JOptionPane.showMessageDialog(null, "No File to upload","Error!", JOptionPane.ERROR_MESSAGE);
-                else{
+                if (file == null) JOptionPane.showMessageDialog(null, "No File to upload","Error!", JOptionPane.ERROR_MESSAGE);
+                else {
                     System.out.println(file.getAbsolutePath());
                     this.channelSftp.put(file.getAbsolutePath(),file.getName());
 

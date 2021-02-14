@@ -22,14 +22,14 @@ public class MessageBrokerReceiver {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-        channel.queueDeclare("hello-world", false, false, false, null);
+        channel.queueDeclare("test-queue", false, false, false, null);
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), "UTF-8");
             System.out.println(" [x] Received '" + message + "'");
         };
-        channel.basicConsume("hello-world", true, deliverCallback, consumerTag -> { });
+        channel.basicConsume("test-queue", true, deliverCallback, consumerTag -> { });
 
     }
     

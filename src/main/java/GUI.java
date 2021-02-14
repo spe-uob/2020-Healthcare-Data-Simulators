@@ -1,12 +1,8 @@
-import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.formdev.flatlaf.FlatLightLaf;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.BasicConfigurator;
-import org.w3c.dom.Text;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -24,7 +20,7 @@ public class GUI {
     enum PROTOCOLS{
         HTTP,
         SFTP,
-        messageBroker,
+        MESSAGE_BROKER,
     }
     enum DATA{
         MIRTH,
@@ -35,6 +31,7 @@ public static void main(String args[]) throws FileNotFoundException {
 
     //MessageBrokerSender xxx = new MessageBrokerSender("healthcaredatasim", "philipisthebestclient", "b-2b8a65ac-59e8-4888-b0ed-093a848d3775.mq.us-east-1.amazonaws.com", "5671");
     //xxx.Send();
+    final MessageBroker[] msgBroker = new MessageBroker[1];
 
     FlatIntelliJLaf.install();
     final String[] tokenFinal = new String[1];
@@ -359,6 +356,12 @@ public static void main(String args[]) throws FileNotFoundException {
                     } catch (JSchException ex) {
                         ex.printStackTrace();
                     }
+                case MESSAGE_BROKER:
+                    try {
+                        msgBroker[0].Send(DATA.BINARY, selectedFile[0]);
+                    } catch (Exception e2) {
+                        System.out.println(e2);
+                    }
             }
         }
     });
@@ -382,7 +385,7 @@ public static void main(String args[]) throws FileNotFoundException {
     messageBrokerOption.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            protocol[0] = PROTOCOLS.messageBroker;
+            protocol[0] = PROTOCOLS.MESSAGE_BROKER;
             connectionOptionsFrame.setVisible(false);
             messageBrokerFrame.setVisible(true);
         }
@@ -391,6 +394,24 @@ public static void main(String args[]) throws FileNotFoundException {
 //    sftpRemoteHost.setBounds(10,10,140,25);
 //    sftpUsername.setBounds(10,50,120,25);
 //    sftpPassword.setBounds(10,90,120,25);
+
+
+    buttonNextMsgBroker.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+         msgBroker[0] = new MessageBroker(msgBrokerEndpoint_tb.getText(), msgBrokerPort_tb.getText(), msgBrokerUsername_tb.getText(), msgBrokerPassword_tb.getText());
+          try {
+              msgBroker[0].Connect();
+              JOptionPane.showMessageDialog(null, "Connection established!","Success!", JOptionPane.INFORMATION_MESSAGE);
+              messageBrokerFrame.setVisible(false);
+              frame.setVisible(true);
+
+          } catch (Exception e) {
+              System.out.println(e);
+              JOptionPane.showMessageDialog(null, "Could not establish connection!\nTry Again!","Error", JOptionPane.ERROR_MESSAGE);
+          }
+        }
+    });
 
     buttonNextSFTP.addActionListener(new ActionListener() {
         @Override
@@ -406,7 +427,6 @@ public static void main(String args[]) throws FileNotFoundException {
                 }
             } catch (JSchException e) {
                 JOptionPane.showMessageDialog(null, "Could not establish connection!\nTry Again!","Error", JOptionPane.ERROR_MESSAGE);
-
 
             }
         }
@@ -499,6 +519,7 @@ public static void main(String args[]) throws FileNotFoundException {
                         e.printStackTrace();
                     }
                     break;
+
                 case SFTP:
                     SenderSFTP senderSFTP = new SenderSFTP(channelSftp[0]);
                     try {
@@ -508,6 +529,15 @@ public static void main(String args[]) throws FileNotFoundException {
                     } catch (JSchException ex) {
                         ex.printStackTrace();
                     }
+
+                case MESSAGE_BROKER:
+                    try {
+                        msgBroker[0].Send(DATA.BINARY, new File(System.getProperty("user.dir").concat("/ConvertedFile.json")));
+
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+
 
             }
         }
@@ -567,6 +597,14 @@ public static void main(String args[]) throws FileNotFoundException {
                         } catch (JSchException ex) {
                             ex.printStackTrace();
                         }
+
+                    case MESSAGE_BROKER:
+                        try {
+                            msgBroker[0].Send(DATA.SYNTHEA, null);
+                        } catch (Exception e2) {
+                            System.out.println(e2);
+                        }
+
                 }
 
                 buttonSynthea.setEnabled(true);
