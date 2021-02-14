@@ -14,13 +14,14 @@ Digital healthcare provided by the NHS in England typically operates in silos. G
 ## Requirements 
 1. Java 11
 2. Python 3 
-3. boto3 module for Python
+3. boto3 module for Python `pip install boto3`
+
 
 ## Installation
 1. `git clone https://github.com/spe-uob/Healthcare-Data-Simulators.git`
 2. Add [this jar file](https://wetransfer.com/downloads/ce2ff56f0390f976ef0e31884c7172aa20210204142704/fc6191eb2baf7175b23add3f343a560d20210204142729/da907e?utm_campaign=WT_email_tracking&utm_content=general&utm_medium=download_button&utm_source=notify_recipient_email) to the root file.
 3. Add [this jar file](https://drive.google.com/file/d/1hjNVsVvLq2367R2de8Y2Fw4iPEm4D1qs/view?usp=sharing) to the root file.
-3. Enjoy!
+4. Enjoy!
 
 ## Contributors
 Vlad Andrei Bucur  
