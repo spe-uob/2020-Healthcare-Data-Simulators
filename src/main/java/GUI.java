@@ -17,17 +17,21 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class GUI {
-    enum PROTOCOLS{
+    GUI() {
+
+    }
+
+    public enum PROTOCOLS{
         HTTP,
         SFTP,
         MESSAGE_BROKER,
     }
-    enum DATA{
+    public enum DATA{
         MIRTH,
         SYNTHEA,
         BINARY,
     }
-public static void main(String args[]) throws FileNotFoundException {
+public static void Run() throws FileNotFoundException {
 
     //MessageBrokerSender xxx = new MessageBrokerSender("healthcaredatasim", "philipisthebestclient", "b-2b8a65ac-59e8-4888-b0ed-093a848d3775.mq.us-east-1.amazonaws.com", "5671");
     //xxx.Send();
