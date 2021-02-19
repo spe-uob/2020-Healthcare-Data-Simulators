@@ -1,11 +1,10 @@
+package com.healthcare.team;
+
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.parser.IParser;
-import ca.uhn.fhir.parser.StrictErrorHandler;
 import org.hl7.fhir.r4.model.*;
 
-import java.awt.datatransfer.DataFlavor;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;

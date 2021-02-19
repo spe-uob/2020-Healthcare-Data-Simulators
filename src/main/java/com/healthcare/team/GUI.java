@@ -1,3 +1,5 @@
+package com.healthcare.team;
+
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSchException;
@@ -17,7 +19,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class GUI {
-    GUI() {
+    public GUI() {
 
     }
 
@@ -31,9 +33,10 @@ public class GUI {
         SYNTHEA,
         BINARY,
     }
-public static void Run() throws FileNotFoundException {
+public void Run() throws FileNotFoundException {
 
-    //MessageBrokerSender xxx = new MessageBrokerSender("healthcaredatasim", "philipisthebestclient", "b-2b8a65ac-59e8-4888-b0ed-093a848d3775.mq.us-east-1.amazonaws.com", "5671");
+
+  /*  //MessageBrokerSender xxx = new MessageBrokerSender("healthcaredatasim", "philipisthebestclient", "b-2b8a65ac-59e8-4888-b0ed-093a848d3775.mq.us-east-1.amazonaws.com", "5671");
     //xxx.Send();
     final MessageBroker[] msgBroker = new MessageBroker[1];
 
@@ -615,10 +618,6 @@ public static void Run() throws FileNotFoundException {
                 //button2.setEnabled(true);
             }
         }
-    });
-
-
-
-
-}
+    }); */
+    }
 }

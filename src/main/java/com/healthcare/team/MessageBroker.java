@@ -1,4 +1,4 @@
-/* https://aws.amazon.com/amazon-mq/?amazon-mq.sort-by=item.additionalFields.postDateTime&amazon-mq.sort-order=desc */
+package com.healthcare.team;/* https://aws.amazon.com/amazon-mq/?amazon-mq.sort-by=item.additionalFields.postDateTime&amazon-mq.sort-order=desc */
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
