@@ -1,9 +1,9 @@
-package com.healthcare.team;/* https://aws.amazon.com/amazon-mq/?amazon-mq.sort-by=item.additionalFields.postDateTime&amazon-mq.sort-order=desc */
+/* https://aws.amazon.com/amazon-mq/?amazon-mq.sort-by=item.additionalFields.postDateTime&amazon-mq.sort-order=desc */
+package com.healthcare.team;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-
 
 import javax.swing.*;
 import java.io.File;
@@ -13,6 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Objects;
 import java.util.concurrent.TimeoutException;
 
 public class MessageBroker {
@@ -20,7 +21,7 @@ public class MessageBroker {
     Connection conn;
     boolean connected = false;
 
-    MessageBroker(String connectionString, String port, String username, String password) {
+    public MessageBroker(String connectionString, String port, String username, String password) {
         this.username = username;
         this.password = password;
         this.connectionString = connectionString;
@@ -47,15 +48,12 @@ public class MessageBroker {
             Channel chh = conn.createChannel();
             chh.queueDeclare("test-queue", false, false, false, null);
 
-            //byte[] content = Files.readString(Paths.get(new File("data.json").toURI())).getBytes();
-
             switch (d) {
                 case SYNTHEA:
                     String outputPath = System.getProperty("user.dir").concat("/output/fhir/");
                     File dir = new File(outputPath);
                     System.out.println(dir.getName());
-                    File[] directoryListing = dir.listFiles();
-                    for (File f : directoryListing) {
+                    for (File f : Objects.requireNonNull(dir.listFiles())) {
                         if (!f.getName().contains("json")) continue;
                         chh.basicPublish("", "test-queue", null, Files.readString(Paths.get(f.toURI())).getBytes());
                     }
@@ -75,13 +73,11 @@ public class MessageBroker {
 
             JOptionPane.showMessageDialog(null, "Transfer successful!","Success!", JOptionPane.INFORMATION_MESSAGE);
 
-            //chh.basicPublish("", "hello-world", null, content);
-
             conn.close();
 
 
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 }

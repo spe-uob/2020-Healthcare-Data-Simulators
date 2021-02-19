@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 class OAuth {
     String token;
@@ -17,17 +18,16 @@ class OAuth {
        this.password = password;
     }
 
-    private String getFullCommand(){
-        String fullCommand = "python3 src/main/java/cognito_auth.py ";
+    private String[] getFullCommand(){
+        String fullCommand = "python3 src/main/java/com/healthcare/team/cognito_auth.py ";
         fullCommand = fullCommand + this.client_id + " "+ this.region + " " + this.username + " " + this.password;
-        return fullCommand;
+        return fullCommand.split(" ");
     }
     public void generateToken() {
         System.out.println("Getting token...");
         ProcessBuilder processBuilder = new ProcessBuilder();
-        String fullCommand = getFullCommand();
-        System.out.println(fullCommand);
-        processBuilder.command("bash","-c",fullCommand);
+        String[] fullCommand = getFullCommand();
+        processBuilder.command(fullCommand[0], fullCommand[1], fullCommand[2], fullCommand[3], fullCommand[4], fullCommand[5]);
 
         try {
 
@@ -41,17 +41,17 @@ class OAuth {
             while((line = reader.readLine()) != null) {
                 output.append((line));
             }
-            
-            //System.out.println(output);
+
             this.token = output.toString();
+            if (this.token.equals("")) {
+                JOptionPane.showMessageDialog(null,
+                        "Error getting token","Error!", JOptionPane.ERROR_MESSAGE);
+                throw new NullPointerException("No token generated!");
+            }
             System.out.println("Token received!");
-
-            //JOptionPane.showMessageDialog(null, "1 Pacient has been generated","Success!", JOptionPane.INFORMATION_MESSAGE);
-
-
         }
-        catch (IOException er) {
-            System.out.println(er);
+        catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
