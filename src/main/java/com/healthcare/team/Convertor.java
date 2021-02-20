@@ -1,6 +1,5 @@
 package com.healthcare.team;
 
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,7 +11,7 @@ public class Convertor {
         return x;
 
     }
-    public void Convertor(String path){
+    public void convertor(String path){
         System.out.println("Converting...");
         ProcessBuilder p = new ProcessBuilder();
         String command = getCommand(path);
@@ -29,7 +28,7 @@ public class Convertor {
 
             String line;
             while((line = reader.readLine()) != null) {
-                output.append((line + '\n'));
+                output.append(line).append('\n');
             }
 
             //System.out.println(output);

@@ -83,7 +83,7 @@ public class Compute {
 
     }
 
-    public String generatePatient() {
+    public void generatePatient() {
 
         System.out.println("Starting...");
         ProcessBuilder processBuilder = new ProcessBuilder();
@@ -112,13 +112,11 @@ public class Compute {
             } else {
                 JOptionPane.showMessageDialog(null,
                         "Generation Successful", "Success!", JOptionPane.INFORMATION_MESSAGE);
-                return output.toString();
             }
 
         }
         catch (IOException e) {
             e.printStackTrace();
         }
-        return "";
     }
 }

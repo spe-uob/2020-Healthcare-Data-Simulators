@@ -6,6 +6,7 @@ import com.jcraft.jsch.SftpException;
 
 import javax.swing.*;
 import java.io.File;
+import java.util.Objects;
 
 public class SenderSFTP {
     ChannelSftp channelSftp;
@@ -21,8 +22,8 @@ public class SenderSFTP {
                 String outputPath = System.getProperty("user.dir").concat("/output/fhir/");
                 File dir = new File(outputPath);
                 System.out.println(dir.getName());
-                File[] directoryListing = dir.listFiles();
-                for (File f : directoryListing) {
+
+                for (File f : Objects.requireNonNull(dir.listFiles())) {
                     if (!f.getName().contains("json")) continue;
                     this.channelSftp.put(outputPath.concat(f.getName()), f.getName());
                 }

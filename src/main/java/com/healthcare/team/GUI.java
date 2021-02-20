@@ -227,7 +227,7 @@ public class GUI {
         });
         buttonConvertFileConv.addActionListener(actionEvent -> {
             Convertor c = new Convertor();
-            c.Convertor(selectedFile[0].getAbsolutePath());
+            c.convertor(selectedFile[0].getAbsolutePath());
             buttonSendFileConv.setEnabled(true);
         });
         buttonUploadFile.addActionListener(actionEvent -> {
