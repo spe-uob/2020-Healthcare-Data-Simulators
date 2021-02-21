@@ -1,12 +1,10 @@
-
+package com.healthcare.team;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
 import com.squareup.okhttp.*;
 
 import java.io.*;
-import java.nio.Buffer;
 import java.util.concurrent.TimeUnit;
 
 public class Send implements Runnable {
@@ -50,8 +48,7 @@ public class Send implements Runnable {
                 break;
             case BINARY:
                 String fileName = this.file.toString();
-                String contentType = "";
-                contentType = "application/octet-stream";
+                String contentType = "application/octet-stream";
 //                if(fileName.contains("jpeg") || fileName.contains("jpg"))  contentType = "image/jpeg";
 //                else if(fileName.contains("png")) contentType = "image/png";
 //                    else if(fileName.contains("pdf")) contentType = "application/pdf";
@@ -59,7 +56,7 @@ public class Send implements Runnable {
 //                            else if(fileName.contains("mpeg")) contentType = "audio/mpeg";
 //                                else if(fileName.contains("csv")) contentType = "text/csv";
 //                                    else if(fileName.contains("txt")) contentType = "text/plain"
-                        ;
+
                     //POST REQUEST TO GET URL
                 MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/json");
                 RequestBody requestBody = RequestBody.create(MEDIA_TYPE_MARKDOWN, "{\n  \"resourceType\": \"Binary\",\n  \"contentType\": \""+ contentType + "\"\n}");
@@ -77,57 +74,56 @@ public class Send implements Runnable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                if (!response2.isSuccessful())
+                if (response2 != null) {
+                    if (!response2.isSuccessful()) {
+                        try {
+                            throw new IOException("Unexpected code " + response2);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    String jsonData = null;
                     try {
-                        throw new IOException("Unexpected code " + response2);
+                        jsonData = response2.body().string();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    System.out.println(jsonData);
 
-                String jsonData = null;
-                try {
-                    jsonData = response2.body().string();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(jsonData);
+                    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                    JSONBinaryResponse jsonBinaryResponse = gson.fromJson(jsonData, JSONBinaryResponse.class);
 
-                Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                JSONBinaryResponse jsonBinaryResponse = gson.fromJson(jsonData, JSONBinaryResponse.class);
-
-                System.out.println("THIS IS THE PRESIDGNED URL BOYYYYYYYYY:");
-                String presignedPutUrl = jsonBinaryResponse.getPresignedPutUrl();
-                System.out.println(presignedPutUrl);
+                    System.out.println("THIS IS THE PRESIDGNED URL BOYYYYYYYYY:");
+                    String presignedPutUrl = jsonBinaryResponse.getPresignedPutUrl();
+                    System.out.println(presignedPutUrl);
 
                     //2nd REQUEST - PUT
-                MediaType mediaTypeImage = MediaType.parse("image/jpeg");
-                InputStream inputStream = null;
-                try {
-                    inputStream = new FileInputStream(this.file);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
+                    MediaType mediaTypeImage = MediaType.parse("image/jpeg");
+                    InputStream inputStream = null;
+                    try {
+                        inputStream = new FileInputStream(this.file);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    RequestBody requestBodyImage = RequestBodyUtil.create(mediaTypeImage, inputStream);
+                    Request request3 = new Request.Builder()
+                            .url(presignedPutUrl)
+                            .method("PUT", requestBodyImage)
+                            .addHeader("Content-Type", "image/jpeg")
+                            //.addHeader("x-api-key", "pqkLkOczhV6DVXNWVasFJauRPoWsyNjf63MRacJj")
+                            //.addHeader("Authorization", "Bearer " + accessToken)
+                            .build();
+
+                    Response response3 = null;
+                    try {
+                        response3 = client.newCall(request3).execute();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(response3);
+                    break;
                 }
-                RequestBody requestBodyImage = RequestBodyUtil.create(mediaTypeImage, inputStream);
-                Request request3 = new Request.Builder()
-                        .url(presignedPutUrl)
-                        .method("PUT", requestBodyImage)
-                        .addHeader("Content-Type", "image/jpeg")
-                        //.addHeader("x-api-key", "pqkLkOczhV6DVXNWVasFJauRPoWsyNjf63MRacJj")
-                        //.addHeader("Authorization", "Bearer " + accessToken)
-                        .build();
-
-                Response response3 = null;
-                try {
-                    response3 = client.newCall(request3).execute();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(response3);
-                break;
-
-
         }
     }
-
-
 }

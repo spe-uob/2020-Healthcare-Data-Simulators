@@ -1,13 +1,13 @@
+package com.healthcare.team;
+
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.parser.IParser;
-import ca.uhn.fhir.parser.StrictErrorHandler;
 import org.hl7.fhir.r4.model.*;
 
-import java.awt.datatransfer.DataFlavor;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -27,7 +27,7 @@ public class ParseJSON {
         System.out.println(dir.getName());
         File[] directoryListing = dir.listFiles();
         ExecutorService executor = Executors.newFixedThreadPool(5);
-        for(File f: directoryListing) {
+        for(File f: Objects.requireNonNull(directoryListing)) {
             System.out.println("Current File: "+ f.getName());
             if(!f.getName().contains("json")) continue;
             Bundle bundle = parser.parseResource(Bundle.class, new FileReader(outputPath.concat(f.getName())));

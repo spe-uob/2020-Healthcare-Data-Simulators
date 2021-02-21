@@ -1,3 +1,5 @@
+package com.healthcare.team;
+
 public class JSONBinaryResponse {
         private String resourceType;
         private String contentType;

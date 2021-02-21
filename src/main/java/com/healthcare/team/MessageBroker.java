@@ -1,9 +1,9 @@
 /* https://aws.amazon.com/amazon-mq/?amazon-mq.sort-by=item.additionalFields.postDateTime&amazon-mq.sort-order=desc */
+package com.healthcare.team;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-
 
 import javax.swing.*;
 import java.io.File;
@@ -13,31 +13,47 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Objects;
 import java.util.concurrent.TimeoutException;
 
 public class MessageBroker {
-    String username, password, connectionString, port;
-    Connection conn;
-    boolean connected = false;
+    private final String username, password, connectionString, port;
+    private Connection conn;
 
-    MessageBroker(String connectionString, String port, String username, String password) {
+    public MessageBroker(String connectionString, String port, String username, String password) {
         this.username = username;
         this.password = password;
         this.connectionString = connectionString;
         this.port = port;
+        valueChecks();
     }
 
-    public Connection Connect() throws NoSuchAlgorithmException, KeyManagementException, URISyntaxException, IOException, TimeoutException {
+    private void valueChecks() {
+        if (username == null || password == null
+                || connectionString == null || port == null)
+            throw new NullPointerException("values cannot be null!");
+
+        if (username.equals("") || password.equals("")
+                || connectionString.equals("") || port.equals(""))
+            throw new IllegalArgumentException("values cannot be empty!");
+    }
+
+    public void Connect() {
         ConnectionFactory factory = new ConnectionFactory();
 
         //settings for AWS
-        factory.setUri("amqps://" + username + ":" + password + "@" + connectionString + ":" + port);
+        try {
+            factory.setUri("amqps://" + username + ":" + password + "@" + connectionString + ":" + port);
+        } catch (URISyntaxException | NoSuchAlgorithmException | KeyManagementException e) {
+            e.printStackTrace();
+        }
 
         // Create a connection
-        conn = factory.newConnection();
-        connected = true;
-
-        return conn;
+        try {
+            conn = factory.newConnection();
+        } catch (IOException | TimeoutException e) {
+            e.printStackTrace();
+        }
     }
 
     public void Send(GUI.DATA d, File file)  {
@@ -47,19 +63,15 @@ public class MessageBroker {
             Channel chh = conn.createChannel();
             chh.queueDeclare("test-queue", false, false, false, null);
 
-            //byte[] content = Files.readString(Paths.get(new File("data.json").toURI())).getBytes();
-
             switch (d) {
                 case SYNTHEA:
                     String outputPath = System.getProperty("user.dir").concat("/output/fhir/");
                     File dir = new File(outputPath);
                     System.out.println(dir.getName());
-                    File[] directoryListing = dir.listFiles();
-                    for (File f : directoryListing) {
+                    for (File f : Objects.requireNonNull(dir.listFiles())) {
                         if (!f.getName().contains("json")) continue;
                         chh.basicPublish("", "test-queue", null, Files.readString(Paths.get(f.toURI())).getBytes());
                     }
-
                     break;
 
                 case BINARY:
@@ -67,21 +79,15 @@ public class MessageBroker {
                     else {
                         System.out.println(file.getAbsolutePath());
                         chh.basicPublish("", "test-queue", null, Files.readString(Paths.get(file.toURI())).getBytes());
-
                     }
-
                     break;
             }
 
             JOptionPane.showMessageDialog(null, "Transfer successful!","Success!", JOptionPane.INFORMATION_MESSAGE);
-
-            //chh.basicPublish("", "hello-world", null, content);
-
             conn.close();
 
-
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
