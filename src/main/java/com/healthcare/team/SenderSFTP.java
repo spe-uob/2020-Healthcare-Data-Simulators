@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class SenderSFTP {
     ChannelSftp channelSftp;
-    SenderSFTP(ChannelSftp channelSftp){
+    public SenderSFTP(ChannelSftp channelSftp){
         this.channelSftp = channelSftp;
     }
     public void sendDataToServer(GUI.DATA d, File file) throws SftpException, JSchException {

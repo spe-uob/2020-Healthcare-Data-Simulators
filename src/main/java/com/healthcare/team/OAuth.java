@@ -7,10 +7,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-class OAuth {
-    String token;
-    String client_id, region, username, password;
-    OAuth(String client_id, String region, String username, String password) {
+public class OAuth {
+    public String token;
+    private final String client_id, region, username, password;
+
+    public OAuth(String client_id, String region, String username, String password) {
        this.token = "";
        this.client_id = client_id;
        this.region = region;
@@ -40,18 +41,23 @@ class OAuth {
             String line;
             while((line = reader.readLine()) != null) {
                 output.append((line));
+                System.out.println(output);
             }
 
             this.token = output.toString();
             if (this.token.equals("")) {
-                JOptionPane.showMessageDialog(null,
-                        "Error getting token","Error!", JOptionPane.ERROR_MESSAGE);
-                throw new NullPointerException("No token generated!");
+                alertUserAuth();
+                throw new IllegalArgumentException("No token generated!");
             }
             System.out.println("Token received!");
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    protected void alertUserAuth() {
+        JOptionPane.showMessageDialog(null,
+                "Error getting token","Error!", JOptionPane.ERROR_MESSAGE);
     }
 }

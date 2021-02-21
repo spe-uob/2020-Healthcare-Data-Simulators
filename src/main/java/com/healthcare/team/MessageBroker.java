@@ -17,28 +17,43 @@ import java.util.Objects;
 import java.util.concurrent.TimeoutException;
 
 public class MessageBroker {
-    String username, password, connectionString, port;
-    Connection conn;
-    boolean connected = false;
+    private final String username, password, connectionString, port;
+    private Connection conn;
 
     public MessageBroker(String connectionString, String port, String username, String password) {
         this.username = username;
         this.password = password;
         this.connectionString = connectionString;
         this.port = port;
+        valueChecks();
     }
 
-    public Connection Connect() throws NoSuchAlgorithmException, KeyManagementException, URISyntaxException, IOException, TimeoutException {
+    private void valueChecks() {
+        if (username == null || password == null
+                || connectionString == null || port == null)
+            throw new NullPointerException("values cannot be null!");
+
+        if (username.equals("") || password.equals("")
+                || connectionString.equals("") || port.equals(""))
+            throw new IllegalArgumentException("values cannot be empty!");
+    }
+
+    public void Connect() {
         ConnectionFactory factory = new ConnectionFactory();
 
         //settings for AWS
-        factory.setUri("amqps://" + username + ":" + password + "@" + connectionString + ":" + port);
+        try {
+            factory.setUri("amqps://" + username + ":" + password + "@" + connectionString + ":" + port);
+        } catch (URISyntaxException | NoSuchAlgorithmException | KeyManagementException e) {
+            e.printStackTrace();
+        }
 
         // Create a connection
-        conn = factory.newConnection();
-        connected = true;
-
-        return conn;
+        try {
+            conn = factory.newConnection();
+        } catch (IOException | TimeoutException e) {
+            e.printStackTrace();
+        }
     }
 
     public void Send(GUI.DATA d, File file)  {
@@ -57,7 +72,6 @@ public class MessageBroker {
                         if (!f.getName().contains("json")) continue;
                         chh.basicPublish("", "test-queue", null, Files.readString(Paths.get(f.toURI())).getBytes());
                     }
-
                     break;
 
                 case BINARY:
@@ -65,18 +79,14 @@ public class MessageBroker {
                     else {
                         System.out.println(file.getAbsolutePath());
                         chh.basicPublish("", "test-queue", null, Files.readString(Paths.get(file.toURI())).getBytes());
-
                     }
-
                     break;
             }
 
             JOptionPane.showMessageDialog(null, "Transfer successful!","Success!", JOptionPane.INFORMATION_MESSAGE);
-
             conn.close();
 
-
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

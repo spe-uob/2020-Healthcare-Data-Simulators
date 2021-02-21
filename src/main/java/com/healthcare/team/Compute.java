@@ -105,18 +105,21 @@ public class Compute {
             }
 
             System.out.println("Success!");
-            if(output.toString().equals("") || output.toString().startsWith("Usage:")) {
-                JOptionPane.showMessageDialog(null,
-                        "Error while generating", "Error!", JOptionPane.ERROR_MESSAGE);
-                throw new NullPointerException("Generating failed!");
-            } else {
-                JOptionPane.showMessageDialog(null,
-                        "Generation Successful", "Success!", JOptionPane.INFORMATION_MESSAGE);
-            }
+            alertUser(output);
 
         }
         catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    protected void alertUser(StringBuilder output) {
+        if(output.toString().equals("") || output.toString().startsWith("Usage:")) {
+            JOptionPane.showMessageDialog(null,
+                    "Error while generating", "Error!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Generation Successful", "Success!", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

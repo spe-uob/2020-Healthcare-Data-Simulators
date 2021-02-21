@@ -6,9 +6,19 @@ import org.junit.*;
 public class ComputeTest {
     private Compute compute;
 
-    @After
-    public void clean() {
+    /*
+        this class ensures no JOptionPanes are created
+         which require user input to continue, hence, Tests pass.
+    */
+    public static class ComputeWithNoJOptionPane extends Compute {
+        public ComputeWithNoJOptionPane(String population, String minAge,
+                                        String maxAge, String gender,
+                                        String module, String state) {
+            super(population, minAge, maxAge, gender, module, state);
+        }
 
+        @Override
+        protected void alertUser(StringBuilder output) {}
     }
 
     @Test(expected = IllegalArgumentException.class, timeout = 15000)
@@ -290,5 +300,18 @@ public class ComputeTest {
                 "California"
         );
         compute.generatePatient();
+    }
+
+    @Test(timeout = 30000)
+    public void testAllCorrectValuesShouldPass() {
+        ComputeWithNoJOptionPane computeWithNoJOptionPane = new ComputeWithNoJOptionPane(
+                "1",
+                "0",
+                "1",
+                "Male",
+                "Allergic-Rhinitis",
+                "Shropshire"
+        );
+        computeWithNoJOptionPane.generatePatient();
     }
 }

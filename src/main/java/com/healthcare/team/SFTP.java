@@ -10,7 +10,7 @@ public class SFTP {
     String remoteHost;
     String username;
     String password;
-    SFTP(String remoteHost, String username, String password){
+    public SFTP(String remoteHost, String username, String password){
         this.remoteHost = remoteHost;
         this.username = username;
         this.password = password;
