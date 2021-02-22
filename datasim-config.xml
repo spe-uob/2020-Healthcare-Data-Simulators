@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>D:\git\Healthcare-Data-Simulators\target\Healthcare-Data-Simulators-1.0-SNAPSHOT.jar</jar>
+  <outfile>D:\git\Healthcare-Data-Simulators\target\datasim.exe</outfile>
+  <errTitle/>
+  <cmdLine/>
+  <chdir>.</chdir>
+  <priority>high</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl/>
+  <stayAlive>true</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest/>
+  <icon/>
+  <classPath>
+    <mainClass>com.healthcare.team.Main</mainClass>
+  </classPath>
+  <jre>
+    <path>D:\java\jdk-11.0.9</path>
+    <bundledJre64Bit>true</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion>11</minVersion>
+    <jdkPreference>preferJdk</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+    <initialHeapSize>512</initialHeapSize>
+    <maxHeapSize>1024</maxHeapSize>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>1.20.RC1</txtFileVersion>
+    <fileDescription>A patient data simulator</fileDescription>
+    <copyright>Copyright (c) 2021</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>1.20.RC1</txtProductVersion>
+    <productName>Healthcare-data-simulator</productName>
+    <internalName>Healthcare-data-simulator</internalName>
+    <originalFilename>datasim.exe</originalFilename>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>

@@ -76,7 +76,7 @@ public class GUI {
         sftpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         messageBrokerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         uploadFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        uploadFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        uploadFrameConv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Frame sizes
         connectionOptionsFrame.setSize(375,600);

@@ -302,7 +302,7 @@ public class ComputeTest {
         compute.generatePatient();
     }
 
-    @Test(timeout = 30000)
+    @Test(timeout = 100000)
     public void testAllCorrectValuesShouldPass() {
         ComputeWithNoJOptionPane computeWithNoJOptionPane = new ComputeWithNoJOptionPane(
                 "1",

@@ -41,7 +41,7 @@ public class Convertor {
                 output.append(line).append('\n');
             }
 
-            System.out.println(output);
+            if (output.toString().equals("")) throw new IOException("Converting hl7 to fhir failed!");
             System.out.println("Success!");
 
         } catch (IOException e) {

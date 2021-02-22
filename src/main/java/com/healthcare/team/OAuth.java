@@ -20,7 +20,7 @@ public class OAuth {
     }
 
     private String[] getFullCommand(){
-        String fullCommand = "python3 src/main/java/com/healthcare/team/cognito_auth.py ";
+        String fullCommand = "python3 cognito_auth.py ";
         fullCommand = fullCommand + this.client_id + " "+ this.region + " " + this.username + " " + this.password;
         return fullCommand.split(" ");
     }
