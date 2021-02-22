@@ -1,6 +1,5 @@
 import boto3
 import sys
-import os
 
 client = boto3.client('cognito-idp', region_name=sys.argv[2])
 '''
