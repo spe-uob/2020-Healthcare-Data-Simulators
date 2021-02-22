@@ -21,7 +21,7 @@ Digital healthcare provided by the NHS in England typically operates in silos. G
 1. `git clone https://github.com/spe-uob/Healthcare-Data-Simulators.git`
 2. Add [this jar file](https://uob-my.sharepoint.com/:u:/g/personal/ot19588_bristol_ac_uk/EUhcf-s5CxlImXKEL_qvIeMBdWifARyrv-qVU8s65zZ3iA?e=vobhgr) to the root file. It is synthea with UK population. 
 3. Add [this jar file](https://drive.google.com/file/d/1hjNVsVvLq2367R2de8Y2Fw4iPEm4D1qs/view?usp=sharing) to the root file.
-4. Enjoy!
+4. If you do not wish to compile the source code, find the windows .exe file in `build_files/` directory. Before running, add the 2 jar files from step 2 and 3 above to `build_files/` directory.
 
 ## Contributors
 Vlad Andrei Bucur  
