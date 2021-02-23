@@ -4,6 +4,7 @@ import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.BasicConfigurator;
 
 import javax.swing.*;
@@ -568,6 +569,11 @@ public class GUI {
                             } catch (IOException ex) {
                                 ex.printStackTrace();
                             }
+//                            try {
+//                                FileUtils.deleteDirectory(new File(System.getProperty("user.dir").concat("/output/")));
+//                            } catch (IOException ex) {
+//                                ex.printStackTrace();
+//                            }
                             break;
                         case SFTP:
                             SenderSFTP senderSFTP = new SenderSFTP(channelSftp[0]);
