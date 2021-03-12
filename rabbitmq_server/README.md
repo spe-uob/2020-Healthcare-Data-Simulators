@@ -17,3 +17,5 @@ The default login credentials are:
 | guest | guest |
 
 
+### Common issues
+If you get any errors compiling Sender/Receiver class please check `dependencies.txt` and make sure you have those dependencies included in your pom.xml.
