@@ -1,8 +1,15 @@
 # Installation and Configuration
 
 ## Windows Setup
+##### *Instructions assume you are currently in `win_setup` directory 
+1. Open `windows_run.bat` and change the location 
+   `D:\git\Healthcare-Data-Simulators\rabbitmq_server\win_installer`to the absolute `win_installer.ps1`
+   powershell script
+   location. Save and exit the file.
+   
 
-1. Right-click on `windows_run.bat` and click `Run as administrator`.
+   ![img.png](img.png)
+   Right-click on `windows_run.bat` and click `Run as administrator`.
 2. Once setup is complete, you can exit the cmd window.
    
 ![img.png](images/img.png)
@@ -30,7 +37,7 @@ the window automatically closes after execution, the execution was successful.
 
 ## Linux Setup
 
-1. Download installer.sh from this folder.
+1. Download installer.sh from `linux_setup` folder.
 2. Run the following command: `sh installation.sh`
 3. To start the server: `sudo service rabbitmq-server start`
 4. You can enable the RabbitMQ web UI (*recommended*): `sudo rabbitmq-plugins enable rabbitmq_management`
