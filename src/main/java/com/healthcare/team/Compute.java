@@ -102,8 +102,12 @@ public class Compute {
             while((line = reader.readLine()) != null) {
                 output.append(line).append('\n');
             }
+            if (output.toString().equals("")) {
+                System.err.println("Generating failed");
+            } else {
+                System.out.println("Success!");
+            }
 
-            System.out.println("Success!");
             alertUser(output);
 
         }
