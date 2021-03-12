@@ -10,13 +10,7 @@
 
    ![img.png](img.png)
    Right-click on `windows_run.bat` and click `Run as administrator`.
-2. Once setup is complete, you can exit the cmd window.
-   
-![img.png](images/img.png)
-   A successful setup.  
-   NB:- In Windows, rabbitmq will be installed as a service rather than a program, hence, when you boot up
-windows, it
-   automatically starts.
+2. Once setup is complete, you can exit the cmd window.![img.png](images/img.png) A successful setup. NB:- In Windows, rabbitmq will be installed as a service rather than a program, hence, when you boot up windows, it automatically starts.
 3. To start the service Right-click on `windows_service_start.bat` and click `Run as administrator`.
 4. You can enable the RabbitMQ web UI (*recommended*) by right-clicking on `windows_web_ui_setup` and
    selecting `Run as administrator`.
