@@ -3,7 +3,7 @@
   <nextMetaDataId>2</nextMetaDataId>
   <name>SupplyDelivery</name>
   <description></description>
-  <revision>7</revision>
+  <revision>8</revision>
   <sourceConnector version="3.10.1">
     <metaDataId>0</metaDataId>
     <name>sourceConnector</name>
@@ -15,7 +15,7 @@
       </pluginProperties>
       <listenerConnectorProperties version="3.10.1">
         <host>0.0.0.0</host>
-        <port>81</port>
+        <port>8086</port>
       </listenerConnectorProperties>
       <sourceConnectorProperties version="3.10.1">
         <responseVariable>None</responseVariable>
@@ -520,7 +520,7 @@ return;</undeployScript>
     <metadata>
       <enabled>true</enabled>
       <lastModified>
-        <time>1615546815554</time>
+        <time>1615551452058</time>
         <timezone>Europe/Bucharest</timezone>
       </lastModified>
       <pruningSettings>

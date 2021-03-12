@@ -3,7 +3,7 @@
   <nextMetaDataId>2</nextMetaDataId>
   <name>Patient</name>
   <description></description>
-  <revision>41</revision>
+  <revision>46</revision>
   <sourceConnector version="3.10.1">
     <metaDataId>0</metaDataId>
     <name>sourceConnector</name>
@@ -15,7 +15,7 @@
       </pluginProperties>
       <listenerConnectorProperties version="3.10.1">
         <host>0.0.0.0</host>
-        <port>81</port>
+        <port>8087</port>
       </listenerConnectorProperties>
       <sourceConnectorProperties version="3.10.1">
         <responseVariable>None</responseVariable>
@@ -73,7 +73,7 @@
         <batchProperties class="com.mirth.connect.plugins.datatypes.delimited.DelimitedBatchProperties" version="3.10.1">
           <splitType>Record</splitType>
           <batchSkipRecords>1</batchSkipRecords>
-          <batchMessageDelimiter>\n</batchMessageDelimiter>
+          <batchMessageDelimiter></batchMessageDelimiter>
           <batchMessageDelimiterIncluded>false</batchMessageDelimiterIncluded>
           <batchGroupingColumn></batchGroupingColumn>
           <batchScript></batchScript>
@@ -767,7 +767,7 @@ return;</undeployScript>
     <metadata>
       <enabled>true</enabled>
       <lastModified>
-        <time>1615468896593</time>
+        <time>1615551470407</time>
         <timezone>Europe/Bucharest</timezone>
       </lastModified>
       <pruningSettings>

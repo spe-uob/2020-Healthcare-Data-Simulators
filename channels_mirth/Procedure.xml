@@ -3,7 +3,7 @@
   <nextMetaDataId>2</nextMetaDataId>
   <name>Procedure</name>
   <description></description>
-  <revision>8</revision>
+  <revision>9</revision>
   <sourceConnector version="3.10.1">
     <metaDataId>0</metaDataId>
     <name>sourceConnector</name>
@@ -15,7 +15,7 @@
       </pluginProperties>
       <listenerConnectorProperties version="3.10.1">
         <host>0.0.0.0</host>
-        <port>81</port>
+        <port>8094</port>
       </listenerConnectorProperties>
       <sourceConnectorProperties version="3.10.1">
         <responseVariable>None</responseVariable>
@@ -512,7 +512,7 @@ return;</undeployScript>
     <metadata>
       <enabled>true</enabled>
       <lastModified>
-        <time>1615471365565</time>
+        <time>1615551536926</time>
         <timezone>Europe/Bucharest</timezone>
       </lastModified>
       <pruningSettings>

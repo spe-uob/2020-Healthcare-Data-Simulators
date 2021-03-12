@@ -3,7 +3,7 @@
   <nextMetaDataId>2</nextMetaDataId>
   <name>CarePlan</name>
   <description></description>
-  <revision>4</revision>
+  <revision>5</revision>
   <sourceConnector version="3.10.1">
     <metaDataId>0</metaDataId>
     <name>sourceConnector</name>
@@ -15,7 +15,7 @@
       </pluginProperties>
       <listenerConnectorProperties version="3.10.1">
         <host>0.0.0.0</host>
-        <port>81</port>
+        <port>8090</port>
       </listenerConnectorProperties>
       <sourceConnectorProperties version="3.10.1">
         <responseVariable>None</responseVariable>
@@ -627,7 +627,7 @@ return;</undeployScript>
     <metadata>
       <enabled>true</enabled>
       <lastModified>
-        <time>1615544175193</time>
+        <time>1615551497045</time>
         <timezone>Europe/Bucharest</timezone>
       </lastModified>
       <pruningSettings>
