@@ -45,6 +45,16 @@ The default login credentials are:
 | :----: |:----:|
 | guest | guest |
 
+## macOS Setup
+You need to have brew installed on your machine (https://brew.sh)
+1. `brew update`
+2. `brew install rabbitmq`
+3. `export PATH=$PATH:/usr/local/sbin`
+4. To start the server: `brew services start rabbitmq`
+5. To stop the server: `brew services stop rabbitmq`
+
+
+
 
 ### Common issues
 If you get any errors compiling Sender/Receiver class please check `dependencies.txt` and make sure
