@@ -41,11 +41,12 @@ public class InitialSetup {
 
                         for (Map.Entry<String, String> check: checksum.entrySet()) {
                             int index = file.toString().lastIndexOf("/");
-                            if (index < 0) {
+                            int index2 = check.getKey().lastIndexOf("/");
+                            if (index < 0 || index2 < 0) {
                                 continue;
                             }
                             String file1 = file.toString().substring(index);
-                            String file2 = check.getKey().substring(check.getKey().lastIndexOf("/"));
+                            String file2 = check.getKey().substring(index2);
 
                             if (file1.equals(file2)) {
                                 if (!check.getValue().equals(sha512hex)) {
