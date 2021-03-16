@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 
 public class Convertor {
     private String getCommand(String path) {
-        String x = "java -jar convertor_hl7-with-dependencies.jar ";
+        String x = "java -jar lib/convertor_hl7-with-dependencies.jar ";
         x += path;
         return x;
 

@@ -17,7 +17,7 @@ public class ParserCustomSettings {
 
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                if (fileName.equals("modules.txt")) strarr.add(data.toLowerCase());
+                if (fileName.contains("modules.txt")) strarr.add(data.toLowerCase());
                     else strarr.add(data);
             }
 

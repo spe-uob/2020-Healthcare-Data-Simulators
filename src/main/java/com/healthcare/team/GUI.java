@@ -32,7 +32,15 @@ public class GUI {
         SYNTHEA,
         BINARY,
     }
+
+    private void initialVerificationSetup() {
+        InitialSetup initialSetup = new InitialSetup();
+        initialSetup.setup();
+    }
+
     public void Run() {
+        initialVerificationSetup();
+
         final MessageBroker[] msgBroker = new MessageBroker[1];
 
         FlatIntelliJLaf.install();
@@ -294,8 +302,8 @@ public class GUI {
 
         ParserCustomSettings pcs = new ParserCustomSettings();
 
-        ArrayList<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat("/regions.txt"));
-        ArrayList<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat("/modules.txt"));
+        ArrayList<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat("/lib/regions.txt"));
+        ArrayList<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat("/lib/modules.txt"));
         String[] choicesGender = {"Male", "Female"};
 
         final JComboBox<String> gen_cb = new JComboBox<>(choicesGender);

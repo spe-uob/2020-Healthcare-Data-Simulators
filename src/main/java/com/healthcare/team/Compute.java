@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Compute {
 
@@ -51,8 +52,8 @@ public class Compute {
         boolean isModule = false;
         boolean validGender = gender.equals("Male") || gender.equals("Female");
         ParserCustomSettings pcs = new ParserCustomSettings();
-        ArrayList<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat("/regions.txt"));
-        ArrayList<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat("/modules.txt"));
+        ArrayList<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat("/lib/regions.txt"));
+        ArrayList<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat("/lib/modules.txt"));
 
         for (String _state : choicesStates) {
             if (_state.equals(state)) {
@@ -61,7 +62,7 @@ public class Compute {
             }
         }
         for (String _module : choicesModules) {
-            if (_module.equals(module)) {
+            if (_module.equals(module.toLowerCase())) {
                 isModule = true;
                 break;
             }
@@ -73,7 +74,7 @@ public class Compute {
     }
 
     private String getCommand() {
-        String x = "java -jar synthea-with-dependencies.jar";
+        String x = "java -jar lib/synthea-with-dependencies.jar";
 
         x += " -p " + this.population + " -g " + (this.gender.equals("Male")? "M" : "F") + " -a "
                 + this.minAge + "-" + this.maxAge + " -m " + "*" + this.module + "*" + " " + this.state;
