@@ -19,7 +19,7 @@
 target/
 output/
 .idea/
-/lib
+/lib/
 /__pycache__/
 
 # Mobile Tools for Java (J2ME)
@@ -38,4 +38,4 @@ output/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-/lib/
+release.properties
