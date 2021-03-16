@@ -23,7 +23,7 @@ public class ConverterTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testImpossibleValueShouldThrow() {
-        converter.convertor("F:\\iAmAFileIDontExist");
+        converter.convertor("F:/iAmAFileIDontExist");
     }
 
 }
