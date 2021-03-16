@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class Compute {
 
@@ -33,19 +32,14 @@ public class Compute {
             throw new NullPointerException("value is null!");
         }
 
-        boolean isNumber = StringUtils.isNumeric(population) && StringUtils.isNumeric(minAge)
-                && StringUtils.isNumeric(maxAge);
-
-        if (isNumber) {
-            if (Integer.parseInt(maxAge) > 200) {
-                throw new IllegalArgumentException("Illegal maximum age!");
-            }
-            if (Integer.parseInt(minAge) < 0) {
-                throw new IllegalArgumentException("Illegal minimum age!");
-            }
-            if (Integer.parseInt(population) > 9999) {
-                throw new IllegalArgumentException("Population given is too big!");
-            }
+        if (Integer.parseInt(maxAge) > 200) {
+            throw new IllegalArgumentException("Illegal maximum age!");
+        }
+        if (Integer.parseInt(minAge) < 0) {
+            throw new IllegalArgumentException("Illegal minimum age!");
+        }
+        if (Integer.parseInt(population) > 9999) {
+            throw new IllegalArgumentException("Population given is too big!");
         }
 
         boolean isState = false;
@@ -68,8 +62,12 @@ public class Compute {
             }
         }
 
-        if (!isNumber || !isState || !isModule || !validGender) {
-            throw new IllegalArgumentException("Illegal Entry!");
+        if (!isState) {
+            throw new IllegalArgumentException("Illegal Entry!, state");
+        } else if (!isModule) {
+            throw new IllegalArgumentException("Illegal Entry!, module");
+        } else if (!validGender) {
+            throw new IllegalArgumentException("Illegal Entry!, gender");
         }
     }
 

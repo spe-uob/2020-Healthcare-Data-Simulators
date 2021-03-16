@@ -1,5 +1,7 @@
 package com.healthcare.team.unit;
 
+import com.healthcare.team.InitialSetup;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -17,4 +19,12 @@ import org.junit.runners.Suite;
         SendTest.class,
         SFTPTest.class
 })
-public class AllTest {}
+
+public class AllTest {
+    @BeforeClass
+    public static void setupTestsClass() {
+        //extract files first before running any test
+        InitialSetup initialSetup = new InitialSetup();
+        initialSetup.setup();
+    }
+}

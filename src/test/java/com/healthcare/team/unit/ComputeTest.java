@@ -1,6 +1,7 @@
 package com.healthcare.team.unit;
 
 import com.healthcare.team.Compute;
+import com.healthcare.team.InitialSetup;
 import org.junit.*;
 
 public class ComputeTest {
@@ -19,6 +20,13 @@ public class ComputeTest {
 
         @Override
         protected void alertUser(StringBuilder output) {}
+    }
+
+    @BeforeClass
+    public static void setupTestsClass() {
+        //extract files first before running any test
+        InitialSetup initialSetup = new InitialSetup();
+        initialSetup.setup();
     }
 
     @Test(expected = IllegalArgumentException.class, timeout = 15000)
