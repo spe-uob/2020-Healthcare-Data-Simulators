@@ -4,7 +4,7 @@
 
     <groupId>com.healthcare.team</groupId>
     <artifactId>healthcare-data-simulators</artifactId>
-    <version>1.4</version>
+    <version>1.5-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
         <maven.compiler.source>1.6</maven.compiler.source>
@@ -54,7 +54,7 @@
         <connection>scm:git:git://github.com/spe-uob/Healthcare-Data-Simulators.git</connection>
         <developerConnection>scm:git:https://github.com/spe-uob/Healthcare-Data-Simulators.git</developerConnection>
         <url>https://github.com/spe-uob/Healthcare-Data-Simulators</url>
-        <tag>healthcare-data-simulators-1.4</tag>
+        <tag>deployment-package</tag>
     </scm>
     <build>
         <pluginManagement>
