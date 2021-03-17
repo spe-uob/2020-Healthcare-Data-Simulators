@@ -39,6 +39,4 @@ output/
 hs_err_pid*
 
 release.properties
-
-Healthcare-Data-Simulators.iml
-
+healthcare-Data-Simulators.iml
