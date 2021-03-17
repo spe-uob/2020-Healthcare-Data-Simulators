@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.healthcare.team.configurationSynthea">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="6" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="532" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="6c9e2" class="javax.swing.JTextField" binding="size">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="df250" class="javax.swing.JTextField" binding="somersetTextField" default-binding="true">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <enabled value="false"/>
+          <text value="Somerset"/>
+        </properties>
+      </component>
+      <component id="8cb61" class="javax.swing.JTextField" binding="minAge">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="0" height="0"/>
+            <preferred-size width="150" height="-1"/>
+            <maximum-size width="100" height="100"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="15c2e" class="javax.swing.JComboBox" binding="module">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <model>
+            <item value="Allergic-Rhinitis"/>
+            <item value="Allergies"/>
+            <item value="Appendicitis"/>
+            <item value="Asthma"/>
+            <item value="Atopy"/>
+            <item value="Attention-Deficit-Disorder"/>
+            <item value="Bronchitis"/>
+            <item value="Colorectal-Cancer"/>
+            <item value="Contraceptives"/>
+            <item value="Contraceptive-Maintenance"/>
+            <item value="Copd"/>
+            <item value="Dementia"/>
+            <item value="Dermatitis"/>
+            <item value="Ear-Infections"/>
+            <item value="Epilepsy"/>
+            <item value="Female-Reproduction"/>
+            <item value="Fibromyalgia"/>
+            <item value="Food-Allergies"/>
+            <item value="Gout"/>
+            <item value="Homelessness"/>
+            <item value="Injuries"/>
+            <item value="Lung-Cancer"/>
+            <item value="Lupus"/>
+            <item value="Med-Rec"/>
+            <item value="Metabolic-Syndrome-Care"/>
+            <item value="Metabolic-Syndrome-Disease"/>
+            <item value="Opioid-Addiction"/>
+            <item value="Osteoarthritis"/>
+            <item value="Osteoporosis"/>
+            <item value="Pregnancy"/>
+            <item value="Rheumatoid-Arthritis"/>
+            <item value="Self-Harm"/>
+            <item value="Sexual-Activity"/>
+            <item value="Sinusitis"/>
+            <item value="Sore-Throat"/>
+            <item value="Total-Joint-Replacement"/>
+            <item value="Urinary-Tract-Infections"/>
+            <item value="Wellness-Encounters"/>
+          </model>
+        </properties>
+      </component>
+      <component id="444" class="javax.swing.JComboBox" binding="sex">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="100" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <model>
+            <item value="male"/>
+            <item value="female"/>
+          </model>
+          <toolTipText value=""/>
+        </properties>
+      </component>
+      <component id="78bde" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Population Size"/>
+        </properties>
+      </component>
+      <component id="b7748" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Age"/>
+        </properties>
+      </component>
+      <component id="a5962" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Gender"/>
+        </properties>
+      </component>
+      <component id="3662c" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Module"/>
+        </properties>
+      </component>
+      <component id="5c2e6" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Region"/>
+        </properties>
+      </component>
+      <component id="7e09d" class="javax.swing.JTextField" binding="maxAge">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+      <hspacer id="2f593">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="ad564" class="javax.swing.JButton" binding="generateButton" default-binding="true">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Generate !"/>
+        </properties>
+      </component>
+      <component id="4c06" class="javax.swing.JButton" binding="sendButton" default-binding="true">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Send !"/>
+        </properties>
+      </component>
+      <hspacer id="75eb9">
+        <constraints>
+          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="31282">
+        <constraints>
+          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+    </children>
+  </grid>
+</form>

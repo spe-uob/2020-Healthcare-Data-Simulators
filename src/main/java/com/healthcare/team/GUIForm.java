@@ -15,7 +15,7 @@ public class GUIForm extends JFrame{
     public GUIForm() {
         add(rootPanel);
         setTitle("Healthcare Data Simulator");
-        setSize(400,500);
+        setSize(500,600);
         somersetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

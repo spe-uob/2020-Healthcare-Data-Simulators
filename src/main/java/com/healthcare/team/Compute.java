@@ -24,7 +24,7 @@ public class Compute {
         this.gender = gender;
         this.module = module;
         this.state = state;
-        checkValuesEntered();
+       // checkValuesEntered();
     }
 
     private void checkValuesEntered() {
@@ -72,10 +72,18 @@ public class Compute {
     }
 
     private String getCommand() {
-        String x = "java -jar lib/synthea-with-dependencies.jar";
+        //String x = "java -jar ../lib/synthea-with-dependencies.jar";
 
-        x += " -p " + this.population + " -g " + (this.gender.equals("Male")? "M" : "F") + " -a "
-                + this.minAge + "-" + this.maxAge + " -m " + "*" + this.module + "*" + " " + this.state;
+        //vlad: cant run it from /lib/
+        String x = "java -jar synthea-with-dependencies.jar";
+
+
+        //  x += " -p " + this.population + " -g " + (this.gender.equals("Male")? "M" : "F") + " -a "
+       //         + this.minAge + "-" + this.maxAge + " -m " + "*" + this.module + "*" + " " + this.state;
+
+      //vlad: on my pc works only without stars *module*
+        x += " -p " + this.population + " -g " + (this.gender.equals("male")? "M" : "F") + " -a "
+                + this.minAge + "-" + this.maxAge + " -m " + this.module  + " " + this.state;
 
         return x;
 
