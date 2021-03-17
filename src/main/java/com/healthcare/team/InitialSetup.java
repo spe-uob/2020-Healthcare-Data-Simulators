@@ -40,13 +40,13 @@ public class InitialSetup {
                         String sha512hex = DigestUtils.sha512Hex(Files.readAllBytes(file.toPath()));
 
                         for (Map.Entry<String, String> check: checksum.entrySet()) {
-                            int index = file.toString().lastIndexOf("/");
+                            int index = file.toString().lastIndexOf(File.separator);
                             int index2 = check.getKey().lastIndexOf("/");
                             if (index < 0 || index2 < 0) {
                                 continue;
                             }
-                            String file1 = file.toString().substring(index);
-                            String file2 = check.getKey().substring(index2);
+                            String file1 = file.toString().substring(index+1);
+                            String file2 = check.getKey().substring(index2+1);
 
                             if (file1.equals(file2)) {
                                 if (!check.getValue().equals(sha512hex)) {
