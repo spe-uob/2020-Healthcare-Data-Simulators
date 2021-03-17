@@ -1,9 +1,8 @@
 package com.healthcare.team;
 
-import org.apache.commons.lang3.StringUtils;
-
 import javax.swing.*;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -46,8 +45,8 @@ public class Compute {
         boolean isModule = false;
         boolean validGender = gender.equals("Male") || gender.equals("Female");
         ParserCustomSettings pcs = new ParserCustomSettings();
-        ArrayList<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat("/lib/regions.txt"));
-        ArrayList<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat("/lib/modules.txt"));
+        ArrayList<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"regions.txt"));
+        ArrayList<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"modules.txt"));
 
         for (String _state : choicesStates) {
             if (_state.equals(state)) {

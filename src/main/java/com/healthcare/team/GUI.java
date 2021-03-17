@@ -300,8 +300,8 @@ public class GUI {
 
         ParserCustomSettings pcs = new ParserCustomSettings();
 
-        ArrayList<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat("/lib/regions.txt"));
-        ArrayList<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat("/lib/modules.txt"));
+        ArrayList<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"regions.txt"));
+        ArrayList<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"modules.txt"));
         String[] choicesGender = {"Male", "Female"};
 
         final JComboBox<String> gen_cb = new JComboBox<>(choicesGender);
