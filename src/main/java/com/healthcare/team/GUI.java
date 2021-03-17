@@ -30,8 +30,12 @@ public class GUI {
         SYNTHEA,
         BINARY,
     }
-
+    private void initialVerificationSetup() {
+        InitialSetup initialSetup = new InitialSetup();
+        initialSetup.setup();
+    }
     public void Run() {
+        initialVerificationSetup();
 
         final MessageBroker[] msgBroker = new MessageBroker[1];
 
