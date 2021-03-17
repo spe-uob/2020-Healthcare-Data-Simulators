@@ -12,11 +12,11 @@ public class FileResourcesUtils {
     private final List<File> required = new ArrayList<>();
 
     public FileResourcesUtils() {
-        required.add(new File("lib/cognito_auth.py"));
-        required.add(new File("lib/synthea-with-dependencies.jar"));
-        required.add(new File("lib/convertor_hl7-with-dependencies.jar"));
-        required.add(new File("lib/regions.txt"));
-        required.add(new File("lib/modules.txt"));
+        required.add(new File("lib"+File.separator+"cognito_auth.py"));
+        required.add(new File("lib"+File.separator+"synthea-with-dependencies.jar"));
+        required.add(new File("lib"+File.separator+"convertor_hl7-with-dependencies.jar"));
+        required.add(new File("lib"+File.separator+"regions.txt"));
+        required.add(new File("lib"+File.separator+"modules.txt"));
     }
 
     public boolean extractResources() {
@@ -39,11 +39,13 @@ public class FileResourcesUtils {
             List<Path> result = app.getPathsFromResourceJAR();
 
             if (result.isEmpty()) {
-                File file = new File("target/classes/lib");
+                String[] location = {"src", "main", "resources", "lib"};
+                File file  = new File(String.join(File.separator, location));
                 result = Files.walk(file.toPath())
                         .filter(Files::isRegularFile)
                         .sorted()
                         .collect(Collectors.toList());
+
                 for (Path path : result) {
                     InputStream is = new FileInputStream(path.toFile());
                     String str = path.toString().substring(19);
@@ -109,7 +111,8 @@ public class FileResourcesUtils {
 
         // file walks JAR
         URI uri = URI.create("jar:file:" + jarPath);
-        File file  = new File("target/classes");
+        String[] location = {"src", "main", "resources", "lib"};
+        File file  = new File(String.join(File.separator, location));
         result = new ArrayList<>();
         if (!file.exists()) {
             try (FileSystem fs = FileSystems.newFileSystem(uri, Collections.emptyMap())) {
@@ -130,7 +133,7 @@ public class FileResourcesUtils {
 
         if (done || dir.exists()) {
             try {
-                os = new FileOutputStream("lib/"+filePath.substring(filePath.lastIndexOf("/")+1));
+                os = new FileOutputStream("lib"+File.separator+filePath.substring(filePath.lastIndexOf(File.separator)+1));
                 byte[] buffer = new byte[1024];
                 int length;
                 while ((length = is.read(buffer)) > 0) {
