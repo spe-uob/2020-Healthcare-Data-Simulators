@@ -71,7 +71,7 @@ public class OAuth {
         factory.setHost("localhost");
         try (Connection connection = factory.newConnection();
              Channel channel = connection.createChannel()) {
-            channel.queueDeclare("TokenQueue", false, false, false, null);
+                channel.queueDeclare("TokenQueue", false, false, false, null);
             String message = this.token;
             channel.basicPublish("", "TokenQueue", null, message.getBytes(StandardCharsets.UTF_8));
             System.out.println(" [x] Sent '" + message + "'");

@@ -3,9 +3,11 @@ package com.healthcare.team;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Objects;
 
-public class ConfigurationSynthea extends JFrame {
+public class configurationSynthea extends JFrame {
     private JTextField size;
     private JPanel panel1;
     private JTextField somersetTextField;
@@ -15,10 +17,8 @@ public class ConfigurationSynthea extends JFrame {
     private JTextField maxAge;
     private JButton generateButton;
     private JButton sendButton;
-    private JButton backButton;
 
-    public ConfigurationSynthea() {
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    public configurationSynthea() {
         add(panel1);
         setTitle("Healthcare Data Simulator");
         setSize(500,600);
@@ -33,20 +33,17 @@ public class ConfigurationSynthea extends JFrame {
                computer.generatePatient();
             }
         });
-       /* backButton.addActionListener(new ActionListener() {
+        sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                GeneratorForm generatorForm = new GeneratorForm();
-                generatorForm.setVisible(true);
-            }
-        });*/
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                GeneratorForm generatorForm = new GeneratorForm();
-                generatorForm.setVisible(true);
+                ParseCSV parseCSV = new ParseCSV();
+                try {
+                    parseCSV.sendToRabbit();
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
     }

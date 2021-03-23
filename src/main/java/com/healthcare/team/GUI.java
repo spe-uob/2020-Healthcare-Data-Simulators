@@ -544,7 +544,6 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 // this makes sure the button you are pressing is the button variable
                 if(e.getSource() == startGenerate) {
-
                     Compute computer = new Compute(pop_tb.getText(), minAge_tb.getText(), maxAge_tb.getText(), Objects.requireNonNull(gen_cb.getSelectedItem()).toString(),
                             Objects.requireNonNull(mod_cb.getSelectedItem()).toString(), Objects.requireNonNull(st_cb.getSelectedItem()).toString());
 

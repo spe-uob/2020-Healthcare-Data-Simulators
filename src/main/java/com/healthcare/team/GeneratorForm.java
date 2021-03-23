@@ -36,6 +36,7 @@ public class GeneratorForm extends JFrame {
                 configurationGUI.setVisible(true);
             }
         });
+
     }
 
 }
