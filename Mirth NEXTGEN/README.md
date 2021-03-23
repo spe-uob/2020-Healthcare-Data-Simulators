@@ -28,6 +28,8 @@ The default login credentials are:
 4. Click on the Extensions icon and select the location of the downloaded file.
 5. Restart **Mirth Server Manager** and **Administrator Launcher**.
 
+## Import the Channels Group 
+1. Import this group in the main tab of Mirth : https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/MirthGroup_Somerset.xml.
 
 ## Other useful links
 1. [Mirth User Guide](https://www.nextgen.com/-/media/files/nextgen-connect/nextgen-connect-310-user-guide.pdf)
