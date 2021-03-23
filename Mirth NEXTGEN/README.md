@@ -31,6 +31,13 @@ The default login credentials are:
 ## Import the Channels Group 
 1. Import this group in the main tab of Mirth : https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/MirthGroup_Somerset.xml.
 
+## Install RabbitMQ Message Broker library
+1. Download `amqp-client-5.11.0.jar` from: https://www.rabbitmq.com/java-client.html.
+2. Go to **Mirth Connect server** folder.
+3. Add the downloaded file to **custom-lib** folder.
+5. Restart **Mirth Server Manager** and **Administrator Launcher**.
+
+
 ## Other useful links
 1. [Mirth User Guide](https://www.nextgen.com/-/media/files/nextgen-connect/nextgen-connect-310-user-guide.pdf)
 2. [FHIR Connector Extension Documentation](http://www.mirthcorp.com/community/wiki/pages/viewpage.action?pageId=38798954)
