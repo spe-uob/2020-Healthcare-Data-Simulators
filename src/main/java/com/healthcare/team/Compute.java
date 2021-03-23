@@ -23,7 +23,7 @@ public class Compute {
         this.gender = gender;
         this.module = module;
         this.state = state;
-       // checkValuesEntered();
+        checkValuesEntered();
     }
 
     private void checkValuesEntered() {
@@ -37,13 +37,16 @@ public class Compute {
         if (Integer.parseInt(minAge) < 0) {
             throw new IllegalArgumentException("Illegal minimum age!");
         }
+        if (Integer.parseInt(minAge) > Integer.parseInt(maxAge)) {
+            throw new IllegalArgumentException("Minimum age is bigger than maximum age!");
+        }
         if (Integer.parseInt(population) > 9999) {
             throw new IllegalArgumentException("Population given is too big!");
         }
 
         boolean isState = false;
         boolean isModule = false;
-        boolean validGender = gender.equals("Male") || gender.equals("Female");
+        boolean validGender = gender.equals("male") || gender.equals("female");
         ParserCustomSettings pcs = new ParserCustomSettings();
         ArrayList<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"regions.txt"));
         ArrayList<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"modules.txt"));
