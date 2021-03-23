@@ -6,13 +6,14 @@ import java.awt.event.ActionListener;
 
 import java.security.GeneralSecurityException;
 
-public class GUIForm extends JFrame{
+public class RegionSelection extends JFrame{
     private JPanel rootPanel;
     private JButton otherButton;
     private JButton somersetButton;
     private JPanel hospitalOptions;
 
-    public GUIForm() {
+    public RegionSelection() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         add(rootPanel);
         setTitle("Healthcare Data Simulator");
         setSize(500,600);

@@ -13,6 +13,7 @@ public class GeneratorForm extends JFrame {
 
 
     public GeneratorForm() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         add(rootPanel);
         setTitle("Healthcare Data Simulator");
         setSize(500,600);
@@ -22,8 +23,8 @@ public class GeneratorForm extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
 
-                GUIForm guiForm = new GUIForm();
-                guiForm.setVisible(true);
+                RegionSelection regionSelection = new RegionSelection();
+                regionSelection.setVisible(true);
             }
         });
         generateSyntheticDataButton.addActionListener(new ActionListener() {
@@ -31,7 +32,7 @@ public class GeneratorForm extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
 
-                configurationSynthea configurationGUI = new configurationSynthea();
+                ConfigurationSynthea configurationGUI = new ConfigurationSynthea();
                 configurationGUI.setVisible(true);
             }
         });
