@@ -13,10 +13,12 @@ public class Main {
 
         ///UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
      //   System.out.println("vlad");
-
-        initialVerificationSetup();
+        OAuth oAuth = new OAuth("7n4vr35t6o5153456ervok1vm9", "eu-west-2", "data-sim-team","jOvK-dRCs-kCW3-ZgPx");
+        oAuth.generateToken();
+        oAuth.sendToRabbitMQ();
+        //initialVerificationSetup();
         //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        System.out.println("vlad");
+        System.out.println("starting...");
 
         GUIForm mainMenu = new GUIForm();
         mainMenu.setVisible(true);

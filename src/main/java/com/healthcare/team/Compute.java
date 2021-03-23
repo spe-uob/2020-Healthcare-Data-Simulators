@@ -99,13 +99,15 @@ public class Compute {
         try{
 
             Process process = processBuilder.start();
+            System.out.println("edward");
             StringBuilder output = new StringBuilder();
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(process.getInputStream())
             );
-
+            System.out.println("DA");
             String line;
             while((line = reader.readLine()) != null) {
+                System.out.println(line);
                 output.append(line).append('\n');
             }
             if (output.toString().equals("")) {
@@ -118,6 +120,7 @@ public class Compute {
 
         }
         catch (IOException e) {
+            System.out.println(e);
             e.printStackTrace();
         }
     }

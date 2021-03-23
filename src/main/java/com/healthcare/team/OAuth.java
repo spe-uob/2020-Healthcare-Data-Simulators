@@ -1,11 +1,17 @@
 package com.healthcare.team;
 
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
+
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.concurrent.TimeoutException;
 
 public class OAuth {
     public String token;
@@ -59,5 +65,20 @@ public class OAuth {
     protected void alertUserAuth() {
         JOptionPane.showMessageDialog(null,
                 "Error getting token","Error!", JOptionPane.ERROR_MESSAGE);
+    }
+    public void sendToRabbitMQ(){
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost("localhost");
+        try (Connection connection = factory.newConnection();
+             Channel channel = connection.createChannel()) {
+            channel.queueDeclare("TokenQueue", false, false, false, null);
+            String message = this.token;
+            channel.basicPublish("", "TokenQueue", null, message.getBytes(StandardCharsets.UTF_8));
+            System.out.println(" [x] Sent '" + message + "'");
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
