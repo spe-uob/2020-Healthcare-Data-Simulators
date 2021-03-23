@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
-public class configurationSynthea extends JFrame {
+public class ConfigurationSynthea extends JFrame {
     private JTextField size;
     private JPanel panel1;
     private JTextField somersetTextField;
@@ -17,13 +17,21 @@ public class configurationSynthea extends JFrame {
     private JTextField maxAge;
     private JButton generateButton;
     private JButton sendButton;
+    private JButton backButton;
 
-    public configurationSynthea() {
+    public ConfigurationSynthea() {
         add(panel1);
         setTitle("Healthcare Data Simulator");
         setSize(500,600);
 
-
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                GeneratorForm generatorForm = new GeneratorForm();
+                generatorForm.setVisible(true);
+            }
+        });
         generateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -33,6 +41,7 @@ public class configurationSynthea extends JFrame {
                computer.generatePatient();
             }
         });
+
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
