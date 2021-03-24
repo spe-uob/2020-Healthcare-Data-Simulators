@@ -3,12 +3,13 @@ package com.healthcare.team;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ParserCustomSettings {
 
-    public ArrayList<String> parse(String fileName) {
-        ArrayList<String> strarr = new ArrayList<>();
+    public List<String> parse(String fileName) {
+        List<String> strarr = new ArrayList<>();
 
         try {
 
@@ -17,8 +18,12 @@ public class ParserCustomSettings {
 
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                if (fileName.contains("modules.txt")) strarr.add(data.toLowerCase());
-                    else strarr.add(data);
+                if (fileName.contains("modules.txt")) {
+                    strarr.add(data.toLowerCase());
+                }
+                else {
+                    strarr.add(data);
+                }
             }
 
             myReader.close();
@@ -30,5 +35,4 @@ public class ParserCustomSettings {
 
         return strarr;
     }
-
 }

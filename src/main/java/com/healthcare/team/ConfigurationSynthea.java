@@ -56,6 +56,4 @@ public class ConfigurationSynthea extends JFrame {
             }
         });
     }
-
-
 }

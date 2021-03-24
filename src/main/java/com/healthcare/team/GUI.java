@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.text.NumberFormat;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class GUI {
@@ -298,8 +298,8 @@ public class GUI {
 
         ParserCustomSettings pcs = new ParserCustomSettings();
 
-        ArrayList<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"regions.txt"));
-        ArrayList<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"modules.txt"));
+        List<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"regions.txt"));
+        List<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"modules.txt"));
         String[] choicesGender = {"Male", "Female"};
 
         final JComboBox<String> gen_cb = new JComboBox<>(choicesGender);
