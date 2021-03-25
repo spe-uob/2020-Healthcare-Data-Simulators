@@ -25,10 +25,8 @@ public class OAuth {
        this.password = password;
     }
 
-    private String[] getFullCommand(){
-        String fullCommand = "python3 lib"+File.separator+"cognito_auth.py ";
-        fullCommand = fullCommand + this.client_id + " "+ this.region + " " + this.username + " " + this.password;
-        return fullCommand.split(" ");
+    private String[] getFullCommand() {
+        return new String[]{"python3 lib" + File.separator + "cognito_auth.py", this.client_id, this.region, this.username, this.password};
     }
     public void generateToken() {
         System.out.println("Getting token...");

@@ -1,17 +1,12 @@
 package com.healthcare.team;
 
 import javax.swing.*;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Predicate;
 
-public class Compute {
+public class Compute extends BashProcess {
 
     private static final List<String> validGenders = Arrays.asList("female", "male");
     private final String population;
@@ -63,7 +58,7 @@ public class Compute {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Illegal Entry!, state"));
 
-        choicesStates.stream().filter(module::equals)
+        choicesModules.stream().filter(module::equals)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Illegal Entry!, module"));
     }
@@ -81,39 +76,11 @@ public class Compute {
     public void generatePatient() {
 
         System.out.println("Starting...");
-        ProcessBuilder processBuilder = new ProcessBuilder();
 
-        String command = getCommand();
-        System.out.println(command);
-        processBuilder.command("bash", "-c", command);
-        try {
-
-            Process process = processBuilder.start();
-            System.out.println("edward");
-            StringBuilder output = new StringBuilder();
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(process.getInputStream())
-            );
-            System.out.println("DA");
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-                output.append(line).append('\n');
-            }
-            if (output.toString().equals("")) {
-                System.err.println("Generating failed");
-            } else {
-                System.out.println("Success!");
-            }
-
-            alertUser(output.toString());
-
-        } catch (IOException e) {
-            System.out.println(e);
-            e.printStackTrace();
-        }
+        executeCommand(getCommand(), "Generating failed");
     }
 
+    @Override
     protected void alertUser(String output) {
         if (output.isBlank() || output.startsWith("Usage:")) {
             JOptionPane.showMessageDialog(null,

@@ -27,5 +27,4 @@ public class RegionSelection extends JFrame{
             }
         });
     }
-
 }

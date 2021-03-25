@@ -38,8 +38,7 @@ public class FileResourcesUtils {
             List<Path> result = app.getPathsFromResourceJAR();
 
             if (result.isEmpty()) {
-                String[] location = {"src", "main", "resources", "lib"};
-                File file = new File(String.join(File.separator, location));
+                File file = new File(String.join(File.separator, locations));
                 result = Files.walk(file.toPath())
                         .filter(Files::isRegularFile)
                         .sorted()
@@ -89,9 +88,9 @@ public class FileResourcesUtils {
         // the stream holding the file content
         if (inputStream == null) {
             throw new IllegalArgumentException("file not found! " + fileName);
-        } else {
-            return inputStream;
         }
+
+        return inputStream;
     }
 
     // Get all paths from a folder that inside the JAR file

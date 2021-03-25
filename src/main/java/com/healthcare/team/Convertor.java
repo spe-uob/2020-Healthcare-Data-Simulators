@@ -1,15 +1,11 @@
 package com.healthcare.team;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Objects;
 
-public class Convertor {
+public class Convertor extends BashProcess {
 
     private String getCommand(String path) {
-
         return "java -jar lib/convertor_hl7-with-dependencies.jar ".concat(path);
     }
 
@@ -27,30 +23,11 @@ public class Convertor {
     public void convertor(String path) {
         checkValues(path);
         System.out.println("Converting...");
-        ProcessBuilder p = new ProcessBuilder();
-        String command = getCommand(path);
-        System.out.println(command);
-        p.command("bash", "-c", command);
 
-        try {
-            Process process = p.start();
-            StringBuilder output = new StringBuilder();
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(process.getInputStream())
-            );
+        executeCommand(getCommand(path), "Converting hl7 to fhir failed!");
+    }
 
-            String line;
-            while ((line = reader.readLine()) != null) {
-                output.append(line).append('\n');
-            }
-
-            if (output.toString().isBlank()) {
-                throw new IOException("Converting hl7 to fhir failed!");
-            }
-            System.out.println("Success!");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @Override
+    protected void alertUser(String output) {
     }
 }

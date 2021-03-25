@@ -37,7 +37,7 @@ public class ParseJSON {
                 String rawData = parser.encodeResourceToString(rsc);
                 String url = p.getChildByName("request").getValues().get(0).getChildByName("url").getValues().get(0).toString();
                 url = url.substring(8, url.length() - 1);
-                executor.execute(new Send(GUI.DATA.SYNTHEA, null, url, rawData, accesstoken));
+                executor.execute(Send.of(GUI.DATA.SYNTHEA, null, url, rawData, accesstoken));
             }
       }
         executor.shutdown();

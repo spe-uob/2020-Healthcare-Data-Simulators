@@ -340,7 +340,7 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 switch(protocol[0]) {
                     case HTTP:
-                        Send sender = new Send(DATA.BINARY, selectedFile[0], null, null, tokenFinal[0]);
+                        Send sender = Send.of(DATA.BINARY, selectedFile[0], null, null, tokenFinal[0]);
                         sender.run();
                         break;
                     case SFTP:
@@ -406,7 +406,7 @@ public class GUI {
         buttonNextSFTP.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                SFTP sftp = new SFTP(sftpRemoteHost_tb.getText(), sftpUsername_tb.getText(), new String(sftpPassword_tb.getPassword()));
+                SFTP sftp = SFTP.of(sftpRemoteHost_tb.getText(), sftpUsername_tb.getText(), new String(sftpPassword_tb.getPassword()));
                 try {
                     channelSftp[0] =  sftp.establishConnection();
                     if(channelSftp[0] == null) JOptionPane.showMessageDialog(null, "Could not establish connection!\nTry Again!","Error", JOptionPane.ERROR_MESSAGE);
@@ -600,9 +600,5 @@ public class GUI {
                 }
             }
         });
-
-
-
-
-    }
+   }
 }
