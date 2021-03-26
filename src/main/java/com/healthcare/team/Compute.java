@@ -64,7 +64,6 @@ public class Compute extends BashProcess {
     }
 
     private String getCommand() {
-
         return new StringBuilder("java -jar ./lib/synthea-with-dependencies.jar")
                 .append(" -p ").append(this.population).append(" -g ")
                 .append(this.gender.equals("male") ? "M" : "F").append(" -a ")
@@ -74,20 +73,29 @@ public class Compute extends BashProcess {
     }
 
     public void generatePatient() {
-
         System.out.println("Starting...");
-
-        executeCommand(getCommand(), "Generating failed");
+        executeCommand("Generating failed");
     }
 
     @Override
-    protected void alertUser(String output) {
-        if (output.isBlank() || output.startsWith("Usage:")) {
+    protected void alertUser() {
             JOptionPane.showMessageDialog(null,
                     "Error while generating", "Error!", JOptionPane.ERROR_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null,
-                    "Generation Successful", "Success!", JOptionPane.INFORMATION_MESSAGE);
-        }
+    }
+
+    @Override
+    protected void informUser() {
+        JOptionPane.showMessageDialog(null,
+                "Generation Successful", "Success!", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    @Override
+    protected boolean showAlert(String output) {
+        return output.isBlank() || output.startsWith("Usage:");
+    }
+
+    @Override
+    protected List<String> processParameters() {
+        return List.of("bash", "-c", getCommand());
     }
 }

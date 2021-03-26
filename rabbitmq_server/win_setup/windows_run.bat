@@ -1,4 +1,4 @@
 @echo off
 color b
 @echo Initializing...
-powershell -noexit D:\git\Healthcare-Data-Simulators\rabbitmq_server\win_installer
+powershell -noexit C:\Users\UserDell\Documents\Data Simulators 24.03.2021\Healthcare-Data-Simulators\rabbitmq_server\win_setup

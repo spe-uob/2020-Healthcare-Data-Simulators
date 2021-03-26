@@ -19,7 +19,7 @@ public class ComputeTest {
         }
 
         @Override
-        protected void alertUser(String output) {}
+        protected void alertUser() {}
     }
 
     @BeforeClass

@@ -1,15 +1,22 @@
 package com.healthcare.team;
 
 import java.io.File;
+import java.util.List;
 import java.util.Objects;
 
 public class Convertor extends BashProcess {
 
-    private String getCommand(String path) {
+    private final String path;
+
+    public Convertor(String path) {
+        this.path = path;
+    }
+
+    private String getCommand() {
         return "java -jar lib/convertor_hl7-with-dependencies.jar ".concat(path);
     }
 
-    private void checkValues(String path) {
+    private void checkValues() {
         Objects.requireNonNull(path, "null element given!");
         if (path.isBlank()) {
             throw new IllegalArgumentException("empty path provided");
@@ -20,14 +27,29 @@ public class Convertor extends BashProcess {
         }
     }
 
-    public void convertor(String path) {
-        checkValues(path);
+    public void convertor() {
+        checkValues();
+
         System.out.println("Converting...");
 
-        executeCommand(getCommand(path), "Converting hl7 to fhir failed!");
+        executeCommand("Converting hl7 to fhir failed!");
     }
 
     @Override
-    protected void alertUser(String output) {
+    protected void alertUser() {
+    }
+
+    @Override
+    protected void informUser() {
+    }
+
+    @Override
+    protected boolean showAlert(String output) {
+        return false;
+    }
+
+    @Override
+    protected List<String> processParameters() {
+        return List.of("bash", "-c", getCommand());
     }
 }

@@ -20,20 +20,23 @@ import java.util.Objects;
 
 public class GUI {
 
-    public enum PROTOCOLS{
+    public enum PROTOCOLS {
         HTTP,
         SFTP,
         MESSAGE_BROKER,
     }
-    public enum DATA{
+
+    public enum DATA {
         //MIRTH,
         SYNTHEA,
         BINARY,
     }
+
     private void initialVerificationSetup() {
         InitialSetup initialSetup = new InitialSetup();
         initialSetup.setup();
     }
+
     public void Run() {
         initialVerificationSetup();
 
@@ -84,10 +87,10 @@ public class GUI {
         uploadFrameConv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Frame sizes
-        connectionOptionsFrame.setSize(375,600);
-        messageBrokerFrame.setSize(375,600);
-        sftpFrame.setSize(375,600);
-        httpFrame.setSize(375,600);
+        connectionOptionsFrame.setSize(375, 600);
+        messageBrokerFrame.setSize(375, 600);
+        sftpFrame.setSize(375, 600);
+        httpFrame.setSize(375, 600);
         frame.setSize(375, 600);
         generateFrame.setSize(375, 600);
         uploadFrame.setSize(375, 600);
@@ -115,7 +118,7 @@ public class GUI {
         final JLabel msgBrokerPassword = new JLabel("Password");
         msgBrokerEndpoint.setBounds(10, 10, 140, 25);
         msgBrokerPort.setBounds(10, 50, 120, 25);
-        msgBrokerUsername.setBounds(10,90,120,25);
+        msgBrokerUsername.setBounds(10, 90, 120, 25);
         msgBrokerPassword.setBounds(10, 130, 120, 25);
 
 
@@ -142,7 +145,6 @@ public class GUI {
         messageBrokerFrame.setVisible(false);
 
 
-
         // SFTP
         final JButton buttonNextSFTP = new JButton("Next");
         JPanel panelServer = new JPanel(new GridBagLayout());
@@ -151,16 +153,16 @@ public class GUI {
         final JLabel sftpRemoteHost = new JLabel("Remote Host");
         final JLabel sftpUsername = new JLabel("Username");
         final JLabel sftpPassword = new JLabel("Password");
-        sftpRemoteHost.setBounds(10,10,140,25);
-        sftpUsername.setBounds(10,50,120,25);
-        sftpPassword.setBounds(10,90,120,25);
+        sftpRemoteHost.setBounds(10, 10, 140, 25);
+        sftpUsername.setBounds(10, 50, 120, 25);
+        sftpPassword.setBounds(10, 90, 120, 25);
 
-        final TextField sftpRemoteHost_tb= new TextField("snowy.cs.bris.ac.uk");
-        final TextField sftpUsername_tb= new TextField("ab19123");
+        final TextField sftpRemoteHost_tb = new TextField("snowy.cs.bris.ac.uk");
+        final TextField sftpUsername_tb = new TextField("ab19123");
         final JPasswordField sftpPassword_tb = new JPasswordField("TestParola");
-        sftpRemoteHost_tb.setBounds(150,10,200,25);
-        sftpUsername_tb.setBounds(150,50,200,25);
-        sftpPassword_tb.setBounds(150,90,200,25);
+        sftpRemoteHost_tb.setBounds(150, 10, 200, 25);
+        sftpUsername_tb.setBounds(150, 50, 200, 25);
+        sftpPassword_tb.setBounds(150, 90, 200, 25);
 
         sftpFrame.add(sftpRemoteHost);
         sftpFrame.add(sftpUsername);
@@ -181,19 +183,19 @@ public class GUI {
         final JLabel region = new JLabel("Region");
         final JLabel username = new JLabel("Username");
         final JLabel password = new JLabel("Password");
-        client_id.setBounds(10,10,140,25);
-        region.setBounds(10,50,120,25);
-        username.setBounds(10,90,120,25);
-        password.setBounds(10,130,120,25);
+        client_id.setBounds(10, 10, 140, 25);
+        region.setBounds(10, 50, 120, 25);
+        username.setBounds(10, 90, 120, 25);
+        password.setBounds(10, 130, 120, 25);
 
-        final TextField client_id_tb= new TextField("7n4vr35t6o5153456ervok1vm9");
-        final TextField region_tb= new TextField("eu-west-2");
+        final TextField client_id_tb = new TextField("7n4vr35t6o5153456ervok1vm9");
+        final TextField region_tb = new TextField("eu-west-2");
         final TextField username_tb = new TextField("data-sim-team");
-        final JPasswordField password_tb= new JPasswordField("jOvK-dRCs-kCW3-ZgPx");
-        client_id_tb.setBounds(150,10,200,25);
-        region_tb.setBounds(150,50,200,25);
-        username_tb.setBounds(150,90,200,25);
-        password_tb.setBounds(150,130,200,25);
+        final JPasswordField password_tb = new JPasswordField("jOvK-dRCs-kCW3-ZgPx");
+        client_id_tb.setBounds(150, 10, 200, 25);
+        region_tb.setBounds(150, 50, 200, 25);
+        username_tb.setBounds(150, 90, 200, 25);
+        password_tb.setBounds(150, 130, 200, 25);
 
         httpFrame.add(client_id);
         httpFrame.add(region);
@@ -220,17 +222,17 @@ public class GUI {
         JPanel panelUpload = new JPanel(new GridBagLayout());
 
         final JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("", "jpg", "png", "jpeg", "pdf","mpeg","mp4","csv","txt","doc","docx");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("", "jpg", "png", "jpeg", "pdf", "mpeg", "mp4", "csv", "txt", "doc", "docx");
         fileChooser.setFileFilter(filter);
         fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
         final JButton buttonUploadFile = new JButton("Upload");
         panelUpload.add(buttonUploadFile);
         final JButton buttonSendFile = new JButton("Send");
-        panelUpload.add(buttonSendFile,constraints);
+        panelUpload.add(buttonSendFile, constraints);
         final JLabel displayFile = new JLabel("");
         GridBagConstraints c1 = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.PAGE_START;
-        panelUpload.add(displayFile,c1);
+        panelUpload.add(displayFile, c1);
         uploadFrame.add(panelUpload);
         //Converter
 
@@ -246,11 +248,11 @@ public class GUI {
         final JButton buttonConvertFileConv = new JButton("Convert to HL7 FHIR");
         panelUploadConv.add(buttonConvertFileConv);
         final JButton buttonSendFileConv = new JButton("Send");
-        panelUploadConv.add(buttonSendFileConv,constraints);
+        panelUploadConv.add(buttonSendFileConv, constraints);
         final JLabel displayFileConv = new JLabel("");
         GridBagConstraints c1Conv = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.PAGE_START;
-        panelUploadConv.add(displayFileConv,c1Conv);
+        panelUploadConv.add(displayFileConv, c1Conv);
         uploadFrameConv.add(panelUploadConv);
         buttonConvertFileConv.setEnabled(false);
         buttonSendFileConv.setEnabled(false);
@@ -267,10 +269,10 @@ public class GUI {
         JLabel label4 = new JLabel("Module");
         JLabel label5 = new JLabel("Region");
 
-        label1.setBounds(10,10,120,25);
-        label2.setBounds(10,50,120,25);
-        label3.setBounds(10,90,120,25);
-        label4.setBounds(10,130,120,25);
+        label1.setBounds(10, 10, 120, 25);
+        label2.setBounds(10, 50, 120, 25);
+        label3.setBounds(10, 90, 120, 25);
+        label4.setBounds(10, 130, 120, 25);
         label5.setBounds(10, 170, 120, 25);
 
         // Population textbox
@@ -298,8 +300,8 @@ public class GUI {
 
         ParserCustomSettings pcs = new ParserCustomSettings();
 
-        List<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"regions.txt"));
-        List<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"modules.txt"));
+        List<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat(File.separator + "lib" + File.separator + "regions.txt"));
+        List<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat(File.separator + "lib" + File.separator + "modules.txt"));
         String[] choicesGender = {"Male", "Female"};
 
         final JComboBox<String> gen_cb = new JComboBox<>(choicesGender);
@@ -307,14 +309,14 @@ public class GUI {
         final JComboBox<Object> st_cb = new JComboBox<>(choicesStates.toArray());
 
 
-        pop_tb.setBounds(150,10,200,25);
-        minAge_tb.setBounds(150,50,95,25);
-        maxAge_tb.setBounds(260,50,95,25);
+        pop_tb.setBounds(150, 10, 200, 25);
+        minAge_tb.setBounds(150, 50, 95, 25);
+        maxAge_tb.setBounds(260, 50, 95, 25);
 
 
-        gen_cb.setBounds(150,90,200,25);
-        mod_cb.setBounds(150,130,200,25);
-        st_cb.setBounds(150,170,200,25);
+        gen_cb.setBounds(150, 90, 200, 25);
+        mod_cb.setBounds(150, 130, 200, 25);
+        st_cb.setBounds(150, 170, 200, 25);
 
 
         generateFrame.add(label1);
@@ -330,7 +332,6 @@ public class GUI {
         generateFrame.add(st_cb);
 
 
-
         generateFrame.add(panelCustom);
         startGenerate.setEnabled(true);
         sendGenerated.setEnabled(false);
@@ -338,7 +339,7 @@ public class GUI {
         buttonSendFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                switch(protocol[0]) {
+                switch (protocol[0]) {
                     case HTTP:
                         Send sender = Send.of(DATA.BINARY, selectedFile[0], null, null, tokenFinal[0]);
                         sender.run();
@@ -392,12 +393,12 @@ public class GUI {
                         new String(msgBrokerPassword_tb.getPassword()));
                 try {
                     msgBroker[0].Connect();
-                    JOptionPane.showMessageDialog(null, "Connection established!","Success!", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Connection established!", "Success!", JOptionPane.INFORMATION_MESSAGE);
                     messageBrokerFrame.setVisible(false);
                     frame.setVisible(true);
 
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "Could not establish connection!\nTry Again!","Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Could not establish connection!\nTry Again!", "Error", JOptionPane.ERROR_MESSAGE);
                     e.printStackTrace();
                 }
             }
@@ -408,15 +409,16 @@ public class GUI {
             public void actionPerformed(ActionEvent actionEvent) {
                 SFTP sftp = SFTP.of(sftpRemoteHost_tb.getText(), sftpUsername_tb.getText(), new String(sftpPassword_tb.getPassword()));
                 try {
-                    channelSftp[0] =  sftp.establishConnection();
-                    if(channelSftp[0] == null) JOptionPane.showMessageDialog(null, "Could not establish connection!\nTry Again!","Error", JOptionPane.ERROR_MESSAGE);
-                    else{
-                        JOptionPane.showMessageDialog(null, "Connection established!","Success!", JOptionPane.INFORMATION_MESSAGE);
+                    channelSftp[0] = sftp.establishConnection();
+                    if (channelSftp[0] == null)
+                        JOptionPane.showMessageDialog(null, "Could not establish connection!\nTry Again!", "Error", JOptionPane.ERROR_MESSAGE);
+                    else {
+                        JOptionPane.showMessageDialog(null, "Connection established!", "Success!", JOptionPane.INFORMATION_MESSAGE);
                         sftpFrame.setVisible(false);
                         frame.setVisible(true);
                     }
                 } catch (JSchException e) {
-                    JOptionPane.showMessageDialog(null, "Could not establish connection!\nTry Again!","Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Could not establish connection!\nTry Again!", "Error", JOptionPane.ERROR_MESSAGE);
 
                 }
             }
@@ -428,9 +430,10 @@ public class GUI {
                 final OAuth tokenGen = new OAuth(client_id_tb.getText(), region_tb.getText(), username_tb.getText(), new String(password_tb.getPassword()));
                 tokenGen.generateToken();
                 tokenFinal[0] = tokenGen.token;
-                if(tokenGen.token.equals("")) JOptionPane.showMessageDialog(null, "Could not establish connection!\nTry Again!","Error", JOptionPane.ERROR_MESSAGE);
-                else{
-                    JOptionPane.showMessageDialog(null, "Connection established!","Success!", JOptionPane.INFORMATION_MESSAGE);
+                if (tokenGen.token.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Could not establish connection!\nTry Again!", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Connection established!", "Success!", JOptionPane.INFORMATION_MESSAGE);
                     httpFrame.setVisible(false);
                     frame.setVisible(true);
                 }
@@ -442,7 +445,7 @@ public class GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // this makes sure the button you are pressing is the button variable
-                if(e.getSource() == buttonSynthea) {
+                if (e.getSource() == buttonSynthea) {
                     data[0] = DATA.SYNTHEA;
                     frame.setVisible(false);
                     generateFrame.setVisible(true);
@@ -453,7 +456,7 @@ public class GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // this makes sure the button you are pressing is the button variable
-                if(e.getSource() == buttonUpload) {
+                if (e.getSource() == buttonUpload) {
                     data[0] = DATA.BINARY;
                     frame.setVisible(false);
                     uploadFrame.setVisible(true);
@@ -464,7 +467,7 @@ public class GUI {
         buttonUploadFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource() == buttonUploadFile){
+                if (e.getSource() == buttonUploadFile) {
                     int result = fileChooser.showOpenDialog(uploadFrame);
                     if (result == JFileChooser.APPROVE_OPTION) {
                         selectedFile[0] = fileChooser.getSelectedFile();
@@ -477,7 +480,7 @@ public class GUI {
         buttonUploadFileConv.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource() == buttonUploadFileConv){
+                if (e.getSource() == buttonUploadFileConv) {
                     int resultConv = fileChooserConv.showOpenDialog(uploadFrameConv);
                     if (resultConv == JFileChooser.APPROVE_OPTION) {
                         selectedFile[0] = fileChooserConv.getSelectedFile();
@@ -491,8 +494,8 @@ public class GUI {
         buttonConvertFileConv.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Convertor c = new Convertor();
-                c.convertor(selectedFile[0].getAbsolutePath());
+                Convertor c = new Convertor(selectedFile[0].getAbsolutePath());
+                c.convertor();
                 buttonSendFileConv.setEnabled(true);
             }
         });
@@ -543,7 +546,7 @@ public class GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // this makes sure the button you are pressing is the button variable
-                if(e.getSource() == startGenerate) {
+                if (e.getSource() == startGenerate) {
                     Compute computer = new Compute(pop_tb.getText(), minAge_tb.getText(), maxAge_tb.getText(), Objects.requireNonNull(gen_cb.getSelectedItem()).toString(),
                             Objects.requireNonNull(mod_cb.getSelectedItem()).toString(), Objects.requireNonNull(st_cb.getSelectedItem()).toString());
 
@@ -560,9 +563,9 @@ public class GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // this makes sure the button you are pressing is the button variable
-                if(e.getSource() == sendGenerated) {
+                if (e.getSource() == sendGenerated) {
                     //if pressed execute code:
-                    switch(protocol[0]) {
+                    switch (protocol[0]) {
                         case HTTP:
                             ParseJSON s = new ParseJSON();
                             startGenerate.setEnabled(false);
@@ -581,7 +584,7 @@ public class GUI {
                         case SFTP:
                             SenderSFTP senderSFTP = new SenderSFTP(channelSftp[0]);
                             try {
-                                senderSFTP.sendDataToServer(DATA.SYNTHEA,null);
+                                senderSFTP.sendDataToServer(DATA.SYNTHEA, null);
                             } catch (SftpException | JSchException ex) {
                                 ex.printStackTrace();
                             }
@@ -600,5 +603,5 @@ public class GUI {
                 }
             }
         });
-   }
+    }
 }

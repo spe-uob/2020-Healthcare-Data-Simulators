@@ -3,15 +3,15 @@ package com.healthcare.team;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 
 public abstract class BashProcess {
 
-    public void executeCommand(String command, String errorMessage) {
+    public void executeCommand(String errorMessage) {
 
         ProcessBuilder processBuilder = new ProcessBuilder();
-        System.out.println(command);
-        processBuilder.command("bash", "-c", command);
+        processBuilder.command(processParameters());
         try {
 
             Process process = processBuilder.start();
@@ -24,22 +24,26 @@ public abstract class BashProcess {
             while ((line = reader.readLine()) != null) {
                 output.append(line).append('\n');
             }
-            if (output.toString().isBlank()) {
+
+            if (showAlert(output.toString())) {
                 //System.err.println(errorMessage(""));
+                alertUser();
                 throw new IOException(errorMessage);
             }
 
+            informUser();
             System.out.println("Success!");
-
-            alertUser(output.toString());
-
         } catch (IOException e) {
             System.out.println(e);
             e.printStackTrace();
         }
     }
 
-    protected abstract void alertUser(String output);
+    protected abstract void alertUser();
 
-   // protected abstract String[] fullCommand();
+    protected abstract void informUser();
+
+    protected abstract boolean showAlert(String output);
+
+    protected abstract List<String> processParameters();
 }

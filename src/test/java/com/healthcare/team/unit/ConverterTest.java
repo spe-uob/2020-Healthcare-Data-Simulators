@@ -4,26 +4,23 @@ import com.healthcare.team.Convertor;
 import org.junit.*;
 
 public class ConverterTest {
-    private Convertor converter;
-
-    @Before
-    public void setup() {
-        converter = new Convertor();
-    }
 
     @Test(expected = IllegalArgumentException.class)
     public void testEmptyValueShouldThrow() {
-        converter.convertor("");
+       Convertor converter = new Convertor("");
+        converter.convertor();
     }
 
     @Test(expected = NullPointerException.class)
     public void testNullValueShouldThrow() {
-        converter.convertor(null);
+        Convertor converter = new Convertor(null);
+        converter.convertor();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testImpossibleValueShouldThrow() {
-        converter.convertor("F:/iAmAFileIDontExist");
+        Convertor converter = new Convertor("F:/iAmAFileIDontExist");
+        converter.convertor();
     }
 
 }
