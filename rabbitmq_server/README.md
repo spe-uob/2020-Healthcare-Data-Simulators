@@ -3,7 +3,7 @@
 ## Windows Setup
 ##### *Instructions assume you are currently in `win_setup` directory 
 1. Open `windows_run.bat` and change the location 
-   `D:\git\Healthcare-Data-Simulators\rabbitmq_server\win_installer`to the absolute `win_installer.ps1`
+   `D:\git\Healthcare-Data-Simulators\rabbitmq_server\win_setup\win_installer`to the absolute `win_installer.ps1`
    powershell script
    location. Save and exit the file.
    
