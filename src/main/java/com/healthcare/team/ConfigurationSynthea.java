@@ -22,7 +22,7 @@ public class ConfigurationSynthea extends JFrame {
     public ConfigurationSynthea() {
         add(panel1);
         setTitle("Healthcare Data Simulator");
-        setSize(500,600);
+        setSize(500, 600);
 
         backButton.addActionListener(new ActionListener() {
             @Override
@@ -55,5 +55,10 @@ public class ConfigurationSynthea extends JFrame {
                 }
             }
         });
+    }
+
+    public void updateRegionText(String regionName) {
+        somersetTextField.setText(regionName);
+        System.out.println("Region name " + regionName);
     }
 }

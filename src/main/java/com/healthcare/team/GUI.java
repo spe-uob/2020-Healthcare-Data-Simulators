@@ -319,6 +319,7 @@ public class GUI {
         st_cb.setBounds(150, 170, 200, 25);
 
 
+        // Al doilea meniu!!!
         generateFrame.add(label1);
         generateFrame.add(label2);
         generateFrame.add(label3);
@@ -528,8 +529,6 @@ public class GUI {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-
-
                 }
             }
         });

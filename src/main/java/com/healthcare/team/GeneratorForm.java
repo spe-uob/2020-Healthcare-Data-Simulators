@@ -10,6 +10,7 @@ public class GeneratorForm extends JFrame {
     private JButton addHealthDataFlatButton;
     private JButton backToMainMenuButton;
     private JTextArea textArea1;
+    private JTextField selectedRegion;
 
 
     public GeneratorForm() {
@@ -22,7 +23,6 @@ public class GeneratorForm extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-
                 RegionSelection regionSelection = new RegionSelection();
                 regionSelection.setVisible(true);
             }
@@ -34,9 +34,14 @@ public class GeneratorForm extends JFrame {
 
                 ConfigurationSynthea configurationGUI = new ConfigurationSynthea();
                 configurationGUI.setVisible(true);
+
+                configurationGUI.updateRegionText(selectedRegion.getText());
             }
         });
-
     }
 
+    public void updateRegionText(String regionName) {
+        selectedRegion.setText(regionName);
+        System.out.println("Region name " + regionName);
+    }
 }

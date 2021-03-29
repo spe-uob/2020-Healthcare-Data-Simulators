@@ -7,7 +7,7 @@ public class ConverterTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testEmptyValueShouldThrow() {
-       Convertor converter = new Convertor("");
+        Convertor converter = new Convertor("");
         converter.convertor();
     }
 
@@ -22,5 +22,4 @@ public class ConverterTest {
         Convertor converter = new Convertor("F:/iAmAFileIDontExist");
         converter.convertor();
     }
-
 }

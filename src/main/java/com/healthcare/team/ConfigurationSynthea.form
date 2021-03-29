@@ -23,7 +23,7 @@
         <properties>
           <editable value="false"/>
           <enabled value="false"/>
-          <text value="Somerset"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="8cb61" class="javax.swing.JTextField" binding="minAge">
