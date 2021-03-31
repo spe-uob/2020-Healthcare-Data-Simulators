@@ -1,0 +1,8 @@
+colour pallete hex codes
+
+
+e63946  (red),
+f1faee (cream white, light mode background),
+a8dadc (light blue),
+457b9d (medium blue)
+1d3557 (dark blue, dark mode background) 
