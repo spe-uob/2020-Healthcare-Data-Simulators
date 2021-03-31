@@ -2,7 +2,6 @@ package com.healthcare.team;
 
 import javax.swing.*;
 import java.io.File;
-import java.security.CryptoPrimitive;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -98,5 +97,33 @@ public class Compute extends BashProcess {
     @Override
     protected List<String> processParameters() {
         return List.of("bash", "-c", getCommand());
+    }
+
+    public static List<String> getValidGenders() {
+        return validGenders;
+    }
+
+    public String getPopulation() {
+        return population;
+    }
+
+    public String getMinAge() {
+        return minAge;
+    }
+
+    public String getMaxAge() {
+        return maxAge;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getModule() {
+        return module;
+    }
+
+    public String getState() {
+        return state;
     }
 }

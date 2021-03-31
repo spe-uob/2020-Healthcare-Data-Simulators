@@ -26,7 +26,6 @@ public abstract class BashProcess {
             }
 
             if (showAlert(output.toString())) {
-                //System.err.println(errorMessage(""));
                 alertUser();
                 throw new IOException(errorMessage);
             }
