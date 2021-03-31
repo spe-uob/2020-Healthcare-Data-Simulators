@@ -57,14 +57,7 @@ public class ConfigurationSynthea extends JFrame {
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ParseCSV parseCSV = new ParseCSV();
-                try {
-                    parseCSV.sendToRabbit();
-                } catch (FileNotFoundException fileNotFoundException) {
-                    fileNotFoundException.printStackTrace();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+                new ParseCSV().sendPatientsToRabbit();
             }
         });
     }

@@ -1,6 +1,7 @@
 package com.healthcare.team.csv.objects;
 
-import java.util.Date;
+import com.healthcare.team.Anonimization;
+import java.util.TreeMap;
 
 public class Patient {
 
@@ -231,5 +232,39 @@ public class Patient {
 
     public void setHealthcareCoverage(String healthcareCoverage) {
         this.healthcareCoverage = healthcareCoverage;
+    }
+
+    @Override
+    public String toString() {
+
+        TreeMap<String, String> map = new TreeMap<>();
+        map.put("NHSNumber", Id);
+
+        return "Patient: " +
+                "Id='" + Anonimization.mask(map) + '\'' +
+                "| ssn='" + ssn + '\'' +
+                "| birthDate='" + birthDate + '\'' +
+                "| deathDate='" + deathDate + '\'' +
+                "| drivers='" + drivers + '\'' +
+                "| passport='" + passport + '\'' +
+                "| prefix='" + prefix + '\'' +
+                "| first='" + first + '\'' +
+                "| last='" + last + '\'' +
+                "| suffix='" + suffix + '\'' +
+                "| maide='" + maide + '\'' +
+                "| marital='" + marital + '\'' +
+                "| race='" + race + '\'' +
+                "| ethnicity='" + ethnicity + '\'' +
+                "| gender='" + gender + '\'' +
+                "| birthplace='" + birthplace + '\'' +
+                "| address='" + address + '\'' +
+                "| city='" + city + '\'' +
+                "| state='" + state + '\'' +
+                "| county='" + county + '\'' +
+                "| zip='" + zip + '\'' +
+                "| lat='" + lat + '\'' +
+                "| lon='" + lon + '\'' +
+                "| healthcareExpenses='" + healthcareExpenses + '\'' +
+                "| healthcareCoverage='" + healthcareCoverage + '\'';
     }
 }

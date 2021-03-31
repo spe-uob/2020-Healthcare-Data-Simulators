@@ -9,14 +9,12 @@ import com.healthcare.team.csv.objects.Patient;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Map;
 import java.util.Objects;
-import java.util.TreeMap;
 
 public class ParseCSV {
 
     public void sendToRabbit() throws IOException {
-       /* String outputPath = System.getProperty("user.dir").concat("/output/csv/");
+        String outputPath = System.getProperty("user.dir").concat("/output/csv/");
         File dir = new File( outputPath);
         System.out.println(dir.getName());
         File[] directoryListing = dir.listFiles();
@@ -27,12 +25,11 @@ public class ParseCSV {
             System.out.println("------" + output);
             mbs.Sender(output,f.getName());
 
-        }*/
+        }
         System.out.println("---------------------------------");
-        sss();
     }
 
-    public void sss(){
+    public String readPatientsFile(){
 
         CsvMapper csvMapper = new CsvMapper();
         CsvSchema schema = csvMapper.schemaFor(Patient.class);
@@ -40,28 +37,24 @@ public class ParseCSV {
         ObjectReader oReader = csvMapper.reader(Patient.class).with(schema);
         String outputPath = System.getProperty("user.dir").concat("/output/csv/patients.csv");
         StringBuilder anonimizedData = new StringBuilder();
-        MessageBrokerSender mbs = new MessageBrokerSender();
         try (Reader reader = new FileReader(outputPath)) {
             MappingIterator<Patient> mi = oReader.readValues(reader);
-            TreeMap<String, String> map = new TreeMap<>();
             while (mi.hasNext()) {
                 Patient current = mi.next();
-                System.out.println(current);
-                map.put("address", current.getAddress());
-                map.put("birthDate", current.getBirthDate());
-                anonimizedData.append(Anonimization.mask(map));
+                anonimizedData.append(current.toString());
             }
-        }catch(IOException e){
-
+        }catch(IOException e) {
+            throw new RuntimeException(e);
         }
-        mbs.Sender(anonimizedData.toString(), outputPath);
-        System.out.println("out: " + anonimizedData.toString());
+
+        return anonimizedData.toString();
     }
 
-   /* private <T> TreeMap<String, String> buildAnonimizationMap(T object){
-        TreeMap<String, String> map = new TreeMap<>();
-        map.put()
-        return map;
-    }*/
-
+    public void sendPatientsToRabbit() {
+        MessageBrokerSender mbs = new MessageBrokerSender();
+        String outputPath = System.getProperty("user.dir").concat("/output/csv/patients.csv");
+        String anonimized = readPatientsFile();
+        mbs.Sender(anonimized, outputPath);
+        System.out.println("out: " + anonimized);
+    }
 }
