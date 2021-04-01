@@ -13,6 +13,7 @@ import java.util.Objects;
 
 public class ParseCSV {
 
+    //Send patients with data produced by Synthea to Rabbit queue
     public void sendToRabbit() throws IOException {
         String outputPath = System.getProperty("user.dir").concat("/output/csv/");
         File dir = new File( outputPath);
@@ -29,6 +30,7 @@ public class ParseCSV {
         System.out.println("---------------------------------");
     }
 
+    //We read line by line from CSVs
     public String readPatientsFile(){
 
         CsvMapper csvMapper = new CsvMapper();
@@ -50,6 +52,7 @@ public class ParseCSV {
         return anonimizedData.toString();
     }
 
+    //Send patients with NHSNumber encrypted to Rabbit queue
     public void sendPatientsToRabbit() {
         MessageBrokerSender mbs = new MessageBrokerSender();
         String outputPath = System.getProperty("user.dir").concat("/output/csv/patients.csv");

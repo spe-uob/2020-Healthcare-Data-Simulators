@@ -57,6 +57,7 @@ public class ConfigurationSynthea extends JFrame {
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Now we are sending patients with NHSNumber encrypted
                 new ParseCSV().sendPatientsToRabbit();
             }
         });
