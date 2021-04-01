@@ -1,14 +1,14 @@
 package com.healthcare.team;
 
 import javax.swing.*;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
-public class Compute {
+public class Compute extends BashProcess {
 
+    private static final List<String> validGenders = Arrays.asList("female", "male");
     private final String population;
     private final String minAge;
     private final String maxAge;
@@ -16,20 +16,22 @@ public class Compute {
     private final String module;
     private final String state;
 
-    public Compute (String population, String minAge, String maxAge, String gender, String module, String state) {
-        this.population = population;
-        this.minAge = minAge;
-        this.maxAge = maxAge;
-        this.gender = gender;
-        this.module = module;
-        this.state = state;
+    public Compute(String population, String minAge, String maxAge, String gender, String module, String state) {
+
+        this.population = Objects.requireNonNull(population, "Non null field: population");
+        this.minAge = Objects.requireNonNull(minAge, "Non null field: minAge.");
+        this.maxAge = Objects.requireNonNull(maxAge, "Non null field: maxAge");
+        this.gender = Objects.requireNonNull(gender, "Non null field: gender");
+        this.module = Objects.requireNonNull(module, "Non null field: module");
+        this.state = Objects.requireNonNull(state, "Non null field: state");
         checkValuesEntered();
     }
 
+    /*public static Compute of(String population, String minAge, String maxAge, String gender, String module, String state) {
+        return new Compute(population, minAge, maxAge, gender, module, state);
+    }*/
+
     private void checkValuesEntered() {
-        if (population == null || minAge == null || maxAge == null || gender == null || module == null || state == null) {
-            throw new NullPointerException("value is null!");
-        }
 
         if (Integer.parseInt(maxAge) > 200) {
             throw new IllegalArgumentException("Illegal maximum age!");
@@ -44,90 +46,84 @@ public class Compute {
             throw new IllegalArgumentException("Population given is too big!");
         }
 
-        boolean isState = false;
-        boolean isModule = false;
-        boolean validGender = gender.equals("male") || gender.equals("female");
-        ParserCustomSettings pcs = new ParserCustomSettings();
-        ArrayList<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"regions.txt"));
-        ArrayList<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat(File.separator+"lib"+File.separator+"modules.txt"));
-
-        for (String _state : choicesStates) {
-            if (_state.equals(state)) {
-                isState = true;
-                break;
-            }
-        }
-        for (String _module : choicesModules) {
-            if (_module.equals(module.toLowerCase())) {
-                isModule = true;
-                break;
-            }
-        }
-
-        if (!isState) {
-            throw new IllegalArgumentException("Illegal Entry!, state");
-        } else if (!isModule) {
-            throw new IllegalArgumentException("Illegal Entry!, module");
-        } else if (!validGender) {
+        if (!validGenders.contains(gender)) {
             throw new IllegalArgumentException("Illegal Entry!, gender");
         }
+
+        ParserCustomSettings pcs = new ParserCustomSettings();
+        List<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat(File.separator + "lib" + File.separator + "regions.txt"));
+        List<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat(File.separator + "lib" + File.separator + "modules.txt"));
+
+        choicesStates.stream().filter(state::equals)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Illegal Entry!, state"));
+
+        choicesModules.stream().filter(module::equals)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Illegal Entry!, module"));
     }
 
     private String getCommand() {
-        String x = "java -jar ./lib/synthea-with-dependencies.jar";
-
-
-        x += " -p " + this.population + " -g " + (this.gender.equals("male")? "M" : "F") + " -a "
-                + this.minAge + "-" + this.maxAge + " -m " + this.module  + " " + this.state;
-
-        return x;
-
+        return new StringBuilder("java -jar ./lib/synthea-with-dependencies.jar")
+                .append(" -p ").append(this.population).append(" -g ")
+                .append(this.gender.equals("male") ? "M" : "F").append(" -a ")
+                .append(this.minAge).append("-").append(this.maxAge).append(" -m ")
+                .append(this.module).append(" ").append(this.state)
+                .toString();
     }
 
     public void generatePatient() {
-
         System.out.println("Starting...");
-        ProcessBuilder processBuilder = new ProcessBuilder();
-
-        String command = getCommand();
-        System.out.println(command);
-        processBuilder.command("bash","-c", command);
-        try{
-
-            Process process = processBuilder.start();
-            System.out.println("edward");
-            StringBuilder output = new StringBuilder();
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(process.getInputStream())
-            );
-            System.out.println("DA");
-            String line;
-            while((line = reader.readLine()) != null) {
-                System.out.println(line);
-                output.append(line).append('\n');
-            }
-            if (output.toString().equals("")) {
-                System.err.println("Generating failed");
-            } else {
-                System.out.println("Success!");
-            }
-
-            alertUser(output);
-
-        }
-        catch (IOException e) {
-            System.out.println(e);
-            e.printStackTrace();
-        }
+        executeCommand("Generating failed");
     }
 
-    protected void alertUser(StringBuilder output) {
-        if(output.toString().equals("") || output.toString().startsWith("Usage:")) {
+    @Override
+    protected void alertUser() {
             JOptionPane.showMessageDialog(null,
                     "Error while generating", "Error!", JOptionPane.ERROR_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null,
-                    "Generation Successful", "Success!", JOptionPane.INFORMATION_MESSAGE);
-        }
+    }
+
+    @Override
+    protected void informUser() {
+        JOptionPane.showMessageDialog(null,
+                "Generation Successful", "Success!", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    @Override
+    protected boolean showAlert(String output) {
+        return output.isBlank() || output.startsWith("Usage:");
+    }
+
+    @Override
+    protected List<String> processParameters() {
+        return List.of("bash", "-c", getCommand());
+    }
+
+    public static List<String> getValidGenders() {
+        return validGenders;
+    }
+
+    public String getPopulation() {
+        return population;
+    }
+
+    public String getMinAge() {
+        return minAge;
+    }
+
+    public String getMaxAge() {
+        return maxAge;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getModule() {
+        return module;
+    }
+
+    public String getState() {
+        return state;
     }
 }

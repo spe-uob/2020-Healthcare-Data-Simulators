@@ -27,7 +27,7 @@ public class ParseJSONConverted {
             Resource rsc = p.getResource();
             String url = rsc.fhirType();
             String rawData = parser.encodeResourceToString(rsc);
-            executor.execute(new Send(GUI.DATA.SYNTHEA, null, url, rawData, accesstoken));
+            executor.execute(Send.of(GUI.DATA.SYNTHEA, null, url, rawData, accesstoken));
         }
         executor.shutdown();
     }

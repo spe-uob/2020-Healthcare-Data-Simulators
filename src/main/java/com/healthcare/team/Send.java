@@ -8,17 +8,22 @@ import java.io.*;
 import java.util.concurrent.TimeUnit;
 
 public class Send implements Runnable {
-    GUI.DATA d;
-    File file;
-    String url;
-    String rawData;
-    String accessToken;
-    public Send(GUI.DATA d, File file, String url, String rawData, String accessToken){
+    private final GUI.DATA d;
+    private final File file;
+    private final String url;
+    private final String rawData;
+    private final String accessToken;
+
+    private Send(GUI.DATA d, File file, String url, String rawData, String accessToken){
         this.d = d;
         this.file = file;
         this.url = url;
         this.rawData = rawData;
         this.accessToken = accessToken;
+    }
+
+    public static Send of(GUI.DATA d, File file, String url, String rawData, String accessToken){
+        return new Send(d, file, url, rawData, accessToken);
     }
 
     @Override

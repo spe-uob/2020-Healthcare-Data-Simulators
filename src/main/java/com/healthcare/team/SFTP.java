@@ -7,13 +7,18 @@ import com.jcraft.jsch.Session;
 
 
 public class SFTP {
-    String remoteHost;
-    String username;
-    String password;
-    public SFTP(String remoteHost, String username, String password){
+    private final String remoteHost;
+    private final String username;
+    private final String password;
+
+    private SFTP(String remoteHost, String username, String password){
         this.remoteHost = remoteHost;
         this.username = username;
         this.password = password;
+    }
+
+    public static SFTP of (String remoteHost, String username, String password){
+        return new SFTP(remoteHost, username, password);
     }
     public ChannelSftp establishConnection() throws JSchException {
         JSch jsch = new JSch();

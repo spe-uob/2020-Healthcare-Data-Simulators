@@ -5,27 +5,26 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.*;
 import java.util.*;
-import java.util.stream.Collectors;
+import static java.util.stream.Collectors.toList;
+
 
 public class FileResourcesUtils {
 
-    private final List<File> required = new ArrayList<>();
-
-    public FileResourcesUtils() {
-        required.add(new File("lib"+File.separator+"cognito_auth.py"));
-        required.add(new File("lib"+File.separator+"synthea-with-dependencies.jar"));
-        required.add(new File("lib"+File.separator+"convertor_hl7-with-dependencies.jar"));
-        required.add(new File("lib"+File.separator+"regions.txt"));
-        required.add(new File("lib"+File.separator+"modules.txt"));
+    public static final String[] locations = {"src", "main", "resources", "lib"};
+    private static final List<File> requiredFiles = new ArrayList<>();
+    static {
+        requiredFiles.add(new File("lib" + File.separator + "cognito_auth.py"));
+        requiredFiles.add(new File("lib" + File.separator + "synthea-with-dependencies.jar"));
+        requiredFiles.add(new File("lib" + File.separator + "convertor_hl7-with-dependencies.jar"));
+        requiredFiles.add(new File("lib" + File.separator + "regions.txt"));
+        requiredFiles.add(new File("lib" + File.separator + "modules.txt"));
     }
 
     public boolean extractResources() {
-        int counter = 0;
-        for (File file : required) {
-            if (file.exists()) counter++;
-        }
 
-        if (counter == required.size()) {
+        long counter = requiredFiles.stream().filter(File::exists).count();
+
+        if (counter == requiredFiles.size()) {
             System.out.println("files already extracted, skipping...");
             return true;
         }
@@ -39,12 +38,11 @@ public class FileResourcesUtils {
             List<Path> result = app.getPathsFromResourceJAR();
 
             if (result.isEmpty()) {
-                String[] location = {"src", "main", "resources", "lib"};
-                File file  = new File(String.join(File.separator, location));
+                File file = new File(String.join(File.separator, locations));
                 result = Files.walk(file.toPath())
                         .filter(Files::isRegularFile)
                         .sorted()
-                        .collect(Collectors.toList());
+                        .collect(toList());
 
                 for (Path path : result) {
                     InputStream is = new FileInputStream(path.toFile());
@@ -90,16 +88,14 @@ public class FileResourcesUtils {
         // the stream holding the file content
         if (inputStream == null) {
             throw new IllegalArgumentException("file not found! " + fileName);
-        } else {
-            return inputStream;
         }
+
+        return inputStream;
     }
 
     // Get all paths from a folder that inside the JAR file
     private List<Path> getPathsFromResourceJAR()
             throws URISyntaxException, IOException {
-
-        List<Path> result;
 
         // get path of the current running JAR
         String jarPath = getClass().getProtectionDomain()
@@ -107,19 +103,19 @@ public class FileResourcesUtils {
                 .getLocation()
                 .toURI()
                 .getPath();
-       // System.out.println("JAR Path :" + jarPath);
+        // System.out.println("JAR Path :" + jarPath);
 
         // file walks JAR
         URI uri = URI.create("jar:file:" + jarPath);
-        String[] location = {"src", "main", "resources", "lib"};
-        File file  = new File(String.join(File.separator, location));
-        result = new ArrayList<>();
+
+        File file = new File(String.join(File.separator, locations));
+        List<Path> result = new ArrayList<>();
         if (!file.exists()) {
             try (FileSystem fs = FileSystems.newFileSystem(uri, Collections.emptyMap())) {
                 result = Files.walk(fs.getPath("lib"))
                         .filter(Files::isRegularFile)
                         .sorted()
-                        .collect(Collectors.toList());
+                        .collect(toList());
             }
         }
         return result;
@@ -133,7 +129,7 @@ public class FileResourcesUtils {
 
         if (done || dir.exists()) {
             try {
-                os = new FileOutputStream("lib"+File.separator+filePath.substring(filePath.lastIndexOf(File.separator)+1));
+                os = new FileOutputStream("lib" + File.separator + filePath.substring(filePath.lastIndexOf(File.separator) + 1));
                 byte[] buffer = new byte[1024];
                 int length;
                 while ((length = is.read(buffer)) > 0) {

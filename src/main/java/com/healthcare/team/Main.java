@@ -5,8 +5,7 @@ package com.healthcare.team;
 public class Main {
 
     private static void initialVerificationSetup() {
-        InitialSetup initialSetup = new InitialSetup();
-        initialSetup.setup();
+        new InitialSetup().setup();
     }
 
     public static void main(String[] args)  {
