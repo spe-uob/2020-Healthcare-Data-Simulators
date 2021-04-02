@@ -51,7 +51,6 @@ public class InitialSetup {
                                 if (!check.getValue().equals(sha512hex)) {
                                     System.out.println("expected hash of: "+sha512hex);
                                     System.err.println("This file is corrupted or was recently edited! "+file.toString());
-                                    throw new SecurityException("file corrupted: "+file.toString());
                                 }
                                 break;
                             }
