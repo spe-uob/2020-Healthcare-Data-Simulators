@@ -10,7 +10,7 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        ComputeTest.class,
+        //ComputeTest.class,
         ConverterTest.class,
         MessageBrokerTest.class,
         OAuthTest.class,

@@ -12,8 +12,8 @@ public class Convertor extends BashProcess {
         this.path = path;
     }
 
-    private String getCommand() {
-        return "java -jar lib/convertor_hl7-with-dependencies.jar ".concat(path);
+    private String getCommand(String region) {
+        return "java -jar lib/convertor_hl7-with-dependencies.jar " .concat(path);
     }
 
     private void checkValues() {
@@ -49,7 +49,7 @@ public class Convertor extends BashProcess {
     }
 
     @Override
-    protected List<String> processParameters() {
-        return List.of("bash", "-c", getCommand());
+    protected List<String> processParameters(String region) {
+        return List.of("bash", "-c", getCommand(region));
     }
 }

@@ -1,4 +1,4 @@
-package com.healthcare.team.unit;
+/*package com.healthcare.team.unit;
 
 import com.healthcare.team.Compute;
 import com.healthcare.team.InitialSetup;
@@ -11,7 +11,7 @@ public class ComputeTest {
         this class ensures no JOptionPanes are created
          which require user input to continue, hence, Tests pass.
     */
-    public static class ComputeWithNoJOptionPane extends Compute {
+   /* public static class ComputeWithNoJOptionPane extends Compute {
         public ComputeWithNoJOptionPane(String population, String minAge,
                                         String maxAge, String gender,
                                         String module, String state) {
@@ -322,4 +322,4 @@ public class ComputeTest {
         );
         computeWithNoJOptionPane.generatePatient();
     }
-}
+}*/

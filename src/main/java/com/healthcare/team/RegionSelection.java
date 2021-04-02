@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import java.security.GeneralSecurityException;
+import java.util.List;
 
 public class RegionSelection extends JFrame {
     private JPanel rootPanel;

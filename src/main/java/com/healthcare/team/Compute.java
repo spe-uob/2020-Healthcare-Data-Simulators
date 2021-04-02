@@ -63,14 +63,23 @@ public class Compute extends BashProcess {
                 .orElseThrow(() -> new IllegalArgumentException("Illegal Entry!, module"));
     }
 
-    private String getCommand() {
-        return new StringBuilder("java -jar ./lib/synthea-with-dependencies.jar")
-                .append(" -p ").append(this.population).append(" -g ")
+    private String getParametersSynthea() {
+        return new StringBuilder().append(" -p ").append(this.population).append(" -g ")
                 .append(this.gender.equals("male") ? "M" : "F").append(" -a ")
                 .append(this.minAge).append("-").append(this.maxAge).append(" -m ")
                 .append(this.module).append(" ").append(this.state)
                 .toString();
     }
+
+    public String getCommand(String region) {
+        return new StringBuilder("java -jar ./lib/synthea-with-dependencies.jar")
+                .append(getParametersSynthea())
+                .append(" --exporter.baseDirectory ./")
+                .append(region)
+                .append(" --exporter.csv.export true")
+                .toString();
+    }
+
 
     public void generatePatient() {
         System.out.println("Starting...");
@@ -95,8 +104,8 @@ public class Compute extends BashProcess {
     }
 
     @Override
-    protected List<String> processParameters() {
-        return List.of("bash", "-c", getCommand());
+    public List<String> processParameters(String region) {
+        return List.of("bash", "-c", getCommand(region));
     }
 
     public static List<String> getValidGenders() {
@@ -123,7 +132,7 @@ public class Compute extends BashProcess {
         return module;
     }
 
-    public String getState() {
+    public String getStateSynthea() {
         return state;
     }
 }

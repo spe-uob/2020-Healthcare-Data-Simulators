@@ -1,15 +1,20 @@
 package com.healthcare.team;
 
+import static com.healthcare.team.commons.Constants.JOB_MIN_INTERVAL_IN_SECONDS;
+
+import com.healthcare.team.commons.Utils;
+import com.healthcare.team.scheduler.JobScheduler;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Objects;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ConfigurationSynthea extends JFrame {
     private JTextField size;
@@ -23,6 +28,8 @@ public class ConfigurationSynthea extends JFrame {
     private JButton sendButton;
     private JButton backButton;
     private JProgressBar bar;
+    private JTextField timer;
+    private JButton stopButton;
 
     public ConfigurationSynthea() {
         this.add(panel1);
@@ -50,7 +57,8 @@ public class ConfigurationSynthea extends JFrame {
         generateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               new TaskBashProcess().execute();
+                new TaskBashProcess().execute();
+                executeJob();
             }
         });
 
@@ -61,6 +69,39 @@ public class ConfigurationSynthea extends JFrame {
                 new ParseCSV().sendPatientsToRabbit();
             }
         });
+
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //GeneratorForm generatorForm = new GeneratorForm();
+                //generatorForm.setVisible(true);
+                JobScheduler.init(null, Integer.parseInt(timer.getText()), "STOP");
+            }
+        });
+    }
+
+    private boolean validJobExecution(String interval) {
+        return Utils.isNumeric(interval)
+                && Integer.parseInt(interval) >= JOB_MIN_INTERVAL_IN_SECONDS;
+    }
+
+    private Compute buildCompute() {
+        return new Compute(size.getText(), minAge.getText(), maxAge.getText(), Objects.requireNonNull(sex.getSelectedItem()).toString(),
+                Objects.requireNonNull(module.getSelectedItem()).toString().toLowerCase(), somersetTextField.getText());
+    }
+
+    private void executeJob(){
+        if (validJobExecution(timer.getText())) {
+            //try {
+                //TimeUnit.SECONDS.sleep(Integer.parseInt(timer.getText()));
+
+                JobScheduler.init(buildCompute(),
+                        Integer.parseInt(timer.getText()),
+                        "START");
+            //} catch (InterruptedException interruptedException) {
+           //     throw new RuntimeException(interruptedException);
+            //}
+        }
     }
 
     public void updateRegionText(String regionName) {
@@ -71,13 +112,10 @@ public class ConfigurationSynthea extends JFrame {
     class TaskBashProcess extends SwingWorker<Void, String> {
         @Override
         public Void doInBackground() {
-            Compute computer = new Compute(size.getText(), minAge.getText(), maxAge.getText(), Objects.requireNonNull(sex.getSelectedItem()).toString(),
-                    Objects.requireNonNull(module.getSelectedItem()).toString().toLowerCase(), Objects.requireNonNull(somersetTextField.getText().toString()));
-
+            Compute computer = buildCompute();
             ProcessBuilder processBuilder = new ProcessBuilder();
-            processBuilder.command(computer.processParameters());
+            processBuilder.command(computer.processParameters(somersetTextField.getText()));
             try {
-
                 Process process = processBuilder.start();
                 StringBuilder output = new StringBuilder();
                 BufferedReader reader = new BufferedReader(

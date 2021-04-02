@@ -1,17 +1,21 @@
 package com.healthcare.team;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
+public abstract class BashProcess extends  RegionSelection {
 
-public abstract class BashProcess {
+    private JButton gloucestershireButton;
+    private JButton shropshireButton;
+    private JButton somersetButton;
 
     public void executeCommand(String errorMessage) {
 
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command(processParameters());
+        processBuilder.command(processParameters(null));
         try {
 
             Process process = processBuilder.start();
@@ -44,5 +48,7 @@ public abstract class BashProcess {
 
     protected abstract boolean showAlert(String output);
 
-    protected abstract List<String> processParameters();
+    protected abstract List<String> processParameters(String region);
+
+    //protected abstract String getRegion();
 }
