@@ -103,7 +103,7 @@ public class FileResourcesUtils {
                 .getLocation()
                 .toURI()
                 .getPath();
-        // System.out.println("JAR Path :" + jarPath);
+         //System.out.println("JAR Path :" + jarPath);
 
         // file walks JAR
         URI uri = URI.create("jar:file:" + jarPath);
@@ -126,10 +126,9 @@ public class FileResourcesUtils {
         OutputStream os;
         File dir = new File("lib");
         boolean done = dir.mkdir();
-
         if (done || dir.exists()) {
             try {
-                os = new FileOutputStream("lib" + File.separator + filePath.substring(filePath.lastIndexOf(File.separator) + 1));
+                os = new FileOutputStream("lib" + File.separator + filePath.substring(filePath.lastIndexOf("/") + 1));
                 byte[] buffer = new byte[1024];
                 int length;
                 while ((length = is.read(buffer)) > 0) {

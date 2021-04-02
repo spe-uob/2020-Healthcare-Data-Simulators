@@ -27,7 +27,7 @@ The `checksum.txt` file contains the correct sha512 hex values for each file. It
 3. Add [this jar file](https://drive.google.com/file/d/1hjNVsVvLq2367R2de8Y2Fw4iPEm4D1qs/view?usp=sharing) to `src/main/resources/lib` folder. It is a convertor from HL7 v2.x to FHIR.
 4. Add [this jar file](https://drive.google.com/file/d/1Y9OZQ4a_qfeo_JcPhpMSdHuNEZydhAWq/view?usp=sharing) to `src/main/resources/lib` folder. It is the OpenPseudomiser for masking data.
 5. If you do not wish to compile the source code, find the jar file
-   in github packages.
+   in releases.
 5. Run `java -jar Healthcare-Data-Simulators-x.x-x.x-1.jar`.  After the `lib` folder has been created, exit the application and add the 2 jar files in step 2 and 3 above in the `lib` folder. Re-run the application and no errors should be returned.
 
 ## Contributors
