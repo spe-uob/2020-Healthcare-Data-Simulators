@@ -1,6 +1,6 @@
 package com.healthcare.team.csv.objects;
 
-import com.healthcare.team.Anonimization;
+import com.healthcare.team.Anonymization;
 import java.util.TreeMap;
 
 public class Patient {
@@ -241,7 +241,7 @@ public class Patient {
         map.put("NHSNumber", Id);
 
         return "Patient: " +
-                "Id='" + Anonimization.mask(map) + '\'' +
+                "Id='" + Anonymization.mask(map) + '\'' +
                 "| ssn='" + ssn + '\'' +
                 "| birthDate='" + birthDate + '\'' +
                 "| deathDate='" + deathDate + '\'' +

@@ -25,10 +25,18 @@ public class OAuth extends BashProcess {
         this.region = region;
         this.username = username;
         this.password = password;
+        String[] allUserInputs = {
+                this.client_id,
+                this.region,
+                this.username,
+                this.password
+        };
+        checkForNullAndEmptyValues(allUserInputs);
     }
 
     public void generateToken() {
         executeCommand("No token generated!");
+        this.token = getToken();
     }
 
     @Override
@@ -51,11 +59,6 @@ public class OAuth extends BashProcess {
         return List.of("python3", "lib" + File.separator + "cognito_auth.py", this.client_id, this.region, this.username, this.password);
     }
 
-    protected void alertUserAuth() {
-        JOptionPane.showMessageDialog(null,
-                "Error getting token", "Error!", JOptionPane.ERROR_MESSAGE);
-    }
-
     public void sendToRabbitMQ() {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
@@ -65,9 +68,7 @@ public class OAuth extends BashProcess {
             String message = this.token;
             channel.basicPublish("", "TokenQueue", null, message.getBytes(StandardCharsets.UTF_8));
             System.out.println(" [x] Sent '" + message + "'");
-        } catch (TimeoutException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (TimeoutException | IOException e) {
             e.printStackTrace();
         }
     }

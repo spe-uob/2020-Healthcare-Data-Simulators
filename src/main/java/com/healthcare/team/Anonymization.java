@@ -4,7 +4,7 @@ import OpenPseudonymiser.Crypto;
 
 import java.util.TreeMap;
 
-public class Anonimization {
+public class Anonymization {
 
     private static Crypto crypto;
 

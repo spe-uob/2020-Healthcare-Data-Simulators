@@ -49,44 +49,51 @@
         </constraints>
         <properties>
           <model>
-            <item value="Allergic-Rhinitis"/>
+            <item value="Allergic_Rhinitis"/>
             <item value="Allergies"/>
+            <item value="Anemia"/>
             <item value="Appendicitis"/>
             <item value="Asthma"/>
             <item value="Atopy"/>
-            <item value="Attention-Deficit-Disorder"/>
+            <item value="Attention_Deficit_Disorder"/>
             <item value="Bronchitis"/>
-            <item value="Colorectal-Cancer"/>
+            <item value="Colorectal_Cancer"/>
+            <item value="Breast_Cancer"/>
             <item value="Contraceptives"/>
-            <item value="Contraceptive-Maintenance"/>
+            <item value="Contraceptive_Maintenance"/>
             <item value="Copd"/>
+            <item value="Covid19"/>
             <item value="Dementia"/>
             <item value="Dermatitis"/>
-            <item value="Ear-Infections"/>
+            <item value="Ear_Infections"/>
             <item value="Epilepsy"/>
-            <item value="Female-Reproduction"/>
+            <item value="Female_Reproduction"/>
             <item value="Fibromyalgia"/>
-            <item value="Food-Allergies"/>
+            <item value="Food_Allergies"/>
             <item value="Gout"/>
             <item value="Homelessness"/>
+            <item value="Heart"/>
             <item value="Injuries"/>
-            <item value="Lung-Cancer"/>
+            <item value="Lung_Cancer"/>
             <item value="Lupus"/>
-            <item value="Med-Rec"/>
-            <item value="Metabolic-Syndrome-Care"/>
-            <item value="Metabolic-Syndrome-Disease"/>
-            <item value="Opioid-Addiction"/>
+            <item value="Med_Rec"/>
+            <item value="Medications"/>
+            <item value="Metabolic_Syndrome_Care"/>
+            <item value="Metabolic_Syndrome_Disease"/>
+            <item value="Opioid_Addiction"/>
             <item value="Osteoarthritis"/>
             <item value="Osteoporosis"/>
             <item value="Pregnancy"/>
-            <item value="Rheumatoid-Arthritis"/>
-            <item value="Self-Harm"/>
-            <item value="Sexual-Activity"/>
+            <item value="Rheumatoid_Arthritis"/>
+            <item value="Self_Harm"/>
+            <item value="Sexual_Activity"/>
             <item value="Sinusitis"/>
-            <item value="Sore-Throat"/>
-            <item value="Total-Joint-Replacement"/>
-            <item value="Urinary-Tract-Infections"/>
-            <item value="Wellness-Encounters"/>
+            <item value="Sore_Throat"/>
+            <item value="Surgery"/>
+            <item value="Total_Joint_Replacement"/>
+            <item value="Urinary_Tract_Infections"/>
+            <item value="Veterans"/>
+            <item value="Wellness_Encounters"/>
           </model>
         </properties>
       </component>
@@ -101,6 +108,7 @@
           <model>
             <item value="male"/>
             <item value="female"/>
+            <item value="both"/>
           </model>
           <toolTipText value=""/>
         </properties>

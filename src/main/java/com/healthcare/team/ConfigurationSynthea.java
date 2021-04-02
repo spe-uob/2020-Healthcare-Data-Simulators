@@ -25,11 +25,10 @@ public class ConfigurationSynthea extends JFrame {
     private JProgressBar bar;
 
     public ConfigurationSynthea() {
-        this.add(panel1);
-        this.setTitle("Healthcare Data Simulator");
-        this.setSize(500, 600);
-
-        bar = new JProgressBar(0, 100);
+        super("Healthcare Data Simulator");
+        add(panel1);
+        setTitle("Healthcare Data Simulator");
+        setSize(500, 600);
 
         panel1.add(bar);
         bar.setBounds(0, 0, 10, 10);
@@ -75,6 +74,7 @@ public class ConfigurationSynthea extends JFrame {
                     Objects.requireNonNull(module.getSelectedItem()).toString().toLowerCase(), Objects.requireNonNull(somersetTextField.getText().toString()));
 
             ProcessBuilder processBuilder = new ProcessBuilder();
+            System.out.println(computer.processParameters());
             processBuilder.command(computer.processParameters());
             try {
 

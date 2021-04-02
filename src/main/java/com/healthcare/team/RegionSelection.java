@@ -4,8 +4,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import java.security.GeneralSecurityException;
-
 public class RegionSelection extends JFrame {
     private JPanel rootPanel;
     private JButton otherButton;
@@ -16,6 +14,7 @@ public class RegionSelection extends JFrame {
 
 
     public RegionSelection() {
+        super("Healthcare Data Simulator");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         add(rootPanel);
         setTitle("Healthcare Data Simulator");

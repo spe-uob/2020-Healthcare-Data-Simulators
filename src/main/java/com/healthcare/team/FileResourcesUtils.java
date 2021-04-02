@@ -15,8 +15,8 @@ public class FileResourcesUtils {
     static {
         requiredFiles.add(new File("lib" + File.separator + "cognito_auth.py"));
         requiredFiles.add(new File("lib" + File.separator + "synthea-with-dependencies.jar"));
-        requiredFiles.add(new File("lib" + File.separator + "convertor_hl7-with-dependencies.jar"));
         requiredFiles.add(new File("lib" + File.separator + "regions.txt"));
+        requiredFiles.add(new File("lib" + File.separator + "convertor_hl7-with-dependencies.jar"));
         requiredFiles.add(new File("lib" + File.separator + "modules.txt"));
     }
 

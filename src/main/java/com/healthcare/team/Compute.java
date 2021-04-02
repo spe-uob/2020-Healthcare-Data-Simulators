@@ -4,11 +4,12 @@ import javax.swing.*;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class Compute extends BashProcess {
 
-    private static final List<String> validGenders = Arrays.asList("female", "male");
+    private static final List<String> validGenders = Arrays.asList("female", "male", "both");
     private final String population;
     private final String minAge;
     private final String maxAge;
@@ -58,18 +59,17 @@ public class Compute extends BashProcess {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Illegal Entry!, state"));
 
-        choicesModules.stream().filter(module::equals)
+        choicesModules.stream().filter(module.toLowerCase(Locale.ROOT)::equals)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Illegal Entry!, module"));
     }
 
     private String getCommand() {
-        return new StringBuilder("java -jar ./lib/synthea-with-dependencies.jar")
-                .append(" -p ").append(this.population).append(" -g ")
-                .append(this.gender.equals("male") ? "M" : "F").append(" -a ")
-                .append(this.minAge).append("-").append(this.maxAge).append(" -m ")
-                .append(this.module).append(" ").append(this.state)
-                .toString();
+        return "java -jar ./lib/synthea-with-dependencies.jar" +
+                " -p " + this.population + (this.gender.equals("both") ? "" : (" -g " +
+                (this.gender.equals("male") ? "M" : "F"))) + " -a " +
+                this.minAge + "-" + this.maxAge + " -m " +
+                this.module + " " + this.state;
     }
 
     public void generatePatient() {

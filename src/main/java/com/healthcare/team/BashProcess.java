@@ -7,10 +7,23 @@ import java.util.List;
 
 
 public abstract class BashProcess {
+    private String generatedToken = "";
+
+    public void checkForNullAndEmptyValues(String[] args) {
+        for (String arg : args) {
+            if (arg == null) throw new NullPointerException("null value found!");
+            if (arg.equals("")) throw new IllegalArgumentException("Empty value found!");
+        }
+    }
+
+    public String getToken() {
+       return generatedToken;
+    }
 
     public void executeCommand(String errorMessage) {
 
         ProcessBuilder processBuilder = new ProcessBuilder();
+        System.out.println(processParameters());
         processBuilder.command(processParameters());
         try {
 
@@ -29,11 +42,11 @@ public abstract class BashProcess {
                 alertUser();
                 throw new IOException(errorMessage);
             }
+            if (errorMessage.equals("No token generated!")) this.generatedToken = output.toString();
 
             informUser();
             System.out.println("Success!");
         } catch (IOException e) {
-            System.out.println(e);
             e.printStackTrace();
         }
     }

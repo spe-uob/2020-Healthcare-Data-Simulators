@@ -47,10 +47,9 @@ public class InitialSetup {
                             }
                             String file1 = file.toString().substring(index+1);
                             String file2 = check.getKey().substring(index2+1);
-
                             if (file1.equals(file2)) {
                                 if (!check.getValue().equals(sha512hex)) {
-                                    System.err.println("This file is corrupted! "+file.toString());
+                                    System.err.println("This file is corrupted or was recently edited! "+file.toString());
                                     throw new SecurityException("file corrupted: "+file.toString());
                                 }
                                 break;
@@ -62,7 +61,6 @@ public class InitialSetup {
                 }
             }
         }
-        System.out.println("opening program...");
     }
 
     private static Map<String, String> readCacheFile() {

@@ -18,7 +18,7 @@ public class OAuthTest {
         }
 
         @Override
-        protected void alertUserAuth() {}
+        protected void alertUser() {}
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -54,7 +54,7 @@ public class OAuthTest {
         oAuth.generateToken();
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testEmptyPasswordShouldThrow() {
         oAuth = new OauthWithNoJOptionPane(
                 "7n4vr35t6o5153456ervok1vm9",

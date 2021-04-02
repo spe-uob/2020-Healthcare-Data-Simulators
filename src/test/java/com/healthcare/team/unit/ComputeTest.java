@@ -20,6 +20,9 @@ public class ComputeTest {
 
         @Override
         protected void alertUser() {}
+
+        @Override
+        protected void informUser() {}
     }
 
     @BeforeClass
@@ -316,9 +319,9 @@ public class ComputeTest {
                 "1",
                 "0",
                 "1",
-                "Male",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "male",
+                "Allergic_Rhinitis",
+                "Somerset"
         );
         computeWithNoJOptionPane.generatePatient();
     }

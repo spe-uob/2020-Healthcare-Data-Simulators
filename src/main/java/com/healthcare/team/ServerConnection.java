@@ -18,6 +18,7 @@ public class ServerConnection extends JFrame {
     private JLabel clientIDLabel;
 
     public ServerConnection() {
+        super("Healthcare Data Simulator");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         add(rootPanel);
         setTitle("Healthcare Data Simulator");
