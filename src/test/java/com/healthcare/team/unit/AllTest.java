@@ -17,7 +17,8 @@ import org.junit.runners.Suite;
         ParseJSONTest.class,
         SenderSFTP.class,
         SendTest.class,
-        SFTPTest.class
+        SFTPTest.class,
+        UtilsTest.class
 })
 
 public class AllTest {

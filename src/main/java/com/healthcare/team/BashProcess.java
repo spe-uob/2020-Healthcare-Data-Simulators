@@ -7,13 +7,12 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 public abstract class BashProcess extends  RegionSelection {
+    private String generatedToken = "";
 
     public void executeCommand(String errorMessage) {
 
         ProcessBuilder processBuilder = new ProcessBuilder();
         processBuilder.command(processParameters(null));
-        System.out.println(processParameters());
-        processBuilder.command(processParameters());
         try {
 
             Process process = processBuilder.start();

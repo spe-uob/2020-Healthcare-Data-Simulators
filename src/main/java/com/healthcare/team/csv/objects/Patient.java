@@ -241,7 +241,7 @@ public class Patient {
         map.put("NHSNumber", Id);
 
         return "Patient: " +
-                "Id='" + Anonimization.mask(map) + '\'' +
+                "Id='" + Anonymization.mask(map) + '\'' +
                 "| ssn='" + ssn + '\'' +
                 "| birthDate='" + birthDate + '\'' +
                 "| deathDate='" + deathDate + '\'' +
