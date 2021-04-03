@@ -1,6 +1,7 @@
 package com.healthcare.team.csv.objects;
 
 import com.healthcare.team.Anonimization;
+
 import java.util.TreeMap;
 
 public class Patient {
@@ -32,7 +33,8 @@ public class Patient {
     private String healthcareCoverage;
 
 
-    public Patient(){}
+    public Patient() {
+    }
 
     public String getId() {
         return Id;
@@ -266,5 +268,39 @@ public class Patient {
                 "| lon='" + lon + '\'' +
                 "| healthcareExpenses='" + healthcareExpenses + '\'' +
                 "| healthcareCoverage='" + healthcareCoverage + '\'';
+    }
+
+    public String toCsvString() {
+        return Anonimization.mask(buildAnonymizeMap()) + ',' +
+                ssn + ',' +
+                birthDate + ',' +
+                deathDate + ',' +
+                drivers + ',' +
+                passport + ',' +
+                prefix + ',' +
+                first + ',' +
+                last + ',' +
+                suffix + ',' +
+                maide + ',' +
+                marital + ',' +
+                race + ',' +
+                ethnicity + ',' +
+                gender + ',' +
+                birthplace + ',' +
+                address + ',' +
+                city + ',' +
+                state + ',' +
+                county + ',' +
+                zip + ',' +
+                lat + ',' +
+                lon + ',' +
+                healthcareExpenses + ',' +
+                healthcareCoverage;
+    }
+
+    private TreeMap<String, String> buildAnonymizeMap() {
+        TreeMap<String, String> map = new TreeMap<>();
+        map.put("NHSNumber", Id);
+        return map;
     }
 }
