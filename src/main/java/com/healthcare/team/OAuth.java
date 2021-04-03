@@ -1,5 +1,7 @@
 package com.healthcare.team;
 
+import static com.healthcare.team.commons.Constants.OBJECT_PROPERTY_NPE_MESSAGE;
+
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -9,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.TimeoutException;
 
 public class OAuth extends BashProcess {
@@ -16,11 +19,15 @@ public class OAuth extends BashProcess {
     private final String client_id, region, username, password;
 
     public OAuth(String client_id, String region, String username, String password) {
+
         this.token = "";
-        this.client_id = client_id;
-        this.region = region;
-        this.username = username;
-        this.password = password;
+        this.client_id = Objects.requireNonNull(client_id, String.format(OBJECT_PROPERTY_NPE_MESSAGE, OAuth.class.getCanonicalName(), "client_id"));
+        this.region = Objects.requireNonNull(region, String.format(OBJECT_PROPERTY_NPE_MESSAGE, OAuth.class.getCanonicalName(), "region"));
+        this.username = Objects.requireNonNull(username, String.format(OBJECT_PROPERTY_NPE_MESSAGE, OAuth.class.getCanonicalName(), "username"));
+        this.password = Objects.requireNonNull(password, String.format(OBJECT_PROPERTY_NPE_MESSAGE, OAuth.class.getCanonicalName(), "password"));
+        if (client_id.isBlank() || region.isBlank() || username.isBlank() || password.isBlank()) {
+            throw new IllegalArgumentException(OAuth.class.getCanonicalName().concat(" fields are empty!"));
+        }
     }
 
     public void generateToken() {

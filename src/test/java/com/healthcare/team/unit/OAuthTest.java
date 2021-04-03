@@ -29,7 +29,6 @@ public class OAuthTest {
                 "data-sim-team",
                 "jOvK-dRCs-kCW3-ZgPx"
         );
-        oAuth.generateToken();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -40,7 +39,6 @@ public class OAuthTest {
                 "data-sim-team",
                 "jOvK-dRCs-kCW3-ZgPx"
         );
-        oAuth.generateToken();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -51,10 +49,9 @@ public class OAuthTest {
                 "",
                 "jOvK-dRCs-kCW3-ZgPx"
         );
-        oAuth.generateToken();
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testEmptyPasswordShouldThrow() {
         oAuth = new OauthWithNoJOptionPane(
                 "7n4vr35t6o5153456ervok1vm9",
@@ -62,6 +59,5 @@ public class OAuthTest {
                 "data-sim-team",
                 ""
         );
-        oAuth.generateToken();
     }
 }
