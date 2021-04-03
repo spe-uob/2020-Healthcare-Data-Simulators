@@ -1,14 +1,17 @@
 package com.healthcare.team;
 
+import com.healthcare.team.commons.Modules;
+import com.healthcare.team.commons.States;
+
 import javax.swing.*;
-import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 public class Compute extends BashProcess {
 
-    private static final List<String> validGenders = Arrays.asList("female", "male");
+    private static final List<String> validGenders = Arrays.asList("Female", "Male");
     private final String population;
     private final String minAge;
     private final String maxAge;
@@ -49,16 +52,15 @@ public class Compute extends BashProcess {
         if (!validGenders.contains(gender)) {
             throw new IllegalArgumentException("Illegal Entry!, gender");
         }
-
-        ParserCustomSettings pcs = new ParserCustomSettings();
-        List<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat(File.separator + "lib" + File.separator + "regions.txt"));
-        List<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat(File.separator + "lib" + File.separator + "modules.txt"));
-
-        choicesStates.stream().filter(state::equals)
+        Stream.of(States.values())
+                .map(States::getName)
+                .filter(state::equals)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Illegal Entry!, state"));
 
-        choicesModules.stream().filter(module::equals)
+        Stream.of(Modules.values())
+                .map(Modules::getDescription)
+                .filter(module::equals)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Illegal Entry!, module"));
     }
@@ -88,8 +90,8 @@ public class Compute extends BashProcess {
 
     @Override
     protected void alertUser() {
-            JOptionPane.showMessageDialog(null,
-                    "Error while generating", "Error!", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+                "Error while generating", "Error!", JOptionPane.ERROR_MESSAGE);
     }
 
     @Override
