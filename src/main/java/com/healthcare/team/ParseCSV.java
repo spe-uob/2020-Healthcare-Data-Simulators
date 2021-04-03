@@ -1,16 +1,20 @@
 package com.healthcare.team;
 
 import static com.healthcare.team.commons.Constants.PATIENTS_QUEUE_NAME;
+import static com.healthcare.team.commons.Constants.PATIENTS_CSV_FILE_HEADER;
 
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import com.healthcare.team.csv.objects.Patient;
+import org.apache.commons.lang3.reflect.FieldUtils;
 
 import java.io.*;
+import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Objects;
 
 public class ParseCSV {
@@ -39,18 +43,22 @@ public class ParseCSV {
         CsvSchema schema = csvMapper.schemaFor(Patient.class);
         schema.withoutHeader().withLineSeparator("\n").withColumnSeparator(',');
         ObjectReader oReader = csvMapper.reader(Patient.class).with(schema);
-        String outputPath = buildOutputPath(region);
-        StringBuilder anonymizeData = new StringBuilder();
-        try (Reader reader = new FileReader(outputPath)) {
+        String filePath = buildFilePath(region);
+        StringBuilder rabbitAnonymizeData = new StringBuilder();
+        StringBuilder anonymizeDataForCsvUpdate = new StringBuilder();
+        try (Reader reader = new FileReader(filePath)) {
             MappingIterator<Patient> mi = oReader.readValues(reader);
             while (mi.hasNext()) {
                 Patient current = mi.next();
-                anonymizeData.append(current.toString());
+
+                rabbitAnonymizeData.append(current.toString());
+                anonymizeDataForCsvUpdate.append(current.toCsvString()).append("\n");
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return anonymizeData.toString();
+        updateCsvFile(filePath, anonymizeDataForCsvUpdate.toString());
+        return rabbitAnonymizeData.toString();
     }
 
     //Send patients with NHSNumber encrypted to Rabbit queue
@@ -59,10 +67,37 @@ public class ParseCSV {
         String queueName = String.format(PATIENTS_QUEUE_NAME, region);
 
         new MessageBrokerSender().Sender(anonymize, queueName);
-        System.out.println("out: " + anonymize);
     }
 
-    private String buildOutputPath(String region) {
+    private String buildFilePath(String region) {
         return System.getProperty("user.dir").concat("/").concat(region).concat("/csv/patients.csv");
+    }
+
+    private String objectToCsvFormat(Patient patient) {
+        List<Field> patientFields = FieldUtils.getAllFieldsList(Patient.class);
+        StringBuilder sb = new StringBuilder();
+        patientFields.stream().forEach(f -> {
+            try {
+                sb.append(FieldUtils.readField(patient, f.getName())).append(",");
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        });
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println(sb.toString());
+        return sb.toString();
+    }
+
+    private void updateCsvFile(String path, String fileContent) {
+        try (FileWriter csvWriter = new FileWriter(path)) {
+            csvWriter.append(PATIENTS_CSV_FILE_HEADER);
+            csvWriter.append("\n");
+
+            csvWriter.append(fileContent);
+
+            csvWriter.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
