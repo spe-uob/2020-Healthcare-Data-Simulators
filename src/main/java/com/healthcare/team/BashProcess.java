@@ -1,28 +1,17 @@
 package com.healthcare.team;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-
-public abstract class BashProcess {
-    private String generatedToken = "";
-
-    public void checkForNullAndEmptyValues(String[] args) {
-        for (String arg : args) {
-            if (arg == null) throw new NullPointerException("null value found!");
-            if (arg.equals("")) throw new IllegalArgumentException("Empty value found!");
-        }
-    }
-
-    public String getToken() {
-       return generatedToken;
-    }
+public abstract class BashProcess extends  RegionSelection {
 
     public void executeCommand(String errorMessage) {
 
         ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command(processParameters(null));
         System.out.println(processParameters());
         processBuilder.command(processParameters());
         try {
@@ -42,11 +31,14 @@ public abstract class BashProcess {
                 alertUser();
                 throw new IOException(errorMessage);
             }
-            if (errorMessage.equals("No token generated!")) this.generatedToken = output.toString();
+            if (errorMessage.equals("No token generated!")) {
+                this.generatedToken = output.toString();
+            }
 
             informUser();
             System.out.println("Success!");
         } catch (IOException e) {
+            System.out.println(e);
             e.printStackTrace();
         }
     }
@@ -57,5 +49,5 @@ public abstract class BashProcess {
 
     protected abstract boolean showAlert(String output);
 
-    protected abstract List<String> processParameters();
+    protected abstract List<String> processParameters(String region);
 }

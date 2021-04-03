@@ -29,7 +29,6 @@ public class OAuthTest {
                 "data-sim-team",
                 "jOvK-dRCs-kCW3-ZgPx"
         );
-        oAuth.generateToken();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -40,7 +39,6 @@ public class OAuthTest {
                 "data-sim-team",
                 "jOvK-dRCs-kCW3-ZgPx"
         );
-        oAuth.generateToken();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -51,7 +49,6 @@ public class OAuthTest {
                 "",
                 "jOvK-dRCs-kCW3-ZgPx"
         );
-        oAuth.generateToken();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -62,6 +59,5 @@ public class OAuthTest {
                 "data-sim-team",
                 ""
         );
-        oAuth.generateToken();
     }
 }

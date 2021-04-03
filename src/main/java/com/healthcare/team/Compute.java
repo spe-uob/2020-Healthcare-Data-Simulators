@@ -1,15 +1,17 @@
 package com.healthcare.team;
 
+import com.healthcare.team.commons.Modules;
+import com.healthcare.team.commons.States;
+
 import javax.swing.*;
-import java.io.File;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 public class Compute extends BashProcess {
 
-    private static final List<String> validGenders = Arrays.asList("female", "male", "both");
+    private static final List<String> validGenders = Arrays.asList("Female", "Male", "both");
     private final String population;
     private final String minAge;
     private final String maxAge;
@@ -50,27 +52,36 @@ public class Compute extends BashProcess {
         if (!validGenders.contains(gender)) {
             throw new IllegalArgumentException("Illegal Entry!, gender");
         }
-
-        ParserCustomSettings pcs = new ParserCustomSettings();
-        List<String> choicesStates = pcs.parse(System.getProperty("user.dir").concat(File.separator + "lib" + File.separator + "regions.txt"));
-        List<String> choicesModules = pcs.parse(System.getProperty("user.dir").concat(File.separator + "lib" + File.separator + "modules.txt"));
-
-        choicesStates.stream().filter(state::equals)
+        Stream.of(States.values())
+                .map(States::getName)
+                .filter(state::equals)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Illegal Entry!, state"));
 
-        choicesModules.stream().filter(module.toLowerCase(Locale.ROOT)::equals)
+        Stream.of(Modules.values())
+                .map(Modules::getDescription)
+                .filter(module::equals)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Illegal Entry!, module"));
     }
 
-    private String getCommand() {
-        return "java -jar ./lib/synthea-with-dependencies.jar" +
-                " -p " + this.population + (this.gender.equals("both") ? "" : (" -g " +
-                (this.gender.equals("male") ? "M" : "F"))) + " -a " +
-                this.minAge + "-" + this.maxAge + " -m " +
-                this.module + " " + this.state;
+    private String getParametersSynthea() {
+        return new StringBuilder().append(" -p ").append(this.population).append(" -g ")
+                .append(this.gender.equals("male") ? "M" : "F").append(" -a ")
+                .append(this.minAge).append("-").append(this.maxAge).append(" -m ")
+                .append(this.module).append(" ").append(this.state)
+                .toString();
     }
+
+    public String getCommand(String region) {
+        return new StringBuilder("java -jar ./lib/synthea-with-dependencies.jar")
+                .append(getParametersSynthea())
+                .append(" --exporter.baseDirectory ./")
+                .append(region)
+                .append(" --exporter.csv.export true")
+                .toString();
+    }
+
 
     public void generatePatient() {
         System.out.println("Starting...");
@@ -79,8 +90,8 @@ public class Compute extends BashProcess {
 
     @Override
     protected void alertUser() {
-            JOptionPane.showMessageDialog(null,
-                    "Error while generating", "Error!", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+                "Error while generating", "Error!", JOptionPane.ERROR_MESSAGE);
     }
 
     @Override
@@ -95,8 +106,8 @@ public class Compute extends BashProcess {
     }
 
     @Override
-    protected List<String> processParameters() {
-        return List.of("bash", "-c", getCommand());
+    public List<String> processParameters(String region) {
+        return List.of("bash", "-c", getCommand(region));
     }
 
     public static List<String> getValidGenders() {
@@ -123,7 +134,7 @@ public class Compute extends BashProcess {
         return module;
     }
 
-    public String getState() {
+    public String getStateSynthea() {
         return state;
     }
 }

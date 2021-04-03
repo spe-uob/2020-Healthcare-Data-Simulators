@@ -241,7 +241,7 @@ public class Patient {
         map.put("NHSNumber", Id);
 
         return "Patient: " +
-                "Id='" + Anonymization.mask(map) + '\'' +
+                "Id='" + Anonimization.mask(map) + '\'' +
                 "| ssn='" + ssn + '\'' +
                 "| birthDate='" + birthDate + '\'' +
                 "| deathDate='" + deathDate + '\'' +
@@ -266,5 +266,39 @@ public class Patient {
                 "| lon='" + lon + '\'' +
                 "| healthcareExpenses='" + healthcareExpenses + '\'' +
                 "| healthcareCoverage='" + healthcareCoverage + '\'';
+    }
+
+    public String toCsvString() {
+        return Anonymization.mask(buildAnonymizeMap()) + ',' +
+                ssn + ',' +
+                birthDate + ',' +
+                deathDate + ',' +
+                drivers + ',' +
+                passport + ',' +
+                prefix + ',' +
+                first + ',' +
+                last + ',' +
+                suffix + ',' +
+                maide + ',' +
+                marital + ',' +
+                race + ',' +
+                ethnicity + ',' +
+                gender + ',' +
+                birthplace + ',' +
+                address + ',' +
+                city + ',' +
+                state + ',' +
+                county + ',' +
+                zip + ',' +
+                lat + ',' +
+                lon + ',' +
+                healthcareExpenses + ',' +
+                healthcareCoverage;
+    }
+
+    private TreeMap<String, String> buildAnonymizeMap() {
+        TreeMap<String, String> map = new TreeMap<>();
+        map.put("NHSNumber", Id);
+        return map;
     }
 }

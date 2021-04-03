@@ -1,11 +1,15 @@
 package com.healthcare.team;
 
+import static com.healthcare.team.commons.Constants.JOB_MIN_INTERVAL_IN_SECONDS;
+
+import com.healthcare.team.commons.Utils;
+import com.healthcare.team.scheduler.JobScheduler;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Objects;
@@ -23,12 +27,16 @@ public class ConfigurationSynthea extends JFrame {
     private JButton sendButton;
     private JButton backButton;
     private JProgressBar bar;
+    private JTextField timer;
+    private JButton stopButton;
 
     public ConfigurationSynthea() {
         super("Healthcare Data Simulator");
-        add(panel1);
-        setTitle("Healthcare Data Simulator");
-        setSize(500, 600);
+        this.add(panel1);
+        this.setTitle("Healthcare Data Simulator");
+        this.setSize(500, 600);
+
+        bar = new JProgressBar(0, 100);
 
         panel1.add(bar);
         bar.setBounds(0, 0, 10, 10);
@@ -49,7 +57,8 @@ public class ConfigurationSynthea extends JFrame {
         generateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               new TaskBashProcess().execute();
+                new TaskBashProcess().execute();
+                executeJob();
             }
         });
 
@@ -57,9 +66,39 @@ public class ConfigurationSynthea extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Now we are sending patients with NHSNumber encrypted
-                new ParseCSV().sendPatientsToRabbit();
+                new ParseCSV().sendPatientsToRabbit(somersetTextField.getText());
             }
         });
+
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //GeneratorForm generatorForm = new GeneratorForm();
+                //generatorForm.setVisible(true);
+                JobScheduler.init(null, "", Integer.parseInt(timer.getText()), "STOP");
+            }
+        });
+    }
+
+    private boolean validJobExecution() {
+        String interval = timer.getText();
+        String region = somersetTextField.getText();
+        return Utils.isNumeric(interval)
+                && Utils.isValidString(region)
+                && Integer.parseInt(interval) >= JOB_MIN_INTERVAL_IN_SECONDS;
+    }
+
+    private Compute buildCompute() {
+        return new Compute(size.getText(), minAge.getText(), maxAge.getText(), Objects.requireNonNull(sex.getSelectedItem()).toString(),
+                Objects.requireNonNull(module.getSelectedItem()).toString().toLowerCase(), somersetTextField.getText());
+    }
+
+    private void executeJob() {
+        if (validJobExecution()) {
+            JobScheduler.init(buildCompute(), somersetTextField.getText(),
+                    Integer.parseInt(timer.getText()),
+                    "START");
+        }
     }
 
     public void updateRegionText(String regionName) {
@@ -70,14 +109,10 @@ public class ConfigurationSynthea extends JFrame {
     class TaskBashProcess extends SwingWorker<Void, String> {
         @Override
         public Void doInBackground() {
-            Compute computer = new Compute(size.getText(), minAge.getText(), maxAge.getText(), Objects.requireNonNull(sex.getSelectedItem()).toString(),
-                    Objects.requireNonNull(module.getSelectedItem()).toString().toLowerCase(), Objects.requireNonNull(somersetTextField.getText().toString()));
-
+            Compute computer = buildCompute();
             ProcessBuilder processBuilder = new ProcessBuilder();
-            System.out.println(computer.processParameters());
-            processBuilder.command(computer.processParameters());
+            processBuilder.command(computer.processParameters(somersetTextField.getText()));
             try {
-
                 Process process = processBuilder.start();
                 StringBuilder output = new StringBuilder();
                 BufferedReader reader = new BufferedReader(

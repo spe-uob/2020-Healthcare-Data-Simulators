@@ -3,6 +3,7 @@ package com.healthcare.team.unit;
 import com.healthcare.team.Compute;
 import com.healthcare.team.InitialSetup;
 import org.junit.*;
+import static org.junit.Assert.assertEquals;
 
 public class ComputeTest {
     private Compute compute;
@@ -11,7 +12,7 @@ public class ComputeTest {
         this class ensures no JOptionPanes are created
          which require user input to continue, hence, Tests pass.
     */
-    public static class ComputeWithNoJOptionPane extends Compute {
+   public static class ComputeWithNoJOptionPane extends Compute {
         public ComputeWithNoJOptionPane(String population, String minAge,
                                         String maxAge, String gender,
                                         String module, String state) {
@@ -97,7 +98,7 @@ public class ComputeTest {
         compute.generatePatient();
     }
 
-    @Test(expected = IllegalArgumentException.class, timeout = 15000)
+    @Test(expected = IllegalArgumentException.class, timeout = 30000)
     public void testEmptyStateShouldThrow() {
         compute = new Compute(
                 "1",
@@ -107,7 +108,6 @@ public class ComputeTest {
                 "Allergic-Rhinitis",
                 ""
         );
-        compute.generatePatient();
     }
 
     @Test(expected = NullPointerException.class, timeout = 15000)
@@ -120,7 +120,6 @@ public class ComputeTest {
                 "Allergic-Rhinitis",
                 "Shropshire"
         );
-        compute.generatePatient();
     }
 
     @Test(expected = NullPointerException.class, timeout = 15000)
@@ -133,7 +132,6 @@ public class ComputeTest {
                 "Allergic-Rhinitis",
                 "Shropshire"
         );
-        compute.generatePatient();
     }
 
     @Test(expected = NullPointerException.class, timeout = 15000)
@@ -146,7 +144,6 @@ public class ComputeTest {
                 "Allergic-Rhinitis",
                 "Shropshire"
         );
-        compute.generatePatient();
     }
 
     @Test(expected = NullPointerException.class, timeout = 15000)
@@ -159,7 +156,6 @@ public class ComputeTest {
                 "Allergic-Rhinitis",
                 "Shropshire"
         );
-        compute.generatePatient();
     }
 
     @Test(expected = NullPointerException.class, timeout = 15000)
@@ -172,7 +168,6 @@ public class ComputeTest {
                 null,
                 "Shropshire"
         );
-        compute.generatePatient();
     }
 
     @Test(expected = NullPointerException.class, timeout = 15000)
@@ -185,7 +180,6 @@ public class ComputeTest {
                 "Allergic-Rhinitis",
                 null
         );
-        compute.generatePatient();
     }
 
 
@@ -218,7 +212,6 @@ public class ComputeTest {
                 "Shropshire"
         );
         compute.generatePatient();
-
     }
 
     @Test(expected = IllegalArgumentException.class, timeout = 15000)
@@ -253,7 +246,6 @@ public class ComputeTest {
                 "Allergic-Rhinitis",
                 "Shropshire"
         );
-        compute.generatePatient();
         compute = new Compute(
                 "1",
                 "0",
@@ -262,7 +254,6 @@ public class ComputeTest {
                 "Allergic-Rhinitis",
                 "Shropshire"
         );
-        compute.generatePatient();
         compute = new Compute(
                 "1",
                 "0",
@@ -271,7 +262,6 @@ public class ComputeTest {
                 "Allergic-Rhinitis",
                 "Shropshire"
         );
-        compute.generatePatient();
     }
 
     @Test(expected = IllegalArgumentException.class, timeout = 15000)
@@ -310,7 +300,6 @@ public class ComputeTest {
                 "Allergic-Rhinitis",
                 "California"
         );
-        compute.generatePatient();
     }
 
     @Test(timeout = 100000)
@@ -323,6 +312,11 @@ public class ComputeTest {
                 "Allergic_Rhinitis",
                 "Somerset"
         );
-        computeWithNoJOptionPane.generatePatient();
+        assertEquals(computeWithNoJOptionPane.getPopulation(), "1");
+        assertEquals(computeWithNoJOptionPane.getMinAge(), "0");
+        assertEquals(computeWithNoJOptionPane.getMaxAge(), "1");
+        assertEquals(computeWithNoJOptionPane.getGender(), "Male");
+        assertEquals(computeWithNoJOptionPane.getModule(), "Allergic-Rhinitis");
+        assertEquals(computeWithNoJOptionPane.getStateSynthea(), "Shropshire");
     }
 }
