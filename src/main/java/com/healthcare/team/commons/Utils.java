@@ -13,4 +13,12 @@ public class Utils {
         }
         return true;
     }
+
+    public static boolean isStringInvalid(String toBeValidated) {
+        return toBeValidated == null && toBeValidated.isBlank();
+    }
+
+    public static boolean isValidString(String toBeValidated) {
+        return !isStringInvalid(toBeValidated);
+    }
 }

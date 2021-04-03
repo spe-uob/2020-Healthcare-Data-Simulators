@@ -66,7 +66,7 @@ public class ConfigurationSynthea extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Now we are sending patients with NHSNumber encrypted
-                new ParseCSV().sendPatientsToRabbit();
+                new ParseCSV().sendPatientsToRabbit(somersetTextField.getText());
             }
         });
 
@@ -75,13 +75,16 @@ public class ConfigurationSynthea extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //GeneratorForm generatorForm = new GeneratorForm();
                 //generatorForm.setVisible(true);
-                JobScheduler.init(null, Integer.parseInt(timer.getText()), "STOP");
+                JobScheduler.init(null, "", Integer.parseInt(timer.getText()), "STOP");
             }
         });
     }
 
-    private boolean validJobExecution(String interval) {
+    private boolean validJobExecution() {
+        String interval = timer.getText();
+        String region = somersetTextField.getText();
         return Utils.isNumeric(interval)
+                && Utils.isValidString(region)
                 && Integer.parseInt(interval) >= JOB_MIN_INTERVAL_IN_SECONDS;
     }
 
@@ -90,17 +93,11 @@ public class ConfigurationSynthea extends JFrame {
                 Objects.requireNonNull(module.getSelectedItem()).toString().toLowerCase(), somersetTextField.getText());
     }
 
-    private void executeJob(){
-        if (validJobExecution(timer.getText())) {
-            //try {
-                //TimeUnit.SECONDS.sleep(Integer.parseInt(timer.getText()));
-
-                JobScheduler.init(buildCompute(),
-                        Integer.parseInt(timer.getText()),
-                        "START");
-            //} catch (InterruptedException interruptedException) {
-           //     throw new RuntimeException(interruptedException);
-            //}
+    private void executeJob() {
+        if (validJobExecution()) {
+            JobScheduler.init(buildCompute(), somersetTextField.getText(),
+                    Integer.parseInt(timer.getText()),
+                    "START");
         }
     }
 

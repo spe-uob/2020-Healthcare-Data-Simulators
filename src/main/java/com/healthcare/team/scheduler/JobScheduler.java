@@ -1,21 +1,18 @@
 package com.healthcare.team.scheduler;
 
-import static com.healthcare.team.commons.Constants.ACTION_JOB_START;
-import static com.healthcare.team.commons.Constants.COMPUTE_AS_CTX_PARAMETER_NAME;
-
 import com.healthcare.team.Compute;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
+
+
+import static com.healthcare.team.commons.Constants.*;
 
 public class JobScheduler {
 
-    public static void init(Compute computer, int interval, String action) {
+    public static void init(Compute computer, String region, int interval, String action) {
         try {
             JobDetail job = JobBuilder.newJob(GenerateCsvAndSendDataJob.class)
                     .withIdentity("generateCsvAndSendDataJob")
@@ -33,7 +30,9 @@ public class JobScheduler {
             SchedulerFactory schFactory = new StdSchedulerFactory();
             Scheduler sch = schFactory.getScheduler();
             if (ACTION_JOB_START.equals(action)) {
-                sch.getContext().put(COMPUTE_AS_CTX_PARAMETER_NAME, computer);
+                SchedulerContext context = sch.getContext();
+                context.put(COMPUTE_AS_CTX_PARAMETER_NAME, computer);
+                context.put(REGION_CTX_PARAM_NAME, region);
                 sch.start();
                 sch.scheduleJob(job, trigger);
             } else {

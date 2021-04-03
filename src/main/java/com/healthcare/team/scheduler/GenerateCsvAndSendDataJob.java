@@ -1,12 +1,12 @@
 package com.healthcare.team.scheduler;
+
 import static com.healthcare.team.commons.Constants.COMPUTE_AS_CTX_PARAMETER_NAME;
+import static com.healthcare.team.commons.Constants.REGION_CTX_PARAM_NAME;
+
 import com.healthcare.team.BashProcess;
 import com.healthcare.team.Compute;
 import com.healthcare.team.ParseCSV;
-import org.quartz.Job;
-import org.quartz.JobExecutionContext;
-import org.quartz.JobExecutionException;
-import org.quartz.SchedulerException;
+import org.quartz.*;
 
 import java.util.List;
 
@@ -17,12 +17,14 @@ public class GenerateCsvAndSendDataJob extends BashProcess implements Job {
     @Override
     public void execute(JobExecutionContext jExeCtx) throws JobExecutionException {
         try {
-            computer = (Compute) jExeCtx.getScheduler().getContext().get(COMPUTE_AS_CTX_PARAMETER_NAME);
+            SchedulerContext context = jExeCtx.getScheduler().getContext();
+            String region = (String) context.get(REGION_CTX_PARAM_NAME);
+            computer = (Compute) context.get(COMPUTE_AS_CTX_PARAMETER_NAME);
+            executeCommand("Error on job running");
+            new ParseCSV().sendPatientsToRabbit(region);
         } catch (SchedulerException e) {
             throw new RuntimeException(e);
         }
-        executeCommand("Error on job running");
-        new ParseCSV().sendPatientsToRabbit();
     }
 
     @Override
