@@ -1,4 +1,4 @@
-package com.healthcare.team.unit;
+package com.healthcare.team.commons;
 
 import com.healthcare.team.commons.Utils;
 import org.junit.Test;

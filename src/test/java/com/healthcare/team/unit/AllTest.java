@@ -1,6 +1,9 @@
 package com.healthcare.team.unit;
 
 import com.healthcare.team.InitialSetup;
+import com.healthcare.team.commons.ModulesTest;
+import com.healthcare.team.commons.StatesTest;
+import com.healthcare.team.commons.UtilsTest;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -18,7 +21,9 @@ import org.junit.runners.Suite;
         SenderSFTP.class,
         SendTest.class,
         SFTPTest.class,
-        UtilsTest.class
+        UtilsTest.class,
+        ModulesTest.class,
+        StatesTest.class
 })
 
 public class AllTest {

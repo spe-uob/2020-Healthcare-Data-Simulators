@@ -8,13 +8,10 @@ import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import com.healthcare.team.csv.objects.Patient;
-import org.apache.commons.lang3.reflect.FieldUtils;
 
 import java.io.*;
-import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
 import java.util.Objects;
 
 public class ParseCSV {
@@ -71,21 +68,6 @@ public class ParseCSV {
 
     private String buildFilePath(String region) {
         return System.getProperty("user.dir").concat("/").concat(region).concat("/csv/patients.csv");
-    }
-
-    private String objectToCsvFormat(Patient patient) {
-        List<Field> patientFields = FieldUtils.getAllFieldsList(Patient.class);
-        StringBuilder sb = new StringBuilder();
-        patientFields.stream().forEach(f -> {
-            try {
-                sb.append(FieldUtils.readField(patient, f.getName())).append(",");
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-        });
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
-        System.out.println(sb.toString());
-        return sb.toString();
     }
 
     private void updateCsvFile(String path, String fileContent) {
