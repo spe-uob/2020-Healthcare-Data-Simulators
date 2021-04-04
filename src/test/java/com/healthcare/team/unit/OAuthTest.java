@@ -3,6 +3,11 @@ package com.healthcare.team.unit;
 import com.healthcare.team.OAuth;
 import org.junit.*;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
+import static com.healthcare.team.commons.Constants.PATIENTS_CSV_FILE_HEADER;
+
 public class OAuthTest {
     private OauthWithNoJOptionPane oAuth;
 
@@ -60,4 +65,6 @@ public class OAuthTest {
                 ""
         );
     }
+
+
 }

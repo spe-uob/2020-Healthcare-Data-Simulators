@@ -2,8 +2,15 @@ package com.healthcare.team.unit;
 
 import com.healthcare.team.Compute;
 import com.healthcare.team.InitialSetup;
+import org.hamcrest.collection.IsEmptyCollection;
 import org.junit.*;
+
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+
 
 public class ComputeTest {
     private Compute compute;
@@ -315,8 +322,35 @@ public class ComputeTest {
         assertEquals(computeWithNoJOptionPane.getPopulation(), "1");
         assertEquals(computeWithNoJOptionPane.getMinAge(), "0");
         assertEquals(computeWithNoJOptionPane.getMaxAge(), "1");
-        assertEquals(computeWithNoJOptionPane.getGender(), "Male");
-        assertEquals(computeWithNoJOptionPane.getModule(), "Allergic-Rhinitis");
-        assertEquals(computeWithNoJOptionPane.getStateSynthea(), "Shropshire");
+        assertEquals(computeWithNoJOptionPane.getGender(), "male");
+        assertEquals(computeWithNoJOptionPane.getModule(), "Allergic_Rhinitis");
+        assertEquals(computeWithNoJOptionPane.getStateSynthea(), "Somerset");
+    }
+
+    @Test(timeout = 10000)
+    public void checkProcessParameters(){
+        ComputeWithNoJOptionPane computeWithNoJOptionPane = new ComputeWithNoJOptionPane(
+                "1",
+                "0",
+                "1",
+                "male",
+                "Allergic_Rhinitis",
+                "Somerset"
+        );
+        String region = computeWithNoJOptionPane.getStateSynthea();
+        String syntheaParams = new StringBuilder().append(" -p ").append(computeWithNoJOptionPane.getPopulation()).append(" -g ")
+                .append(computeWithNoJOptionPane.getGender().equals("male") ? "M" : "F").append(" -a ")
+                .append(computeWithNoJOptionPane.getMinAge()).append("-").append(computeWithNoJOptionPane.getMaxAge()).append(" -m ")
+                .append(computeWithNoJOptionPane.getModule()).append(" ").append(region).toString();
+        String command = new StringBuilder("java -jar ./lib/synthea-with-dependencies.jar")
+                .append(syntheaParams)
+                .append(" --exporter.baseDirectory ./")
+                .append(region)
+                .append(" --exporter.csv.export true").toString();
+        List<String> actual = computeWithNoJOptionPane.processParameters(region);
+        assertThat(actual, hasItems("-c"));
+        assertThat(actual, hasSize(3));
+        assertThat(actual, contains("bash", "-c", command));
+        assertThat(actual, not(IsEmptyCollection.empty()));
     }
 }

@@ -11,13 +11,13 @@ public enum Modules {
 
     Atopy("Atopy"),
 
-    AttentionDeficitDisorder("Attention-Deficit-Disorder"),
+    AttentionDeficitDisorder("Attention_Deficit_Disorder"),
 
     Bronchitis("Bronchitis"),
 
-    ColorectalCancer("Colorectal-Cancer"),
+    ColorectalCancer("Colorectal_Cancer"),
 
-    ContraceptiveMaintenance("Contraceptive-Maintenance"),
+    ContraceptiveMaintenance("Contraceptive_Maintenance"),
 
     Contraceptives("Contraceptives"),
 
@@ -27,15 +27,15 @@ public enum Modules {
 
     Dermatitis("Dermatitis"),
 
-    EarInfections("Ear-Infections"),
+    EarInfections("Ear_Infections"),
 
     Epilepsy("Epilepsy"),
 
-    FemaleReproduction("Female-Reproduction"),
+    FemaleReproduction("Female_Reproduction"),
 
     Fibromyalgia("Fibromyalgia"),
 
-    FoodAllergies("Food-Allergies"),
+    FoodAllergies("Food_Allergies"),
 
     Gout("Gout"),
 
@@ -43,17 +43,17 @@ public enum Modules {
 
     Injuries("Injuries"),
 
-    LungCancer("Lung-Cancer"),
+    LungCancer("Lung_Cancer"),
 
     Lupus("Lupus"),
 
-    MedRec("Med-Rec"),
+    MedRec("Med_Rec"),
 
-    MetabolicSyndromeCare("Metabolic-Syndrome-Care"),
+    MetabolicSyndromeCare("Metabolic_Syndrome_Care"),
 
-    MetabolicSyndromeDisease("Metabolic-Syndrome-Disease"),
+    MetabolicSyndromeDisease("Metabolic_Syndrome_Disease"),
 
-    OpioidAddiction("Opioid-Addiction"),
+    OpioidAddiction("Opioid_Addiction"),
 
     Osteoarthritis("Osteoarthritis"),
 
@@ -61,23 +61,23 @@ public enum Modules {
 
     Pregnancy("Pregnancy"),
 
-    RheumatoidArthritis("Rheumatoid-Arthritis"),
+    RheumatoidArthritis("Rheumatoid_Arthritis"),
 
-    Rhinitis("Allergic-Rhinitis"),
+    Rhinitis("Allergic_Rhinitis"),
 
-    SelfHarm("Self-Harm"),
+    SelfHarm("Self_Harm"),
 
-    SexualActivity("Sexual-Activity"),
+    SexualActivity("Sexual_Activity"),
 
     Sinusitis("Sinusitis"),
 
-    SoreThroat("Sore-Throat"),
+    SoreThroat("Sore_Throat"),
 
-    TotalJointReplacement("Total-Joint-Replacement"),
+    TotalJointReplacement("Total_Joint_Replacement"),
 
-    UrinaryTractInfections("Urinary-Tract-Infections"),
+    UrinaryTractInfections("Urinary_Tract_Infections"),
 
-    WellnessEncounters("Wellness-Encounters");
+    WellnessEncounters("Wellness_Encounters");
 
     private String description;
 

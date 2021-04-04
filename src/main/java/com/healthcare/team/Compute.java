@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 public class Compute extends BashProcess {
 
-    private static final List<String> validGenders = Arrays.asList("Female", "Male", "both");
+    private static final List<String> validGenders = Arrays.asList("female", "male", "both");
     private final String population;
     private final String minAge;
     private final String maxAge;
@@ -66,14 +66,14 @@ public class Compute extends BashProcess {
     }
 
     private String getParametersSynthea() {
-        return new StringBuilder().append(" -p ").append(this.population).append(" -g ")
-                .append(this.gender.equals("male") ? "M" : "F").append(" -a ")
-                .append(this.minAge).append("-").append(this.maxAge).append(" -m ")
-                .append(this.module).append(" ").append(this.state)
+        return new StringBuilder().append(" -p ").append(population).append(" -g ")
+                .append(gender.equals("male") ? "M" : "F").append(" -a ")
+                .append(minAge).append("-").append(maxAge).append(" -m ")
+                .append(module).append(" ").append(state)
                 .toString();
     }
 
-    public String getCommand(String region) {
+    private String getCommand(String region) {
         return new StringBuilder("java -jar ./lib/synthea-with-dependencies.jar")
                 .append(getParametersSynthea())
                 .append(" --exporter.baseDirectory ./")
@@ -108,10 +108,6 @@ public class Compute extends BashProcess {
     @Override
     public List<String> processParameters(String region) {
         return List.of("bash", "-c", getCommand(region));
-    }
-
-    public static List<String> getValidGenders() {
-        return validGenders;
     }
 
     public String getPopulation() {
