@@ -3,6 +3,7 @@ package com.healthcare.team;
 import com.healthcare.team.commons.Modules;
 import com.healthcare.team.commons.States;
 import com.healthcare.team.commons.Utils;
+import com.healthcare.team.commons.Validations;
 
 import javax.swing.*;
 import java.util.Arrays;
@@ -12,7 +13,6 @@ import java.util.stream.Stream;
 
 public class Compute extends BashProcess {
 
-    private static final List<String> validGenders = Arrays.asList("female", "male", "both");
     private final String population;
     private final String minAge;
     private final String maxAge;
@@ -50,20 +50,9 @@ public class Compute extends BashProcess {
             throw new IllegalArgumentException("Population given is too big!");
         }
 
-        if (!validGenders.contains(gender)) {
-            throw new IllegalArgumentException("Illegal Entry!, gender");
-        }
-        Stream.of(States.values())
-                .map(States::getName)
-                .filter(state::equals)
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Illegal Entry!, state"));
-
-        Stream.of(Modules.values())
-                .map(Modules::getDescription)
-                .filter(module::equals)
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Illegal Entry!, module"));
+        Validations.isValidGender(gender);
+        Validations.isValidModule(module);
+        Validations.isValidState(state);
     }
 
     private String getParametersSynthea() {
