@@ -28,9 +28,7 @@ public class ParseCSV {
             String output = Files.readString(Path.of(outputPath.concat(f.getName())));
             System.out.println("------" + output);
             mbs.Sender(output, f.getName());
-
         }
-        System.out.println("---------------------------------");
     }
 
     //We read line by line from CSVs

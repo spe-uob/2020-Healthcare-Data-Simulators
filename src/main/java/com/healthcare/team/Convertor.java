@@ -13,7 +13,7 @@ public class Convertor extends BashProcess {
     }
 
     private String getCommand(String region) {
-        return "java -jar lib/convertor_hl7-with-dependencies.jar " .concat(path);
+        return "java -jar lib/convertor_hl7-with-dependencies.jar ".concat(path);
     }
 
     private void checkValues() {
@@ -21,8 +21,7 @@ public class Convertor extends BashProcess {
         if (path.isBlank()) {
             throw new IllegalArgumentException("empty path provided");
         }
-        File fileExists = new File(path);
-        if (!fileExists.exists()) {
+        if (!new File(path).exists()) {
             throw new IllegalArgumentException("file doesn't exist!");
         }
     }
@@ -51,5 +50,9 @@ public class Convertor extends BashProcess {
     @Override
     protected List<String> processParameters(String region) {
         return List.of("bash", "-c", getCommand(region));
+    }
+
+    public String getPath() {
+        return path;
     }
 }

@@ -1,6 +1,5 @@
-package com.healthcare.team.unit;
+package com.healthcare.team;
 
-import com.healthcare.team.InitialSetup;
 import com.healthcare.team.commons.ModulesTest;
 import com.healthcare.team.commons.StatesTest;
 import com.healthcare.team.commons.UtilsTest;
@@ -14,7 +13,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         ComputeTest.class,
-        ConverterTest.class,
+        ConvertorTest.class,
         MessageBrokerTest.class,
         OAuthTest.class,
         ParseJSONTest.class,

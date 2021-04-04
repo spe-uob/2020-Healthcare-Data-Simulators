@@ -1,4 +1,4 @@
-package com.healthcare.team.unit;
+package com.healthcare.team;
 
 import com.healthcare.team.MessageBroker;
 import org.apache.log4j.Level;

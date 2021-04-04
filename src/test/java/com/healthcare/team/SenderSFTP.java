@@ -1,4 +1,4 @@
-package com.healthcare.team.unit;
+package com.healthcare.team;
 
 import org.junit.Assert;
 import org.junit.Test;

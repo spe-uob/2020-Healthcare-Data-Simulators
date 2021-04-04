@@ -1,7 +1,5 @@
-package com.healthcare.team.unit;
+package com.healthcare.team;
 
-import com.healthcare.team.Compute;
-import com.healthcare.team.InitialSetup;
 import org.hamcrest.collection.IsEmptyCollection;
 import org.junit.*;
 
@@ -10,7 +8,8 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 public class ComputeTest {
     private Compute compute;
@@ -353,4 +352,21 @@ public class ComputeTest {
         assertThat(actual, contains("bash", "-c", command));
         assertThat(actual, not(IsEmptyCollection.empty()));
     }
+
+    @Test
+    public void checkShowAlertDialogInSpecificCondition() {
+        ComputeWithNoJOptionPane computeWithNoJOptionPane = new ComputeWithNoJOptionPane(
+                "100",
+                "18",
+                "39",
+                "female",
+                "Food_Allergies",
+                "Gloucestershire"
+        );
+        assertTrue(computeWithNoJOptionPane.showAlert("   "));
+        assertTrue(computeWithNoJOptionPane.showAlert(null));
+        assertTrue(computeWithNoJOptionPane.showAlert("Usage: do it!"));
+        assertFalse(computeWithNoJOptionPane.showAlert("some string here"));
+    }
+
 }

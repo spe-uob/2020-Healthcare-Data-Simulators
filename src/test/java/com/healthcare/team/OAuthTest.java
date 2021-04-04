@@ -1,4 +1,4 @@
-package com.healthcare.team.unit;
+package com.healthcare.team;
 
 import com.healthcare.team.OAuth;
 import org.junit.*;

@@ -2,6 +2,7 @@ package com.healthcare.team;
 
 import com.healthcare.team.commons.Modules;
 import com.healthcare.team.commons.States;
+import com.healthcare.team.commons.Utils;
 
 import javax.swing.*;
 import java.util.Arrays;
@@ -102,7 +103,7 @@ public class Compute extends BashProcess {
 
     @Override
     protected boolean showAlert(String output) {
-        return output.isBlank() || output.startsWith("Usage:");
+        return Utils.isStringInvalid(output) || output.startsWith("Usage:");
     }
 
     @Override

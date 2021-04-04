@@ -10,4 +10,5 @@ public interface Constants {
     static final String PATIENTS_QUEUE_NAME = "Healtcare-Data-Simulators/%s/csv/patients";
     static final String PATIENTS_CSV_FILE_HEADER = "Id,BIRTHDATE,DEATHDATE,SSN,DRIVERS,PASSPORT,PREFIX,FIRST,LAST,SUFFIX,MAIDEN,MARITAL,RACE,ETHNICITY,GENDER,BIRTHPLACE,ADDRESS,CITY,STATE,COUNTY,ZIP,LAT,LON,HEALTHCARE_EXPENSES,HEALTHCARE_COVERAGE ";
     static final String OBJECT_PROPERTY_NPE_MESSAGE = "NPE on object:%s, attribute:%s";
+    static final String CRYPTO_SALT = "fantasy";
 }
