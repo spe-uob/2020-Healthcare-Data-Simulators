@@ -315,8 +315,8 @@ public class ComputeTest {
         assertEquals(computeWithNoJOptionPane.getPopulation(), "1");
         assertEquals(computeWithNoJOptionPane.getMinAge(), "0");
         assertEquals(computeWithNoJOptionPane.getMaxAge(), "1");
-        assertEquals(computeWithNoJOptionPane.getGender(), "Male");
-        assertEquals(computeWithNoJOptionPane.getModule(), "Allergic-Rhinitis");
-        assertEquals(computeWithNoJOptionPane.getStateSynthea(), "Shropshire");
+        assertEquals(computeWithNoJOptionPane.getGender(), "male");
+        assertEquals(computeWithNoJOptionPane.getModule(), "Allergic_Rhinitis");
+        assertEquals(computeWithNoJOptionPane.getStateSynthea(), "Somerset");
     }
 }

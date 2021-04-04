@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 public class Compute extends BashProcess {
 
-    private static final List<String> validGenders = Arrays.asList("Female", "Male", "both");
+    private static final List<String> validGenders = Arrays.asList("female", "male", "both");
     private final String population;
     private final String minAge;
     private final String maxAge;
