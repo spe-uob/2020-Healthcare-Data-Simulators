@@ -29,7 +29,7 @@ The default login credentials are:
 5. Restart **Mirth Server Manager** and **Administrator Launcher**.
 
 ## Import the Channels Group 
-1. Import this group in the main tab of Mirth : https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/MirthGroup_Somerset.xml.
+Import `MirthGroup_Somerset.xml` as a channel group.
 
 ## Install RabbitMQ Message Broker library
 1. Download `amqp-client-5.11.0.jar` from: https://www.rabbitmq.com/java-client.html.
