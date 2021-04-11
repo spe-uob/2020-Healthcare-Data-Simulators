@@ -368,5 +368,4 @@ public class ComputeTest {
         assertTrue(computeWithNoJOptionPane.showAlert("Usage: do it!"));
         assertFalse(computeWithNoJOptionPane.showAlert("some string here"));
     }
-
 }
