@@ -1,13 +1,14 @@
 package com.healthcare.team;
 
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
 public abstract class BashProcess extends  RegionSelection {
-    private String generatedToken = "";
+    private String generatedToken;
+
+    public String getGeneratedToken() { return generatedToken; }
 
     public void executeCommand(String errorMessage) {
 
@@ -37,7 +38,6 @@ public abstract class BashProcess extends  RegionSelection {
             informUser();
             System.out.println("Success!");
         } catch (IOException e) {
-            System.out.println(e);
             e.printStackTrace();
         }
     }

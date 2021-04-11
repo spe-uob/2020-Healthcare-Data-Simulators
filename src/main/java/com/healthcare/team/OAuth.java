@@ -29,11 +29,11 @@ public class OAuth extends BashProcess {
         if (client_id.isBlank() || region.isBlank() || username.isBlank() || password.isBlank()) {
             throw new IllegalArgumentException(OAuth.class.getCanonicalName().concat(" fields are empty!"));
         }
-        Validations.isValidState(region);
     }
 
     public void generateToken() {
         executeCommand("No token generated!");
+        this.token = getGeneratedToken();
     }
 
     @Override
@@ -53,7 +53,7 @@ public class OAuth extends BashProcess {
 
     @Override
     protected List<String> processParameters(String region) {
-        return List.of("python3", "lib" + File.separator + "cognito_auth.py", client_id, region, username, password);
+        return List.of("python3", "lib" + File.separator + "cognito_auth.py", client_id, this.region, username, password);
     }
 
     protected void alertUserAuth() {
@@ -67,12 +67,13 @@ public class OAuth extends BashProcess {
         try (Connection connection = factory.newConnection();
              Channel channel = connection.createChannel()) {
             channel.queueDeclare("TokenQueue", false, false, false, null);
+
+            if (this.token.equals("")) throw new IllegalArgumentException("No token generated!");
+
             String message = this.token;
             channel.basicPublish("", "TokenQueue", null, message.getBytes(StandardCharsets.UTF_8));
             System.out.println(" [x] Sent '" + message + "'");
-        } catch (TimeoutException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (TimeoutException | IOException e) {
             e.printStackTrace();
         }
     }

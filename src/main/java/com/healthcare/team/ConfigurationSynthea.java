@@ -90,7 +90,7 @@ public class ConfigurationSynthea extends JFrame {
 
     private Compute buildCompute() {
         return new Compute(size.getText(), minAge.getText(), maxAge.getText(), Objects.requireNonNull(sex.getSelectedItem()).toString(),
-                Objects.requireNonNull(module.getSelectedItem()).toString().toLowerCase(), somersetTextField.getText());
+                Objects.requireNonNull(module.getSelectedItem()).toString(), somersetTextField.getText());
     }
 
     private void executeJob() {
@@ -134,7 +134,6 @@ public class ConfigurationSynthea extends JFrame {
                 computer.informUser();
                 System.out.println("Success!");
             } catch (IOException e) {
-                System.out.println(e);
                 e.printStackTrace();
             }
             return null;

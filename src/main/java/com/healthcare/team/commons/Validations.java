@@ -23,6 +23,7 @@ public class Validations {
     }
 
     public static void isValidModule(String module) {
+        module = module.replace("-", "_");
         Stream.of(Modules.values())
                 .map(Modules::getDescription)
                 .filter(module::equals)
