@@ -73,8 +73,6 @@ public class ConfigurationSynthea extends JFrame {
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //GeneratorForm generatorForm = new GeneratorForm();
-                //generatorForm.setVisible(true);
                 JobScheduler.init(null, "", Integer.parseInt(timer.getText()), "STOP");
             }
         });
@@ -90,7 +88,7 @@ public class ConfigurationSynthea extends JFrame {
 
     private Compute buildCompute() {
         return new Compute(size.getText(), minAge.getText(), maxAge.getText(), Objects.requireNonNull(sex.getSelectedItem()).toString(),
-                Objects.requireNonNull(module.getSelectedItem()).toString().toLowerCase(), somersetTextField.getText());
+                Objects.requireNonNull(module.getSelectedItem()).toString(), somersetTextField.getText());
     }
 
     private void executeJob() {
@@ -126,7 +124,6 @@ public class ConfigurationSynthea extends JFrame {
                 }
 
                 if (computer.showAlert(output.toString())) {
-                    //System.err.println(errorMessage(""));
                     computer.alertUser();
                     throw new IOException("Generating failed");
                 }

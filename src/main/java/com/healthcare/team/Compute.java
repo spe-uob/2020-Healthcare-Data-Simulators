@@ -1,15 +1,11 @@
 package com.healthcare.team;
 
-import com.healthcare.team.commons.Modules;
-import com.healthcare.team.commons.States;
 import com.healthcare.team.commons.Utils;
 import com.healthcare.team.commons.Validations;
 
 import javax.swing.*;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 public class Compute extends BashProcess {
 
@@ -30,10 +26,6 @@ public class Compute extends BashProcess {
         this.state = Objects.requireNonNull(state, "Non null field: state");
         checkValuesEntered();
     }
-
-    /*public static Compute of(String population, String minAge, String maxAge, String gender, String module, String state) {
-        return new Compute(population, minAge, maxAge, gender, module, state);
-    }*/
 
     private void checkValuesEntered() {
 
@@ -72,10 +64,9 @@ public class Compute extends BashProcess {
                 .toString();
     }
 
-
     public void generatePatient() {
         System.out.println("Starting...");
-        executeCommand("Generating failed");
+        executeCommand(state, "Generating failed");
     }
 
     @Override

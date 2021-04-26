@@ -20,7 +20,7 @@ public class GenerateCsvAndSendDataJob extends BashProcess implements Job {
             SchedulerContext context = jExeCtx.getScheduler().getContext();
             String region = (String) context.get(REGION_CTX_PARAM_NAME);
             computer = (Compute) context.get(COMPUTE_AS_CTX_PARAMETER_NAME);
-            executeCommand("Error on job running");
+            executeCommand(region,"Error on job running");
             new ParseCSV().sendPatientsToRabbit(region);
         } catch (SchedulerException e) {
             throw new RuntimeException(e);

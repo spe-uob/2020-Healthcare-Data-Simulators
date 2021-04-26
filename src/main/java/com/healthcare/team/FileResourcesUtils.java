@@ -96,21 +96,16 @@ public class FileResourcesUtils {
     // Get all paths from a folder that inside the JAR file
     private List<Path> getPathsFromResourceJAR()
             throws URISyntaxException, IOException {
-
-        // get path of the current running JAR
-        String jarPath = getClass().getProtectionDomain()
-                .getCodeSource()
-                .getLocation()
-                .toURI()
-                .getPath();
-         //System.out.println("JAR Path :" + jarPath);
-
-        // file walks JAR
-        URI uri = URI.create("jar:file:" + jarPath);
-
         File file = new File(String.join(File.separator, locations));
         List<Path> result = new ArrayList<>();
         if (!file.exists()) {
+            String jarPath = getClass().getProtectionDomain()
+                    .getCodeSource()
+                    .getLocation()
+                    .toURI()
+                    .getPath();
+
+            URI uri = URI.create("jar:file:" + jarPath);
             try (FileSystem fs = FileSystems.newFileSystem(uri, Collections.emptyMap())) {
                 result = Files.walk(fs.getPath("lib"))
                         .filter(Files::isRegularFile)
@@ -118,6 +113,7 @@ public class FileResourcesUtils {
                         .collect(toList());
             }
         }
+
         return result;
     }
 
@@ -128,7 +124,7 @@ public class FileResourcesUtils {
         boolean done = dir.mkdir();
         if (done || dir.exists()) {
             try {
-                os = new FileOutputStream("lib" + File.separator + filePath.substring(filePath.lastIndexOf("/") + 1));
+                os = new FileOutputStream("lib" + File.separator + filePath.substring(filePath.lastIndexOf(File.separator) + 1));
                 byte[] buffer = new byte[1024];
                 int length;
                 while ((length = is.read(buffer)) > 0) {

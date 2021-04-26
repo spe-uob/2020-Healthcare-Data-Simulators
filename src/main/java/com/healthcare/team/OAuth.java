@@ -2,7 +2,6 @@ package com.healthcare.team;
 
 import static com.healthcare.team.commons.Constants.OBJECT_PROPERTY_NPE_MESSAGE;
 
-import com.healthcare.team.commons.Utils;
 import com.healthcare.team.commons.Validations;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -29,11 +28,11 @@ public class OAuth extends BashProcess {
         if (client_id.isBlank() || region.isBlank() || username.isBlank() || password.isBlank()) {
             throw new IllegalArgumentException(OAuth.class.getCanonicalName().concat(" fields are empty!"));
         }
-        Validations.isValidState(region);
     }
 
     public void generateToken() {
-        executeCommand("No token generated!");
+        executeCommand(null,"No token generated!");
+        this.token = getGeneratedToken();
     }
 
     @Override
@@ -48,18 +47,14 @@ public class OAuth extends BashProcess {
 
     @Override
     protected boolean showAlert(String output) {
-        return Utils.isStringInvalid(output);
+        return output.isBlank();
     }
 
     @Override
     protected List<String> processParameters(String region) {
-        return List.of("python3", "lib" + File.separator + "cognito_auth.py", client_id, region, username, password);
+        return List.of("python3", "lib" + File.separator + "cognito_auth.py", client_id, this.region, username, password);
     }
 
-    protected void alertUserAuth() {
-        JOptionPane.showMessageDialog(null,
-                "Error getting token", "Error!", JOptionPane.ERROR_MESSAGE);
-    }
 
     public void sendToRabbitMQ() {
         ConnectionFactory factory = new ConnectionFactory();
@@ -68,6 +63,7 @@ public class OAuth extends BashProcess {
              Channel channel = connection.createChannel()) {
             channel.queueDeclare("TokenQueue", false, false, false, null);
             String message = this.token;
+            System.out.println(token);
             channel.basicPublish("", "TokenQueue", null, message.getBytes(StandardCharsets.UTF_8));
             System.out.println(" [x] Sent '" + message + "'");
         } catch (TimeoutException e) {

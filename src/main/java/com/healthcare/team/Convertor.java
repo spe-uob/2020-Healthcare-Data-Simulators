@@ -31,7 +31,7 @@ public class Convertor extends BashProcess {
 
         System.out.println("Converting...");
 
-        executeCommand("Converting hl7 to fhir failed!");
+        executeCommand(null,"Converting hl7 to fhir failed!");
     }
 
     @Override

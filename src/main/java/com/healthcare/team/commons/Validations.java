@@ -1,11 +1,12 @@
 package com.healthcare.team.commons;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class Validations {
 
-    private static final List<String> validGenders = List.of("female", "male", "both");
+    protected static final List<String> validGenders = List.of("female", "male", "both");
 
     public static void isValidGender(String gender) {
         validGenders.stream()
@@ -15,7 +16,7 @@ public class Validations {
     }
 
     public static void isValidState(String state) {
-        Stream.of(States.values())
+          Stream.of(States.values())
                 .map(States::getName)
                 .filter(state::equals)
                 .findFirst()

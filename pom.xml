@@ -235,7 +235,7 @@
             <artifactId>openpseudonymiser-crypto</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/OpenPseudonymiserCryptoLib.jar</systemPath>
+            <systemPath>${basedir}/src/main/resources/lib/OpenPseudonymiserCryptoLib.jar</systemPath>
         </dependency>
     </dependencies>
 </project>
