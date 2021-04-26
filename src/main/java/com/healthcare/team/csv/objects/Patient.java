@@ -1,45 +1,71 @@
 package com.healthcare.team.csv.objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.healthcare.team.Anonymization;
 import java.util.TreeMap;
 
 public class Patient {
 
-    private String Id;
+    @JsonProperty("Id")
+    private String id;
+    @JsonProperty("SSN")
     private String ssn;
+    @JsonProperty("BIRTHDATE")
     private String birthDate;
+    @JsonProperty("DEATHDATE")
     private String deathDate;
+    @JsonProperty("DRIVERS")
     private String drivers;
+    @JsonProperty("PASSPORT")
     private String passport;
+    @JsonProperty("PREFIX")
     private String prefix;
+    @JsonProperty("FIRST")
     private String first;
+    @JsonProperty("LAST")
     private String last;
+    @JsonProperty("SUFFIX")
     private String suffix;
-    private String maide;
+    @JsonProperty("MAIDEN")
+    private String maiden;
+    @JsonProperty("MARITAL")
     private String marital;
+    @JsonProperty("RACE")
     private String race;
+    @JsonProperty("ETHNICITY")
     private String ethnicity;
+    @JsonProperty("GENDER")
     private String gender;
+    @JsonProperty("BIRTHPLACE")
     private String birthplace;
+    @JsonProperty("ADDRESS")
     private String address;
+    @JsonProperty("CITY")
     private String city;
+    @JsonProperty("STATE")
     private String state;
+    @JsonProperty("COUNTY")
     private String county;
+    @JsonProperty("ZIP")
     private String zip;
+    @JsonProperty("LAT")
     private String lat;
+    @JsonProperty("LON")
     private String lon;
+    @JsonProperty("HEALTHCARE_EXPENSES")
     private String healthcareExpenses;
+    @JsonProperty("HEALTHCARE_COVERAGE")
     private String healthcareCoverage;
 
 
     public Patient(){}
 
     public String getId() {
-        return Id;
+        return id;
     }
 
-    public void setId(String Id) {
-        this.Id = Id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getSsn() {
@@ -114,12 +140,12 @@ public class Patient {
         this.suffix = suffix;
     }
 
-    public String getMaide() {
-        return maide;
+    public String getMaiden() {
+        return maiden;
     }
 
-    public void setMaide(String maide) {
-        this.maide = maide;
+    public void setMaiden(String maideN) {
+        this.maiden = maiden;
     }
 
     public String getMarital() {
@@ -238,7 +264,7 @@ public class Patient {
     public String toString() {
 
         TreeMap<String, String> map = new TreeMap<>();
-        map.put("NHSNumber", Id);
+        map.put("NHSNumber", id);
 
         return "Patient: " +
                 "Id='" + Anonymization.mask(map) + '\'' +
@@ -251,7 +277,7 @@ public class Patient {
                 "| first='" + first + '\'' +
                 "| last='" + last + '\'' +
                 "| suffix='" + suffix + '\'' +
-                "| maide='" + maide + '\'' +
+                "| maiden='" + maiden + '\'' +
                 "| marital='" + marital + '\'' +
                 "| race='" + race + '\'' +
                 "| ethnicity='" + ethnicity + '\'' +
@@ -269,17 +295,17 @@ public class Patient {
     }
 
     public String toCsvString() {
-        return Anonymization.mask(buildAnonymizeMap()) + ',' +
-                ssn + ',' +
+       return Anonymization.mask(buildAnonymizeMap()) + ',' +
                 birthDate + ',' +
                 deathDate + ',' +
+                ssn + ',' +
                 drivers + ',' +
                 passport + ',' +
                 prefix + ',' +
                 first + ',' +
                 last + ',' +
                 suffix + ',' +
-                maide + ',' +
+               (maiden != null ? maiden : "")+ ',' +
                 marital + ',' +
                 race + ',' +
                 ethnicity + ',' +
@@ -298,7 +324,7 @@ public class Patient {
 
     private TreeMap<String, String> buildAnonymizeMap() {
         TreeMap<String, String> map = new TreeMap<>();
-        map.put("NHSNumber", Id);
+        map.put("NHSNumber", id);
         return map;
     }
 }

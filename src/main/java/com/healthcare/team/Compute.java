@@ -58,7 +58,7 @@ public class Compute extends BashProcess {
     private String getCommand(String region) {
         return new StringBuilder("java -jar ./lib/synthea-with-dependencies.jar")
                 .append(getParametersSynthea())
-                .append(" --exporter.baseDirectory ./")
+                .append(" --exporter.baseDirectory ./Regions/")
                 .append(region)
                 .append(" --exporter.csv.export true")
                 .toString();

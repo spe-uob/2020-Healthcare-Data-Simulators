@@ -32,13 +32,12 @@ public class ParseCSV {
     }
 
     //We read line by line from CSVs
-    public String readPatientsFile(String region) {
+    public String readPatientsFile(String filePath) {
 
         CsvMapper csvMapper = new CsvMapper();
-        CsvSchema schema = csvMapper.schemaFor(Patient.class);
-        schema.withoutHeader().withLineSeparator("\n").withColumnSeparator(',');
+        CsvSchema schema = CsvSchema.emptySchema().withHeader().withLineSeparator("\n").withColumnSeparator(',');
         ObjectReader oReader = csvMapper.reader(Patient.class).with(schema);
-        String filePath = buildFilePath(region);
+
         StringBuilder rabbitAnonymizeData = new StringBuilder();
         StringBuilder anonymizeDataForCsvUpdate = new StringBuilder();
         try (Reader reader = new FileReader(filePath)) {
@@ -58,14 +57,19 @@ public class ParseCSV {
 
     //Send patients with NHSNumber encrypted to Rabbit queues with respect to the region they come from
     public void sendPatientsToRabbit(String region) {
-        String anonymize = readPatientsFile(region);
+        String filePath = buildFilePath(region);
+        String anonymize = readPatientsFile(filePath);
         String queueName = String.format(PATIENTS_QUEUE_NAME, region);
 
         new MessageBrokerSender().Sender(anonymize, queueName);
     }
 
     private String buildFilePath(String region) {
-        return System.getProperty("user.dir").concat("/").concat(region).concat("/csv/patients.csv");
+        return System.getProperty("user.dir").concat(File.separator)
+                                             .concat("Regions")
+                                             .concat(File.separator)
+                                             .concat(region)
+                                             .concat("/csv/patients.csv");
     }
 
     private void updateCsvFile(String path, String fileContent) {

@@ -2,7 +2,7 @@ package com.healthcare.team;
 
 import static com.healthcare.team.commons.Constants.OBJECT_PROPERTY_NPE_MESSAGE;
 
-import com.healthcare.team.commons.Validations;
+import com.healthcare.team.commons.Utils;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -47,7 +47,7 @@ public class OAuth extends BashProcess {
 
     @Override
     protected boolean showAlert(String output) {
-        return output.isBlank();
+        return Utils.isStringInvalid(output);
     }
 
     @Override

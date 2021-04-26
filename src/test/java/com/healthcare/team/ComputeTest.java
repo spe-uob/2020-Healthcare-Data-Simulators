@@ -343,7 +343,7 @@ public class ComputeTest {
                 .append(computeWithNoJOptionPane.getModule()).append(" ").append(region).toString();
         String command = new StringBuilder("java -jar ./lib/synthea-with-dependencies.jar")
                 .append(syntheaParams)
-                .append(" --exporter.baseDirectory ./")
+                .append(" --exporter.baseDirectory ./Regions/")
                 .append(region)
                 .append(" --exporter.csv.export true").toString();
         List<String> actual = computeWithNoJOptionPane.processParameters(region);
