@@ -13,13 +13,13 @@
 *.ctxt
 
 #Big jar files
-/src/main/resources/lib/synthea-with-dependencies.jar
-/src/main/resources/lib/convertor_hl7-with-dependencies.jar
+/src/main/resources/synthea-with-dependencies.jar
+/src/main/resources/convertor_hl7-with-dependencies.jar
 
 target/
 output/
 .idea/
-/lib/
+/src/main/resources/lib/
 /__pycache__/
 
 # Mobile Tools for Java (J2ME)

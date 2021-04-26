@@ -2,6 +2,7 @@ package com.healthcare.team;
 
 import static com.healthcare.team.commons.Constants.OBJECT_PROPERTY_NPE_MESSAGE;
 
+import com.healthcare.team.commons.Validations;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -19,7 +20,6 @@ public class OAuth extends BashProcess {
     private final String client_id, region, username, password;
 
     public OAuth(String client_id, String region, String username, String password) {
-
         this.token = "";
         this.client_id = Objects.requireNonNull(client_id, String.format(OBJECT_PROPERTY_NPE_MESSAGE, OAuth.class.getCanonicalName(), "client_id"));
         this.region = Objects.requireNonNull(region, String.format(OBJECT_PROPERTY_NPE_MESSAGE, OAuth.class.getCanonicalName(), "region"));
@@ -31,7 +31,8 @@ public class OAuth extends BashProcess {
     }
 
     public void generateToken() {
-        executeCommand("No token generated!");
+        executeCommand(null,"No token generated!");
+        this.token = getGeneratedToken();
     }
 
     @Override
@@ -51,13 +52,9 @@ public class OAuth extends BashProcess {
 
     @Override
     protected List<String> processParameters(String region) {
-        return List.of("python3", "lib" + File.separator + "cognito_auth.py", this.client_id, this.region, this.username, this.password);
+        return List.of("python3", "lib" + File.separator + "cognito_auth.py", client_id, this.region, username, password);
     }
 
-    protected void alertUserAuth() {
-        JOptionPane.showMessageDialog(null,
-                "Error getting token", "Error!", JOptionPane.ERROR_MESSAGE);
-    }
 
     public void sendToRabbitMQ() {
         ConnectionFactory factory = new ConnectionFactory();
@@ -66,6 +63,7 @@ public class OAuth extends BashProcess {
              Channel channel = connection.createChannel()) {
             channel.queueDeclare("TokenQueue", false, false, false, null);
             String message = this.token;
+            System.out.println(token);
             channel.basicPublish("", "TokenQueue", null, message.getBytes(StandardCharsets.UTF_8));
             System.out.println(" [x] Sent '" + message + "'");
         } catch (TimeoutException e) {
@@ -73,5 +71,21 @@ public class OAuth extends BashProcess {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getClientId() {
+        return client_id;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

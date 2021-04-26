@@ -1,12 +1,16 @@
 package com.healthcare.team;
 
-import com.healthcare.team.OAuth;
+import org.hamcrest.collection.IsEmptyCollection;
 import org.junit.*;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.File;
+import java.util.List;
 
-import static com.healthcare.team.commons.Constants.PATIENTS_CSV_FILE_HEADER;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class OAuthTest {
     private OauthWithNoJOptionPane oAuth;
@@ -23,7 +27,8 @@ public class OAuthTest {
         }
 
         @Override
-        protected void alertUser() {}
+        protected void alertUser() {
+        }
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -66,5 +71,22 @@ public class OAuthTest {
         );
     }
 
+   @Test(timeout = 10000)
+    public void checkProcessParameters() {
+        OAuth auth = new OAuth("1234", "Gloucestershire", "J Doe", "8***");
+        List<String> expected = List.of("python3", "lib" + File.separator + "lib/cognito_auth.py",
+                auth.getClientId(), auth.getRegion(), auth.getUsername(), auth.getPassword());
+        List<String> actual = auth.processParameters(auth.getRegion());
+        assertThat(actual, hasItems("python3"));
+        assertThat(actual, hasSize(6));
+        assertThat(actual, not(IsEmptyCollection.empty()));
+    }
 
+    @Test
+    public void checkShowAlertDialogInSpecificCondition() {
+        OAuth auth = new OAuth("1234", "Gloucestershire", "J Doe", "8***");
+        assertTrue(auth.showAlert("   "));
+        assertTrue(auth.showAlert(null));
+        assertFalse(auth.showAlert("some string here"));
+    }
 }

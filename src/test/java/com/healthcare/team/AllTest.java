@@ -3,6 +3,7 @@ package com.healthcare.team;
 import com.healthcare.team.commons.ModulesTest;
 import com.healthcare.team.commons.StatesTest;
 import com.healthcare.team.commons.UtilsTest;
+import com.healthcare.team.commons.ValidationsTest;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -14,7 +15,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         ComputeTest.class,
         ConvertorTest.class,
-        MessageBrokerTest.class,
+        //MessageBrokerTest.class,
         OAuthTest.class,
         ParseJSONTest.class,
         SenderSFTP.class,
@@ -22,7 +23,8 @@ import org.junit.runners.Suite;
         SFTPTest.class,
         UtilsTest.class,
         ModulesTest.class,
-        StatesTest.class
+        StatesTest.class,
+        ValidationsTest.class
 })
 
 public class AllTest {

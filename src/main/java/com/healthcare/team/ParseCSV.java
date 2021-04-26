@@ -56,7 +56,7 @@ public class ParseCSV {
         return rabbitAnonymizeData.toString();
     }
 
-    //Send patients with NHSNumber encrypted to Rabbit queue
+    //Send patients with NHSNumber encrypted to Rabbit queues with respect to the region they come from
     public void sendPatientsToRabbit(String region) {
         String anonymize = readPatientsFile(region);
         String queueName = String.format(PATIENTS_QUEUE_NAME, region);
