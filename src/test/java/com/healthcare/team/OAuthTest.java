@@ -75,8 +75,8 @@ public class OAuthTest {
     public void checkProcessParameters() {
         OAuth auth = new OAuth("1234", "Gloucestershire", "J Doe", "8***");
         List<String> expected = List.of("python3", "lib" + File.separator + "lib/cognito_auth.py",
-                auth.getClientId(), auth.getRegion(), auth.getUsername(), auth.getPassword());
-        List<String> actual = auth.processParameters(auth.getRegion());
+                auth.getClientId(), auth.getAwsRegion(), auth.getUsername(), auth.getPassword());
+        List<String> actual = auth.processParameters(auth.getAwsRegion());
         assertThat(actual, hasItems("python3"));
         assertThat(actual, hasSize(6));
         assertThat(actual, not(IsEmptyCollection.empty()));

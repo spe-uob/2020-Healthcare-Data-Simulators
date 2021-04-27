@@ -64,7 +64,7 @@ import static com.healthcare.team.commons.Constants.*;
 
 public class JobScheduler {
 
-    public static void init(Compute computer, String region, int interval, String action) {
+    public static Scheduler init(Compute computer, String region, int interval, String action) {
         try {
             JobDetail job = JobBuilder.newJob(GenerateCsvAndSendDataJob.class)
                     .withIdentity("generateCsvAndSendDataJob")
@@ -90,6 +90,7 @@ public class JobScheduler {
             } else {
                 sch.shutdown(Boolean.TRUE);
             }
+            return sch;
         } catch (SchedulerException e) {
             throw new RuntimeException(e);
         }

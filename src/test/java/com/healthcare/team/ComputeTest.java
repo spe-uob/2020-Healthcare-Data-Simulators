@@ -326,8 +326,32 @@ public class ComputeTest {
         assertEquals(computeWithNoJOptionPane.getStateSynthea(), "Somerset");
     }
 
+    @Test(expected = IllegalArgumentException.class, timeout = 15000)
+    public void maxAgeSmallerThanMinAge() {
+        compute = new Compute(
+                "1",
+                "22",
+                "11",
+                "Female",
+                "Allergic-Rhinitis",
+                "Shropshire"
+        );
+    }
+
+    @Test(expected = IllegalArgumentException.class, timeout = 15000)
+    public void maxPopulation() {
+        compute = new Compute(
+                "100000",
+                "11",
+                "12",
+                "Female",
+                "Allergic-Rhinitis",
+                "Shropshire"
+        );
+    }
+
     @Test(timeout = 10000)
-    public void checkProcessParameters(){
+    public void checkProcessParameters() {
         ComputeWithNoJOptionPane computeWithNoJOptionPane = new ComputeWithNoJOptionPane(
                 "1",
                 "0",
