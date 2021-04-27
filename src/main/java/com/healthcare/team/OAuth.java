@@ -30,9 +30,10 @@ public class OAuth extends BashProcess {
         }
     }
 
-    public void generateToken() {
+    public String generateToken() {
         executeCommand(null,"No token generated!");
-        this.token = getGeneratedToken();
+        token = getGeneratedToken();
+        return token;
     }
 
     @Override

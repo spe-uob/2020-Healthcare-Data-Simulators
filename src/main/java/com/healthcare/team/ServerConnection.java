@@ -1,5 +1,7 @@
 package com.healthcare.team;
 
+import com.healthcare.team.commons.Utils;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,12 +30,12 @@ public class ServerConnection extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 OAuth oAuth = new OAuth(clientID.getText(), region.getText(), username.getText(), password.getText());
 
-                oAuth.generateToken();
-                setVisible(false);
-                RegionSelection regionSelection = new RegionSelection();
-                regionSelection.setVisible(true);
-                oAuth.sendToRabbitMQ();
-
+                if(Utils.isValidString(oAuth.generateToken())){
+                    setVisible(false);
+                    RegionSelection regionSelection = new RegionSelection();
+                    regionSelection.setVisible(true);
+                    oAuth.sendToRabbitMQ();
+                }
             }
         });
     }
