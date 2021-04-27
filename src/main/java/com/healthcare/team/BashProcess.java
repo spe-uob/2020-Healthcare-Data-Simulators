@@ -36,8 +36,7 @@ public abstract class BashProcess extends RegionSelection {
             informUser();
             System.out.println("Success!");
         } catch (IOException e) {
-            System.out.println(e);
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 

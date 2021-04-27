@@ -17,12 +17,12 @@ import java.util.concurrent.TimeoutException;
 
 public class OAuth extends BashProcess {
     public String token;
-    private final String client_id, region, username, password;
+    private final String client_id, awsRegion, username, password;
 
     public OAuth(String client_id, String region, String username, String password) {
         this.token = "";
         this.client_id = Objects.requireNonNull(client_id, String.format(OBJECT_PROPERTY_NPE_MESSAGE, OAuth.class.getCanonicalName(), "client_id"));
-        this.region = Objects.requireNonNull(region, String.format(OBJECT_PROPERTY_NPE_MESSAGE, OAuth.class.getCanonicalName(), "region"));
+        this.awsRegion = Objects.requireNonNull(region, String.format(OBJECT_PROPERTY_NPE_MESSAGE, OAuth.class.getCanonicalName(), "region"));
         this.username = Objects.requireNonNull(username, String.format(OBJECT_PROPERTY_NPE_MESSAGE, OAuth.class.getCanonicalName(), "username"));
         this.password = Objects.requireNonNull(password, String.format(OBJECT_PROPERTY_NPE_MESSAGE, OAuth.class.getCanonicalName(), "password"));
         if (client_id.isBlank() || region.isBlank() || username.isBlank() || password.isBlank()) {
@@ -52,7 +52,7 @@ public class OAuth extends BashProcess {
 
     @Override
     protected List<String> processParameters(String region) {
-        return List.of("python3", "lib" + File.separator + "cognito_auth.py", client_id, this.region, username, password);
+        return List.of("python3", "lib" + File.separator + "cognito_auth.py", client_id, awsRegion, username, password);
     }
 
 
@@ -77,8 +77,8 @@ public class OAuth extends BashProcess {
         return client_id;
     }
 
-    public String getRegion() {
-        return region;
+    public String getAwsRegion() {
+        return awsRegion;
     }
 
     public String getUsername() {

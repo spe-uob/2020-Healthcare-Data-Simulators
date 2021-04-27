@@ -4,6 +4,7 @@ import com.healthcare.team.commons.ModulesTest;
 import com.healthcare.team.commons.StatesTest;
 import com.healthcare.team.commons.UtilsTest;
 import com.healthcare.team.commons.ValidationsTest;
+import com.healthcare.team.scheduler.JobSchedulerTest;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -15,7 +16,6 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         ComputeTest.class,
         ConvertorTest.class,
-        //MessageBrokerTest.class,
         OAuthTest.class,
         ParseJSONTest.class,
         SenderSFTP.class,
@@ -24,7 +24,11 @@ import org.junit.runners.Suite;
         UtilsTest.class,
         ModulesTest.class,
         StatesTest.class,
-        ValidationsTest.class
+        ValidationsTest.class,
+        JobSchedulerTest.class,
+        AnonymizationTest.class,
+        ParseCSVTest.class,
+        BashProcessTest.class
 })
 
 public class AllTest {
