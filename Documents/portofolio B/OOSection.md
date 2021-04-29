@@ -1,5 +1,6 @@
 Task:
-```Provide a high-level architecture diagram of your application. The diagram should make clear if you are building a client-server application, or a stand alone application. It should include relevant external systems /if applicable/ your application depends on. 
+```
+Provide a high-level architecture diagram of your application. The diagram should make clear if you are building a client-server application, or a stand alone application. It should include relevant external systems /if applicable/ your application depends on. 
 
 For the diagram, add two or three paragraphs that explain what the meaning of the components represented in the diagram.
 
