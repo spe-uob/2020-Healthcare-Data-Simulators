@@ -26,4 +26,3 @@ insert class uml diagram
 
 ##### Activity UML diagram
 ![activity](https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/UML%20Diagrams/Activity%20diagram1.png)
-T
