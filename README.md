@@ -1,4 +1,4 @@
-![alt text](https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/UML%20class%20diagram.png)
+![alt text](https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/logo.png)
 # Healthcare-Data-Simulators
 This project will create a set of configurable ‘healthcare data simulators’ that generate as-live data
 to simulate the regional healthcare landscape.
