@@ -98,5 +98,6 @@ insert class uml diagram
 #### Dynamic UML modelling aspect
 
 ##### Activity UML diagram
-![activity](https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/UML%20Diagrams/Activity%20diagram1.png)
+<img src="https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/UML%20Diagrams/Activity%20diagram1.png" alt="drawing" width="700"/>
+
 The purpose of this diagram is to have an overview of the control flow, showing the various paths that exist while the program is being executed. It was created to help us have a better understanding of the sequential execution, to provide a suggestive way to present how our project works, and aid communication between developers and clients. It changed many times during the developing every time a feature was added or modified, providing a useful vehicle to vizualize the system functionality without needing to read the code in detail.
