@@ -17,7 +17,7 @@ This section must not exceed 3 pages of A4, including the diagrams and their res
 
 ![highlvl](https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/UML%20Diagrams/high-level%20architecture.jpeg)
 
-1. **I**** NTRODUCTION ARCHITECTURE**
+1. **INTRODUCTION ARCHITECTURE**
 
 We propose the design of a client application which will:
 
@@ -27,7 +27,7 @@ We propose the design of a client application which will:
 4. Use AMQP server to filter data
 5. Create a safe, fast, and efficient connection with web services
 
-  1. **G**** ENERATE DATA**
+  1. **GENERATE DATA**
 
 **SyntheaTM**
 
@@ -41,15 +41,15 @@ Synthetic patients can be simulated with models of disease progression and corre
 
 The framework for the synthetic data generation process utilized by Synthea is based on the use of PARSER, the Publicly Available Data Approach to the Realistic Synthetic EHR.35 The PADARSER framework, unlike EMERGE25 and medGAN,27assumes that access to the real EHR is impossible or undesirable, relying instead on publicly available datasets to populate the synthetic EHR. Figure 1 presents the PADARSER framework.
 
-**HL7 FHIR** Fast Healthcare Interoperability Resources (FHIR, pronounced &quot;fire&quot;) is a standard describing data formats and elements (known as &quot;resources&quot;) and an[application programming interface](https://en.wikipedia.org/wiki/Application_programming_interface) (API) for exchanging[electronic health records](https://en.wikipedia.org/wiki/Electronic_health_record) (EHR). The standard was created by the[Health Level Seven International](https://en.wikipedia.org/wiki/Health_Level_Seven_International) (HL7) health-care standards organization.
+**HL7 FHIR** Fast Healthcare Interoperability Resources (FHIR, pronounced &quot;fire&quot;) is a standard describing data formats and elements (known as &quot;resources&quot;) and an application programming interface(API) for exchanging electronic health records(EHR). The standard was created by the Health Level Seven International (HL7) health-care standards organization.
 
   1. **DATA INTEGRATION AND CENTRALISATION**
 
 We propose to use Lyniate Rhapsody Data Centralisation and Integration Engine.
 
-**MIRTH NextGen Connect** is a cross-platform interface engine used in the [healthcare industry](https://en.wikipedia.org/wiki/Healthcare_industry) that enables the [management of information](https://en.wikipedia.org/wiki/Information_management) using bi-directional sending of many types of messages. The primary use of this interface engine is in healthcare.
+**MIRTH NextGen Connect** is a cross-platform interface engine used in the healthcare industry that enables the management of information using bi-directional sending of many types of messages. The primary use of this interface engine is in healthcare.
 
-Benefits of using Rhapsody are:
+Benefits of using Mirth are:
 
 • It is built for Healthcare
 
@@ -59,7 +59,7 @@ Benefits of using Rhapsody are:
 
   1. **Data Transfer Protocols**
 
-**Message broker technology** is an intermediary computerprogram module that translates a message from the formal messaging protocol of the sender to the formal messaging protocol of the receiver. Message brokers are elements in telecommunication or computer networks where software applications communicate by exchanging formally defined messages.
+**Message broker technology** (RabbitMQ) is an intermediary computerprogram module that translates a message from the formal messaging protocol of the sender to the formal messaging protocol of the receiver. Message brokers are elements in telecommunication or computer networks where software applications communicate by exchanging formally defined messages.
 
 **HTTPS** is used for secure communication over a computer network, and is widely used on the Internet. In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS) or, formerly, Secure Sockets Layer (SSL).
 
