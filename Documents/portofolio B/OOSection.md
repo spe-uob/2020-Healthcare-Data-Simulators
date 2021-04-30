@@ -79,7 +79,7 @@ The system will authenticate and create a RESTful endpoint for HL7 FHIR messages
 
 #### Static UML modelling aspect
 
-##### Class UML diagram
+#### Class UML diagram
 <img src="https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/BashProcess/BashProcess%20diagram.png" alt="drawing" width="700"/>
 One of the most important aspects of the design of our project is related to the abstract class &quot;BashProcess&quot;. We had several main classes in our project that were supposed to perform similar tasks such as executing a command depending on an attribute related to the region the patients are generated from, informing the user wheather the task has completed succesfully, proccessing parameters related to executing different jobs or alerting the user if conditions are not met.
 <br />
