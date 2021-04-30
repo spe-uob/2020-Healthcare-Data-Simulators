@@ -80,11 +80,38 @@ The system will authenticate and create a RESTful endpoint for HL7 FHIR messages
 #### Static UML modelling aspect
 
 ##### Class UML diagram
-insert class uml diagram
+<img src="https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/BashProcess/BashProcess%20diagram.png" alt="drawing" width="700"/>
+One of the most important aspects of the design of our project is related to the abstract class &quot;BashProcess&quot;. We had several main classes in our project that were supposed to perform similar tasks such as executing a command depending on an attribute related to the region the patients are generated from, informing the user wheather the task has completed succesfully, proccessing parameters related to executing different jobs or alerting the user if conditions are not met.
+<br />
+As a consequence, in order to avoid duplicates in our code, we created this abstract class and have &quot;OAuth&quot;, &quot;Compute&quot;, &quot;GenerateCSVAndSendDataJob&quot; and &quot;Convertor&quot; extend it, allowing for the implementation of custom functionalities.
+
+
 
 #### Dynamic UML modelling aspect
+#### State Machine Diagram
 
-##### Activity UML diagram:
-<img src="https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/UML%20Diagrams/Activity%20diagram1.png" alt="drawing" width="700"/>
+<img src="https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/MachineStateDiagram/State%20Machine%20Diagram.png" alt="drawing" width="700"/>
+
+Here are some significant **Sequential Diagrams**:
+<br />
+
+<p float="left">
+<img src="https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/MachineStateDiagram/Execute%20Job%20Button.png" alt="drawing" width="400"/>
+<img src="https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/MachineStateDiagram/Send%20Button.png" alt="drawing" width="400"/>
+</p>
+
+The behavioral state machine is used to model the behavior of the menus, the system regarding the usage of the third party Synthea, of the OpenPseudomiser for masking data and the correlation of producing, masking and sending the data with the cron job.
+<br />
+The transitions represent how state changes. For our design the most important feature is related to the scheduler which rules how and when the Synthea should produce data and when the data is masked and sent to Rabbit queues.
+<br />
+When pressing &quot;Pause&quot;, the system moves into a halting state. To escape this state, the user ought to press &quot;Resume&quot; and the application will keep on generating, masking and sending data until some other command is selected. Pressing &quot;Stop&quot; will cause the system to move into a finish state.
+<br />
+The sequence diagrams that accompany the State Machine Diagram picture how the classes and methods responsible for masking and sending data communicate over time and with the user interface.
+
+
+
+
+#### Overview flow of the application - Activity UML diagram:
+<img src="https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/UML%20Diagrams/Activity%20diagram1.png"  width="700"/>
 
 The purpose of this diagram is to have an overview of the **control flow**, showing the various paths that exist while the program is being executed. It was created to help us have a better understanding of the **sequential execution**, to provide a suggestive way to present how our project works, and **aid communication between developers and clients**. It changed many times during the developing every time a feature was added or modified, providing a useful vehicle to vizualize the system functionality without needing to read the code in detail.
