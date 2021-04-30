@@ -17,6 +17,51 @@ This section must not exceed 3 pages of A4, including the diagrams and their res
 
 ![highlvl](https://github.com/spe-uob/Healthcare-Data-Simulators/blob/main/Documents/UML%20Diagrams/high-level%20architecture.jpeg)
 
+**INTRODUCTION ARCHITECTURE** <br />
+We propose the design of a client application which will:
+  * Generate Data in csv standard
+  * Separate data (Pseudomys data)
+  * Integrate and Centralise Data
+  * Use AMQP server to filter data
+  * Create a safe, fast, and efficient connection with web services
+
+**GENERATE DATA** <br />
+
+**SyntheaTM** <br />
+We use open source SyntheaTM Patient Generator to generate as-live data to simulate the regional healthcare landscape. Specifically, the simulators will generate data from a specific region: 
+Simulate more than one healthcare provider category (e.g. Acute hospital, primary care, 111):
+  * Patients
+  * Conditions <br />
+Synthetic patients can be simulated with models of disease progression and corresponding standards of care to produce risk-free realistic synthetic health care records at scale.
+The framework for the synthetic data generation process utilized by Synthea is based on the use of PARSER, the Publicly Available Data Approach to the Realistic Synthetic EHR.35 The PADARSER framework, unlike EMERGE25 and medGAN,27assumes that access to the real EHR is impossible or undesirable, relying instead on publicly available datasets to populate the synthetic EHR. Figure 1 presents the PADARSER framework.
+*HL7 FHIR* Fast Healthcare Interoperability Resources (FHIR, pronounced "fire") is a standard describing data formats and elements (known as "resources") and an application programming interface (API) for exchanging electronic health records (EHR). The standard was created by the Health Level Seven International (HL7) health-care standards organization.
+DATA INTEGRATION AND CENTRALISATION
+We propose to use Lyniate Rhapsody Data Centralisation and Integration Engine.
+MIRTH NextGen Connect is a cross-platform interface engine used in the healthcare industry that enables the management of information using bi-directional sending of many types of messages. The primary use of this interface engine is in healthcare.
+Benefits of using Rhapsody are:
+• It is built for Healthcare
+• It has purpose-built solution for csv and FHIR
+• It supports Data Acquisition (large amounts of data from multiple sources) - AMQP server
+Data Transfer Protocols
+Message broker technology is an intermediary computer program module that translates a message from the formal messaging protocol of the sender to the formal messaging protocol of the receiver. Message brokers are elements in telecommunication or computer networks where software applications communicate by exchanging formally defined messages.
+HTTPS is used for secure communication over a computer network, and is widely used on the Internet. In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS) or, formerly, Secure Sockets Layer (SSL).
+
+**Data Ingestion**
+The system will authenticate and create a RESTful endpoint for HL7 FHIR messages.
+HL7 FHIR endpoint describes the technical details of a location that can be connected to for the delivery/retrieval of information. Sufficient information is required to ensure that a connection can be made securely, and appropriate data transmitted as defined by the endpoint owner. 
+RESTful API is an architectural style for an application program interface (API) that uses HTTP requests to access and use data. That data can be used by using the CRUD approach: create, read, update, and delete.
+RabbitMQ is a messaging system that uses AMQP 0.9.1 as the basis for a set of standards controlling the entire message passing process.
+Benefits of RabbitMQ:
+Delivery and order guarantee: The messages have been sent to a consumer in the same order in which they were created.
+Redundancy: The queues persist the messages until they are processed completely.
+Decoupling: Any third party system can consume the messages and interact with them, so you want the messages to be processed by someone who is not the actor who created the message, without any problems. This generates us a benefit, which is that it can be reused for many projects.
+Scalability: we can have an application server dedicated to the processes and the other servers for browsing the web.
+OAuth 2.0 is the industry-standard protocol for authorization. OAuth 2.0 focuses on client developer simplicity while providing specific authorization flows for web applications, desktop applications, mobile phones, and living room devices. This specification and its extensions are 
+Authentication will be secured by using Amazon Cognito. The system will use a secure Token to access the API Gateway to create a safe and recognized connection with the HealthCare Lake/database infrastructure. The API Gateway will run a RESTful API and a HL7 FHIR message for ingestion into data lake. Amazon Cognito will verify the token and continue with the data transfer.
+Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. Using API Gateway, RESTful APIs enables real-time two-way communication applications. API Gateway supports containerized and serverless workloads, as well as web applications.
+
+
+
 
 #### Static UML modelling aspect
 
