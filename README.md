@@ -29,11 +29,11 @@ The `checksum.txt` file contains the correct sha512 hex values for each file. It
 ### Getting started
 1. `git clone https://github.com/spe-uob/Healthcare-Data-Simulators.git`
 2. Add [this jar file](https://uob-my.sharepoint.com/:u:/g/personal/ot19588_bristol_ac_uk/EUhcf-s5CxlImXKEL_qvIeMBdWifARyrv-qVU8s65zZ3iA?e=vobhgr) to `src/main/resources/lib` folder. It is synthea with UK population. 
-3. Add [this jar file](https://drive.google.com/file/d/1hjNVsVvLq2367R2de8Y2Fw4iPEm4D1qs/view?usp=sharing) to `src/main/resources/lib` folder. It is a convertor from HL7 v2.x to FHIR.
-4. Add [this jar file](https://drive.google.com/file/d/1Y9OZQ4a_qfeo_JcPhpMSdHuNEZydhAWq/view?usp=sharing) to `src/main/resources/lib` folder. It is the OpenPseudomiser for masking data.
-5. If you do not wish to compile the source code, find the jar file
+3. Add [this jar file](https://drive.google.com/file/d/1Y9OZQ4a_qfeo_JcPhpMSdHuNEZydhAWq/view?usp=sharing) to `src/main/resources/lib` folder. It is the OpenPseudomiser for masking data.
+4. If you do not wish to compile the source code, find the jar file
    in releases.
 Run `java -jar healthcare-data-simulators-x.x-SNAPSHOT.jar` from releases.
+
 ###### NB:- The jar files in step 2, 3 & 4 will be extracted from `main/resources/lib` folder to a `lib` folder for execution.
 
 
