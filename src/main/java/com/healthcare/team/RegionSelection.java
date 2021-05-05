@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 
 public class RegionSelection extends JFrame {
     private JPanel rootPanel;
-    private JButton otherButton;
     private JPanel hospitalOptions;
     private JButton gloucestershireButton;
     private JButton shropshireButton;

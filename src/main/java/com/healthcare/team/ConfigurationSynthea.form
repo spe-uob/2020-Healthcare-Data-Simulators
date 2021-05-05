@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.healthcare.team.ConfigurationSynthea">
-  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridBagLayout">
+  <grid id="27dc6" binding="pane" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="20" y="20" width="532" height="400"/>
+      <xy x="4" y="2" width="721" height="506"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -37,61 +37,61 @@
           <visible value="false"/>
         </properties>
       </component>
-      <component id="78bde" class="javax.swing.JLabel">
+      <component id="78bde" class="javax.swing.JLabel" binding="populationLbl">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <text value="Population Size"/>
+          <text value="Population Size:"/>
         </properties>
       </component>
-      <component id="b7748" class="javax.swing.JLabel">
+      <component id="b7748" class="javax.swing.JLabel" binding="ageLbl">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <text value="Age"/>
+          <text value="Age:"/>
         </properties>
       </component>
-      <component id="a5962" class="javax.swing.JLabel">
+      <component id="a5962" class="javax.swing.JLabel" binding="genderLbl">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <text value="Gender"/>
+          <text value="Gender:"/>
         </properties>
       </component>
-      <component id="3662c" class="javax.swing.JLabel">
+      <component id="3662c" class="javax.swing.JLabel" binding="moduleLbl">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <text value="Module"/>
+          <text value="Module:"/>
         </properties>
       </component>
-      <component id="5c2e6" class="javax.swing.JLabel">
+      <component id="5c2e6" class="javax.swing.JLabel" binding="regionLbl">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <text value="Region"/>
+          <text value="Region:"/>
         </properties>
       </component>
       <component id="6c9e2" class="javax.swing.JTextField" binding="size">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties/>
       </component>
       <component id="8cb61" class="javax.swing.JTextField" binding="minAge">
         <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="0" height="0"/>
             <preferred-size width="150" height="-1"/>
             <maximum-size width="100" height="100"/>
@@ -104,7 +104,7 @@
       </component>
       <component id="7e09d" class="javax.swing.JTextField" binding="maxAge">
         <constraints>
-          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="2" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="4" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
             <maximum-size width="100" height="100"/>
           </grid>
@@ -116,7 +116,7 @@
       </component>
       <component id="444" class="javax.swing.JComboBox" binding="sex">
         <constraints>
-          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="3" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="100" height="-1"/>
           </grid>
           <gridbag weightx="1.0" weighty="1.0"/>
@@ -131,7 +131,7 @@
       </component>
       <component id="15c2e" class="javax.swing.JComboBox" binding="module">
         <constraints>
-          <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="4" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
           <gridbag weightx="1.0" weighty="1.0"/>
@@ -181,7 +181,7 @@
       </component>
       <component id="4c06" class="javax.swing.JButton" binding="sendButton" default-binding="true">
         <constraints>
-          <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
@@ -190,7 +190,7 @@
       </component>
       <component id="df250" class="javax.swing.JTextField" binding="somersetTextField" default-binding="true">
         <constraints>
-          <grid row="5" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="5" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
           <gridbag weightx="1.0" weighty="1.0"/>
@@ -203,7 +203,7 @@
       </component>
       <component id="58207" class="javax.swing.JTextField" binding="timer">
         <constraints>
-          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="6" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
           <gridbag weightx="0.0" weighty="0.0"/>
@@ -212,30 +212,55 @@
       </component>
       <component id="ad564" class="javax.swing.JButton" binding="generateButton" default-binding="true">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
           <text value="Generate !"/>
         </properties>
       </component>
+      <component id="f75d4" class="javax.swing.JLabel" binding="timerLbl">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Timer (seconds):"/>
+        </properties>
+      </component>
+      <component id="b4287" class="javax.swing.JLabel" binding="jobStatus">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <text value="Please fill timer input to run the job in background."/>
+        </properties>
+      </component>
       <component id="17064" class="javax.swing.JButton" binding="stopButton" default-binding="true">
         <constraints>
-          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
           <text value="Stop"/>
         </properties>
       </component>
-      <component id="f75d4" class="javax.swing.JLabel">
+      <component id="feebe" class="javax.swing.JButton" binding="pauseButton">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="1.0" weighty="1.0"/>
+          <grid row="8" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <text value="Timer:"/>
+          <text value="Pause"/>
         </properties>
+      </component>
+      <component id="66a2e" class="javax.swing.JProgressBar" binding="progressBar1" default-binding="true">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties/>
       </component>
     </children>
   </grid>
