@@ -32,7 +32,7 @@ public class OAuth extends BashProcess {
 
     public String generateToken() {
         executeCommand(null,"No token generated!");
-        token = getGeneratedToken();
+        this.token = getGeneratedToken();
         return token;
     }
 
@@ -44,6 +44,7 @@ public class OAuth extends BashProcess {
 
     @Override
     protected void informUser() {
+        JOptionPane.showMessageDialog(null, "Connection established!","Success!", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override
