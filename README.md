@@ -20,15 +20,24 @@ Digital healthcare provided by the NHS in England typically operates in silos. G
 
 
 ## Installation
-###### NB:- The jar files in step 2, 3 & 4 will be extracted from `main/resources/lib` folder to a `lib` folder for execution.
+
+### Setup for the external servers
+1. [Here](https://github.com/spe-uob/Healthcare-Data-Simulators/tree/main/Mirth%20NEXTGEN) is a guide provided by us to install and setup Mirth Healthcare Integration Engine.
+2. [Here](https://github.com/spe-uob/Healthcare-Data-Simulators/tree/main/rabbitmq_server) is a guide provided by us to install and setup the RabbitMQ server.
+
 The `checksum.txt` file contains the correct sha512 hex values for each file. It will be used to check for corrupt data during extraction but optional.
+
+### Getting started
 1. `git clone https://github.com/spe-uob/Healthcare-Data-Simulators.git`
 2. Add [this jar file](https://uob-my.sharepoint.com/:u:/g/personal/ot19588_bristol_ac_uk/EUhcf-s5CxlImXKEL_qvIeMBdWifARyrv-qVU8s65zZ3iA?e=vobhgr) to `src/main/resources/lib` folder. It is synthea with UK population. 
 3. Add [this jar file](https://drive.google.com/file/d/1hjNVsVvLq2367R2de8Y2Fw4iPEm4D1qs/view?usp=sharing) to `src/main/resources/lib` folder. It is a convertor from HL7 v2.x to FHIR.
 4. Add [this jar file](https://drive.google.com/file/d/1Y9OZQ4a_qfeo_JcPhpMSdHuNEZydhAWq/view?usp=sharing) to `src/main/resources/lib` folder. It is the OpenPseudomiser for masking data.
 5. If you do not wish to compile the source code, find the jar file
    in releases.
-5. Run `java -jar healthcare-data-simulators-x.x-SNAPSHOT.jar`. From releases.
+Run `java -jar healthcare-data-simulators-x.x-SNAPSHOT.jar` from releases.
+###### NB:- The jar files in step 2, 3 & 4 will be extracted from `main/resources/lib` folder to a `lib` folder for execution.
+
+
 
 ## Contributors
 Vlad Andrei Bucur  
