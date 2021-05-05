@@ -2,7 +2,7 @@ package com.healthcare.team.commons;
 
 public interface Constants {
 
-    static final int JOB_MIN_INTERVAL_IN_SECONDS = 10;
+    static final int JOB_MIN_INTERVAL_IN_SECONDS = 15;
     static final String JOB_NAME = "generateCsvAndSendDataJob";
     static final String ACTION_JOB_START = "START";
     static final String ACTION_PAUSE_JOB = "PAUSE";

@@ -282,7 +282,7 @@ public class ConfigurationSynthea extends JFrame {
         String region = somersetTextField.getText();
         return Utils.isNumeric(interval)
                 && Utils.isValidString(region)
-                && Integer.parseInt(interval) >= getJobInterval();
+                && Integer.parseInt(interval) >= JOB_MIN_INTERVAL_IN_SECONDS;
     }
 
     private int getJobInterval() {
@@ -312,7 +312,7 @@ public class ConfigurationSynthea extends JFrame {
 
     private boolean checkTimerForNotification(String interval) {
         if (!interval.isBlank() && Utils.isNumeric(interval)
-                && Integer.parseInt(interval) < getJobInterval()) {
+                && Integer.parseInt(interval) < JOB_MIN_INTERVAL_IN_SECONDS) {
             return Boolean.TRUE;
         }
         return Boolean.FALSE;
@@ -321,7 +321,7 @@ public class ConfigurationSynthea extends JFrame {
     private void notifyUser() {
         if (checkTimerForNotification(timer.getText())) {
             JOptionPane.showMessageDialog(null,
-                    "Please provide a time bigger than 5 seconds for the scheduler to keep working",
+                    "Please provide a time bigger than 15 seconds for the scheduler to keep working",
                     "Notification", JOptionPane.INFORMATION_MESSAGE);
         }
     }
