@@ -65,17 +65,16 @@ public class ConfigurationSynthea extends JFrame {
         pane.add(backButton, c);
 
         bar = new JProgressBar(0, 100);
-        bar.setBounds(0, 0, 25, 10);
+        bar.setBounds(0, 0, 25, 20);
         bar.setVisible(false);
         bar.setStringPainted(true);
         bar.setFont(new Font("Raanana", Font.ITALIC, 10));
         bar.setForeground(Color.RED);
         bar.setBackground(Color.WHITE);
         c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 5;
-        c.gridy = 0;
-        c.weightx = 0.5;
-        c.gridwidth = 10;
+        c.gridx = 2;
+        c.gridy = 41;
+        c.weightx=2;
         c.insets = new Insets(0, 2, 5, 0);
         c.anchor = GridBagConstraints.PAGE_START;
         pane.add(bar, c);
@@ -87,7 +86,7 @@ public class ConfigurationSynthea extends JFrame {
 
         c.gridx = 2;
         c.gridy = 5;
-        c.gridwidth = 2;
+        c.gridwidth = 10;
         pane.add(size, c);
 
         c.gridx = 0;
@@ -97,14 +96,13 @@ public class ConfigurationSynthea extends JFrame {
         c.gridx = 2;
         c.gridy = 10;
         c.weightx = 0.5;
-        c.gridwidth = 1;
+        c.gridwidth = 10;
         pane.add(minAge, c);
 
-        c.gridx = 4;
-        c.gridy = 10;
+        c.gridx = 2;
+        c.gridy = 11;
         c.weightx = 0.5;
         c.gridwidth = 10;
-        c.ipadx = 2;
         pane.add(maxAge, c);
 
         c.gridx = 0;
@@ -156,22 +154,11 @@ public class ConfigurationSynthea extends JFrame {
         c.gridwidth = 2;
         pane.add(timer, c);
 
-        c.gridx = 0;
-        c.gridy = 35;
-        c.gridwidth = 5;
-        c.insets = new Insets(0, 100, 0, 0);
+        c.gridx = 2;
+        c.gridy = 31;
+        c.gridwidth = 3;
+        c.insets = new Insets(0, 0, 0, 0);
         pane.add(jobStatus, c);
-
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 40;
-        c.gridwidth = 1;
-        c.weightx = 0.5;
-        c.gridheight = 1;
-        c.ipady = 5;
-        c.ipadx = 2;
-        c.insets = new Insets(5, 0,5 ,2);
-        pane.add(generateButton, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 2;
@@ -179,32 +166,39 @@ public class ConfigurationSynthea extends JFrame {
         c.gridwidth = 1;
         c.weightx = 0.5;
         c.gridheight = 1;
-        c.ipady = 5;
-        c.ipadx = 2;
+
+        c.insets = new Insets(5, 0,5 ,2);
+        pane.add(generateButton, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 2;
+        c.gridy = 43;
+        c.gridwidth = 2;
+        c.weightx = 0.5;
+        c.gridheight = 1;
+
         c.insets = new Insets(5, 2,5 ,2);
         pauseButton.setVisible(Boolean.FALSE);
         pane.add(pauseButton, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 6;
-        c.gridy = 40;
+        c.gridx = 2;
+        c.gridy = 42;
         c.gridwidth = 2;
         c.weightx = 0.5;
         c.gridheight = 1;
-        c.ipady = 5;
-        c.ipadx = 4;
+
         c.insets = new Insets(5, 2,5 ,2);
         stopButton.setVisible(Boolean.FALSE);
         pane.add(stopButton, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 8;
+        c.gridx = 3;
         c.gridy = 40;
         c.gridwidth = 1;
         c.weightx = 0.5;
         c.gridheight = 1;
-        c.ipady = 5;
-        c.ipadx = 2;
+
         c.insets = new Insets(5, 2,5 ,0);
         pane.add(sendButton, c);
 
