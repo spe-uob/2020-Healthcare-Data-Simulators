@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 public class ServerConnection extends JFrame {
 
     private JTextField username;
-    private JTextField password;
     private JTextField region;
     private JTextField clientID;
     private JPanel rootPanel;
@@ -18,6 +17,7 @@ public class ServerConnection extends JFrame {
     private JLabel usernameLabel;
     private JLabel passwordLabel;
     private JLabel clientIDLabel;
+    private JPasswordField password;
 
     public ServerConnection() {
         super("Healthcare Data Simulator");

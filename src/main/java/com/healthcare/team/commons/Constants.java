@@ -23,16 +23,15 @@ public interface Constants {
             entry("conditions", Condition.class),
             entry("devices", Device.class),
             entry("encounters", Encounter.class),
-            entry("imaging_studies", ImagingStudy.class),
+            entry("imagingstudies", ImagingStudy.class),
             entry("immunizations", Immunization.class),
             entry("medications", Medication.class),
             entry("observations", Observation.class),
             entry("organizations", Organization.class),
             entry("patients", Patient.class),
-//        //csvFiles.put("payer_tranzitions",
+            entry("payertranzitions", PayerTranzition.class),
             entry("payers", Payer.class),
             entry("procedures", Procedure.class),
             entry("providers", Provider.class),
             entry("supplies", Supply.class));
-
 }
