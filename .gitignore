@@ -18,6 +18,7 @@
 
 target/
 output/
+lib/
 .idea/
 /__pycache__/
 
