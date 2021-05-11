@@ -15,9 +15,8 @@ public class FileResourcesUtils {
     static {
         requiredFiles.add(new File("lib" + File.separator + "cognito_auth.py"));
         requiredFiles.add(new File("lib" + File.separator + "synthea-with-dependencies.jar"));
-        requiredFiles.add(new File("lib" + File.separator + "regions.txt"));
         requiredFiles.add(new File("lib" + File.separator + "convertor_hl7-with-dependencies.jar"));
-        requiredFiles.add(new File("lib" + File.separator + "modules.txt"));
+        requiredFiles.add(new File("lib" + File.separator + "OpenPseudonymiserCryptoLib.jar"));
     }
 
     public boolean extractResources() {
@@ -30,13 +29,10 @@ public class FileResourcesUtils {
         }
 
         FileResourcesUtils app = new FileResourcesUtils();
-
-        // Sample 3 - read all files from a resources folder (JAR version)
         try {
 
             // get paths from src/main/resources/
             List<Path> result = app.getPathsFromResourceJAR();
-
             if (result.isEmpty()) {
                 File file = new File(String.join(File.separator, locations));
                 result = Files.walk(file.toPath())
@@ -51,17 +47,12 @@ public class FileResourcesUtils {
                 }
             } else {
                 for (Path path : result) {
-
-                    //System.out.println("Path : " + path);
-
                     String filePathInJAR = path.toString();
                     // Windows will returns /lib/file1.jar, cut the first /
                     // the correct path should be  lib/file1.jar
                     if (filePathInJAR.startsWith("/")) {
                         filePathInJAR = filePathInJAR.substring(1);
                     }
-
-                    //System.out.println("filePathInJAR : " + filePathInJAR);
 
                     // read a file from resource folder
                     InputStream is = app.getFileFromResourceAsStream(filePathInJAR);
@@ -80,7 +71,6 @@ public class FileResourcesUtils {
     // get a file from the resources folder
     // works everywhere, IDEA, unit test and JAR file.
     private InputStream getFileFromResourceAsStream(String fileName) {
-
         // The class loader that loaded the class
         ClassLoader classLoader = getClass().getClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream(fileName);
@@ -89,7 +79,6 @@ public class FileResourcesUtils {
         if (inputStream == null) {
             throw new IllegalArgumentException("file not found! " + fileName);
         }
-
         return inputStream;
     }
 
@@ -113,7 +102,6 @@ public class FileResourcesUtils {
                         .collect(toList());
             }
         }
-
         return result;
     }
 

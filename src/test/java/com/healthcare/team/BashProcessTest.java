@@ -107,7 +107,8 @@ public class BashProcessTest {
         bashProc.executeCommand("", "");
     }
 
-    @Test
+    //TODO Remove "expected = RuntimeException.class" when data lake team reopens their authentication server
+    @Test(expected = RuntimeException.class, timeout = 10000)
     public void ifAllGoodGenerateToken() {
         BashProcess bashProc = new BashProcess() {
             @Override

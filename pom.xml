@@ -239,11 +239,9 @@
             <version>1.9.4</version>
         </dependency>
         <dependency>
-            <groupId>com.openpseudonymiser.crypto</groupId>
-            <artifactId>openpseudonymiser-crypto</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/lib/OpenPseudonymiserCryptoLib.jar</systemPath>
+           <groupId>com.open-pseudonymiser</groupId>
+            <artifactId>open-pseudonymiser</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>

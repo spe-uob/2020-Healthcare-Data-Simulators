@@ -1,8 +1,11 @@
 package com.healthcare.team;
 
+import org.apache.commons.io.FileUtils;
 import org.hamcrest.collection.IsEmptyCollection;
 import org.junit.*;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -33,10 +36,18 @@ public class ComputeTest {
     }
 
     @BeforeClass
-    public static void setupTestsClass() {
+    public static void beforeClass() {
         //extract files first before running any test
         InitialSetup initialSetup = new InitialSetup();
         initialSetup.setup();
+    }
+
+    @AfterClass
+    public static void afterClass() throws IOException {
+        File file = new File("lib");
+        Assert.assertTrue(file.exists() && file.isDirectory());
+        FileUtils.deleteDirectory(file);
+        Assert.assertFalse(new File("lib").exists());
     }
 
     @Test(expected = IllegalArgumentException.class, timeout = 15000)
@@ -45,9 +56,9 @@ public class ComputeTest {
                 "",
                 "0",
                 "1",
-                "Female",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "female",
+                "Lupus",
+                "Angus"
         );
         compute.generatePatient();
     }
@@ -58,9 +69,9 @@ public class ComputeTest {
                 "1",
                 "",
                 "1",
-                "Female",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "female",
+                "Lupus",
+                "Angus"
         );
         compute.generatePatient();
     }
@@ -71,9 +82,9 @@ public class ComputeTest {
                 "1",
                 "0",
                 "",
-                "Female",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "female",
+                "Lupus",
+                "Angus"
         );
         compute.generatePatient();
     }
@@ -85,8 +96,8 @@ public class ComputeTest {
                 "0",
                 "1",
                 "",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "Lupus",
+                "Angus"
         );
         compute.generatePatient();
     }
@@ -97,9 +108,9 @@ public class ComputeTest {
                 "1",
                 "0",
                 "1",
-                "Female",
+                "female",
                 "",
-                "Shropshire"
+                "Angus"
         );
         compute.generatePatient();
     }
@@ -110,8 +121,8 @@ public class ComputeTest {
                 "1",
                 "0",
                 "1",
-                "Female",
-                "Allergic-Rhinitis",
+                "female",
+                "Lupus",
                 ""
         );
     }
@@ -122,9 +133,9 @@ public class ComputeTest {
                 null,
                 "0",
                 "1",
-                "Female",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "female",
+                "Lupus",
+                "Angus"
         );
     }
 
@@ -134,9 +145,9 @@ public class ComputeTest {
                 "1",
                 null,
                 "1",
-                "Female",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "female",
+                "Lupus",
+                "Angus"
         );
     }
 
@@ -146,9 +157,9 @@ public class ComputeTest {
                 "1",
                 "0",
                 null,
-                "Female",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "female",
+                "Lupus",
+                "Angus"
         );
     }
 
@@ -159,8 +170,8 @@ public class ComputeTest {
                 "0",
                 "1",
                 null,
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "Lupus",
+                "Angus"
         );
     }
 
@@ -170,9 +181,9 @@ public class ComputeTest {
                 "1",
                 "0",
                 "1",
-                "Female",
+                "female",
                 null,
-                "Shropshire"
+                "Angus"
         );
     }
 
@@ -182,8 +193,8 @@ public class ComputeTest {
                 "1",
                 "0",
                 "1",
-                "Female",
-                "Allergic-Rhinitis",
+                "female",
+                "Lupus",
                 null
         );
     }
@@ -195,27 +206,27 @@ public class ComputeTest {
                 "happy",
                 "0",
                 "1",
-                "Female",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "female",
+                "Lupus",
+                "Angus"
         );
         compute.generatePatient();
         compute = new Compute(
                 "-1",
                 "0",
                 "1",
-                "Female",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "female",
+                "Lupus",
+                "Angus"
         );
         compute.generatePatient();
         compute = new Compute(
                 "10000",
                 "0",
                 "1",
-                "Female",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "female",
+                "Lupus",
+                "Angus"
         );
         compute.generatePatient();
     }
@@ -226,18 +237,18 @@ public class ComputeTest {
                 "1",
                 "-6",
                 "1",
-                "Female",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "female",
+                "Lupus",
+                "Angus"
         );
         compute.generatePatient();
         compute = new Compute(
                 "1",
                 "happy",
                 "1",
-                "Female",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "female",
+                "Lupus",
+                "Angus"
         );
         compute.generatePatient();
     }
@@ -248,24 +259,24 @@ public class ComputeTest {
                 "1",
                 "0",
                 "201",
-                "Female",
-                "Allergic-Rhinitis",
+                "female",
+                "Lupus",
                 "Shropshire"
         );
         compute = new Compute(
                 "1",
                 "0",
                 "happy",
-                "Female",
-                "Allergic-Rhinitis",
+                "female",
+                "Lupus",
                 "Shropshire"
         );
         compute = new Compute(
                 "1",
                 "0",
                 "-1",
-                "Female",
-                "Allergic-Rhinitis",
+                "female",
+                "Lupus",
                 "Shropshire"
         );
     }
@@ -277,7 +288,7 @@ public class ComputeTest {
                 "0",
                 "1",
                 "R",
-                "Allergic-Rhinitis",
+                "Allergic_Rhinitis",
                 "Shropshire"
         );
         compute.generatePatient();
@@ -289,7 +300,7 @@ public class ComputeTest {
                 "1",
                 "0",
                 "1",
-                "Female",
+                "female",
                 "coding",
                 "Shropshire"
         );
@@ -302,8 +313,8 @@ public class ComputeTest {
                 "1",
                 "0",
                 "1",
-                "Female",
-                "Allergic-Rhinitis",
+                "female",
+                "Lupus",
                 "California"
         );
     }
@@ -332,9 +343,9 @@ public class ComputeTest {
                 "1",
                 "22",
                 "11",
-                "Female",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "female",
+                "Lupus",
+                "Angus"
         );
     }
 
@@ -344,9 +355,9 @@ public class ComputeTest {
                 "100000",
                 "11",
                 "12",
-                "Female",
-                "Allergic-Rhinitis",
-                "Shropshire"
+                "female",
+                "Lupus",
+                "Angus"
         );
     }
 

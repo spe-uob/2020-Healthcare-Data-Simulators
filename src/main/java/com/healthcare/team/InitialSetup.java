@@ -28,7 +28,7 @@ public class InitialSetup {
             File dir = new File("lib");
             File[] files = dir.listFiles();
             assert files != null;
-            Map<String, String> checksum = readCacheFile();
+            Map<String, String> checksum = readChecksumFile();
             if (checksum == null) {
                 System.out.println("checksum file not provided, skipping...");
             } else {
@@ -42,15 +42,14 @@ public class InitialSetup {
                         for (Map.Entry<String, String> check: checksum.entrySet()) {
                             int index = file.toString().lastIndexOf(File.separator);
                             int index2 = check.getKey().lastIndexOf("/");
-                            if (index < 0 || index2 < 0) {
-                                continue;
-                            }
+                            if (index < 0 || index2 < 0) continue;
+
                             String file1 = file.toString().substring(index+1);
                             String file2 = check.getKey().substring(index2+1);
                             if (file1.equals(file2)) {
                                 if (!check.getValue().equals(sha512hex)) {
                                     System.out.println("expected hash of: "+sha512hex);
-                                    System.err.println("This file is corrupted or was recently edited! "+file.toString());
+                                    System.err.println("This file is corrupted or was recently edited! "+ file);
                                 }
                                 break;
                             }
@@ -63,7 +62,7 @@ public class InitialSetup {
         }
     }
 
-    private static Map<String, String> readCacheFile() {
+    private static Map<String, String> readChecksumFile() {
         Map<String, String> checksum = new HashMap<>();
         try {
             File myObj = new File("checksum.txt");
