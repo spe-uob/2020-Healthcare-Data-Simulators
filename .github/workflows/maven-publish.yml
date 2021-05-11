@@ -23,6 +23,9 @@ jobs:
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
+      - name: Install OpenPseudonymiser
+        run: mvn install:install-file -Dfile="src/main/resources/lib/OpenPseudonymiserCryptoLib.jar" -DgroupId="com.open-pseudonymiser" -DartifactId="open-pseudonymiser" -Dversion="1.0.0" -Dpackaging="jar"
+
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
