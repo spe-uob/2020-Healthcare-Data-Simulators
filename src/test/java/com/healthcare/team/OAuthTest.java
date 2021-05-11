@@ -20,15 +20,12 @@ public class OAuthTest {
          which require user input to continue, hence, Tests pass.
     */
     public static class OauthWithNoJOptionPane extends OAuth {
-
-
         public OauthWithNoJOptionPane(String client_id, String region, String username, String password) {
             super(client_id, region, username, password);
         }
 
         @Override
-        protected void alertUser() {
-        }
+        protected void alertUser() {}
     }
 
     @Test(expected = IllegalArgumentException.class)

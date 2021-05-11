@@ -5,22 +5,26 @@ import com.healthcare.team.commons.StatesTest;
 import com.healthcare.team.commons.UtilsTest;
 import com.healthcare.team.commons.ValidationsTest;
 import com.healthcare.team.scheduler.JobSchedulerTest;
+import org.apache.commons.io.FileUtils;
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Includes all test for the system
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
+        InitialSetupTest.class,
         ComputeTest.class,
         ConvertorTest.class,
         OAuthTest.class,
-        ParseJSONTest.class,
-        SenderSFTP.class,
-        SendTest.class,
-        SFTPTest.class,
         UtilsTest.class,
         ModulesTest.class,
         StatesTest.class,
@@ -33,9 +37,19 @@ import org.junit.runners.Suite;
 
 public class AllTest {
     @BeforeClass
-    public static void setupTestsClass() {
+    public static void beforeClass() {
         //extract files first before running any test
         InitialSetup initialSetup = new InitialSetup();
         initialSetup.setup();
+    }
+
+    @AfterClass
+    public static void afterClass() throws IOException {
+        File file = new File("lib");
+        if (file.exists()) {
+            Assert.assertTrue(file.isDirectory());
+            FileUtils.deleteDirectory(file);
+            Assert.assertFalse(new File("lib").exists());
+        }
     }
 }
