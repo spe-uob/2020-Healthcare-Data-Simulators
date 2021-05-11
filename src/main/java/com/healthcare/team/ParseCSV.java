@@ -33,7 +33,7 @@ public class ParseCSV {
 
     //We read line by line from CSVs
     public String readPatientsFile(String filePath, Class pojoClass) {
-
+        System.out.println(filePath);
         CsvMapper csvMapper = new CsvMapper();
         CsvSchema schema = CsvSchema.emptySchema().withHeader().withLineSeparator("\n").withColumnSeparator(',');
         ObjectReader oReader = csvMapper.reader(pojoClass).with(schema);
@@ -61,14 +61,18 @@ public class ParseCSV {
     }
 
     //Send patients with NHSNumber encrypted to Rabbit queues with respect to the region they come from
-    public void sendPatientsToRabbit(String region) {
+    public void sendPatientsToRabbit(String region) throws IOException {
 
         for(Map.Entry<String, Class> fileToClass : Constants.csvFiles.entrySet()){
             String filePathToPatients = buildFilePathToPatients(region, fileToClass.getKey());
             String anonymize = readPatientsFile(filePathToPatients, fileToClass.getValue());
-            String queueName = region.toLowerCase().concat("_").concat(fileToClass.getKey());
 
-            new MessageBrokerSender().Sender(anonymize, queueName);
+            String queueName = region.toLowerCase().concat("_").concat(fileToClass.getKey());
+            File dir = new File(filePathToPatients);
+            String output = Files.readString(Path.of(String.valueOf(dir)));
+            System.out.println(queueName);
+            System.out.println(output);
+            new MessageBrokerSender().Sender(output, queueName);
         }
     }
 
