@@ -8,6 +8,7 @@ import com.healthcare.team.Compute;
 import com.healthcare.team.ParseCSV;
 import org.quartz.*;
 
+import java.util.Date;
 import java.util.List;
 
 public class GenerateCsvAndSendDataJob extends BashProcess implements Job {
@@ -17,11 +18,14 @@ public class GenerateCsvAndSendDataJob extends BashProcess implements Job {
     @Override
     public void execute(JobExecutionContext jExeCtx) throws JobExecutionException {
         try {
+            //Date d = new Date();
+            //System.out.println("job start: " +d);
             SchedulerContext context = jExeCtx.getScheduler().getContext();
             String region = (String) context.get(REGION_CTX_PARAM_NAME);
             computer = (Compute) context.get(COMPUTE_AS_CTX_PARAMETER_NAME);
             executeCommand(region,"Error on job running");
             new ParseCSV().sendPatientsToRabbit(region);
+            //System.out.println("total time: " + (new Date().getTime() - d.getTime()));
         } catch (SchedulerException e) {
             throw new RuntimeException(e);
         }

@@ -1,17 +1,17 @@
 package com.healthcare.team;
 
-import static com.healthcare.team.commons.Constants.PATIENTS_QUEUE_NAME;
-import static com.healthcare.team.commons.Constants.PATIENTS_CSV_FILE_HEADER;
-
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
-import com.healthcare.team.csv.objects.Patient;
+import com.healthcare.team.commons.Constants;
+import com.healthcare.team.commons.Utils;
+import com.healthcare.team.csv.objects.CsvPojo;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Map;
 import java.util.Objects;
 
 public class ParseCSV {
@@ -32,18 +32,19 @@ public class ParseCSV {
     }
 
     //We read line by line from CSVs
-    public String readPatientsFile(String filePath) {
+    public String readPatientsFile(String filePath, Class pojoClass) {
 
         CsvMapper csvMapper = new CsvMapper();
         CsvSchema schema = CsvSchema.emptySchema().withHeader().withLineSeparator("\n").withColumnSeparator(',');
-        ObjectReader oReader = csvMapper.reader(Patient.class).with(schema);
+        ObjectReader oReader = csvMapper.reader(pojoClass).with(schema);
 
         StringBuilder rabbitAnonymizeData = new StringBuilder();
         StringBuilder anonymizeDataForCsvUpdate = new StringBuilder();
+        CsvPojo current = null;
         try (Reader reader = new FileReader(filePath)) {
-            MappingIterator<Patient> mi = oReader.readValues(reader);
+            MappingIterator<CsvPojo> mi = oReader.readValues(reader);
             while (mi.hasNext()) {
-                Patient current = mi.next();
+                current = mi.next();
 
                 rabbitAnonymizeData.append(current.toString());
                 anonymizeDataForCsvUpdate.append(current.toCsvString()).append("\n");
@@ -51,30 +52,45 @@ public class ParseCSV {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        updateCsvFile(filePath, anonymizeDataForCsvUpdate.toString());
+
+        if(current != null && Utils.isValidString(current.getHeaderColumnNames())){
+            updateCsvFile(filePath, current.getHeaderColumnNames(), anonymizeDataForCsvUpdate.toString());
+        }
+
         return rabbitAnonymizeData.toString();
     }
 
     //Send patients with NHSNumber encrypted to Rabbit queues with respect to the region they come from
     public void sendPatientsToRabbit(String region) {
-        String filePath = buildFilePath(region);
-        String anonymize = readPatientsFile(filePath);
-        String queueName = String.format(PATIENTS_QUEUE_NAME, region);
 
-        new MessageBrokerSender().Sender(anonymize, queueName);
+        for(Map.Entry<String, Class> fileToClass : Constants.csvFiles.entrySet()){
+            String filePathToPatients = buildFilePathToPatients(region, fileToClass.getKey());
+            String anonymize = readPatientsFile(filePathToPatients, fileToClass.getValue());
+            String queueName = region.toLowerCase().concat("_").concat(fileToClass.getKey());
+
+            new MessageBrokerSender().Sender(anonymize, queueName);
+        }
     }
 
-    private String buildFilePath(String region) {
+    private String buildCommonFilepath(String region) {
         return System.getProperty("user.dir").concat(File.separator)
-                                             .concat("Regions")
-                                             .concat(File.separator)
-                                             .concat(region)
-                                             .concat("/csv/patients.csv");
+                .concat("Regions")
+                .concat(File.separator)
+                .concat(region)
+                .concat("/csv");
     }
 
-    private void updateCsvFile(String path, String fileContent) {
+    private String buildFilepath(String region) {
+        return buildCommonFilepath(region);
+    }
+
+    private String buildFilePathToPatients(String region, String fileIdentifier) {
+        return buildCommonFilepath(region).concat(File.separator).concat(fileIdentifier).concat(".csv");
+    }
+
+    private void updateCsvFile(String path, String headerColumnNames, String fileContent) {
         try (FileWriter csvWriter = new FileWriter(path)) {
-            csvWriter.append(PATIENTS_CSV_FILE_HEADER);
+            csvWriter.append(headerColumnNames);
             csvWriter.append("\n");
 
             csvWriter.append(fileContent);
