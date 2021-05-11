@@ -29,7 +29,8 @@ The `checksum.txt` file contains the correct sha512 hex values for each file. It
 ### Getting started
 1. `git clone https://github.com/spe-uob/Healthcare-Data-Simulators.git`
 2. Add [this jar file](https://uob-my.sharepoint.com/:u:/g/personal/ot19588_bristol_ac_uk/EUhcf-s5CxlImXKEL_qvIeMBdWifARyrv-qVU8s65zZ3iA?e=vobhgr) to `src/main/resources/lib` folder. It is synthea with UK population. 
-3. Add [this jar file](https://drive.google.com/file/d/1Y9OZQ4a_qfeo_JcPhpMSdHuNEZydhAWq/view?usp=sharing) to `src/main/resources/lib` folder. It is the OpenPseudomiser for masking data.
+3. Add [this jar file](https://drive.google.com/file/d/1Y9OZQ4a_qfeo_JcPhpMSdHuNEZydhAWq/view?usp=sharing) to `src/main/resources/lib` folder. It is the OpenPseudonymiser for masking data.
+4. Run `mvn install:install-file -Dfile="src/main/resources/lib/OpenPseudonymiserCryptoLib.jar" -DgroupId="com.open-pseudonymiser" -DartifactId="open-pseudonymiser" -Dversion="1.0.0" -Dpackaging="jar"` from the root source directory to install `OpenPseudonymiser.jar` as a `mvn local repository dependency`.
 4. If you do not wish to compile the source code, find the jar file
    in releases.
 Run `java -jar healthcare-data-simulators-x.x-SNAPSHOT.jar` from releases.

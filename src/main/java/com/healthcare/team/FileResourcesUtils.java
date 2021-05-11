@@ -110,9 +110,12 @@ public class FileResourcesUtils {
         OutputStream os;
         File dir = new File("lib");
         boolean done = dir.mkdir();
+        int index = filePath.lastIndexOf(File.separator);
+        if (index < 0) index = filePath.lastIndexOf("/");
+
         if (done || dir.exists()) {
             try {
-                os = new FileOutputStream("lib" + File.separator + filePath.substring(filePath.lastIndexOf(File.separator) + 1));
+                os = new FileOutputStream("lib" + File.separator + filePath.substring(index + 1));
                 byte[] buffer = new byte[1024];
                 int length;
                 while ((length = is.read(buffer)) > 0) {

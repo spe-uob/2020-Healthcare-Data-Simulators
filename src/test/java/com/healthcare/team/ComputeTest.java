@@ -37,8 +37,6 @@ public class ComputeTest {
 
     @BeforeClass
     public static void beforeClass() {
-        System.setProperty("java.awt.headless", "false");
-
         //extract files first before running any test
         InitialSetup initialSetup = new InitialSetup();
         initialSetup.setup();
