@@ -8,6 +8,7 @@ import com.healthcare.team.scheduler.JobSchedulerTest;
 import org.apache.commons.io.FileUtils;
 import org.junit.AfterClass;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -37,6 +38,8 @@ import java.io.IOException;
 public class AllTest {
     @BeforeClass
     public static void beforeClass() {
+        System.setProperty("java.awt.headless", "false");
+
         //extract files first before running any test
         InitialSetup initialSetup = new InitialSetup();
         initialSetup.setup();
