@@ -9,7 +9,7 @@ Digital healthcare provided by the NHS in England typically operates in silos. G
 ## Technologies
 [SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea)   
 [RabbitMQ](https://www.rabbitmq.com)  
-[Mirth Connect Integration Engine](https://www.nextgen.com/products-and-services/integration-engine)
+[Mirth Connect Integration Engine](https://www.nextgen.com/products-and-services/integration-engine) <br>
 [OpenPseudomiser](https://www.openpseudonymiser.org/Default.aspx)
 
 ## Requirements 
