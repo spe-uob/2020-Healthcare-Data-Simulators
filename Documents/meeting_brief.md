@@ -20,7 +20,7 @@
 
 **02/03/2021** - Meeting with Daniel Bennett on how to approach the new direction of the project
 
-**11/03/2021** - Mirth demo (how to create the channels)
+**11/03/2021** - Mirth demo (how to create the channels) (Philip Harfield)
 
 **01/04/2021** - General catch-up Meeting with client, demo to the new version of the app and discussed about new features ([summmary](https://uob-my.sharepoint.com/:w:/g/personal/xd19763_bristol_ac_uk/EXlFnAF6h3tMjjD1dOkDwrsBrk-l6hgh6xT3iYePwt5BbQ?e=AfbGbJ))
 
