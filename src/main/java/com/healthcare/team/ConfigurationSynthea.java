@@ -234,7 +234,11 @@ public class ConfigurationSynthea extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //Now we are sending patients with NHSNumber encrypted
                 //in suitable queues according to the region patients are generated from
-                new ParseCSV().sendPatientsToRabbit(somersetTextField.getText());
+                try {
+                    new ParseCSV().sendPatientsToRabbit(somersetTextField.getText());
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
 

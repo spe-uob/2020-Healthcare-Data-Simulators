@@ -8,6 +8,7 @@ import com.healthcare.team.Compute;
 import com.healthcare.team.ParseCSV;
 import org.quartz.*;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +25,11 @@ public class GenerateCsvAndSendDataJob extends BashProcess implements Job {
             String region = (String) context.get(REGION_CTX_PARAM_NAME);
             computer = (Compute) context.get(COMPUTE_AS_CTX_PARAMETER_NAME);
             executeCommand(region,"Error on job running");
-            new ParseCSV().sendPatientsToRabbit(region);
+            try {
+                new ParseCSV().sendPatientsToRabbit(region);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             //System.out.println("total time: " + (new Date().getTime() - d.getTime()));
         } catch (SchedulerException e) {
             throw new RuntimeException(e);
