@@ -1,4 +1,4 @@
-package com.healthcare.team;
+package com.healthcare.team.BashProcess;
 
 import java.io.File;
 import java.util.List;
@@ -52,7 +52,7 @@ public class Convertor extends BashProcess {
         return List.of("bash", "-c", getCommand(region));
     }
 
-    public String getPath() {
+    protected String getPath() {
         return path;
     }
 }

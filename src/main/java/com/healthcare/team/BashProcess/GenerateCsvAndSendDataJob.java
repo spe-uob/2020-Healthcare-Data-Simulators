@@ -1,15 +1,12 @@
-package com.healthcare.team.scheduler;
+package com.healthcare.team.BashProcess;
 
 import static com.healthcare.team.commons.Constants.COMPUTE_AS_CTX_PARAMETER_NAME;
 import static com.healthcare.team.commons.Constants.REGION_CTX_PARAM_NAME;
 
-import com.healthcare.team.BashProcess;
-import com.healthcare.team.Compute;
-import com.healthcare.team.ParseCSV;
+import com.healthcare.team.Rabbit.ParseCSV;
 import org.quartz.*;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 public class GenerateCsvAndSendDataJob extends BashProcess implements Job {

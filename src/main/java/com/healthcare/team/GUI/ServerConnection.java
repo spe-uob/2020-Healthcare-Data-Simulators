@@ -1,6 +1,4 @@
-package com.healthcare.team;
-
-import com.healthcare.team.commons.Utils;
+package com.healthcare.team.GUI;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

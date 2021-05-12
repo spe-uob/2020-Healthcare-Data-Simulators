@@ -1,8 +1,9 @@
-package com.healthcare.team;
+package com.healthcare.team.BashProcess;
 
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
+import com.healthcare.team.BashProcess.BashProcess;
 import com.healthcare.team.commons.Utils;
 import org.junit.Test;
 

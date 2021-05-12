@@ -1,15 +1,11 @@
-package com.healthcare.team;
+package com.healthcare.team.Anonymization;
 
 import java.util.TreeMap;
-import org.hamcrest.collection.IsEmptyCollection;
+
+import com.healthcare.team.Anonymization.Anonymization;
 import org.junit.Test;
 
-import java.util.List;
-import static java.util.stream.Collectors.toList;
-import java.util.stream.Stream;
-
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertEquals;
 

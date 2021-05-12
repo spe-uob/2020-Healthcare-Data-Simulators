@@ -1,4 +1,4 @@
-package com.healthcare.team;
+package com.healthcare.team.Anonymization;
 
 import OpenPseudonymiser.Crypto;
 import static com.healthcare.team.commons.Constants.CRYPTO_SALT;

@@ -1,5 +1,7 @@
-package com.healthcare.team;
+package com.healthcare.team.BashProcess;
 
+import com.healthcare.team.BashProcess.Compute;
+import com.healthcare.team.InitialSetup;
 import org.apache.commons.io.FileUtils;
 import org.hamcrest.collection.IsEmptyCollection;
 import org.junit.*;
@@ -326,14 +328,14 @@ public class ComputeTest {
                 "0",
                 "1",
                 "male",
-                "Allergic_Rhinitis",
+                "Allergic-Rhinitis",
                 "Somerset"
         );
         assertEquals(computeWithNoJOptionPane.getPopulation(), "1");
         assertEquals(computeWithNoJOptionPane.getMinAge(), "0");
         assertEquals(computeWithNoJOptionPane.getMaxAge(), "1");
         assertEquals(computeWithNoJOptionPane.getGender(), "male");
-        assertEquals(computeWithNoJOptionPane.getModule(), "Allergic_Rhinitis");
+        assertEquals(computeWithNoJOptionPane.getModule(), "Allergic-Rhinitis");
         assertEquals(computeWithNoJOptionPane.getStateSynthea(), "Somerset");
     }
 
@@ -368,7 +370,7 @@ public class ComputeTest {
                 "0",
                 "1",
                 "male",
-                "Allergic_Rhinitis",
+                "Allergic-Rhinitis",
                 "Somerset"
         );
         String region = computeWithNoJOptionPane.getStateSynthea();
@@ -395,7 +397,7 @@ public class ComputeTest {
                 "18",
                 "39",
                 "female",
-                "Food_Allergies",
+                "Food-Allergies",
                 "Gloucestershire"
         );
         assertTrue(computeWithNoJOptionPane.showAlert("   "));

@@ -1,4 +1,4 @@
-package com.healthcare.team;
+package com.healthcare.team.GUI;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

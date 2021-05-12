@@ -1,5 +1,6 @@
-package com.healthcare.team;
+package com.healthcare.team.Rabbit;
 
+import com.healthcare.team.Rabbit.ParseCSV;
 import com.healthcare.team.csv.objects.Patient;
 import org.junit.Rule;
 import org.junit.Test;
@@ -7,7 +8,6 @@ import org.junit.rules.TemporaryFolder;
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -52,7 +52,7 @@ public class ParseCSVTest {
                         .forEach(pw::println);
             }
             String anonymizedData = new ParseCSV().readPatientsFile(file.getAbsolutePath(), Patient.class);
-            assertEquals("Patient: Id='12387D6B953EC62C88E85EEAA2089406ABFD7E2E93FB3E4BEAA8F6BD1E0B6335'| ssn='19'| birthDate=''| deathDate=''| drivers=''| passport=''| prefix=''| first='John'| last='Doe'| suffix=''| maiden='null'| marital='no'| race='green'| ethnicity=''| gender='other'| birthplace=''| address='NY'| city='5th'| state=''| county=''| zip=''| lat=''| lon=''| healthcareExpenses='888'| healthcareCoverage='88'", anonymizedData);
+            assertEquals("com.healthcare.team.csv.objects.Patient: Id='12387D6B953EC62C88E85EEAA2089406ABFD7E2E93FB3E4BEAA8F6BD1E0B6335'| ssn='19'| birthDate=''| deathDate=''| drivers=''| passport=''| prefix=''| first='John'| last='Doe'| suffix=''| maiden='null'| marital='no'| race='green'| ethnicity=''| gender='other'| birthplace=''| address='NY'| city='5th'| state=''| county=''| zip=''| lat=''| lon=''| healthcareExpenses='888'| healthcareCoverage='88'", anonymizedData);
         } catch (IOException e) {
             e.printStackTrace();
         }

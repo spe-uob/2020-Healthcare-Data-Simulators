@@ -1,4 +1,4 @@
-package com.healthcare.team;
+package com.healthcare.team.Rabbit;
 
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectReader;
@@ -72,6 +72,7 @@ public class ParseCSV {
             String output = Files.readString(Path.of(String.valueOf(dir)));
             System.out.println(queueName);
             System.out.println(output);
+            //new MessageBrokerSender().Sender(anonymize, queueName);
             new MessageBrokerSender().Sender(output, queueName);
         }
     }

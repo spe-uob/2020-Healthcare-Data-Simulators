@@ -1,5 +1,6 @@
-package com.healthcare.team;
+package com.healthcare.team.Setup;
 
+import com.healthcare.team.InitialSetup;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.Assert;

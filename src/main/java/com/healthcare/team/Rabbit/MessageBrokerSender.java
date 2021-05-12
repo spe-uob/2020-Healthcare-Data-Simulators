@@ -1,4 +1,4 @@
-package com.healthcare.team;
+package com.healthcare.team.Rabbit;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;

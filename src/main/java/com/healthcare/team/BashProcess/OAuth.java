@@ -1,4 +1,4 @@
-package com.healthcare.team;
+package com.healthcare.team.BashProcess;
 
 import static com.healthcare.team.commons.Constants.OBJECT_PROPERTY_NPE_MESSAGE;
 
@@ -75,19 +75,19 @@ public class OAuth extends BashProcess {
         }
     }
 
-    public String getClientId() {
+    protected String getClientId() {
         return client_id;
     }
 
-    public String getAwsRegion() {
+    protected String getAwsRegion() {
         return awsRegion;
     }
 
-    public String getUsername() {
+    protected String getUsername() {
         return username;
     }
 
-    public String getPassword() {
+    protected String getPassword() {
         return password;
     }
 }

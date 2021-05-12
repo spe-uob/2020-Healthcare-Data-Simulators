@@ -1,4 +1,6 @@
-package com.healthcare.team;
+package com.healthcare.team.BashProcess;
+
+import com.healthcare.team.GUI.RegionSelection;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -40,7 +42,7 @@ public abstract class BashProcess extends RegionSelection {
         }
     }
 
-    protected String getGeneratedToken() { return  this.generatedToken; }
+    public String getGeneratedToken() { return  this.generatedToken; }
 
     protected abstract void alertUser();
 

@@ -1,7 +1,6 @@
 package com.healthcare.team.csv.objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.healthcare.team.Anonymization;
 
 public class Allergie extends CsvPojo {
     @JsonProperty("START")

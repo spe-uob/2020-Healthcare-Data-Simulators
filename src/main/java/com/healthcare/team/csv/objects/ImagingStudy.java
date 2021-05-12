@@ -1,7 +1,7 @@
 package com.healthcare.team.csv.objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.healthcare.team.Anonymization;
+import com.healthcare.team.Anonymization.Anonymization;
 
 import java.util.TreeMap;
 

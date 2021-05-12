@@ -1,4 +1,6 @@
-package com.healthcare.team;
+package com.healthcare.team.GUI;
+
+import com.healthcare.team.BashProcess.ConfigurationSynthea;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -41,7 +43,7 @@ public class GeneratorForm extends JFrame {
         });
     }
 
-    public void updateRegionText(String regionName) {
+    protected void updateRegionText(String regionName) {
         selectedRegion.setText(regionName);
         System.out.println("Region name " + regionName);
     }

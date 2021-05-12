@@ -1,5 +1,6 @@
-package com.healthcare.team;
+package com.healthcare.team.BashProcess;
 
+import com.healthcare.team.BashProcess.OAuth;
 import org.hamcrest.collection.IsEmptyCollection;
 import org.junit.*;
 

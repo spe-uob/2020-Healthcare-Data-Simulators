@@ -1,5 +1,6 @@
-package com.healthcare.team;
+package com.healthcare.team.BashProcess;
 
+import com.healthcare.team.BashProcess.BashProcess;
 import com.healthcare.team.commons.Utils;
 import com.healthcare.team.commons.Validations;
 
@@ -64,7 +65,7 @@ public class Compute extends BashProcess {
                 .toString();
     }
 
-    public void generatePatient() {
+    protected void generatePatient() {
         System.out.println("Starting...");
         executeCommand(state, "Generating failed");
     }
@@ -91,23 +92,23 @@ public class Compute extends BashProcess {
         return List.of("bash", "-c", getCommand(region));
     }
 
-    public String getPopulation() {
+    protected String getPopulation() {
         return population;
     }
 
-    public String getMinAge() {
+    protected String getMinAge() {
         return minAge;
     }
 
-    public String getMaxAge() {
+    protected String getMaxAge() {
         return maxAge;
     }
 
-    public String getGender() {
+    protected String getGender() {
         return gender;
     }
 
-    public String getModule() {
+    protected String getModule() {
         return module;
     }
 

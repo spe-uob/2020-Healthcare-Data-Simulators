@@ -1,9 +1,6 @@
 package com.healthcare.team.csv.objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.healthcare.team.Anonymization;
-
-import java.util.TreeMap;
 
 public class PayerTranzition extends CsvPojo {
 
