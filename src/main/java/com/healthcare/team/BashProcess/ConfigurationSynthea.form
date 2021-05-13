@@ -13,6 +13,9 @@
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
+          <background color="-13876296"/>
+          <font name="Roboto Light" size="16"/>
+          <foreground color="-4464646"/>
           <horizontalAlignment value="0"/>
           <text value="Back to menu"/>
         </properties>
@@ -43,7 +46,8 @@
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <font style="1"/>
+          <font name="Roboto Light" size="16" style="1"/>
+          <foreground color="-12297279"/>
           <text value="Population Size:"/>
         </properties>
       </component>
@@ -53,7 +57,9 @@
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <font style="1"/>
+          <enabled value="true"/>
+          <font name="Roboto Light" size="16" style="1"/>
+          <foreground color="-12297279"/>
           <text value="Age:"/>
         </properties>
       </component>
@@ -63,7 +69,8 @@
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <font style="1"/>
+          <font name="Roboto Light" size="16" style="1"/>
+          <foreground color="-12297279"/>
           <text value="Gender:"/>
         </properties>
       </component>
@@ -73,7 +80,8 @@
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <font style="1"/>
+          <font name="Roboto Light" size="16" style="1"/>
+          <foreground color="-12297279"/>
           <text value="Module:"/>
         </properties>
       </component>
@@ -83,7 +91,8 @@
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <font style="1"/>
+          <font name="Roboto Light" size="16" style="1"/>
+          <foreground color="-12297279"/>
           <text value="Region:"/>
         </properties>
       </component>
@@ -93,6 +102,9 @@
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
+          <background color="-4464646"/>
+          <font name="Roboto Light" size="16"/>
+          <foreground color="-6477813"/>
           <text value=""/>
         </properties>
       </component>
@@ -106,6 +118,9 @@
           <gridbag weightx="0.5" weighty="1.0"/>
         </constraints>
         <properties>
+          <background color="-4464646"/>
+          <font name="Roboto Light" size="16"/>
+          <foreground color="-6477813"/>
           <text value="min age"/>
         </properties>
       </component>
@@ -117,6 +132,9 @@
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
+          <background color="-4464646"/>
+          <font name="Roboto Light" size="16"/>
+          <foreground color="-6477813"/>
           <model>
             <item value="male"/>
             <item value="female"/>
@@ -132,6 +150,9 @@
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
+          <background color="-4464646"/>
+          <font name="Roboto Light" size="16"/>
+          <foreground color="-6477813"/>
           <model>
             <item value="Allergic_Rhinitis"/>
             <item value="Allergies"/>
@@ -182,8 +203,11 @@
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
+          <background color="-6833428"/>
           <editable value="false"/>
-          <enabled value="false"/>
+          <enabled value="true"/>
+          <font name="Roboto Light" size="16"/>
+          <foreground color="-8968692"/>
           <text value=""/>
         </properties>
       </component>
@@ -194,7 +218,11 @@
           </grid>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-4464646"/>
+          <font name="Roboto Light" size="16"/>
+          <foreground color="-6477813"/>
+        </properties>
       </component>
       <component id="f75d4" class="javax.swing.JLabel" binding="timerLbl">
         <constraints>
@@ -202,7 +230,8 @@
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <font style="1"/>
+          <font name="Roboto Light" size="15" style="1"/>
+          <foreground color="-12297279"/>
           <text value="Timer (seconds):"/>
         </properties>
       </component>
@@ -222,16 +251,10 @@
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
+          <background color="-4464646"/>
+          <font name="Roboto Light" size="16"/>
+          <foreground color="-6477813"/>
           <text value="max age"/>
-        </properties>
-      </component>
-      <component id="17064" class="javax.swing.JButton" binding="stopButton" default-binding="true">
-        <constraints>
-          <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="1.0" weighty="0.0"/>
-        </constraints>
-        <properties>
-          <text value="Stop"/>
         </properties>
       </component>
       <component id="feebe" class="javax.swing.JButton" binding="pauseButton">
@@ -240,6 +263,9 @@
           <gridbag weightx="0.25" weighty="0.0"/>
         </constraints>
         <properties>
+          <background color="-9861163"/>
+          <font name="Roboto Light" size="16"/>
+          <foreground color="-4464646"/>
           <text value="Pause"/>
         </properties>
       </component>
@@ -249,6 +275,9 @@
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties>
+          <background color="-12297279"/>
+          <font name="Roboto Light" size="16"/>
+          <foreground color="-4464646"/>
           <text value="Send!"/>
         </properties>
       </component>
@@ -258,6 +287,9 @@
           <gridbag weightx="0.025" weighty="1.0"/>
         </constraints>
         <properties>
+          <background color="-9861163"/>
+          <font name="Roboto Light" size="16"/>
+          <foreground color="-4464646"/>
           <text value="Generate!"/>
         </properties>
       </component>
@@ -268,8 +300,21 @@
         </constraints>
         <properties>
           <enabled value="true"/>
-          <font size="12"/>
+          <font name="Roboto Light" size="14" style="1"/>
+          <foreground color="-13876296"/>
           <text value="Please fill timer input to run the job in background."/>
+        </properties>
+      </component>
+      <component id="17064" class="javax.swing.JButton" binding="stopButton" default-binding="true">
+        <constraints>
+          <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <background color="-12297279"/>
+          <font name="Roboto Light" size="16"/>
+          <foreground color="-4464646"/>
+          <text value="Stop"/>
         </properties>
       </component>
     </children>
