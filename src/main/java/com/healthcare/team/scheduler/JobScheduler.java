@@ -1,6 +1,7 @@
 package com.healthcare.team.scheduler;
 
-import com.healthcare.team.Compute;
+import com.healthcare.team.BashProcess.Compute;
+import com.healthcare.team.BashProcess.GenerateCsvAndSendDataJob;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 

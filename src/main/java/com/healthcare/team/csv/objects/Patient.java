@@ -1,10 +1,10 @@
 package com.healthcare.team.csv.objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.healthcare.team.Anonymization;
+import com.healthcare.team.Anonymization.Anonymization;
 import java.util.TreeMap;
 
-public class Patient {
+public class Patient extends CsvPojo{
 
     @JsonProperty("Id")
     private String id;
@@ -266,7 +266,7 @@ public class Patient {
         TreeMap<String, String> map = new TreeMap<>();
         map.put("NHSNumber", id);
 
-        return "Patient: " +
+        return Patient.class.getCanonicalName() + ": " +
                 "Id='" + Anonymization.mask(map) + '\'' +
                 "| ssn='" + ssn + '\'' +
                 "| birthDate='" + birthDate + '\'' +
@@ -320,6 +320,11 @@ public class Patient {
                 lon + ',' +
                 healthcareExpenses + ',' +
                 healthcareCoverage;
+    }
+
+    @Override
+    public String getHeaderColumnNames() {
+        return "Id,BIRTHDATE,DEATHDATE,SSN,DRIVERS,PASSPORT,PREFIX,FIRST,LAST,SUFFIX,MAIDEN,MARITAL,RACE,ETHNICITY,GENDER,BIRTHPLACE,ADDRESS,CITY,STATE,COUNTY,ZIP,LAT,LON,HEALTHCARE_EXPENSES,HEALTHCARE_COVERAGE ";
     }
 
     private TreeMap<String, String> buildAnonymizeMap() {

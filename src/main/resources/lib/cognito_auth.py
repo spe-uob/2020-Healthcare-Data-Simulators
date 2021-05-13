@@ -18,5 +18,5 @@ response = client.initiate_auth(
     ClientId=sys.argv[1]
 )
 
-sessionid = response['AuthenticationResult']['AccessToken']
+sessionid = response['AuthenticationResult']['IdToken']
 print(sessionid)

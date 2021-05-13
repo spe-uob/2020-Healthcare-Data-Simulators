@@ -1,5 +1,12 @@
 package com.healthcare.team;
 
+import com.healthcare.team.Anonymization.AnonymizationTest;
+import com.healthcare.team.BashProcess.BashProcessTest;
+import com.healthcare.team.BashProcess.ComputeTest;
+import com.healthcare.team.BashProcess.ConvertorTest;
+import com.healthcare.team.BashProcess.OAuthTest;
+import com.healthcare.team.Rabbit.ParseCSVTest;
+import com.healthcare.team.Setup.InitialSetupTest;
 import com.healthcare.team.commons.ModulesTest;
 import com.healthcare.team.commons.StatesTest;
 import com.healthcare.team.commons.UtilsTest;
@@ -8,7 +15,6 @@ import com.healthcare.team.scheduler.JobSchedulerTest;
 import org.apache.commons.io.FileUtils;
 import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
