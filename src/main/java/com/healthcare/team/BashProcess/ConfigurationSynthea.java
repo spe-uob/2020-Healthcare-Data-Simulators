@@ -20,6 +20,11 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.List;
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+import java.awt.Dimension;
 
 public class ConfigurationSynthea extends JFrame {
     private JPanel pane;
@@ -51,12 +56,28 @@ public class ConfigurationSynthea extends JFrame {
 
     public ConfigurationSynthea() {
         super("Healthcare Data Simulator");
-        this.setTitle("Healthcare Data Simulator");
-        this.setSize(500, 600);
-
+        setTitle("Healthcare Data Simulator");
+        somersetTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        setSize(500, 600);
+        pane.setOpaque(true);
+        this.getContentPane().setBackground( Color.decode("#97BAEC") );
+        pane.setForeground( Color.decode("#2C43B8"));
         Container pane = this.getContentPane();
         pane.setLayout(new GridBagLayout());
-
+        generateButton.setBorder(BorderFactory.createLineBorder(Color.decode("#6987D5"), 4, true));
+        sendButton.setBorder(BorderFactory.createLineBorder(Color.decode("#445BC1"), 4, true));
+        stopButton.setBorder(BorderFactory.createLineBorder(Color.decode("#445BC1"), 4, true));
+        pauseButton.setBorder(BorderFactory.createLineBorder(Color.decode("#6987D5"), 4, true));
+        Border borderCustom=BorderFactory.createBevelBorder(BevelBorder.RAISED, Color.decode("#445BC1"), Color.decode("#1727AE")); // top, bottom colours
+        backButton.setPreferredSize(new Dimension(80, 30));
+        backButton.setBorder(borderCustom);
+        somersetTextField.setOpaque(true);
+        size.setBorder(BorderFactory.createLineBorder(Color.decode("#BBDFFA"), 4, true));
+        minAge.setBorder(BorderFactory.createLineBorder(Color.decode("#BBDFFA"), 4, true));
+        maxAge.setBorder(BorderFactory.createLineBorder(Color.decode("#BBDFFA"), 4, true));
+        sex.setBorder(BorderFactory.createLineBorder(Color.decode("#BBDFFA"), 4, true));
+        module.setBorder(BorderFactory.createLineBorder(Color.decode("#BBDFFA"), 4, true));
+        timer.setBorder(BorderFactory.createLineBorder(Color.decode("#BBDFFA"), 4, true));
         GridBagConstraints c = new GridBagConstraints();
 
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -70,9 +91,9 @@ public class ConfigurationSynthea extends JFrame {
         bar.setBounds(0, 0, 25, 20);
         bar.setVisible(false);
         bar.setStringPainted(true);
-        bar.setFont(new Font("Raanana", Font.ITALIC, 10));
-        bar.setForeground(Color.RED);
-        bar.setBackground(Color.WHITE);
+        bar.setFont(new Font("Roboto Light", Font.BOLD, 16));
+        bar.setForeground(Color.decode("#9D280B"));
+        bar.setBackground(Color.decode("#BBDFFA"));
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 2;
         c.gridy = 41;
@@ -236,11 +257,7 @@ public class ConfigurationSynthea extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //Now we are sending patients with NHSNumber encrypted
                 //in suitable queues according to the region patients are generated from
-                try {
-                    new ParseCSV().sendPatientsToRabbit(somersetTextField.getText());
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+                new ParseCSV().sendPatientsToRabbit(somersetTextField.getText());
             }
         });
 
