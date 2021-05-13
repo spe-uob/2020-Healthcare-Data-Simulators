@@ -1,9 +1,8 @@
 colour pallete hex codes
 
-Egyptian Blue (#1727AE)
-Denim Blue (#2C43B8)
-Han Blue (#445BC1)
-Blue-Gray (#6987D5)
-Jordy Blue (#97BAEC)
-Diamond (#BBDFFA)
-Bloody Red (#9D280B)
+
+e63946  (red),
+f1faee (cream white, light mode background),
+a8dadc (light blue),
+457b9d (medium blue)
+1d3557 (dark blue, dark mode background) 

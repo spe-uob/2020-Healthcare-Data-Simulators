@@ -1,8 +1,7 @@
 package com.healthcare.team.scheduler;
 
-import com.healthcare.team.BashProcess.Compute;
+import com.healthcare.team.Compute;
 
-import com.healthcare.team.BashProcess.GenerateCsvAndSendDataJob;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;

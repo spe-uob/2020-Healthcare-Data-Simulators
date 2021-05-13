@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.healthcare.team.ConfigurationSynthea">
+  <grid id="27dc6" binding="pane" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="4" y="2" width="799" height="506"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="d12f0" class="javax.swing.JButton" binding="backButton">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <horizontalAlignment value="0"/>
+          <text value="Back to menu"/>
+        </properties>
+      </component>
+      <component id="1dd17" class="javax.swing.JProgressBar" binding="bar">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="10" height="10"/>
+          </grid>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <background color="-16498423"/>
+          <enabled value="true"/>
+          <foreground color="-8387065"/>
+          <indeterminate value="false"/>
+          <maximumSize width="50" height="19"/>
+          <requestFocusEnabled value="true"/>
+          <string value="aaaa"/>
+          <stringPainted value="true"/>
+          <toolTipText value="aaaaaaa"/>
+          <visible value="false"/>
+        </properties>
+      </component>
+      <component id="78bde" class="javax.swing.JLabel" binding="populationLbl">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <font style="1"/>
+          <text value="Population Size:"/>
+        </properties>
+      </component>
+      <component id="b7748" class="javax.swing.JLabel" binding="ageLbl">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <font style="1"/>
+          <text value="Age:"/>
+        </properties>
+      </component>
+      <component id="a5962" class="javax.swing.JLabel" binding="genderLbl">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <font style="1"/>
+          <text value="Gender:"/>
+        </properties>
+      </component>
+      <component id="3662c" class="javax.swing.JLabel" binding="moduleLbl">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <font style="1"/>
+          <text value="Module:"/>
+        </properties>
+      </component>
+      <component id="5c2e6" class="javax.swing.JLabel" binding="regionLbl">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <font style="1"/>
+          <text value="Region:"/>
+        </properties>
+      </component>
+      <component id="6c9e2" class="javax.swing.JTextField" binding="size">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="1" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="8cb61" class="javax.swing.JTextField" binding="minAge">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="0" height="0"/>
+            <preferred-size width="150" height="-1"/>
+            <maximum-size width="100" height="100"/>
+          </grid>
+          <gridbag weightx="0.5" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="min age"/>
+        </properties>
+      </component>
+      <component id="444" class="javax.swing.JComboBox" binding="sex">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="100" height="-1"/>
+          </grid>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="male"/>
+            <item value="female"/>
+          </model>
+          <toolTipText value=""/>
+        </properties>
+      </component>
+      <component id="15c2e" class="javax.swing.JComboBox" binding="module">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="Allergic_Rhinitis"/>
+            <item value="Allergies"/>
+            <item value="Appendicitis"/>
+            <item value="Asthma"/>
+            <item value="Atopy"/>
+            <item value="Attention_Deficit_Disorder"/>
+            <item value="Bronchitis"/>
+            <item value="Colorectal_Cancer"/>
+            <item value="Contraceptives"/>
+            <item value="Contraceptive_Maintenance"/>
+            <item value="Copd"/>
+            <item value="Dementia"/>
+            <item value="Dermatitis"/>
+            <item value="Ear_Infections"/>
+            <item value="Epilepsy"/>
+            <item value="Female_Reproduction"/>
+            <item value="Fibromyalgia"/>
+            <item value="Food_Allergies"/>
+            <item value="Gout"/>
+            <item value="Homelessness"/>
+            <item value="Injuries"/>
+            <item value="Lung_Cancer"/>
+            <item value="Lupus"/>
+            <item value="Med_Rec"/>
+            <item value="Metabolic_Syndrome_Care"/>
+            <item value="Metabolic_Syndrome_Disease"/>
+            <item value="Opioid_Addiction"/>
+            <item value="Osteoarthritis"/>
+            <item value="Osteoporosis"/>
+            <item value="Pregnancy"/>
+            <item value="Rheumatoid_Arthritis"/>
+            <item value="Self_Harm"/>
+            <item value="Sexual_Activity"/>
+            <item value="Sinusitis"/>
+            <item value="Sore_Throat"/>
+            <item value="Total_Joint_Replacement"/>
+            <item value="Urinary_Tract_Infections"/>
+            <item value="Wellness_Encounters"/>
+          </model>
+        </properties>
+      </component>
+      <component id="df250" class="javax.swing.JTextField" binding="somersetTextField" default-binding="true">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="6" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <enabled value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="58207" class="javax.swing.JTextField" binding="timer">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="f75d4" class="javax.swing.JLabel" binding="timerLbl">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <font style="1"/>
+          <text value="Timer (seconds):"/>
+        </properties>
+      </component>
+      <component id="66a2e" class="javax.swing.JProgressBar" binding="progressBar1" default-binding="true">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="7e09d" class="javax.swing.JTextField" binding="maxAge">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="4" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+            <maximum-size width="100" height="100"/>
+          </grid>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="max age"/>
+        </properties>
+      </component>
+      <component id="17064" class="javax.swing.JButton" binding="stopButton" default-binding="true">
+        <constraints>
+          <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <text value="Stop"/>
+        </properties>
+      </component>
+      <component id="feebe" class="javax.swing.JButton" binding="pauseButton">
+        <constraints>
+          <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.25" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <text value="Pause"/>
+        </properties>
+      </component>
+      <component id="4c06" class="javax.swing.JButton" binding="sendButton" default-binding="true">
+        <constraints>
+          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Send!"/>
+        </properties>
+      </component>
+      <component id="ad564" class="javax.swing.JButton" binding="generateButton" default-binding="true">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.025" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Generate!"/>
+        </properties>
+      </component>
+      <component id="b4287" class="javax.swing.JLabel" binding="jobStatus">
+        <constraints>
+          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <enabled value="true"/>
+          <font size="12"/>
+          <text value="Please fill timer input to run the job in background."/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
