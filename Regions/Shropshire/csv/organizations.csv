@@ -1,2 +1,9 @@
 Id,NAME,ADDRESS,CITY,STATE,ZIP,LAT,LON,PHONE,REVENUE,UTILIZATION
-f8ceaa74-e6af-3cd3-90cd-a299a69ac82a,Beeches Road Medical Practice,,Shrewsbury,Shropshire,SY3 0,52.6741444,-2.7722238,,1250.0,10
+c9fea828-3575-33e6-bcb8-34fac30e9f4c,The Redwoods Centre,,Shrewsbury,Shropshire,SY3 5,52.7095358,-2.8003881,,4250.0,34
+f8ceaa74-e6af-3cd3-90cd-a299a69ac82a,Beeches Road Medical Practice,,Shrewsbury,Shropshire,SY3 0,52.6741444,-2.7722238,,8750.0,70
+754766ef-c768-3d4b-bac1-d276f9d0566c,Oakengates Clinic,,Telford,Shropshire,TF2 6,52.6960523,-2.4505856,,4250.0,34
+3551db41-34c6-387a-9b9d-761e82a0f05a,Pontesbury Primary Care Centre,,Shrewsbury,Shropshire,SY5 0,52.6501895,-2.8868963,,8875.0,71
+beb4bf31-692f-3db9-be36-752e02ac54d3,Severn Fields Health Village,,Shrewsbury,Shropshire,SY1 4,52.728148,-2.7216848,,4375.0,35
+2eff5016-315d-34fe-b37e-2a8c9b7eef91,Wellington Road Surgery,,Newport,Shropshire,TF10 7,52.7643488,-2.3790186,,12750.0,102
+8d8c96db-5ce8-3039-baea-826ab18b5b8f,Woodside Surgery,,Telford,Shropshire,TF7 5,52.6379174,-2.4660952,,4250.0,34
+82edd39e-6fe8-3c66-bd26-8d481e9ce0ed,Royal Shrewsbury Hospital,Mytton Oak Road nan,Shrewsbury,Shropshire,SY3 5,52.7090367,-2.7973799,,125.0,1

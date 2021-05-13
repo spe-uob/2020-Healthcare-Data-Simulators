@@ -1,5 +1,8 @@
 package com.healthcare.team.GUI;
 
+import com.healthcare.team.BashProcess.OAuth;
+import com.healthcare.team.commons.Utils;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,14 +29,14 @@ public class ServerConnection extends JFrame {
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //OAuth oAuth = new OAuth(clientID.getText(), region.getText(), username.getText(), password.getText());
+                OAuth oAuth = new OAuth(clientID.getText(), region.getText(), username.getText(), password.getText());
 
-                //if(Utils.isValidString(oAuth.generateToken())){
+                if(Utils.isValidString(oAuth.generateToken())){
                     setVisible(false);
                     RegionSelection regionSelection = new RegionSelection();
                     regionSelection.setVisible(true);
-                  //  oAuth.sendToRabbitMQ();
-                //}
+                    oAuth.sendToRabbitMQ();
+                }
             }
         });
     }
