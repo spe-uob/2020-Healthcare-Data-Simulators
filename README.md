@@ -41,10 +41,10 @@ Run `java -jar healthcare-data-simulators-x.x-SNAPSHOT.jar` from releases.
 
 ## Contributors
 Vlad Andrei Bucur - vladbucur2000  
-George Edward Nechitoaia - georgeedward2000 
-Victor Traistaru - Wyktorrr  
-Ena Balatinac - ennaena 
-Victor Kingi - victorkingi
+George Edward Nechitoaia - georgeedward2000 <br>
+Victor Traistaru - Wyktorrr  <br>
+Ena Balatinac - ennaena <br>
+Victor Kingi - victorkingi 
 
 ## License
 This software is being developed under the MIT License.
