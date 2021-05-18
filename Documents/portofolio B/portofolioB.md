@@ -25,13 +25,13 @@ The desktop application will be linked to a Mirth Healthcare Integration Engine 
 
  ## Personal Data, Privacy, Security and Ethics Management
 
- ## Architecture
-
  ## Development Testing
 
  ## Release Testing
 
- ## OO Design & UML
+ ## Architecture
+
+ ## (OO) Design & UML
  
  #### Static UML modelling aspect
 
