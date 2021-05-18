@@ -32,6 +32,41 @@ The desktop application will be linked to a Mirth Healthcare Integration Engine 
  ## Release Testing
 
  ## OO Design & UML
+ 
+ #### Static UML modelling aspect
+
+##### Class UML diagram
+
+![](https://github.com/spe-uob/Healthcare-Data-Simulators/raw/main/Documents/BashProcess/BashProcess%20diagram.png)
+One of the most important aspects of the design of our project is related to the abstract class BashProcess. We had multiple classes that were using the command-line, under the hood, calling external open-source scripts / JARs used throughout our project. The commands included several parameters which are highly correlated with the user's input. <br>
+E.g. 1. Compute class calls Synthea Patient Generator (custom for UK). We have a configurable UI via which the user can enter settings regarding characteristics of the patients the user wants to generate. Under the hood, a jar file is called with custom parameters mapping the data provided by the user (population size, region, age range of the patients, sex, or diseases). 
+2. OAuth class calls a python script with credentials linked to the user's input and returns an authentication token used for accessing a given API. 
+
+The classes included in the diagram, which extend BashProcess, there are overridden methods such as "informUser()" which is used to inform the user whether tasks have completed successfully depending on the given context, or to alert the user ("alertUser()") if conditions are not met. 
+
+As a consequence, in order to avoid duplicates in our code, we created this abstract class and have OAuth, Compute, GenerateCSVAndSendDataJob and Convertor extend it, allowing for the implementation of custom command line calls.
+
+
+
+#### Dynamic UML modelling aspect
+##### State Machine Diagram
+
+![](https://github.com/spe-uob/Healthcare-Data-Simulators/raw/main/Documents/MachineStateDiagram/State%20Machine%20Diagram.png)
+
+The machine state machine is used to model the behaviour of the menus, the system regarding the usage of the third party Synthea, of the OpenPseudonymiser for masking data and the correlation of producing, masking and sending the data with the cron-job. The transitions represent how state changes. For our design the most important feature is related to the scheduler which rules how and when the Synthea should produce data and when the data is masked and sent to Rabbit queues. When pressing Pause, the system moves into a halting state. To escape this state, the user ought to press Resume and the application will keep on generating, masking and sending data until some other command is selected. Pressing Stop will cause the system to move into a finish state.
+
+##### Sequential Diagram
+
+![](https://github.com/spe-uob/Healthcare-Data-Simulators/raw/main/Documents/MachineStateDiagram/Send%20Button.png)
+
+It illustrates how the medical data is getting processed to be sent within the MessageBrokerSender class to a suitable RabbitMQ queue depending on the resource generated and region selected. You can observe how the generated CSV files get parsed and then masked, ensuring patient privacy.
+
+#### Overview flow of the application - Activity UML diagram:
+
+![](https://github.com/spe-uob/Healthcare-Data-Simulators/raw/main/Documents/UML%20Diagrams/Activity%20diagram1.png)
+
+The purpose of this diagram is to have an overview of the **control flow**, showing the various paths that exist while the program is being executed. It was created to help us have a better understanding of the **sequential execution**, to provide a suggestive way to present how our project works, and **aid communication between developers and clients**. It changed many times during the developing every time a feature was added or modified, providing a useful vehicle to visualize the system functionality without needing to read the code in detail.
+
 
  ## Acceptance Testing (Evaluation)
 
