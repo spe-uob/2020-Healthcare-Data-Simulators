@@ -35,7 +35,7 @@ The desktop application will be linked to a Mirth Healthcare Integration Engine 
 ![](https://user-images.githubusercontent.com/58257818/118840042-b509ee00-b8cf-11eb-9734-2f27779e01f8.png)
 
 
-## **INTRODUCTION ARCHITECTURE**
+### **INTRODUCTION ARCHITECTURE**
 We propose the design of a client application which will:
 1. Generate Data in csv standard
 2. Anonymise data 
@@ -43,8 +43,8 @@ We propose the design of a client application which will:
 4. Integrate and Centralise Data
 5. Create a safe, fast, and efficient connection with web services
 
-## Generate Data
-### SyntheaTM
+### Generate Data
+#### SyntheaTM
 We use open source SyntheaTM Patient Generator to generate as-live data to simulate the regional healthcare landscape. Specifically, the simulators will generate data from a specific region:
 - Simulate more than one healthcare provider category (e.g. Acute hospital, primary care, 111)
 - Patients
@@ -58,7 +58,7 @@ The framework for the synthetic data generation process utilized by Synthea is b
 #### In our software:
 Originally, Synthea generates US medical data (e.g. names, postcodes, cities, regions etc.). So, in order to generate data based on UK medical data distributions, we worked on the open source project and redeployed the new UK built Synthea generator.
 
-## **DATA INTEGRATION AND CENTRALISATION**
+### **DATA INTEGRATION AND CENTRALISATION**
 
 We propose to use MIRTH NextGen Connect Data Centralisation and Integration Engine.
 
@@ -70,7 +70,7 @@ Benefits of using Mirth are:
 • It has purpose-built solution for csv and FHIR (data translators).
 • It supports Data Acquisition (large amounts of data from multiple sources) - AMQP server.
 
-**MIrth** is a desktop java based application which have an intuitive UI (User Interface). It offers the possibility to work with multiple translators (from csv to FHIR), each one representing a specific channel.
+**Mirth** is a desktop java based application which have an intuitive UI (User Interface). It offers the possibility to work with multiple translators (from csv to FHIR), each one representing a specific channel.
 
 #### In our software:
 In our implementation, every Mirth channel:
@@ -80,13 +80,13 @@ In our implementation, every Mirth channel:
 - Using the previous obtained token builds the HTTP POST request to API
 - Send the request
 
- ## **Data Transfer Protocols**
+ ### **Data Transfer Protocols**
 
 **Message broker technology** (AMQP) is an intermediary computer program module that translates a message from the formal messaging protocol of the sender to the formal messaging protocol of the receiver. Message brokers are elements in telecommunication or computer networks where software applications communicate by exchanging formally defined messages.
 
 **HTTPS** is used for secure communication over a computer network, and is widely used on the Internet. In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS) or, formerly, Secure Sockets Layer (SSL).
 
- ## **Data Ingestion**
+ ### **Data Ingestion**
 
 The system will authenticate and create a RESTful endpoint for HL7 FHIR messages.
 
