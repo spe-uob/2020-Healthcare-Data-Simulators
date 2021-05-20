@@ -116,8 +116,8 @@ A sequence of steps a user working with our application will encounter is the fo
  ## Development Testing
  
 
-Our strategy on development testing was using JUnit as a testing framework to assert Exceptions are thrown where necessary and that return values of functions are correct. We had One file `AllTest.java` which when run, will execute all the tests specified in `src/tests/java`.
-Since we did not have a fine grasp of the project at the beginning, we first wrote the base code before the first test. This made the whole process much easier. With each new class created, a test would be written for the functions in it.
+Our strategy on development testing was using JUnit as a testing framework to assert Exceptions are thrown where necessary and that return values of functions are correct. We have one file `AllTest.java` which when run, will execute all the tests specified in `src/tests/java`.
+Since we did not have a fine grasp of the project at the beginning, we first wrote the base code before the first test. This made the whole process much easier. With each new class created, tests would be written for the functionalities it depicted.
 `Compute.java` being a core component, had to have more test cases than other classes as it is involved with generating patient data. If it fails then no data can be sent to the data lake team.
 
 ![](../images/ComputeTest.png)
@@ -130,6 +130,11 @@ Since we did not have a fine grasp of the project at the beginning, we first wro
 `testEmpty...()` All test functions with this prefix will test if an empty input will throw. Of which it should.<br>
 `testImpossible...()` will check if input is a number when a string is expected or vice versa and that the number is a positive integer. If not, it will throw.<br>
 `testNull...()` will check if `NullPointerExceptions` are thrown if null values are given.
+
+As the complexity of our system evolved, and we designed more functionalities related to each other, we packed related features into packages. In order to test and improve the coverage of our JUnit tests, we tested them using Java Code Coverage (JaCoCo).
+To do this, in the testing package, we had to respect the exact same path for all testing classes as in the developing package. 
+
+One more interesting feature is related to writing tests for the scheduer. It is composed out of a job and a trigger. Mokito dependencies have been used to record the interaction with the system. 
 
 ##### Overall Unit Testing Coverage
 ![img.png](../images/overall_testing_coverage.png)
