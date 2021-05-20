@@ -271,5 +271,33 @@ The purpose of this diagram is to have an overview of the **control flow**, show
 
 
  ## Acceptance Testing (Evaluation)
+ 
+In order to identify if our product meets the requirements provided, we included an acceptance testing procedure. The only user who participated at this was our client. After each iteration sprint, our team arranged a video call with him. We adopted multiple approaches in these meetings:
+ - live demos of the project
+ - powerpoint presentation with relevant pictures, showing the current state of the development
+ - interviews with the client
+
+When significant changes impacted the project, we would start the meetings by presenting the new implemented features and what is the current state of the application. After this, we would interview the client asking for his view on the new iteration. His feedback was recorded and converted to issues. Following this approach, we managed to respect the requirements.
+
+After providing a beta release presentation, the client asked us to start from scratch, giving us the new requirements. One of them was to implement and configure Mirth Integration Engine within our project, which documentation is outdated, thus we ended up acquiring information using forum posts from 10 years ago. There were several tough sprints, but in the end we managed to accomplish the client's needs. Having the requirements changed, proves that the approach presented above worked, offering the client the chance of having the desired product.
+
+Moreover, we had several interviews with the Healthcare Lake Team, checking the HTTP requests on their API to make sure everything is fully working on our end.
+
+Unfortunately, we did not manage to have any additional acceptance testing with other stakeholders (e.g. GPs) due to COVID-19 situation. If we had the chance, we were planning to conduct several interviews getting more insights about the user's needs, implementing new features for providing a better experience with our product.
+
 
  ## Reflection
+ 
+The main goal of the project was to develop a well built, highly efficient and very secure desktop application. Taking into account a possible production environment, we took enough time for each step of the development process.
+The first challenge we encountered was which service to use for what feature. The tricky part here is that every service is built on top of many other complex technologies, some of each we have not even heard about. This way, the research part took a while, giving us time to address each service by reading everything about it. In a few cases, we experimented some of them, looking for particular advantages and disadvantages. After the main research part was done, we had a big picture of the central services stack we were going to use.
+
+Next big challenge was the actually developing stage. We splitted the work and started building the features, using an Agile Software Development Process. At this stage, some of us were closely collaborating with the Healthcare Data Lake team in order to build a secure and efficient way of transmitting data. 
+
+Our plan had a great success, helping us finish the project a long time before the final release.
+At this point, the biggest challenge occurred. The client changed the requirements, so we needed to adapt and rethink everything. In the first instance, we thought about modifying the actual state of the project, but we quickly realised that is not an option. The new requirements were so different from the initial ones that we needed to rethink the technology stack and the whole flow concept. In such manner, we started the process of research and development all over again, taking into consideration all the things we have already learnt. 
+
+The project is a big success. We are happy that we met all the client's requirements and offered him a complex and solid proof of concept software. The impact we had on client's organisation is more idealistic and conceptual. We proved that using both software engineering and team collaboration skills we can have a strong impact on the medical system, and indirectly on humanity's well being.  
+
+Our software treats a very important ethical side of any medical service: the protection of personal data. Taking into account that all the medical data is generated, there are no personal data issues. Further, if a user wants to upload real medical data, the application offers a 'pseudomyser' feature, which masks all the personal data, thus getting rid of any ethical issues.
+
+ 
