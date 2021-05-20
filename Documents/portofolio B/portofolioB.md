@@ -115,6 +115,25 @@ A sequence of steps a user working with our application will encounter is the fo
  ## Personal Data, Privacy, Security and Ethics Management
 
  ## Development Testing
+ 
+
+Our strategy on development testing was using JUnit as a testing framework to assert Exceptions are thrown where necessary and that return values of functions are correct. We had One file `AllTest.java` which when run, will execute all the tests specified in `src/tests/java`.
+Since we did not have a fine grasp of the project at the beginning, we first wrote the base code before the first test. This made the whole process much easier. With each new class created, a test would be written for the functions in it.
+`Compute.java` being a core component, had to have more test cases than other classes as it is involved with generating patient data. If it fails then no data can be sent to the data lake team.
+
+![](../images/ComputeTest.png)
+
+`afterClass()` and `beforeClass()` are involved with doing cleanup i.e. asserting that required files are extracted and deleted when test is done.<br>
+`checkProcessParameters()` creates a command to generate patient data with correct values. If it passes, then application can generate patient data given correct parameters.<br>
+`checkShowAlertDialogInSpecificCondition()` asserts that an alert will be shown given a string output from the process.<br>
+`maxAgeSmallerThanMinAge()` and `maxPopulation()` asserts that a population input should not exceed `99,999` and that max age should always be greater than min age.<br>
+`testAllCorrectValuesShouldPass()` will check that the get functions in `Compute.java` return the actual values given during user input.<br>
+`testEmpty...()` All test functions with this prefix will test if an empty input will throw. Of which it should.<br>
+`testImpossible...()` will check if input is a number when a string is expected or vice versa and that the number is a positive integer. If not, it will throw.<br>
+`testNull...()` will check if `NullPointerExceptions` are thrown if null values are given.
+
+##### Overall Unit Testing Coverage
+![img.png](../images/overall_testing_coverage.png)
 
  ## Release Testing
 
@@ -246,28 +265,6 @@ It illustrates how the medical data is getting processed to be sent within the M
 
 The purpose of this diagram is to have an overview of the **control flow**, showing the various paths that exist while the program is being executed. It was created to help us have a better understanding of the **sequential execution**, provide a suggestive way to present how our project works and **aid communication between developers and clients**. It changed a lot during development due to features being added or modified, providing a useful vehicle to visualize the system functionality without needing to read the code in detail.
 
-## Development Testing
-
-
-Our strategy on development testing was using JUnit as a testing framework to assert Exceptions are thrown where necessary and that return values of functions are correct. We had One file `AllTest.java` which when run, will execute all the tests specified in `src/tests/java`.
-Since we did not have a fine grasp of the project at the beginning, we first wrote the base code before the first test. This made the whole process much easier. With each new class created, a test would be written for the functions in it.
-`Compute.java` being a core component, had to have more test cases than other classes as it is involved with generating patient data. If it fails then no data can be sent to the data lake team.
-
-![](../images/ComputeTest.png)
-
-`afterClass()` and `beforeClass()` are involved with doing cleanup i.e. asserting that required files are extracted and deleted when test is done.<br>
-`checkProcessParameters()` creates a command to generate patient data with correct values. If it passes, then application can generate patient data given correct parameters.<br>
-`checkShowAlertDialogInSpecificCondition()` asserts that an alert will be shown given a string output from the process.<br>
-`maxAgeSmallerThanMinAge()` and `maxPopulation()` asserts that a population input should not exceed `99,999` and that max age should always be greater than min age.<br>
-`testAllCorrectValuesShouldPass()` will check that the get functions in `Compute.java` return the actual values given during user input.<br>
-`testEmpty...()` All test functions with this prefix will test if an empty input will throw. Of which it should.<br>
-`testImpossible...()` will check if input is a number when a string is expected or vice versa and that the number is a positive integer. If not, it will throw.<br>
-`testNull...()` will check if `NullPointerExceptions` are thrown if null values are given.
-
-##### Overall Unit Testing Coverage
-![img.png](../images/overall_testing_coverage.png)
-
-## Release
 
  ## Acceptance Testing (Evaluation)
 
