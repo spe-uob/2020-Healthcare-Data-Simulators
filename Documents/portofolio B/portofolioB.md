@@ -32,14 +32,15 @@ The desktop application will be linked to a Mirth Healthcare Integration Engine 
 
 **Goal: BNSSG** requires a software that can be used to perform data analytics from multiple sources with the purpose of understanding the merits of previous clinical decisions taken and more advanced insights into the longitudinal health of the patient.
 
-**Reason:** As a **Data Analyst** , I want to **get a centralised patient data system** so that **I can use this data for further analysis in order to help and inform future care or service provisioning.** – **Dr. Harfield**
+**Reason:** &quot;As a **Data Analyst** , I want to **get a centralised patient data system** so that **I can use this data for 
+                              further analysis in order to help and inform future care or service provisioning.**&quot; – **Dr. Harfield**
 
 **Application Users**
 
 - **Healthcare Data Lake Team:** From the perspective of **Data Simulators Team** , these colleagues **(developers)** are **end users** of our system. This is because our application is generating valuable data and sending data under the right format, providing the **Data Lake Team** information to store in data bases. Taking into consideration the whole architecture of the system our client demanded, **Data Lake Team** is the middle-man component of the three developers teams, alongside **Data Analytics Team**.
 
-   **Reason:** As **the Data Lake team,** I want to **get the simulated patient data** so I can **store it in structured data 
-   marts.** -  Representative of the **Data Lake Team**
+   **Reason:** &quot;As **the Data Lake team,** I want to **get the simulated patient data** so I can **store it in structured 
+                                  data marts.**&quot; -  Representative of the **Data Lake Team**
 
 **Potential Application Users in Production**
 
