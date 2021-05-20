@@ -19,19 +19,21 @@ import static org.junit.Assert.assertNotNull;
 @RunWith(MockitoJUnitRunner.class)
 public class JobSchedulerTest {
 
-    @Test(expected = RuntimeException.class)
-    public void _ifJobNotStartedAndPauseThrowError() {
-        JobScheduler.pause();
-    }
+    /*
+     @Test(expected = RuntimeException.class)
+     public void _ifJobNotStartedAndPauseThrowError() {
+         JobScheduler.pause();
+     }
+
+     @Test(expected = RuntimeException.class)
+     public void _ifJobNotStartedAndStopThrowError() {
+         JobScheduler.stop();
+     }
+    */
 
     @Test(expected = RuntimeException.class)
     public void _ifJobNotStartedAndResumeThrowError() {
         JobScheduler.resume(10);
-    }
-
-    @Test(expected = RuntimeException.class)
-    public void _ifJobNotStartedAndStopThrowError() {
-        JobScheduler.stop();
     }
 
     @Test
@@ -73,7 +75,7 @@ public class JobSchedulerTest {
     }
 
     @Test(expected = RuntimeException.class)
-    public void ifNegativeIntervalThrowError() throws Exception {
+    public void ifNegativeIntervalThrowError() {
         Compute comp = new Compute(
                 "3",
                 "10",

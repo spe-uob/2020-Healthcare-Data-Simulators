@@ -5,18 +5,23 @@
 1. Open `windows_run.bat` and change the location 
    `D:\git\Healthcare-Data-Simulators\rabbitmq_server\win_setup\win_installer`to the absolute `win_installer.ps1`
    powershell script
-   location. Save and exit the file.
+   location. Make sure that both files are located on same drive. Save and exit the file.
+   
+   NB:- If your absolute path contains spaces between words i.e `C:\happy person\win_installer.ps1` add single quotes between the backslashes i.e `C:\'happy person'\win_installer.ps1`.
+   
+   You might need to pause your antivirus protection as the script might trigger a false positive, deleting `windows_run.bat`.
    
 
-   ![img.png](img.png)
+   ![img_1.png](img_1.png)
    Right-click on `windows_run.bat` and click `Run as administrator`.
-2. Once setup is complete, you can exit the cmd window.![img.png](images/img.png) A successful setup. NB:- In Windows, rabbitmq will be installed as a service rather than a program, hence, when you boot up windows, it automatically starts.
+2. Once setup is complete, you can exit the cmd window or first open powershell as admin and run `Set-ExecutionPolicy Restricted` to prevent future scripts
+   from executing automatically.![img.png](images/img.png) A successful setup. NB:- In Windows, rabbitmq will be installed as a service rather than a program, hence, when you boot up windows, it automatically starts.
 3. To start the service Right-click on `windows_service_start.bat` and click `Run as administrator`.
 4. You can enable the RabbitMQ web UI (*recommended*) by right-clicking on `windows_web_ui_setup` and
    selecting `Run as administrator`.
    If the cmd window automatically closes, the web UI was enabled successfully. If you get the error
    `The system cannot find the path specified`, try locating where rabbitmq was installed in your OS
-   default drive and replace `c:` with the drive letter, and the line
+   default drive and replace the line
    `C:\Program Files\RabbitMQ Server\rabbitmq_server-3.8.11\sbin`
    in `window_web_ui_setup` with the absolute path to rabbitmq_server_x.x.x\sbin folder.
    

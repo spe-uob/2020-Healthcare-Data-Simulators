@@ -17,9 +17,9 @@ public class ModulesTest {
     @Test
     public void isValidModules() {
         assertEquals("ColorectalCancer", Modules.ColorectalCancer.name());
-        assertEquals("Food-Allergies", Modules.FoodAllergies.getDescription());
+        assertEquals("Food_Allergies", Modules.FoodAllergies.getDescription());
         List<String> modules = Stream.of(Modules.values()).map(Modules::getDescription).collect(toList());
-        assertThat(modules, hasItems("Metabolic-Syndrome-Care", "Opioid-Addiction"));
+        assertThat(modules, hasItems("Metabolic_Syndrome_Care", "Opioid_Addiction"));
         assertThat(modules, not(IsEmptyCollection.empty()));
     }
 

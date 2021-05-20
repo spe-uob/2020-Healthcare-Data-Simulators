@@ -328,14 +328,14 @@ public class ComputeTest {
                 "0",
                 "1",
                 "male",
-                "Allergic-Rhinitis",
+                "Allergic_Rhinitis",
                 "Somerset"
         );
         assertEquals(computeWithNoJOptionPane.getPopulation(), "1");
         assertEquals(computeWithNoJOptionPane.getMinAge(), "0");
         assertEquals(computeWithNoJOptionPane.getMaxAge(), "1");
         assertEquals(computeWithNoJOptionPane.getGender(), "male");
-        assertEquals(computeWithNoJOptionPane.getModule(), "Allergic-Rhinitis");
+        assertEquals(computeWithNoJOptionPane.getModule(), "Allergic_Rhinitis");
         assertEquals(computeWithNoJOptionPane.getStateSynthea(), "Somerset");
     }
 
@@ -370,7 +370,7 @@ public class ComputeTest {
                 "0",
                 "1",
                 "male",
-                "Allergic-Rhinitis",
+                "Allergic_Rhinitis",
                 "Somerset"
         );
         String region = computeWithNoJOptionPane.getStateSynthea();
@@ -397,7 +397,7 @@ public class ComputeTest {
                 "18",
                 "39",
                 "female",
-                "Food-Allergies",
+                "Food_Allergies",
                 "Gloucestershire"
         );
         assertTrue(computeWithNoJOptionPane.showAlert("   "));

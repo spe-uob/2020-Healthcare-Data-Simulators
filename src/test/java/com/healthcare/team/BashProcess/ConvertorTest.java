@@ -1,6 +1,5 @@
 package com.healthcare.team.BashProcess;
 
-import com.healthcare.team.BashProcess.Convertor;
 import org.hamcrest.collection.IsEmptyCollection;
 import org.junit.*;
 import static org.junit.Assert.assertFalse;
@@ -14,13 +13,13 @@ import static org.hamcrest.Matchers.not;
 public class ConvertorTest {
 
     @Test(expected = IllegalArgumentException.class)
-    protected void testEmptyValueShouldThrow() {
+    public void testEmptyValueShouldThrow() {
         Convertor converter = new Convertor("");
         converter.convertor();
     }
 
     @Test(expected = NullPointerException.class)
-    protected void testNullValueShouldThrow() {
+    public void testNullValueShouldThrow() {
         Convertor converter = new Convertor(null);
         converter.convertor();
     }
