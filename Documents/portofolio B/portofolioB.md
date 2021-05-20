@@ -124,8 +124,7 @@ A sequence of steps a user working with our application will encounter is the fo
 Our strategy on development testing was using JUnit as a testing framework to assert Exceptions are thrown where necessary and that return values of functions are correct. We have one file `AllTest.java` which when run, will execute all the tests specified in `src/tests/java`.
 Since we did not have a fine grasp of the project at the beginning, we first wrote the base code before the first test. This made the whole process much easier. With each new class created, tests would be written for the functionalities it depicted.
 `Compute.java` being a core component, had to have more test cases than other classes as it is involved with generating patient data. If it fails then no data can be sent to the data lake team.
-
-![](../images/ComputeTest.png)
+<img src="../images/ComputeTest.png" width=300 align=right>
 
 `afterClass()` and `beforeClass()` are involved with doing cleanup i.e. asserting that required files are extracted and deleted when test is done.<br>
 `checkProcessParameters()` creates a command to generate patient data with correct values. If it passes, then application can generate patient data given correct parameters.<br>
@@ -142,14 +141,14 @@ To do this, in the testing package, we had to respect the exact same path for al
 One more interesting feature is related to writing tests for the scheduer. It is composed out of a job and a trigger. Mokito dependencies have been used to record the interaction with the system. 
 
 ##### Overall Unit Testing Coverage
-![img.png](../images/overall_testing_coverage.png)
+<img src="../images/overall_testing_coverage.png" width=900>
+
 
  ## Release Testing
 
  ## Architecture
  #### High level architecture diagram 
-
-![](https://user-images.githubusercontent.com/58257818/118840042-b509ee00-b8cf-11eb-9734-2f27779e01f8.png)
+<img src="https://user-images.githubusercontent.com/58257818/118840042-b509ee00-b8cf-11eb-9734-2f27779e01f8.png" width=900>
 
 
 ### **INTRODUCTION ARCHITECTURE**
@@ -243,8 +242,8 @@ Classically, **RabbitMQ** server is working in the background, with no need for 
  #### Static UML modelling aspect
 
 ##### Class UML diagram
+<img src="https://github.com/spe-uob/Healthcare-Data-Simulators/raw/main/Documents/BashProcess/BashProcess%20diagram.png" width=700>
 
-![](https://github.com/spe-uob/Healthcare-Data-Simulators/raw/main/Documents/BashProcess/BashProcess%20diagram.png)
 One of the most important aspects of the design of our project is related to the abstract class BashProcess. We had multiple classes that were using the command-line, under the hood, calling external open-source scripts / JARs used throughout our project. The commands included several parameters which are highly correlated with the user's input. <br>
 E.g. 1. Compute class calls Synthea Patient Generator (custom for the UK). We have a configurable UI via which the user can enter settings regarding the characteristics of the patients the user wants to generate. Under the hood, a jar file is called with custom parameters mapping the data provided by the user (population size, region, age range of the patients, sex, or diseases). 
 2. OAuth class calls a python script with credentials linked to the user's input and returns an authentication token used for accessing a given API. 
@@ -257,20 +256,21 @@ As a consequence, to avoid duplicates in our code, we created this abstract clas
 
 #### Dynamic UML modelling aspect
 ##### State Machine Diagram
+<img src="https://github.com/spe-uob/Healthcare-Data-Simulators/raw/main/Documents/MachineStateDiagram/State%20Machine%20Diagram.png" width=700>
 
-![](https://github.com/spe-uob/Healthcare-Data-Simulators/raw/main/Documents/MachineStateDiagram/State%20Machine%20Diagram.png)
 
 The machine state machine is used to model the behaviour of the menus, the system regarding the usage of the third party Synthea, of the OpenPseudonymiser for masking data and the correlation of producing, masking and sending the data with the cron-job. The transitions represent how the state changes. The most important feature in our design is related to the scheduler which rules how and when Synthea should produce data and when it will be masked and sent to Rabbit queues. When pressing Pause, the system moves into a halting state. To escape this state, the user ought to press Resume and the application will keep on generating, masking and sending data until some other command is selected. Pressing Stop will cause the system to move into a finish state.
 
 ##### Sequential Diagram
+<img src="https://github.com/spe-uob/Healthcare-Data-Simulators/raw/main/Documents/MachineStateDiagram/Send%20Button.png" width=700>
 
-![](https://github.com/spe-uob/Healthcare-Data-Simulators/raw/main/Documents/MachineStateDiagram/Send%20Button.png)
+
 
 It illustrates how the medical data is getting processed to be sent within the MessageBrokerSender class to a suitable RabbitMQ queue depending on the resource generated and region selected. You can observe how the generated CSV files get parsed and then masked, ensuring patient privacy.
 
 #### Overview flow of the application - Activity UML diagram:
+<img src="https://github.com/spe-uob/Healthcare-Data-Simulators/raw/main/Documents/UML%20Diagrams/Activity%20diagram1.png" width=700>
 
-![](https://github.com/spe-uob/Healthcare-Data-Simulators/raw/main/Documents/UML%20Diagrams/Activity%20diagram1.png)
 
 The purpose of this diagram is to have an overview of the **control flow**, showing the various paths that exist while the program is being executed. It was created to help us have a better understanding of the **sequential execution**, provide a suggestive way to present how our project works and **aid communication between developers and clients**. It changed a lot during development due to features being added or modified, providing a useful vehicle to visualize the system functionality without needing to read the code in detail.
 
