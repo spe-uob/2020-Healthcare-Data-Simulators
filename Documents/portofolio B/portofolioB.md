@@ -1,9 +1,10 @@
 # Healthcare Data Simulators - Portfolio B
-*Vlad Andrei Bucur - ot19588 </br>
+*Ena Balatinac - xd19763 </br>
 George Edward Nechitoaia - dp19681 </br>
+Victor Kingi - fs19139 </br>
 Victor Traistaru - kd19421 </br>
-Ena Balatinac - xd19763 </br>
-Victor Kingi - fs19139*
+Vlad Andrei Bucur - ot19588*
+
 ## Overview
 #### Client Description
 
