@@ -146,13 +146,20 @@ To do this, in the testing package, we had to respect the same path for all test
 One more interesting feature is related to writing tests for the scheduler. It is composed out of a job and a trigger. Mokito dependencies have been used to record the interaction with the system.
 
  ## Release Testing
-As a verification method for the system, we followed manual reviews by the team members since we did not have an automated GUI tester during development.
+As a verification method for the system, we followed the user story: "As a GP, I would like to click on an application which would direct me on generating and sending patient data to the data lake".<br>
+This user story encapsulated our whole project into a sentence, hence, the best choice.
+Since we did not have an automated GUI tester during development, we used manual reviews by the team members on their OS (each team member was working on a different OS, hence, this helped on delivering a cross-platform product).<br>
 Using the requirements specifications as a checklist we were able to confirm that each button was working as it should and dialogue boxes popped up when needed.
-In addition, to make sure a user with little technical experience could use our application, we added `./rabbitmq_server` directory which contains automated scripts for setting up rabbitmq on one's device(both Windows and Linux).
-We also moved all required libraries into `src/main/resources/lib` folder and converted `OpenPseudonymiserCryptoLib.jar` to a maven dependency to facilitate the creation of an uber-JAR (fat JAR/JAR with dependencies).
+In addition, to make sure a user with little technical experience could use our application, we added `./rabbitmq_server` directory which contains automated scripts for setting up rabbitmq on one's device(both Windows and Linux).<br>
+We also moved all required libraries into `src/main/resources/lib` folder and converted `OpenPseudonymiserCryptoLib.jar` to a maven dependency to facilitate the creation of an uber-JAR (fat JAR/JAR with dependencies) file.
 `InitialSetup.java` handles the extraction process.<br>
 It will make a call to `FileResourcesUtils.java` which already has a list of required files. The class will then check if the user is executing from a JAR file or the source code and choose the right extraction method.
 Once extraction is done, `checksum.txt` will confirm the file hash values to determine if a file got corrupted during extraction.
+
+#### Testing the User story
+To test the user story, we divided it into parts. The first part was, "a user wants to click on an application". This was tested
+by `InitialSetup.java` which made sure the required files were extracted. `.github/workflows/maven-publish.yml` ran on a push to make sure that the file could be packaged into an uber-JAR and that no dependencies were missing.<br>
+"Directing me on generating and sending data" part of the user story was tested manually by the team members and each GUI bug was added to GitHub Issues.
 
 #### Continuous Integration
 
