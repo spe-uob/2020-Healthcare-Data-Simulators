@@ -3,7 +3,9 @@
 
 name: Maven Package
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
   release:
     types: [created]
 
